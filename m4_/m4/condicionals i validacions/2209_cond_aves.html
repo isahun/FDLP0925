@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head> 
+    <body>
+         <script>
+            //estructures condicionals
+
+            //if (condition) {... code}
+
+            if (1 == 1) {
+               console.log ("uno es uno");
+            }
+
+            if ("hola" == "adios") {
+               console.log("adeu");
+            }
+
+            if (2 == 4) {
+               console.log("son iguals");
+            }
+
+            if (2 > 4) {
+               console.log("2 no pot ser major que 4");
+            }
+
+            if (2 < 4) {
+               console.log("2 és menor que 4"); //correcte
+            }
+
+            if (10 > 4) {
+               console.log("major que 4");
+            } else { console.log ("menor que 4");}
+
+            let veritat = false
+            
+            if (veritat == true) {
+               console.log("es true");
+            } else {"es false"};
+                        
+            let mayorEdad = 16; 
+            let puedoVotar = 18;
+
+            if (mayorEdad == puedoVotar) { 
+               console.log("ves i vota");
+            } else {
+               console.log("has d'esperar");
+            }
+
+
+            let mayorEdad1 = 23; 
+            let puedoVotar1 = 18;
+
+            if (mayorEdad1 >= puedoVotar1) { 
+               console.log("ves i vota");
+            } else {
+               console.log("has d'esperar");
+            }
+
+
+
+          </script>  
+
+
+
+        <script>
+            //OPERADORS LÒGICS
+            //AND
+
+            let avesvuelan = true;
+            let pecesnadan = true; //en un momento ho canvia a false per jugar a aviam q passa en cada cas
+            let humanosvuelan = true;
+
+        
+
+            if (avesvuelan == true && pecesnadan == true) {
+                console.log("todo ok");
+            }
+
+            //OR
+            if (avesvuelan == true || pecesnadan == true) {
+                console.log("todo ok");
+            }
+
+            //En el cas de OR, si la primera condició és correcta no segueix llegint les altres dues 
+            //És a dir, si avesvuelan és true ja no mirarà els valors de pecesnadan ni humanosvuelan)
+
+            if (avesvuelan == true || pecesnadan == true || humanosvuelan == true) {
+                console.log=("tas flipao 1");            
+            }
+
+            //un exemple amb PARÈNTESIS per veure les jerarquies. Parentesis estan en lo més alt
+            //    false                                        false                  =  false, no passa cap condició
+            if ((avesvuelan == true && pecesnadan == true)||(humanosvuelan == true && pecesnadan == true)) {
+                console.log=("tas flipao 1");
+            }
+
+            /* En aquest cas també ens podem estalviar els == true. Llavors li preguntarem si la variable 
+            existeix, i com q existeix, surt TRUE. Si treiem els parèntesis, primer resoldrà tot l’apartat && 
+            i després el de ||, perquè té prioritat. Si posem l’OR entre parèntesis, es farà primer l’OR:
+             */
+            //aqui aves i humans es true i peces false, aleshores queda de la següent manera:
+            //    true && true && false = false
+             if (avesvuelan && (pecesnadan || humanosvuelan) && pecesnadan) {
+                console.log=("tas flipao 1");
+             }
+             // Una altra variant de parèntesi
+             //   true && true (el q surt d'entre parentesis) || false = true
+             if (avesvuelan && (pecesnadan || humanosvuelan) || pecesnadan) {
+                console.log=("tas flipao 1");
+             }
+
+             //NEGACIÓ
+             /*
+             NOT	! Funciona de dues maneres: 
+             1. Preguntem si una cosa és diferent a una altra
+                let avesvuelan = true;
+                if (humanosvuelan != false){
+                console.log (‘Los humanos vuelan’);
+                } es mostrarà pk la variable és diferent de false
+             2. Negant el valor booleà d’una variable, ÚTIL X VALIDACIONS:            
+             */
+
+             if (avesvuelan) {
+                console.log("las aves vuelan");
+             }
+             if (!avesvuelan) {
+                console.log("las aves NO vuelan");
+             }
+
+             let lluvia = true
+             
+             if(!lluvia) {
+                console.log("gafas de sol");            
+             }
+
+             let dinero = false
+             let tiempo = true
+
+             if (!dinero && tiempo) { //la negació només afecta a dinero, 
+             // si vulguessim afectar les dos caldria un parentesi que les englobés
+                console.log("puedes ir de vacaciones");
+             } else {
+                console.log("sofa i netflix");
+             }
+
+             //FALSY & TRUTHY VALUES: és com JavaScript interpreta valors quan els poses dins 
+             //d’una condició (if, &&, ||, etc.), encara que no siguin estrictament true o false
+             //La gràcia és que no cal fer servir === true o === false, perquè 
+             //JavaScript ja converteix el valor al seu equivalent truthy/falsy automàticament.
+             //Quan fas un if (valor), JavaScript converteix el valor a booleà internament. 
+             // Si el valor és considerat "true", si la condició és TRUE entra dins el if (es diu truthy) --> es llegeix el codi
+             // Si és considerat "false", si la condició és FALSE va al else (es diu falsy) --> no es llegeix el codi
+
+                /*FALSY VALUES
+                false
+                0 | -0 | 0n 
+                "" (cadena buida) | '' | ``
+                null
+                undefined
+                NaN
+                */
+
+                let nodefined //undefined, deixem la variable sense definir a posta
+
+                nodefined = null //falsy
+                nodefined = 3 //truthy
+                nodefined = "hola" //truthy
+                nodefined = 6 > 7 //falsy
+                nodefined = "adeu" + "capicua" //truthy
+                nodefined = '' //CADENA BUIDA, falsy
+                nodefined = ' ' //CADENA AMB ESPAI, truthy
+
+
+
+                if (nodefined) {
+                  console.log("soy un truthy");
+                } else {
+                  console.log("soy un falsy"); //la linia de dalt no la llegira, nomes aquesta, pk es undefined
+
+                }
+
+
+                /*TRUTHY VALUES (tot el que no és falsy → es comporta com true):
+                Qualsevol número que no sigui 0 (42, -7, etc.)
+                Qualsevol string no buit ("hola", "false", "0")
+                Arrays ([])
+                Objectes ({})
+                Funcions (function(){})
+                */
+
+                if("hola") {console.log("TRUE");}
+                if ("") {console.log("FALSE");}
+                if (0) {console.log("false");}
+                if (0 || true) {console.log("true");}
+
+                let respuestaCompara = 10 > 5; //resol el q hi ha a la banda dreta i ho assigna a la variable.
+
+                console.log(respuestaCompara); //true
+                console.log(typeof respuestaCompara); //boolean, pk el resultat d'un operador < o > és true or false
+        
+        </script>
+       
+            
+    </body>
+</html>
+
+        

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="comanda, condicionals, switch">
+    <meta name="author" content="Irene Sahun">
+    <title>Document</title>
+</head>
+<body>
+
+<!--Crea un programa per a un restaurant on tenen tres plats (carn, pasta "amb gluten" i risotto "amb lactosa").
+El programa ha de demanar el plat que vol l'usuari/ària, però també ha de demanar si aquest/a té cap preferència o intolerància (vegà, intolerància al gluten o intolerància a la lactosa).
+Si la persona demana un plat "que pot menjar" mostrarem per consola el missatge "perfecte, comanda correcta", si no, es mostrarà el missatge "vostè no pot menjar aquest plat".
+
+TO DO
+html
+    inputs: 
+        plats (dropdown)
+        preferència (dropdown)
+        botó
+        resultat
+        objecte script
+js
+    variables
+        plat (carn, pasta, risotto)
+        preferencia (4 opcions, 3 opcions i 1 cap preferencia)
+        resultat comanda (pot menjar/no pot menjar)
+        missatge
+        errors
+    validacions
+        no marcar cap opció dels dropdown
+        marcar una opció només (això podria caure com a equivalent a cap preferència)
+    operacions
+        un switch que avalui els casos i doni un missatge en funció de la lògica     
+        o condicionals amb operadors lògics combinant plat amb preferència
+    display
+        en funció de la tria de l'usuari, es mostrarà un missatge o un altre a la variable missatge, vinculada al resultDiv
+    
+-->
+        <label for="plat">Tria un plat:</label>
+        <select name="plat" id="plat">
+            <option value="0">Tria un plat del menú</option>
+            <option value="1">Carn</option>
+            <option value="2">Pasta</option>
+            <option value="3">Risotto</option>            
+        </select>  
+        <br>
+
+        <label for="preferencia">Selecciona la teva alèrgia o preferència</label>
+        <select name="pref" id="pref">
+            <option value="0">Sense preferències</option>
+            <option value="1">Veganisme</option>
+            <option value="2">Intolerància al gluten</option>
+            <option value="3">Intolerància a la lactosa</option>           
+        </select>
+
+        <button type="button" onclick="calcDish()">Fes clic per saber el resultat</button>
+
+        <div id="resultat"> </div>
+        <script src="index.js"></script>   
+</body>
+</html>

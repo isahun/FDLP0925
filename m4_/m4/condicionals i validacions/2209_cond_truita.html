@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head> 
+    <body>
+
+        <script>
+            //estructures condicionals
+            // if (condition) {...code}
+
+           //lets cook truita
+
+           //JS ens permet anidar una estructura en un altra, com ara posar toota aquesta estructura dins d’una funció:
+         function letsCook() {
+
+           let patata = true
+           let ceba = true
+           let ous = true
+           
+           /*
+             Ingredients principals, de més restrictiu a menys.
+             Segons el valor de les variables, ingredients, es llegeix un codi o un altre. 
+             Primer resol el primer else, el negatiu, tipo: sino hay huevos no hay tortilla. 
+             Despres si falta algun ingredient principal, q ja no es la negativa completa 
+             sino alternatives en cas que falti un o altre ingredient secundari
+             */
+
+           if (ous == true) { //si no tenim ous no podem avançar 
+                
+                if (patata == true) { 
+
+                    if (ceba = true) {//una estructura conté l'altra                        
+                        console.log("A cuinar!");
+
+                    } else { //aquest else va amb l'if de la ceba, i cap altre, està ANIDAT
+                        console.log("Sense ceba no mola!");
+                    }
+
+                } else { //aquest else pertany a les patates
+                    console.log("truita francesa");// perquè l'if pregunta si hi ha patates, 
+                    // i l'else és el codi que es llegeix quan no n'hi ha
+                }
+        
+            } else { //i aquest else pertany als ous, el primer if, l'únic que encara no tenia else.
+                console.log("ves al super");
+            }        
+         } 
+         //tot i que es pot, fer-ho tot alineat, NO ES FA AIXÍ, juanka no likey, 
+         //així que tot indentat cap a endins per definir l’estructura i 
+         // entendre d'un cop d'ull què compren què no
+
+         //OPERADORS LÒGICS - AND
+         //if (huevos == true && patata == true && cebolla == true) {
+         //if (huevos && patata && cebolla == true), ens podem carregar el == true i tot
+         if (huevos && patata && cebolla) { 
+            console.log=("a per la truita!");
+            } else if (ous && patata) {
+                console.log("basic version");
+                } else {
+                    console.log("ves al super");
+                }
+            
+        
+        </script>
+
+    </body>
+</html>
+        
+        

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en"> 
+    <body>
+      
+     <script>
+     //tipus de dades primitius     17/09/25
+        //boolean (true | false) -->
+        let mayorDeEdad = true
+        let MayorDeEdad= false
+
+        //string
+        let student = "Irene"
+        student = 'Carla'
+        let message =  `Yo soy ${student}` //son accents, no cometes simples
+        
+        // number
+        let numero = 4
+
+        //null vs undefined
+        let iDontKnow
+        console.log(iDontKnow); //undefined, la variable s'ha declarat però no s'ha inicialitzat
+        
+        let emptyOnPurpose = null;
+        console.log(emptyOnPurpose); // null -> la variable s'ha inicialitzat explícitament com a "buit"
+
+        let sumaEdad = 0 //typeof number
+        sumaEdad = 'JuanCa' //typeof string //MALA PRÀCTICA
+
+        /*ESTRUCTURA CONDICIÓ
+        if (condició) {
+            <code></code> 
+        } 
+
+        if (mayorDeEdad == true) {
+            console.log('puede conducir');
+        }
+
+        NaN --> not a number:  isNaN() intenta convertir el parámetro pasado a un número. 
+        Si el parámetro no se puede convertir, devuelve true; en caso contrario, devuelve false.
+        Cualquier string deberia ser TRUE con isNaN, lo que hace esta funcion para saber
+        si algo es un numero o no, lo intenta transformar, y si lo consigue, te dara un false.
+        El numero 45, aunq esté entre comillas, da false pk JS ya sabe q es un numero:
+
+        4 + 5 = 9, 4 + '5' = 45, concatenar, 4 * '5'= 20, no concatena, nomes excepcio x suma */
+
+        isNaN(46) //false
+        isNaN('hola')//true
+        isNan(2 + 4)//false
+        isNan('a'+ 'b')//true
+        console.log('a' * 'b') //True, NaN, pk no entenem una multiplicacio sense nums
+        isNan('45')//false (pk si es numero en string el converteix en numero)
+        isNan(true)//false (pk els valors booleans poden convertir-se en 1 true, 0 false)
+        console.log(typeof NaN); //ell pensa sol, ho posa com a nombre
+
+        if (isNan('45') == false) { //aixo pot viure sol, sense res previ ni res posterior
+            console.log('hola'); 
+               }
+
+        //sujeto + predicado de isNan: 
+        // subjecte: l'objecte "Number" crida mètode "isNaN"
+        // predicat: ".isNaN('')" avalua si el valor és estrictament NaN (no fa coerció de tipus)
+        Number.isNaN('')
+        //sujeto eliptico: la funció intenta convertir '' a número abans de comprovar si és NaN 
+        isNaN('')
+
+       
+       Number.parseInt()  
+       /* parseInt espera una cadena (string), per tant sense paràmetre retorna NaN:
+       
+        console.log(Number.parseInt()); // NaN 
+        console.log(Number.parseInt('123'));     // 123
+        console.log(Number.parseInt('123abc'));  // 123 (llegeix fins que troba caràcters no numèrics)
+        console.log(Number.parseInt('abc123'));  // NaN (no comença amb un número)       
+        */
+        </script>
+        
+        <div id="aIncluirDiv"></div>
+        <p id="saludo"></p>
+        <p></p> <!--separacio d linia extra-->
+       
+        <script>
+        /*per saber q es un element html, es deixa el mateix ID a html i var */
+        let aIncluirDiv = document.getElementById('aIncluirDiv')
+        let saludoP = document.getElementById('saludo')
+            
+        //OUTPUT
+         console.log(aIncluirDiv);
+         //window.alert('hello class')
+         //alert('HI')
+         document.write('que tal?')
+         saludoP.innerHTML = 'primer mensaje'
+
+        //INPUT
+         let nameUser = window.prompt('Cómo te llamas?')
+         //console.log(nameUser); //output
+         let uLikeIt = window.confirm('te gusta la clase?')
+         console.log(uLikeIt);
+
+         aIncluirDiv.innerHTML = `Hola ${nameUser}, a la pregunta de si te gusta la clase: ${uLikeIt}`
+
+        //en aquet cas, no s'escriu com adalt, sino directament isNaN
+        //es to raro posar coses dins de l'script, ni div ni ostias       
+</script> 
+
+</body>
+</html>

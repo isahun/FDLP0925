@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+     <input type="number" placeholder="Introdueix un nombre" id="num1">
+     <input type="number" placeholder="Introdueix un nombre" id="num2">
+     <input type="button" value="Fes clic per saber quin és major" onclick="calculateMajor()">
+     <div id="resultat"></div>
+    
+    <script>
+        //pràctica de classe VALIDACIONS 23/09/25
+
+        //Crea un programa que sol·liciti a l'usuari/ària que introdueixi dos nombres enters 
+        //i mostri per pantalla el major dels dos.
+
+        //1. DECLAREM VARIABLES
+        function calculateMajor() {
+        let num1 = parseInt(document.getElementById("num1").value);
+        let num2 = parseInt(document.getElementById("num2").value);
+        let resultDiv = document.getElementById("resultat")
+        const err1 = "Sisplau introdueix un nombre" 
+        let message = " " //per omplir-lo al final, un cop fetes les validacions i condicions, segons q surti
+
+        //2. VALIDEM
+        if (isNaN(num1) || isNaN(num2)) {
+            console.error(err1)
+            resultDiv.innerHTML = err1
+            return // o podem treure la constant err1 i escriure a mà el missatge 
+                    //console.error("sisplau introdueix un nombre")
+                    //o bé, resultDiv.innerHTML = "Siusplau introdueix un nombre"
+        }
+
+        //3. OPEREM
+        if (num1 > num2) {
+            message = "El primer nombre és més gran que el segon"
+            //resultDiv.innerHTML = "El primer nombre és més gran que el segon"
+        } else if (num1 < num2) {
+            message = "El segon nombre és més gran que el primer"
+            //resultDiv.innerHTML = "El segon nombre és més gran que el primer"
+        } else {
+            message = "Els dos nombres són iguals"
+            //resultDiv.innerHTML = "Els dos nombres són iguals"
+        }
+        
+        //4. DISPLAY
+        resultDiv.innerHTML = message //d'aquesta manera fem que el valor de missatge depengui del valor de les variables
+        //neix i mor dins de la funció, lo ideal es englobar tot en un a variable message com adalt
+
+
+
+
+        }
+
+
+
+
+
+    </script>
+</body>
+</html>

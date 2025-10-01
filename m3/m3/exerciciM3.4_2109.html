@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head> 
+
+    <body>
+
+        <!--Escriu un programa JavaScript que llegeix un nombre (número) 
+        i mostra per pantalla el doble i el triple d'aquest número.
+        TO DO
+            //HTML
+            input nombre
+            botó
+            div resultat1
+            div resultat2
+            //JS
+            funció i variables (número, resultat1, resultat2)
+            //OUTPUT
+            div 1, div 2      
+            -->
+
+        <input type="number" placeholder="Introdueix un nombre" id="num">
+        <input type="button" value="Fes clic per veure el doble i el triple del nombre" onclick="calculateDoubleTriple()">
+        <div id="resultat"></div>
+
+        <script>
+            function calculateDoubleTriple() {
+                let num = parseInt(document.getElementById("num").value);
+                const double = 2;
+                const triple = 3;
+                let resultDouble = num * double;
+                let resultTriple = num * triple;
+                let message = `El doble del número ${num} és ${resultDouble}, i el triple és ${resultTriple}.`;
+                     //let message = `nombre: ${nameUser}, apellido: ${lastnameUser}, edad: ${ageUser}`
+
+                document.getElementById("resultat").innerHTML = message; 
+
+            }
+
+        </script>
+
+        </body>
+
+</html>
+
+

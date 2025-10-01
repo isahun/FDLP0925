@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        </head>
+
+    <body>
+        
+        <script>
+        /*
+        -Descripció
+        El programa demana a l'usuari/ària que introdueixi 3 notes i el programa mostra la mitjana de les 3 notes per pantalla.
+        
+        //TODO LIST
+            //HTML
+            // //3 inputs
+               //1 button
+               //div result de sortida
+            //JS
+               // funcio 
+               // agafar valors inputs  i div
+               // fer calculs
+               // mostrar resultats a la pantalla
+               
+        */
+        </script>
+        
+         <!--HTML: 3 INPUTS, 1 BUTTON, DIV RESULT (OUTPUT)-->
+        
+         <input type="number" id="nota1" placeholder="Primera nota">
+         <input type="number" id="nota2" placeholder="Segona nota">
+         <input type="number" id="nota3" placeholder="Tercera nota">
+
+         <input type="button" value="Calcular mitjana" onclick= "calculateGrade()">
+         
+         <div id="resultat"></div>
+
+         <!--
+            
+            -->   
+    
+
+         <script>         
+         //JS: DECLARAR FUNCIO:
+                // CREAR VARIABLES PELS 3 NOMBRES INICIALS AGAFANT VALORS DELS ELEMENTS INPUT BY ID AMB getElementById: let nota1 = parseFloat(document.getElementById("nota1").value);
+                // parseFloat per convertir el valor de string (totes les dades q entra un usuari ho són) a float, un número amb decimals
+                // CREAR VARIABLE PEL RESULTAT, QUE OMPLIRÀ EL DIV AMB ID RESULTAT:  let resultDiv = document.getElementById("resultat");
+                // CREAR VARIABLE PEL MISSATGE, SI ES VOL QUE APAREGUI UN MISSATGE JUNT AMB EL RESULTAT: let message = "El promig de les notes és : ";
+                // CREAR VARIABLE PEL NUMERO DE NOTES, PER SI VOLEM CANVIAR EL NOMBRE DE NOTES, I LA FEM CONSTANT PERQUÈ ENS HO DETERMINA L'ENUNCIAT, EL NOMBRE D'INPUTS ÉS FIX: const numeroNotas = 3;
+
+         // OPERAR
+                // CREAR VARIABLE AMB EL CÀLCUL DE LA MITJANA, AQUÍ ES FA L'OPERACIÓ: let mitjana = (nota1 + nota2 + nota3) / numeroNotas;
+         // DISPLAY
+                // OMPLIR ELEMENT DIV AMB ID=RESULTAT AMB EL MISSATGE I EL RESULTAT, LIMITANT ELS DECIMALS A 2 AMB toFixed(2): resultDiv.innerHTML = message + mitjana.toFixed(2);   
+    
+
+            function calculateGrade() {
+                
+                 // Agafem les notes de l'usuari
+                 let nota1 = parseFloat(document.getElementById("nota1").value);
+                 let nota2 = parseFloat(document.getElementById("nota2").value);
+                 let nota3 = parseFloat(document.getElementById("nota3").value);
+                 // Preparem l'espai per mostrar el resultat:
+                 let resultDiv = document.getElementById("resultat");
+                 const numeroNotas = 3; //falta una variable: numero de notes, per si volem canviar el nombre de notes, aqui guardem l'espai de memoria del div on aniran els resultats. 
+                                       //Ens hem de cenyir el màxim possible al que demana el client, si el client ens demana 3 notes no en podem posar 4. La fem CONSTANT perquè no canvia, ens la diu EL CLIENT/enunciat
+                 let message = "El promig de les notes és : " //falta una variable més: el missatge perquè ajuda a entendre el codi imprès en pantalla, aquest missatge no és necessari, però ajuda a entendre el codi                      
+
+                // Validem les notes (encara no ho hem après)
+              
+                // OPERAR. Càlcul de la mitjana
+                let mitjana = (nota1 + nota2 + nota3) / numeroNotas;   //posar 3 enlloc de numeroNotas seria un error, perquè si volem canviar el nombre de notes, hauríem de canviar-ho en dos llocs diferents              
+                        
+                // DISPLAY: Mostrem el resultat
+               resultDiv.innerHTML = message + mitjana.toFixed(2); //toFixed(2) per limitar a 2 decimals
+
+        }
+    </script>
+
+</body>
+</html>

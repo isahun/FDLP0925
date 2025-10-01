@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head> 
+    <body>
+        <!--Exercici moodle
+        Fer un programa que li demani a l’usuari/ària mitjançant el prompt aquestes dades:
+        Nom.
+        Cognom.
+        Edat.
+        Un cop l’usuari/ària hagi acabat d’introduir les dades, aquestes s’han de mostrar:
+        Per consola.
+        Amb un popup (alert).
+        Mitjançant getElementById().
+        
+        to do list
+        inputs html
+         - 3 inputs (nom, cognom, edat)
+         - 1 botó (onclick)
+         - 1 div (resultat)
+        funció js
+            - agafar valors inputs
+            - mostrar valors consola
+            - mostrar valors alert
+            - mostrar valors div (innerHTML)
+        outputs 
+            - consola
+            - alert
+            - div (innerHTML)-->
+            
+            <!--INPUTS HTML-->
+            <input type="text" placeholder="Escriu el teu nom" id="nom"> <!--input que crearà una caixa de text per introduir el nom-->
+            <input type="text" placeholder="Escriu aquí el teu cognom" id="cognom"> <!--input que crearà una caixa de text per introduir el cognom-->
+            <input type="text" placeholder="Escriu aquí la teva edat" id="edat"> <!--input que crearà una caixa de text per introduir l'edat-->
+            <input type="button" value="Fes clic aquí" onclick="showResults()"> <!--input que crearà un botó que en fer clic executarà la funció showResults-->
+            <div id="resultat"></div> <!--div que mostrarà els resultats-->
+
+            <script> //INICI FUNCIÓ JS
+            function showResults() {
+                //AGAFAR VALORS INPUTS
+                let nameUser = document.getElementById("nom").value; //agafa el valor de l'input amb id "nom", el .value agafa el text que l'usuari ha escrit
+                let lastNameUser = document.getElementById("cognom").value; //agafa el valor de l'input amb id "cognom"
+                let ageUser = document.getElementById("edat").value; //agafa el valor de l'input amb id "edat"
+                let resultat = document.getElementById("resultat"); //agafa el div amb id "resultat" per després modificar el seu contingut amb innerHTML 
+                //MOSTRAR VALORS CONSOLA (fet, screenshot 1)
+                console.log("Nom: " + nameUser);//mostra el nom a la consola
+                console.log("Cognom: " + lastNameUser);//mostra el cognom a la consola
+                console.log("Edat: " + ageUser);//mostra l'edat a la consola
+
+                //MOSTRAR VALORS ALERT (fet, screenshot 2)
+                window.alert("Nom: " + nameUser + " " + "Cognom: " + lastNameUser + " " + "Edat: " + ageUser);//mostra un alert amb el nom, cognom i edat d'aquesta manera
+                //alternativa pels espais fent servir \n seria: window.alert("Nom: " + nameUser + "\nCognom: " + lastNameUser + "\nEdat: " + ageUser);
+
+                //MOSTRAR VALORS A <DIV> amb inner.HTML (fet, screenshot 3)
+               document.getElementById("resultat").innerHTML= "Nom: " + nameUser + "<br>" + "Cognom: " + lastNameUser + "<br>" + "Edat: " + ageUser;      
+               //per a que els salts de línia <br> apliquin, cal posar-los com a text, entre cometes, si no no ho llegeix bé   
+               //PER GUARDAR EN UNA VARIABLE EL VALOR DE DIVERSES VARIABLES: let message = `nombre: ${nameUser}, apellido: ${lastnameUser}, edad : ${ageUser}`
+               //Aleshores, console.log es fa amb una línia, console.log = message
+                 
+           
+               }
+            
+            </script>
+    </body>
+    </html>
+    

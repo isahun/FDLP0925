@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script> 
+       /*
+        -Descripció
+        El programa demana a l'usuari/ària que introdueixi 3 notes i el programa mostra la mitjana de les 3 notes per pantalla.
+        
+        //TODO LIST
+            //HTML
+            // //3 inputs
+               //1 button
+               //div result de sortida
+            //JS
+               // funcio 
+               // agafar valors inputs  i div
+               //validació <-- AIXÒ FAREM AVUI
+               // fer calculs
+               // mostrar resultats a la pantalla
+               
+        */
+        </script>
+        
+         <!--HTML: 3 INPUTS, 1 BUTTON, DIV RESULT (OUTPUT)-->
+        
+         <input type="number" id="nota1" placeholder="Primera nota">
+         <input type="number" id="nota2" placeholder="Segona nota">
+         <input type="number" id="nota3" placeholder="Tercera nota">
+
+         <input type="button" value="Calcular mitjana" onclick= "calculateGrade()">
+         
+         <div id="resultat"></div>
+
+           
+
+         <script>         
+         
+            function calculateGrade() {
+                
+                 // DECLAREM VARIABLES
+                 let nota1 = parseFloat(document.getElementById("nota1").value);
+                 let nota2 = parseFloat(document.getElementById("nota2").value);
+                 let nota3 = parseFloat(document.getElementById("nota3").value);
+                 // Preparem l'espai per mostrar el resultat:
+                 let resultDiv = document.getElementById("resultat");
+                 const numeroNotas = 3; 
+                 let message = "El promig de les notes és : " //falta una variable més: el missatge perquè ajuda a entendre el codi imprès en pantalla, aquest missatge no és necessari, 
+                 // però ajuda a entendre el codi                      
+
+                //VALIDACIONS: què necessitem per a que el valor d la variable funcione be pel nostre propòsit 
+                //Exemple notes, número menor 10 i major o igual a 0. Aquí és on entren les validacions.
+                //regles de validació
+                    //no més gran de 10
+                    //no menor a 0
+                    //que sigui un número
+                    //que no estigui buit
+                    //HEM DE PENSAR AL REVÉS: no en com SÍ correrà el codi, sinó EN TOTS ELS POSSIBLES ERRORS 
+                    //QUE POT INTRODUIR L'USUARI, VOLENT O SENSE, A L'INPUT
+
+                    // després de "fer la validacio de 10 i 0, venim a fer això"
+                    console.log(nota1); //NaN (pk no està parsejat, és un string)                     
+                    console.log(isNaN(nota1)); //TRUE. 
+
+                    if (isNaN(nota1)) {
+                        resultatDiv.innerHTML = "Ets un NaN o has deixat la nota en blanc"
+                        return //un altre STOP, torna al principi
+                    }
+                    // Aqui preguntem per l’isNan de la nota1, si hi posem un número en mirar x consola surt el valor 
+                    // del número i el tipus, number. 
+                    // Però si posem una e, com q es un No Número, un NaN, ens tornarà NaN i true, 
+                    // pk és true q no es un número.
+                    //Si intentem posar una lletra en la equació ens diu NaN, si li diem el parseFloat i troba la E, 
+                    // la E no és un número, i no pot fer-ho, entra en pànic i ens torna un NaN 
+                    // (si fem typeof al valor NaN, ens treurà un nombre).
+
+                    //I aquesta lògica la podem fer servir per la nostra validació. 
+                    // Pensarem i buscarem l’error per a forçar la màquina a buscar l’error i dirigir el codi. 
+                    // Tant pot ser per un mal us dels usuaris o perque vagin a buscar l’error aposta. 
+                    // I puguin tenir una resposta. 
+
+
+                    if (nota1 > 10 || nota1 < 0) {
+
+                        //error
+                        resultDiv.innerHTML = "NOTA NO VÀLIDA";
+                        return //STOP. per a que torni a demanar la nota i no comprovi la resta de condicions, pk no té sentit
+                        //Un cop dins de la funció, podem parar-la amb la paraula RETURN. //
+                        // Si trobem això a la lectura, el q ve a continuació no es llegirà, com un STOP. 
+                        // Si intentem posar la primera nota un 12, no entrarà en la validació i no es llegirà.                       
+                    }
+                    
+                    //UI/UX: Podem afegir un missatge per a que l usuari sàpiga en cas de no complir-se la validació. 
+                        
+                    //Això ens serveix per controlar i conduir el flux de dades.  
+                    // Aquest cas en concret s’anomena EARLY RETURN, return temprano, 
+                    // pk la validació està molt aprop del principi del codi.
+                    //Què passa si deixem una nota en blanc? Si deixem input buit i intentem passar-lo 
+                    //a número ens generarà un falsey, un NaN. Pk un buit no és un número. 
+                    //Quan treballa el parseInt, O HO ACONSEGUEIX O DONA NaN. 
+
+                    //Tenim dos casos d’ús concentrats en un IF, i dos casos d’ús concentrats en un altre IF
+                    // i encara ho podem sintetitzar més:
+
+                    if (nota1 > 10 || nota1 < 0 || isNaN(nota1)) { //Més desenvolupat, amb les validacions x cada nota
+                        resultDiv.innerHTML = "Valor nota1 invàlid" //totes les validacions x cada nota
+                        return
+                    }
+                    if (nota2 > 10 || nota2 < 0 || isNaN(nota2)) {
+                        resultDiv.innerHTML = "Valor nota2 invàlid" 
+                        return
+                    }
+                    if (nota3 > 10 || nota3 < 0 || isNaN(nota3)) {
+                        resultDiv.innerHTML = "Valor nota3 invàlid" 
+                        return
+                    }
+
+                    if (nota1 > 10 || nota1 < 0 || isNaN(nota1) || nota2 > 10 || nota2 < 0 || isNaN(nota2) || nota3 > 10 || nota3 < 0 || isNaN(nota3)) {
+                        console.log("Pa tu casa"); //tot en un sola línia
+                        resultDiv.innerHTML = "pa tu casa"
+                        return
+                    }
+              
+                // OPERAR. Càlcul de la mitjana
+                let mitjana = (nota1 + nota2 + nota3) / numeroNotas;   //posar 3 enlloc de numeroNotas seria un error, perquè si volem canviar el nombre de notes, hauríem de canviar-ho en dos llocs diferents              
+                        
+                // DISPLAY: Mostrem el resultat
+               resultDiv.innerHTML = message + mitjana.toFixed(2); //toFixed(2) per limitar a 2 decimals
+
+        }
+                    //condicionals -- hardcoding, repas del q vam veure ahir dia 22/09
+
+                    let claseInteresante = false
+    
+                    if (claseInteresante) {
+                        console.log("me quedo");
+                    } else { console.log("me piro");
+
+                    }
+
+                    let greenLight = true
+                    
+                    if (greenLight == true) {
+                        console.log("creuaré el carrer");
+                    } else {console.log("no puc passar");
+
+                    }
+
+                    let lluvia = false
+
+                    if (!lluvia) {
+                        console.log("iré a la mercè");
+                    }
+                    //Hem de separar casos de uso (operacions) de les validacions, q van abans:
+
+                    let edad = 30 //descartem menors de 30
+                    let mayor = 50 //descartem majors de 50
+                    let edadUser = parseInt(prompt("edad user")) //typeof number
+                    
+                    //VALIDACIONS
+                        //edad ha d ser NaN --> validar NaN
+                    if (isNaN(edadUser)) { //perquè si is NaN és true vol dir q li hem fotut lletres o buits
+                        alert("por favor...."); //window.alert funciona sense el window
+                    }
+                    //Validar rangs d'edat, descartem més grans de 50 i més joves que 30
+                    if (edadUser > mayor && edadUser <= edad && edadUser < 0) {
+                        console.log("No jugues.");
+                        return //per introduir una nova edat
+                    } else { console.log("Sortirà amb tu.");} //OPERACIONS
+
+                    //OR (repàs d'ahir 2209)
+                    let finde = false
+                    let festiu = true
+
+                    if (finde || festiu) {
+                        console.log("vamos de fiesta");
+                    }
+                       
+                    
+
+
+
+
+
+
+
+
+
+    </script>
+
+
+
+
+
+        
+    </script>
+   
+
+
+
+
+
+
+    </script>
+</body>
+</html>

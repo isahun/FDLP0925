@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--Crea un programa que sol·liciti a l’usuari/ària que introdueixi el seu nom 
+    i el nombre d’anys que porta treballant en una empresa. Després mostra per pantalla el seu nivell d’experiència, segons la següent taula:
+            Menys de 2 anys: Nivell principiant.
+            Entre 2 i 4 anys: Nivell intermedi.
+            Més de 4 i fins a 7 anys: Nivell avançat.
+            Més de 7 i fins a 10 anys: Nivell expert.
+            Més de 10 anys: Nivell Gurú.-->
+
+            <input type="text" placeholder="Escriu el teu nom." id="nomUser">
+            <input type="number" placeholder="Escriu els teus anys d'experiència." id="anysExp">
+            <input type="button" value="Fes clic per saber el teu nivell" onclick="userExp()">
+            <div id="resultat"></div>
+
+            <script> function userExp() {
+                //TO DO
+                //HTML: inputs: nom i anys exp, botó, declaració d funció i div
+                //JS: funció
+                    //  1. DECLARACIÓ DE VARIABLES
+                    //  2. VALIDACIONS
+                    //  3. OPERAR
+                    //  4. DISPLAY (output)
+
+                let nomUser = document.getElementById("nomUser").value;
+                let anysExp = parseInt(document.getElementById("anysExp").value);
+                let resultDiv = document.getElementById("resultat"); //pk no innerHTML?
+                let message = " "; //es string buit o undefined?
+                let sostreEdat = 40;
+                let terraEdat = 0;
+                //let principiant = anysExp < 2
+                //let intermedi = 2 < anysExp >= 4
+
+
+                //2. VALIDACIONS
+                    //nomUser
+                //2.1 Que introdueixi un caràcter que no sigui Not a Number, és a dir, un nombre
+                let err1 = "Siusplau, introdueix un nom vàlid";
+                //2.2 Que introdueixi un espai en blanc
+                let err2 = "Siusplau, introdueix el teu nom";
+                //anysExp
+                //2.3 Que introdueixi un caràcter NaN a anysExp
+                let err3 = "Siusplau, introdueix un número vàlid"
+                //2.4 Que introdueixi més de 40 anys d'experiència i menys de 0
+                let err4 = "No pots tenir més de 40 anys d'experiència"
+                let err5 = "No pots tenir menys de 0 anys d'experiència"
+                //2.5 que introdueixi un espai en blanc
+                let err6 = "Siusplau, introdueix els teus anys d'experiència";
+                mess1 = "Nivell principiant"
+                mess2 = "Nivell intermedi"
+                mess3 = "Nivell avançat"
+                mess4 = "Nivell expert"
+                mess5 = "Nivell Gurú"
+
+                if (!isNaN(nomUser)) { //fem early return per a que no avanci més, tot i q en principi no es fa així
+                   return resultDiv.innerHTML= err1;
+                }                
+
+                if (nomUser == " ") {
+                    return resultDiv.innerHTML= err2;
+                }
+                
+                if (isNaN(anysExp)) {
+                    return resultDiv.innerHTML = err3;
+                }            
+
+                if (anysExp > sostreEdat) {
+                    return resultDiv.innerHTML = err4;
+                }
+                
+                if (anysExp < 0) {
+                    return resultDiv.innerHTML = err5;
+                }                
+
+                if (anysExp == " ") {
+                    return resultDiv.innerHTML= err6;
+                }
+            
+                //3. OPERAR
+
+               if (anysExp < 2) {
+                  message = mess1;
+                }
+                if (anysExp <= 4) {
+                    message = mess2;
+                }
+                
+                if (anysExp > 4 && anysExp <= 7) {
+                    message = mess3;
+                }
+
+                if (anysExp <= 10) {
+                    message = mess4;
+                }
+
+                if (anysExp > 10) {
+                    message = mess5;
+                }
+                
+                
+            resultDiv.innerHTML = `El nivell d'expertesa de ${nomUser} segons els anys d'experiència és: ${message}.`
+            }
+            </script>
+
+
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

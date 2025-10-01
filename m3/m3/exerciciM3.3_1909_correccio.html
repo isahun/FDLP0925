@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--El programa demana a l'usuari/ària que introdueixi 3 notes i el programa mostra la mitjana de les 3 notes per pantalla.
+     TO DO LIST
+        //HTML
+         3 inputs (3 notes)
+         1 botó
+         1 div pel resultat
+        //JS
+         1 funció
+             4 variables: nota 1, nota 2, nota 3, mitjana
+        //OUTPUT div   -->
+
+        <input type="number" placeholder="Introdueix el primer número" id="num1">
+        <input type="number" placeholder="Introdueix el segon número" id="num2">
+        <input type="number" placeholder="Introdueix el tercer número" id="num3">
+        <input type="button" value="Calcula la mitjana" onclick="averageCalculate()">
+        <div id="resultat"></div>
+        <!--Fins aquí tot igual, a partir d'aquí canvia-->
+
+        <script>
+
+            function averageCalculate() { //resultat a la screenshot 5
+                //1. DECLARACIÓ DE VARIABLES
+                let firstNum = parseInt(document.getElementById("num1").value);
+                let secNum = parseInt(document.getElementById("num2").value);
+                let thirdNum = parseInt(document.getElementById("num3").value);
+                let resultDiv = document.getElementById("resultat");
+                const howManyNum = 3 //si dividissim les notes entre 3, 
+                // sense definir aquest 3 com a constant, en cas de canviar 
+                // ho hauríem de fer a més d'un lloc i seria un embolic i HARDCODE
+                let message = "El promig de les notes és: "
+
+                //2. VALIDACIONS (NOT YET)
+                //3.OPERAR
+                let averageGrade = (firstNum + secNum + thirdNum)/howManyNum;
+
+                //jo havia fet: document.getElementById("resultat").innerHTML = result;
+                //però com que ja hem cridat l'element div amb id resultat a la variable resultDiv, 
+                //no cal fer l'innerHTML cridant l'element, només a la variable:
+                resultDiv.innerHTML = message + averageGrade.toFixed(2);
+                //d'aquesta manera queda una expressió sintètica
+                //afegim el .toFixed(2) per definir el nombre màxim de decimals a mostrar
+
+
+            }
+        </script>
+</body>
+</html>

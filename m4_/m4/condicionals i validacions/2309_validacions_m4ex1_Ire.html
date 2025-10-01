@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<!--Crea un programa que sol·liciti a l'usuari/ària que introdueixi dos nombres enters i mostri per pantalla el major dels dos.
+
+//TODO
+    //HTML
+    inputs i botó
+    contenidor
+    
+    //JS
+        funció
+        declaració de var
+        validate
+        condició-operar
+        display
+        -->
+
+    <input type="number" placeholder="Introdueix el primer nombre" id="num1"><br>
+    <input type="number" placeholder="Introdueix el segon nombre" id="num2"><br>
+    <input type="button" value="Fes clic per conèixer el major" onclick="compareNums()"><br>
+    <div id="resultat"></div>
+
+    
+    <script>
+
+     function compareNums()    {
+
+        let numero1 = parseInt(document.getElementById("num1").value); // no necessitem la caixa, només el valor
+        let numero2 = parseInt(document.getElementById("num2").value);
+        let resultDiv = document.getElementById("resultat");
+        let message = " ";
+        
+        let err1 = "Introdueix un nombre.";
+       
+
+        //validacions
+        
+        if (isNaN(numero1) || (isNaN(numero2))) {
+        message = err1; 
+    } else if ((numero1 == " ") || (numero2 == " ")) {
+        message = err1;
+            } else {
+       //OPERATE
+        if (numero1 > numero2) {
+           message = "El nombre més gran és el primer";
+        } else if (numero1 < numero2) {
+            message = "El nombre més gran és el segon.";
+        } else {
+            message = "Els dos nombres són iguals."; 
+        }
+        }
+
+        //output
+
+        resultDiv.innerHTML = message;
+
+      }
+
+    </script>
+
+</body>
+</html>

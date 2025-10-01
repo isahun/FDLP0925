@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head> 
+    <body>
+        <!--Descripció: Escriu un programa JavaScript que calculi els litres de pintura necessaris 
+        per a pintar una paret rectangular. Un litre de pintura cobreix aproximadament, 12 m² en una sola mà. 
+        
+        Crear una constant, Cobertura a Litros (recordar les convencions de noms) per a guardar la dada de cobertura de la pintura (12 m²).
+        Hauràs de demanar a l'usuari/ària:
+        -L'alt i ample de la paret (multiplicant sabràs l'àrea de la mateixa).
+        -El nombre de mans a aplicar.
+        -Mostra en pantalla els litres de pintura a utilitzar.
+
+        TO DO
+            //HTML
+            input alt paret / ample paret
+            mans a aplicar
+            botó
+            div
+            //JS
+            funció i variables (número, resultat1, resultat2)
+            //OUTPUT
+            div 1    -->
+
+        <input type="number" placeholder="Introdueix l'alt de de la paret en metres" id="alt">
+        <input type="number" placeholder="Introdueix l'ample de de la paret en metres" id="ample">
+        <input type="number" placeholder="Introdueix el nombre de mans a aplicar" id="mans">
+        <input type="button" value="Fes clic per saber quanta pintura et cal" onclick="calculateLit()">
+        <div id="resultat"></div>
+
+        <script>
+            function calculateLit() {
+                //DECLARE VARIABLES
+                let heightW = parseFloat(document.getElementById("alt").value);
+                let widthW = parseFloat(document.getElementById("ample").value);
+                let handW = parseFloat(document.getElementById("mans").value);
+                let resultDiv = document.getElementById("resultat");
+                const sqmeterxHand = 12;
+                           
+
+                //OPERATE
+                let sqMeter = heightW * widthW; //on l'hauria de declarar? a la primera secció o aquí?
+                let litFinal = (sqMeter/sqmeterxHand)*handW;
+
+                resultDiv.innerHTML = `Necessitaràs ${litFinal} litres de pintura.`;
+
+            }
+
+
+
+        </script>
+        </body>
+</html>
+
+    

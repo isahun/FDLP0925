@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <input type="text" placeholder="Introdueix una paraula." id="word">
+    <input type="button" value="Fes clic per saber si és bonica o no" onclick="prettyWord()">
+    <div id="result"></div>
+
+    <script>
+        /*
+        Els estudis lingüístics moderns diuen que les paraules més boniques del diccionari són aquelles que contenen 
+        9 lletres i comencen per la lletra 'H', o bé, contenen 5 lletres i comencen per la lletra 'P'.
+        Fes un programa que demani una paraula i determini si és bonica o no (segons el patró explicat prèviament).
+        El mètode charAt() segur que et pot ajudar en aquest exercici.
+        
+        
+        TO DO
+        //HTML: inputs, botó i div, fets
+        //JS:
+        funció
+            1. declarar variables: paraula, lletra1 i lletra2, resultDiv, message,
+            2. validació, crear condicions i variables de missatges d'error
+            3. operar, condicionals segons si contenen H o P
+            4. display, resultDiv.innerHTML= missatge + resultats
+        */
+
+        function prettyWord() {
+            //1. DECLARACIÓ DE VARIABLES
+            let word = document.getElementById("word").value;
+            let lletra1maj = 'H';
+            let lletra1min = 'h';
+            let lletra2maj = 'P';
+            let lletra2min = 'p';            
+            let resultDiv = document.getElementById("result");
+            let message = " ";
+
+            let err1 = "Siusplau, introdueix una paraula.";
+            let mess1 = "És una paraula bonica.";
+            let mess2 = "No és una paraula bonica";            
+
+            //2. VALIDACIONS
+            if (!isNaN(word)) {
+                message = err1; 
+                return;
+            } else if (word == " ") {
+                message = err1;
+                return;
+            } else { //3.OPERACIONS
+                if ((word.charAt(0) == lletra1maj || word.charAt(0) == lletra1min) && ((word.charAt(8) !== ""))) { 
+                message = mess1;
+            } else if ((word.charAt(0) == lletra2maj || word.charAt(0) == lletra2min) && ((word.charAt(4) !== ""))) { //les condicions MAI PORTEN ;
+                message = mess1;
+            } else {
+                message = mess2;
+            }
+
+            }
+
+            //4. DISPLAY
+            resultDiv.innerHTML = message;
+    }
+
+    </script>
+    
+</body>
+</html>

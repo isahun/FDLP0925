@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        </head>
+    <body>
+
+
+        <!--Fer un programa que li demani dos nombres enters a l’usuari/ària. Al final, el programa imprimeix per pantalla el següent missatge: 
+        El resultat de la suma és: “valor"
+        El resultat de la resta és: “valor”
+        El resultat de la multiplicació és: “valor”
+        El resultat de la divisió és: “valor”. -->
+
+        <input type="number" placeholder="Escriu el primer nombre" id="nombre1">
+        <br> <!--per separar text boxes --></br>
+        <input type="number" placeholder="Escriu el segon nombre" id="nombre2">
+        <input type="button" value="Calcular" onclick="catchValuesAndOperate()"> <!--quan cliquem el botó s'activa la funció catchValuesAndOperate-->
+        <div id="resultat"></div> <!--div buit on aniran els resultats-->    
+            
+                
+        <script> //ara declarem la primera funció: (DESPRÉS S'INVOQUEN AMB UN BOTÓ), primer les variables globals (no gaire recomanades)
+                
+        function catchValuesAndOperate() { 
+            //1. declaració de variables
+            let number1 = parseInt(document.getElementById('nombre1').value); //si no posem el .value s'imprimeix [object HTMLInputElement], el codi de la caixa. 
+            // //Només necessitem el valor que escriu l'usuari
+            let number2 = parseInt(document.getElementById('nombre2').value); //tota la info q arriba d'un formulari, deesde l'usuari, encara q posem numeros, 
+            //arriba com a string, és feina nostra convertir-ho a numero
+            //tota la info q arriba d'un formulari, deesde l'usuari, encara q posem numeros, arriba com a string, és feina nostra convertir-ho a numero
+            
+
+            //2. validacions
+            //3. Operate
+            let suma = number1 + number2; 
+            let resta = number1 - number2;
+            let multi = number1 * number2;
+            let divisio = number1 / number2; //podem simplicar sense posar el let, pq no fem res més amb aquestes variables
+
+            let message = `
+                El resultat de la suma és: ${suma} 
+                El resultat de la resta és: ${resta}
+                El resultat de la multiplicació és: ${multi}
+                El resultat de la divisió és: ${divisio}
+             `; 
+            
+             //aquestes cometes invertides ens permeten fer salt de linia i posar variables dins del text          
+                //fem servir ${} per posar variables dins d'un text
+             //4. Display
+
+             
+            //ara creem la variable de resultat
+            let resultDiv = document.getElementById("resultat"); 
+            //aqui guardem l'espai de memoria del div on aniran els resultats
+
+            resultDiv.innerHTML = `<pre>${message}</pre>`;                  
+            //aqui posem el missatge dins del div de resultat, pre significa preformatat, així es respecten els salts de linia
+
+
+
+
+
+
+        }
+
+            //TODO LIST
+            //HTML
+            // //2 inputs
+               //1 button
+               //div result de sortida
+            //JS
+               // funcio 
+               // agafar valors inputs  i div
+               // fer calculs
+               // mostrar resultats a la pantalla
+               
+               
+               
+               
+               
+               </script>
+
+    </body>
+</html>
+        
+       

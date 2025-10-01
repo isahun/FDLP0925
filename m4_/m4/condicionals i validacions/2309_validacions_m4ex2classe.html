@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--Crea un programa que sol·liciti a l’usuari/ària que introdueixi el seu nom 
+    i el nombre d’anys que porta treballant en una empresa. 
+    Després mostra per pantalla el seu nivell d’experiència, segons la següent taula:
+            Menys de 2 anys: Nivell principiant.
+            Entre 2 i 4 anys: Nivell intermedi.
+            Més de 4 i fins a 7 anys: Nivell avançat.
+            Més de 7 i fins a 10 anys: Nivell expert.
+            Més de 10 anys: Nivell Gurú.-->
+
+    <!--<input type="text" name="" id=""> -->
+    <input type="text" placeholder="Escriu el teu nom" id="nom">
+    <input type="number" placeholder="Escriu número d'anys" id="anysExp"><br>
+    <input type="button" value="Fes clic" onclick="userExp()"><br>
+    <div id="resultat"></div>
+
+    <script>
+
+        //TO DO
+        //HTML
+            //input name & years
+            //button && parraf
+        //JS
+            //function
+            //declarate, validate, operate, display
+
+        function userExp() {
+            //DECLAREM LES VARIABLES
+            let nom = document.getElementById("nom").value
+            let anysExp = parseInt(document.getElementById("anysExp").value);
+            let resultDiv = document.getElementById("resultat")
+            let message = " "
+            const err1 = "Invalid values"//anem afegint const com a missatges d'error a mida q fem validacions
+            const err2 = "Siusplau, introdueix el teu nom"
+            const err3 = "Siusplau, introdueix el teu nom"
+            const err4 = "Siusplau, introdueix un nombre vàlid"
+            const err5 = "No pots tenir més de 40 anys d'experiència"
+            const err6 = "No pots tenir menys de 0 anys d'experiència"
+            let mess1 = "Nivell principiant."
+            let mess2 = "Nivell intermedi."
+            let mess3 = "Nivell avançat."
+            let mess4 = "Nivell expert."
+            let mess5 = "Nivell Gurú."
+
+            //VALIDACIONS: 
+            if (nom == " ") { //early return
+                //message = err2
+                return resultDiv.innerHTML = err2
+            }
+
+            if (!isNaN(nom)) {
+                //message = err3
+                return resultDiv.innerHTML = err3
+
+            }
+
+            if (isNaN(anysExp)) {
+                //message = err4
+                return resultDiv.innerHTML = err4
+            }
+
+            if (anysExp > 40) {
+                //message = err5
+                return resultDiv.innerHTML = err5
+            }
+
+            if (anysExp < 0) {
+                //message = err6
+                return resultDiv.innerHTML = err6
+            }
+
+            //tot i definir previament als inputs el tipus de valor, tot son capes de validacio, 
+            // sempre hem de fer la validacio a js
+
+            //OPERATE
+            //0, 1 anys (DE MÉS RESTRICTIU A MENYS, DINS DEL RANG 0-1 NO HI CAP CAP ALTRE RANG)
+            if (userExp < 2) {
+                message = mess1
+            //2, 3 anys
+            } else if (userExp < 4) { 
+            //si fem else if (userExp >= 2 && userExp < 4) 
+            //es redundant, la primera condicio >=2 ja es contempla a la 2a (exp < 4)
+                message = mess2 //anem obrint l’espai poc a poc d la llista de condicions de l'enunciat
+            } else if (userExp <= 7) {
+                message = mess3
+            } else if (userExp <= 10) {
+                message = mess4
+            } else {
+                message = mess5
+            }
+
+            //DISPLAY
+            resultDiv.innerHTML = `El treballador ${nom} té el següent nivell: ${message}.`
+
+
+        }
+
+
+    </script>
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

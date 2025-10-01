@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head> 
+    <body>
+        <!--Exercici 2 
+        Fer un programa que li demani dos nombres enters a l’usuari/ària. Al final, el programa imprimeix per pantalla el següent missatge:  
+        El resultat de la suma és: “valor”
+        El resultat de la resta és: “valor”
+        El resultat de la multiplicació és: “valor”
+        El resultat de la divisió és: “valor”.
+        
+        TO DO LIST
+            HTML
+            - 2 inputs ("num1","num2")
+            - 1 botó 
+            - 1 div pel resultat "resultat"
+            JS
+            - declarar la funció, showResult()
+            - declarar variables i fer parse: 
+                - let firstNumber = document.getElementbyId("num1").value
+                - let secNumber = document.getElementbyId("num2").value
+                - let result suma = firstNumber + s
+            DISPLAY
+            - Mostrar el resultat al <div>
+        -->
+        <!--HTML INPUTS-->        
+        <input type="number" placeholder="Introdueix el primer número" id="num1">
+        <input type="number" placeholder="Introdueix el segon número" id="num2">
+        <input type="button" value= "Fes clic per saber els resultats" onclick="showResults()">
+        <div id="Resultat"></div>
+    
+        <script> //FUNCIÓ JS I VARIABLES, segur q hi ha una manera més òptima però aquesta és la meva
+            function showResults() {
+                let firstNumber = parseInt(document.getElementById("num1").value); //important fer parseInt() en aquest punt si volem fer operacions numèriques
+                let secNumber = parseInt(document.getElementById("num2").value);
+                let resultSuma = firstNumber + secNumber;
+                let resultResta = firstNumber - secNumber;
+                let resultMulti = firstNumber * secNumber;
+                let resultDivi = firstNumber / secNumber;
+                let resultDiv = `El resultat de la suma és: ${resultSuma} <br> El resultat de la resta és: ${resultResta} <br> El resultat de la multiplicació és: ${resultMulti} <br> El resultat de la divisió és: ${resultDivi}`
+
+                //versió alternativa sense variable resultDiv: document.getElementById("Resultat").innerHTML = "El resultat de la suma és: " + resultSuma + "<br> El resultat de la resta és: " + resultResta + "<br> El resultat de la multiplicació és: " + resultMulti + "<br> El resultat de la divisió és: " + resultDivi;
+                document.getElementById("Resultat").innerHTML = resultDiv;
+
+
+            }
+
+            // //PER AGLUTINAR EN UN MISSATGE EL VALOR DE DIVERSES VARIABLES: let message = `nombre: ${nameUser}, apellido: ${lastnameUser}, edad : ${ageUser}`
+               //Aleshores, console.log es fa amb una línia, console.log = message
+               //seria let result = `El resultat de la suma és: ${resultSuma}, El resultat de la resta és: ${resultResta}, 
+               //El resultat de la multiplicació és: ${resultMulti}, El resultat de la divisió és: ${resultDivi}`
+
+
+
+
+
+        </script>
+
+
+
+    </body>
+</html>
