@@ -7,17 +7,15 @@
 </head>
 <body>
     <script>
-       // Comencem a parlar d’elements complexes, d’un tipus de dada complexa
-       //Dins de les dades complexes hi ha arrays, funcions, objectes...
-       //Un array és una colecció d'elements, un llistat. Els elements d'un array se separen amb comes. S'organitzen per:
-       // POSICIÓ I ÍNDEX
-       // let nombreArr = []
+// Comencem a parlar d’elements complexes, d’un tipus de dada complexa
+//Dins de les dades complexes hi ha arrays, funcions, objectes...
+//Un array és una colecció d'elements, un llistat. Els elements d'un array se separen amb comes. S'organitzen per:
+// POSICIÓ I ÍNDEX
+// let nombreArr = []
 //let nombresArray = new Array() INVESTIGAR
 
 let listaCompra = ["huevos", "cerveza", "arroz", "tomates", "pan", "queso", "vino", "servilletas", "cookies", "flan", 1, 2, , 34, 6];
 let nombreAlumnos = ["Carles", "Oscar", "Lu", "Irenes"];
-
-let mixArray = [1, 5, "hola", true, false, ["perro", "gato", "ratón"], 7];//nested array, més avall com recuperar info
 
 console.log(listaCompra);
 console.log(listaCompra[0]); //huevos
@@ -48,7 +46,45 @@ console.log(listaCompra[listaCompra.length -1]); //és el mateix d adalt, sense 
 
 //pàg 115
 
+//recuperem
+let mixArray = [1, 5, "hola", true, false, ["perro", "gato", "ratón"], 7];//nested array, més avall com recuperar info
 
+console.log(mixArray);
+console.log(mixArray[4]);
+console.log(mixArray[1]);
+console.log(mixArray[5]);
+
+
+//ara tenim opcio de fer una variable, letanimalsArr = mixArray[5], si fem console log, obtenim el mateix. 
+//Tem guardant el valor de l’array dins d’una variable.
+//Tenint aquesta nova llista, aquest array d animals, com arribem al gat?
+let animalsArr = mixArray[5];
+console.log(animalsArr);
+console.log(animalsArr[1]); //recupera el primer valor de l'array animals dins de l'array mix
+
+//Podem arribar al gat desd la variable mix array?
+//per fer ho fem console.log(mixArray[5][1]), li diem, l’element 5 del primer array (q es un array), 
+//i l’element 1 del segon array, l’array dins de l’array. Lo de la linia 58 (console.log(animalsArr[1]); tb treu gat. 
+//El [5] és l’element 5 del primer array, q es l’array.
+
+
+//mixArray LENGTH
+console.log(mixArray.length);
+console.log(mixArray[mixArray.length]);//(sense el -1) si li demanem q ens tregui aixo surt undefined
+//pk es com superposar index amb posició, no ho troba
+console.log(mixArray[10]); //No existeix la posició, llavors surt Undefined
+
+//ÍNDEX x(posició, comença de 0), LENGTH x+1 (index màxim +1, comença a 1)
+
+//Ah! Si ens surt undefined, podriem assignar-li un valor? I TANT QUE SI
+mixArray[10] = ‘pepito’ //no hi ha posició 10, afegim a la posició
+console.log(mixArray);
+console.log(mixArray[10]): //Això es pot fer perfectament, i el que fa és omplir de buits si no existeix la posició
+mixArray[100] = "Irene" //ara hem fet créixer l'array 100 posicions, les q no tenen data les deixa en blanc
+
+//si fem això es borren les dades de l'array, i s'omple amb 0, un valor truthy
+mixArray.length = 0
+console.log(mixArray);
 
 
 const studentsName = []
