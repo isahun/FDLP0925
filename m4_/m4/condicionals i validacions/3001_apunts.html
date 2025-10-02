@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="apunts, 30 setembre, condicionals, switch">
+    <meta name="author" content="Irene Sahun">     <title>Document</title>
+</head>
+<body>
+
+    <script>
+    //REPÀS del dia anterior: TIPUS, ESTRICTE, CASE SENSITIVE
+
+    //switch(condició) {
+        //case x: code; break;
+        //case y: code; break;
+        //case z: code; break;
+        //}
+
+        let generoPeli = "terror" //typeof str
+        // case sensitive
+        //lowerCase
+        generoPeli = generoPeli.toLowerCase(); //resolt el problema de mayus i minus
+        //aixi es resoldria lo de lowercase, on posar-ho depen d nosaltrs, tant dins del prompt, 
+        //tant dins del switch (es raro, ja te molt contingut, x neteja mental, millor declarar ho aqui sobre
+
+
+        switch (generoPeli) {
+            case "Terror":
+                console.log("buuu");
+                break;
+            case "Drama":
+                console.log("oye mami deja el drama");
+                break;
+            default:
+                console.log("miscelanea");
+        }
+
+        //strict compare => tipo y valor
+        if (478 === "478") {
+            console.log("valor y tipo");
+            } else {
+                console.log("valor pero no en tipo");
+            }        
+
+        let age = 3;
+        var edat = 9;
+
+        if (1 == 1) {
+            let age = 5;
+            var edat = 67;
+        } else { 
+            let age = 8;
+            var edat = 156;
+        }
+
+        console.log(age); //3
+        console.log(edat); //67
+
+
+    
+
+    </script>
+    
+</body>
+</html>

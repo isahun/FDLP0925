@@ -67,3 +67,20 @@ function calcDish() {  //he d declarar les funcions dins o fora? best practice?
 
 }
 
+/*ALTERNATIVES DE SOLUCIÓ
+1.
+switch(true) {
+    case (plat == "1" && pref == "1"):
+        message = "No pots menjar el plat"}
+
+2.
+let aEvaluar = `${plat}_${pref}` //aquí estem posant en un string les dues variables per a que s'evaluin conjuntament
+switch(aEvaluar) {
+    case "1_1" //aquesta es la primera opcio de comparacio combinada
+        mess = "No pots menjar el plat"
+    }
+
+
+
+*/
+
