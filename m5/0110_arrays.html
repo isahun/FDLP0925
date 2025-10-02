@@ -8,13 +8,49 @@
 <body>
     <script>
        // Comencem a parlar d’elements complexes, d’un tipus de dada complexa
-       //Dins de les dades complexes hi ha arrays
-       // una colecció d'elements, un llistat
+       //Dins de les dades complexes hi ha arrays, funcions, objectes...
+       //Un array és una colecció d'elements, un llistat. Els elements d'un array se separen amb comes. S'organitzen per:
+       // POSICIÓ I ÍNDEX
        // let nombreArr = []
 //let nombresArray = new Array() INVESTIGAR
 
-let listaCompra = ["huevos", "cerveza", "arroz", "tomates"];
-let nombreAlumnos = ["Carles", "Oscar", "Lu", "Irenes"]
+let listaCompra = ["huevos", "cerveza", "arroz", "tomates", "pan", "queso", "vino", "servilletas", "cookies", "flan", 1, 2, , 34, 6];
+let nombreAlumnos = ["Carles", "Oscar", "Lu", "Irenes"];
+
+let mixArray = [1, 5, "hola", true, false, ["perro", "gato", "ratón"], 7];//nested array, més avall com recuperar info
+
+console.log(listaCompra);
+console.log(listaCompra[0]); //huevos
+console.log(listaCompra[2]); //"hola"
+
+console.log(listaCompra[5]); //queso, una manera de mostrar l'última posició, pero NOMES VAL quan sabem quantes posicions hi ha
+
+//LONGITUD
+/*
+Arriba un moment q no es eficient anar comptant els elements, si nomes volem saber q passa al final, long -1. Linia 46, flan. 
+No hem hagut d fer res, nomes deixar q l’array segueixi creixent, i ell s’autoregula i s’estructura x saber q sempre anira a pillar l’ultim. 
+Sempre ens dona un càlcul actualitzat en funció dels nous valors que haguem afegit a l’array. 
+*/
+console.log(listaCompra.length); //typeof number
+console.log(listaCompra.length -1); //5 , una altra manera, mateix resultat q adalt pero sempre torna el valor actualitzat
+
+//LENGTH -1
+//Convertim el valor de l’ultim element del array en una variable, primer per veure’l i dp de fer-los servir. 
+//primer referim a lista de la compra.length -1
+
+let delfin = listaCompra.length -1; 
+console.log(delfin);
+
+listaCompra[delfin] //mateix resultat q a les dues lines marcades de dalt
+
+console.log(listaCompra[delfin]);
+console.log(listaCompra[listaCompra.length -1]); //és el mateix d adalt, sense variable
+
+//pàg 115
+
+
+
+
 const studentsName = []
 studentsNames [5] = 'Rosa'
 console.log(studentsNames);
