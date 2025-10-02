@@ -77,40 +77,14 @@ console.log(mixArray[10]); //No existeix la posició, llavors surt Undefined
 //ÍNDEX x(posició, comença de 0), LENGTH x+1 (index màxim +1, comença a 1)
 
 //Ah! Si ens surt undefined, podriem assignar-li un valor? I TANT QUE SI
-mixArray[10] = ‘pepito’ //no hi ha posició 10, afegim a la posició
+mixArray[10] = "pepito" //no hi ha posició 10, afegim a la posició
 console.log(mixArray);
-console.log(mixArray[10]): //Això es pot fer perfectament, i el que fa és omplir de buits si no existeix la posició
+console.log(mixArray[10]); //Això es pot fer perfectament, i el que fa és omplir de buits si no existeix la posició
 mixArray[100] = "Irene" //ara hem fet créixer l'array 100 posicions, les q no tenen data les deixa en blanc
 
 //si fem això es borren les dades de l'array, i s'omple amb 0, un valor truthy
 mixArray.length = 0
 console.log(mixArray);
-
-
-const studentsName = []
-studentsNames [5] = 'Rosa'
-console.log(studentsNames);
-
-const resultdiv = document.getElementById("result");
-
-console.log(studentsNames.length);
-studentsNames.length = 0
-console.log(studentsNames);
-
-console.log(studentsNames.length);
-studentsName [0] = 'Gaston';
-studentsName [1] = 'Marcelo';
-studentsName [2] = 'Enrique';
-studentsName [3] = 'Lucia';
-
-console.log(studentsNames);
-console.log(studentsNames.length);
-
-const index = studentsName.length -1; //x obtenir la ultima posicio
-console.log(studentsNames[index]); 
-
-
-
 
 </script>
 

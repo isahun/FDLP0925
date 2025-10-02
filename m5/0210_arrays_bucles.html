@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+const studentsName = []
+studentsNames [5] = 'Rosa'
+console.log(studentsNames);
+
+const resultdiv = document.getElementById("result");
+
+console.log(studentsNames.length);
+studentsNames.length = 0
+console.log(studentsNames);
+
+console.log(studentsNames.length);
+studentsName [0] = 'Gaston';
+studentsName [1] = 'Marcelo';
+studentsName [2] = 'Enrique';
+studentsName [3] = 'Lucia';
+
+console.log(studentsNames);
+console.log(studentsNames.length); //4
+
+const index = studentsName.length -1; //x obtenir la ultima posicio
+console.log(studentsNames[index]); 
+//si fem console.log(studentsNames[studentsNames.length]) → UNDEFINED
+studentsName[studentsName.length] = "Vanessa"; //no es recomana fer-ho aixi
+
+//Com adalt, EL LENGTH SERVEIX X SABER QUE HI HA A LA ULTIMA POSICIO, 
+//PERO TB PER CREAR UNA NOVA POSICIO AL ARRAY
+studentsName[studentsName.length] = "Oscar";
+console.log(studentsName);
+
+//ARRAYS INDENTATS
+const arrMix = [1, 2, 3, [4, 5, 6 [7, 8, 9]]];
+console.log(arrMix[3]); //[4, 5, 6, [7, 8, 9]]
+console.log(arrMix[3][1]); // 5
+console.log(arrMix[3][3]); // [7, 8, 9]
+console.log(arrMix[3][3][2]); // 9
+
+//Arrays indentats, similar al concepte d hundir la flota, 
+// generem coordenades dins de la memo del PC. Hem vist q aixo del length es 
+// SUUMAMENTE confuso, per aixo es fan necessaris els MÈTODES.
+
+//METODES
+
+studentsName.push("Polina")
+
+
+
+
+    </script>
+</body>
+</html>
