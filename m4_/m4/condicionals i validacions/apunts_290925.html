@@ -9,13 +9,14 @@
 
     <script>
         let numeroFavorito = "2";
+        numeroFavorito = parseInt(numeroFavorito);
 
         switch(numeroFavorito) {
             case 1 :
                 console.log("era el 1");
                 break;
             case 2 :
-                console.log("era el 1");
+                console.log("era el 2");
                 break;
             case 3 :
                 console.log("era el 3");
@@ -38,10 +39,146 @@
         //Quan es important matissar entre els 2 tipus.
 
         //funcions útils
-        //(numeroFavorito.toFixed(4)) --> x limitar parametres numèrics
+        //  variable.toFixed(4) --> NO DESTRUCTIU
+        console.log(numeroFavorito.toFixed(4)); //--> x limitar parametres numèrics
+        
+        // toUpperCase() / toLowerCase() --> NO DESTRUCTIUS
 
+        //let mascota = "Hamster";//encara q fem let mascota = "haMsteR";
+        let mascotaLower = mascota.toLowerCase(); //més net i endreçat posar-ho així, abans del switch
 
+        switch (mascota.toLowerCase()){ //es pot posar aqui o fer una variable com mes avall
+            case "Gato":
+                console.log("Pobre mortal");
+                break;
+            case "Perro":
+                console.log("pesao");
+                break;
+            case "hamster"://amb la primera lletra minuscula
+                console.log("A girar en la rueda")
+                break;
+            default: 
+                console.log("frank de la jungla");
+                break;
+        }        
+        
+        //Amb aquests comandos podem posar tot a majus o tot a minus, sense tocar l’original. 
+        //Aqui nomes li diem COM volem que es vegi a la consola.
+        //Tb ho podem fer en el cas dels strings, per dir q canvii a uppercase o lowercase
+        console.log (mascota.toUpperCase());
+        console.log(mascota.toLowerCase());
+        console.log(mascota);
 
+        //D’aquesta manera uniformitzem tot a maj o minus, preveiem un error humà i ens curem en salut 
+        // amb el (mascota.toLowerCase()) 
+        
+        let mascota = " haMsTer "; //si fem això apareixen els espais
+        mascota = mascota.toLowerCase();
+        console.log(mascota);
+
+        //TRIM .trim() / .trimstart() / .trimend() INVESTIGAR A W3SCHOOLS
+
+        //Si posem el valor de mascota amb espais abans i despres (‘	HamSteR	’), 
+        // en fer console log APAREIXEN ELS ESPAIS, necessitem fer trim, q treu espais del principi i del final:
+
+        mascota = mascota.trim(); //si posem aquesta variable com a parametre del switch ja surt sempre sense espais als costats
+        console.log(mascota);
+
+        //tb els podem combinar
+
+        mascota = mascota.toLowerCase().trim()
+        console.log(mascota);
+
+        //Tb ho podem fer amb el parseInt, de fet ho fem, quan juntem amb altres coses com document i value.
+        mascota = mascota
+                    .toLowerCase()
+                    .trim()
+        
+        parseInt(document.getElementById("value").value); //exemple 
+
+        document.getElementById("text").value.toLowerCase().trim(); //TOT COMBINAT, pero ja es rizar el rizo, 
+        //es una mica embolicat, millor separar si es molt enrevessat, fer-ho pas a pas. com dos linies amunt
+
+        console.log(mascota)
+
+        //RESUM: els condicionals tendeixen al positiu. Tb hem vist q podem fer comparacions més o menys estrictes, 
+        // amb == o ===. Amb switch tenim la mes estricta, compara valor i tipus de dades. Per prevenir el punt de 
+        // diferent tipus de dades tenim el parseInt, etc. 
+        // Els nombres són més concrets, al JuanK li agrada més treballar, son mes facils d convertir. 
+        // Amb els strings hi ha mes marge a error humà, més factors a tenir-ho en compte i a prevenir.
+
+        //Tornan als SWITCH, es poden unificar casos si el resultat és el mateix x tots dos. L’alternativa és la repetició, 
+        // i no tindria sentit, com aquí:
+
+        let tiempo = "sol";
+
+        switch (tiempo) {
+            case "lluvia":
+                console.log("paraguas");
+                break;
+            case "nieve":
+            case "viento": 
+                console.log("abrigo y guantes");
+                break;
+            default:
+                console.log("manga corta");
+                break;
+        }
+
+        //Hem d'UNIFICAR CASOS, seria repetitiu posar:
+           // case "nieve":
+             //   console.log("abrigo y guantes");
+               // break;
+           // case "viento":
+             //   console.log("abrigo y guantes");
+               // break;
+
+        //SOBRE TREBALLAR AMB LA DATA (dins de switch) W3SCHOOL .newDate() https://www.w3schools.com/js/js_date_methods.asp
+        //ex: switch (new Date!).getDay())
+        //Amb new Date() li demanem la data actual, i a partir d’aquí el dia, l’hora, l’any, etc. 
+        // El dia, amb .getDay() ens donara un num entre el 0 i el 6. Sol començar en sunday
+        //Hem fet aquet parèntesi x parlar d’això pk més endavant trobem el punt d’unificació. 
+
+        //Fem servir switch x comparar rangs, com en l’exercici d l’experiència:
+
+        switch (true) {
+            case edad < 20 :
+                console.log("menos de 20");
+                break;
+            case edad > 40 :
+                console.log("mayor de 40");
+                break;
+            default :
+                console.log("entre 20 i 40");
+                break;
+        }
+
+        //SWITCH I CONDICIONALS ANIDATS
+
+        let edad = 2
+
+        switch (true) {
+            case edad < 20 :
+                console.log("menos de 20");
+
+                if (edad < 10) {
+                    console.log("yogurin");
+
+                    switch (edad) {
+                        case 1 : console.log("soy un bebe"); break;
+                        case 2 : console.log("soy un bebé de 2 años"); break;
+                    }
+                } else {
+                    console.log("teen");
+                }
+
+                break;
+            case edad > 40 :
+                console.log("mayor de 40");
+                break;
+            default :
+                console.log("entre 20 i 40");
+        }
 
     </script>
     
