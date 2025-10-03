@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="apunts, arrays, m5, 2 octubre">
+    <meta name="author" content="Irene Sahun">
+    <title>Document</title>
+</head>
+<body>   
+    <script>
+//FOR
+//3 elements:
+        //inici, condició, canvi
+        //1,        10,     increment
+
+//Sintaxi: for() {}
+
+for ( let i = 1; i <= 10; i++ ) {
+    console.log(i);
+    console.log("Debo practicar JS este finde");
+}
+
+for (let i = 5; i > 6; i-- ) { //NO ENTRA AL BUCLE PK i INICIAL NO COMPLEIX LA CONDICIÓ
+    console.log(i);
+    console.log("Debo practicar JS este finde");
+}
+
+for (let i = 0; i <= 20; i += 2) { 
+    console.log(i); //aquí ens dona valors de i de 2 en 2 fins a 20, 
+// pk al fer i += 2 quan i = 20, el seguent valor ja no entra al bucle
+    console.log("mirarse arrays"); //aquí repeteix això i vegades
+}
+
+for (let i = 50; i <= 100; i += 5) {
+    console.log (i);
+}
+
+//a 30 li anem restant a cada volta 3 fins arribar a 3:
+for (let i = 30; i >= 3; i -= 3) {
+    console.log(i);
+}
+
+//taula del 5, fem servir i += 1 enlloc d'i++ perquè així si cal podem canviar l'increment fàcilment
+for (let i = 0; i < 10; i += 1) {
+    console.log(i * 5);
+}
+
+//EXEMPLE DE BUCLE APLICAT A L'ARRAY DEL FILE ANTERIOR studentsNames
+
+const studentsNames = []
+studentsNames [5] = 'Rosa'
+console.log(studentsNames);
+
+const resultdiv = document.getElementById("result");
+
+console.log(studentsNames.length);
+studentsNames.length = 0
+console.log(studentsNames);
+
+console.log(studentsNames.length);
+studentsNames [0] = 'Gaston';
+studentsNames [1] = 'Marcelo';
+studentsNames [2] = 'Enrique';
+studentsNames [3] = 'Lucia';
+studentsNames [4] = 'Irene';
+
+console.log(studentsNames [0]);
+console.log(studentsNames [1]);
+console.log(studentsNames [2]);
+console.log(studentsNames [3]);
+console.log(studentsNames [4]);
+console.log(studentsNames [studentsNames.length -1]); //dirà "Irene", pk això ens torna el valor de l'última posició
+
+//PER SABER LA POSICIÓ DE TOTS ELS ELEMENTS D'UN ARRAY, treu una llista d tots els elements, 
+//amb una linia x la posicio i a sota una amb el nom del valor dins
+
+//inici: 0 (posició en l'array)// final del bucle: studentsNames.length -1//canvi: ++
+    for (let i = 0; i <= studentsNames.length -1; i++) {
+        console.log(i); //amb això treiem L'ÍNDEX ACTUAL, la POSICIÓ dins l'array
+        console.log(studentsNames[i]); //amb això treiem el VALOR que hi ha en aquesta posició
+        
+        //Aqui incloem una condició dins d’un bucle de repeticio, 
+        //en aquet cas q ens ordeni els elements per la primera lletra, i fins i tot
+        // podem connectar accions dins del for, com ara q ho passi tot a minuscula:
+
+        if (studentsNames[i].charAt(0).toLowerCase() == "P") {
+            console.log("Eureka");
+        }
+}
+        //tambe podem ordenar una llista al revés, per ordre invers amb un bucle o amb toReversed()
+        //però amb un BUCLE és més sòlid
+
+        for (let i = studentsNames.length -1; i >= 0; i --) {
+            console.log(i);
+            console.log(studentsNames[i]);
+        }
+        //alternativa, menys clara, només perquè veiem q tb funciona
+        for (let i = studentsNames.length -1; i !== -1; i --) {
+            console.log(i);
+            console.log(studentsNames[i]);
+        }
+
+    </script>
+</body>
+</html>
