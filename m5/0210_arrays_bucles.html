@@ -8,7 +8,7 @@
 <body>
     <script>
 
-const studentsName = []
+const studentsNames = []
 studentsNames [5] = 'Rosa'
 console.log(studentsNames);
 
@@ -19,23 +19,23 @@ studentsNames.length = 0
 console.log(studentsNames);
 
 console.log(studentsNames.length);
-studentsName [0] = 'Gaston';
-studentsName [1] = 'Marcelo';
-studentsName [2] = 'Enrique';
-studentsName [3] = 'Lucia';
+studentsNames [0] = 'Gaston';
+studentsNames [1] = 'Marcelo';
+studentsNames [2] = 'Enrique';
+studentsNames [3] = 'Lucia';
 
 console.log(studentsNames);
 console.log(studentsNames.length); //4
 
-const index = studentsName.length -1; //x obtenir la ultima posicio
+const index = studentsNames.length -1; //x obtenir la ultima posicio
 console.log(studentsNames[index]); 
 //si fem console.log(studentsNames[studentsNames.length]) → UNDEFINED
-studentsName[studentsName.length] = "Vanessa"; //no es recomana fer-ho aixi
+studentsNames[studentsNames.length] = "Vanessa"; //no es recomana fer-ho aixi
 
 //Com adalt, EL LENGTH SERVEIX X SABER QUE HI HA A LA ULTIMA POSICIO, 
 //PERO TB PER CREAR UNA NOVA POSICIO AL ARRAY
-studentsName[studentsName.length] = "Oscar";
-console.log(studentsName);
+studentsNames[studentsNames.length] = "Oscar";
+console.log(studentsNames);
 
 //ARRAYS INDENTATS
 const arrMix = [1, 2, 3, [4, 5, 6 [7, 8, 9]]];
@@ -50,9 +50,86 @@ console.log(arrMix[3][3][2]); // 9
 
 //METODES
 
-studentsName.push("Polina")
+//.push()
+studentsNames.push("Polina")
+//o podem crear una variable amb el nom, pero no cal
+let polina = "Polina";
+studentsNames.push(polina);
+console.log(studentsNames);
 
+//.pop()
+studentsName.pop(); //això borra el valor de l'última posició
+console.log(studentsNames); 
 
+//.unshift()
+studentsNames.unshift(); //això afegeix nous elements al INICI de l'array, i sobreescriu l'array original, és DESTRUCTIU
+console.log(studentsNames);
+
+//.shift()
+studentsNames.shift(); //això elimina el primer element d'un array, és destructiu 
+// el mètode variable.shift() torna l'element eliminat (practicar w3school)
+console.log(studentsNames);
+
+//apunts SPLICE alla hiha materia
+//.splice() X BORRAR COSES
+studentsNames.splice(2, 4)
+console.log(studentsNames);
+
+//.splice() X AGEFINR COSES
+studentsNames.splice(1, 0, polina, "Mar")
+console.log(studentsNames);
+
+//.reverse() CANVIAR L'ORDRE
+studentsNames.reverse() //això canvia l'ordre de la posició dels elements de l'array, és destructiu
+console.log(studentsNames);
+
+//.toReversed() fa el mateix que .reverse() però en un array nou, no destrueix l'original
+//passa el mateix amb sort() i toSorted(), endrecen elements però una destrueix l'original i l'altre no
+console.log(studentsNames.toReversed());
+console.log(studentsNames); //aixi comprovem que no ha destruit l'array original
+
+//.sort() vs .toSorted()
+//apunts material
+const nums = [1, 2, 3, 5000, 6, 34, 67, 3499, 0]
+nums.sort()
+console.log(nums);
+
+//console.log(studentsNames.toSorted(1)); no hem de posar un numero aqui dins, 
+//nomes una funcio d comparacio (com amb sort) o res i ho ordena alfabeticament
+//console.log(studentsNames);
+
+//si li demanem q faci això no ho ordena bé, només ordena segons cada dígit individualment,
+//per fer-ho bé hem de fer: 
+
+// Ordre ascendent
+console.log(nums.toSorted((a, b) => a - b)); 
+// [0, 1, 2, 3, 6, 34, 67, 3499, 5000]
+
+// Ordre descendent
+console.log(nums.toSorted((a, b) => b - a)); 
+// [5000, 3499, 67, 34, 6, 3, 2, 1, 0]
+
+//.toSorted funciona agafant els elements de 2 en 2, i restant-los, començant pel 0 --> a - b:
+    //Si a < b → el resultat és negatiu → a va abans.
+    //Si a > b → el resultat és positiu → b va abans.
+    //Si a === b → resultat 0 → no canvia l’ordre.
+
+//.indexOf() (apunts w3 els tinc) 
+// per demanarli la posicio d un element. Si l’element q li demanem no existeix a l’array ens torna un -1
+
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+let i = fruits.indexOf("watermelon");
+console.log(i);
+
+i = fruits.indexOf("Orange");
+console.log(i);
+//hem definit una variable amb la posició de l'element "Orange" guardada
+fruits.splice(i, 1)
+console.log(fruits); //aquí busquem l'element q ens volem carregar (i) i després ens l'hem carregat
+
+let indexPolina = studentsNames.indexOf("Polina"); //per quan tenim tants elements que no recordem la posició però la volem eliminar
+studentsNames.splice(indexPolina, 1);
+console.log(studentsNames);
 
 
     </script>
