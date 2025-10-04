@@ -20,8 +20,6 @@
         <input type="text" placeholder="Introdueix un nom a la llista" id="nomsId">
         <div id="result"></div> */
 
-
-
 let quantsNoms = parseInt(prompt("Quants noms vols introduir a la llista?"));
 const nomsLlista = [];
 let quinsNoms = "";
@@ -30,30 +28,32 @@ const resultDiv = document.getElementById("result");
 
 
 //validacions
-while (quantsNoms <= 0 || isNaN(quantsNoms)) {
+while (quantsNoms <= 0 || isNaN(quantsNoms)) { //validem amb bucle while per a que mostri error mentre el num sigui 0 o menys, o sigui text
     alert("Introdueix un número major a 0");
-    quantsNoms = parseInt(prompt("Quants noms vols introduir a la llista?"));
+    quantsNoms = parseInt(prompt("Quants noms vols introduir a la llista?")); //tornem a declarar la variable per a que pugui entrar al for seguent, 
+    //on es demana el nom a introduir i s'incorpora a l'array
 }
 
-for (let i = 0; i < quantsNoms; i++) {
-    quinsNoms = prompt("Quins noms vols introduir a la llista?");
-    nomsLlista.push(quinsNoms);
-    console.log(quinsNoms);
+for (let i = 0; i < quantsNoms; i++) { //primer bucle for per recórrer tot el nou array a mida que es vagi formant amb nous inputs gracies al codi de dins
+    quinsNoms = prompt("Quins noms vols introduir a la llista?"); //recollim input string de user
+    nomsLlista.push(quinsNoms); //introduim aquest valor a l'array amb .push()
+    console.log(quinsNoms); //per comprovar que l'array conté tots els inputs que posa l'usuari
 }
 
-const nomsAmbA = [];
+const nomsAmbA = []; //creem un nou array fora del bucle, on guardarem els valors q comencen per A del primer array, si n'hi ha
 
-for (let i = 0; i < nomsLlista.length; i++) {
+for (let i = 0; i < nomsLlista.length; i++) { //tornem a recórrer l'array amb aquest bucle for, aquet cop x filtrar valors q comencen x A
 
-    let firstChar = nomsLlista[i].toLowerCase().charAt(0); //tb nomsLlista[i][0].toLowerCase()
+    let firstChar = nomsLlista[i].toLowerCase().charAt(0); //tb nomsLlista[i][0].toLowerCase(). No podem fer .toLowerCase().charAt() a un array, només a un string
+    //amb aquesta variable firstChar fem possible comparar el primer caràcter de cada valor de l'array original
 
     if (firstChar == "a") {
         nomsAmbA.push(nomsLlista[i]); 
 }
 }
 
-if (nomsAmbA.length > 0) {
-    resultDiv.innerHTML = `La llista inclou només els noms començats per A: <br/> ${nomsAmbA}`;
+if (nomsAmbA.length > 0) { //per mostrar en pantalla només si l'array nomsAmbA conté algun valor en alguna posició
+    resultDiv.innerHTML = `La llista inclou només els noms començats per A: </br> ${nomsAmbA}`;
 } else {
     resultDiv.innerHTML = `La teva llista no inclou cap element començat per A.`;
 }
