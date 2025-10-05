@@ -14,19 +14,18 @@ function calculaSuma() {
     const num1 = parseInt(document.getElementById("num1").value);
     const num2 = parseInt(document.getElementById("num2").value);
     const diferencia = num1 - num2;
+    const primerNum = Math.min(num1, num2);
+    const SegonNum = Math.max(num1, num2);
     let difArray = [];
     const resultDiv = document.getElementById("result");
     const err1 = "Introdueix un nombre"
     let message = "";
 
-    if (isNaN(num1)|| isNaN(num2) || num1 < 0 || num2 < 0) {
+    if (isNaN(num1)|| isNaN(num2)) {
         message = err1;
         resultDiv.innerHTML = message
     }
-
-    if (diferencia<0) {
-
-        for (let i = num1; i <= num2 ; i++ ) {
+        for (let i = primerNum; i <= SegonNum ; i++ ) {
             difArray.push(i);
             }
 
@@ -36,20 +35,6 @@ function calculaSuma() {
             }        
             console.log(difArray);
             console.log("The sum is " + suma); 
-        
-        } else {
-            
-            for (let i= num2; i <= num1 ; i++ ) {
-            difArray.push(i);
-            }
-
-            let suma = 0;
-            for (let i = 0; i < difArray.length; i++) {
-                suma += difArray[i];
-            }        
-            console.log(difArray);
-            console.log("The sum is " + suma); 
-        }
     
     }
 
