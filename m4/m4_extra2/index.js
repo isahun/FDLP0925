@@ -40,54 +40,41 @@
         let eightyTxt = "Vuitanta";
         let ninetyTxt = "Noranta";
 
-
-
-
         //validem
         if (numUser < 0 || numUser > 99) {
             resultDiv.innerHTML = err1;
             return;
         } 
-        
-        
+                
         if (numUser < 10) {
                 switch (numUserUnitats) {
                     case 0:
                         message = zeroTxt;
                         break;
-
                     case 1:
                         message = oneTxt;
                         break;
-
                     case 2:
                         message = twoTxt;
                         break;
-
                     case 3:
                         message = threeTxt;
                         break;
-
                     case 4:
                         message = fourTxt;
                         break;
-
                     case 5:
                         message = fiveTxt;
                         break;
-
                     case 6:
                         message = sixTxt;
                         break;
-
                     case 7:
                         message = sevenTxt;
                         break;
-
                     case 8:
                         message = eightTxt;
                         break;
-
                     case 9:
                         message = nineTxt;
                         break;
@@ -163,7 +150,7 @@
                 if (numUserUnitats !== 0) {
                     if (numUser > 20 && numUser < 30) {
                         message += "-i-";} else { message += " ";
-                            
+
                         }
                     
                     switch(numUserUnitats) {
