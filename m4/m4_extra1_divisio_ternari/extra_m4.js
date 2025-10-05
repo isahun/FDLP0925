@@ -23,32 +23,28 @@ const isMultiple = dividend % divisor === 0;
 const resultDiv = document.getElementById("result");
 const divideResult = dividend / divisor;
 let message = "";
-let isValid = true;
+let isValid = true; //nova variable x separar en blocs validacions i operacions
 const mess1 = "El resultat és " + (divideResult.toFixed(2)) + " i el dividend és múltiple del divisor."; 
 const mess2 = "El resultat és " + (divideResult.toFixed(2)) + " i el dividend NO és múltiple del divisor."; 
 const err1 = "Introdueix un divisor entre 2 i 7";
 const err2 = "Introdueix un nombre."
 
-/*VALIDACIONS sense separar
+/*Validacions i operacions sense separar
 if (isNaN(dividend)||isNaN(divisor)) {
     message = err2;
 } else if (divisor < 2 || divisor > 7) {
-    message = err1;} 
-    
-message = (isMultiple === 0) ? mess1 : mess2 ;
-
+    message = err1;} else {
+        message = (isMultiple === 0) ? mess1 : mess2 ;
 resultDiv.innerHTML = message;
-}*/
+} */
 
 //Validacions separades d'operacions
-
 if (isNaN(dividend)||isNaN(divisor)) {
     message = err2;
     isValid = false;
     } else if (divisor < 2 || divisor > 7) {
     isValid = false;
     message = err1;
-    
 }
 
 //operacions
