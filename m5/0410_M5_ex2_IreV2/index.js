@@ -35,6 +35,8 @@ function calculaSuma() {
             }        
             console.log(difArray);
             console.log("The sum is " + suma); 
+            
+            resultDiv.innerHTML = `La suma dels nombres compresos entre ${num1} i ${num2} és ${suma}.`
     
     }
 
