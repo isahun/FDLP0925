@@ -21,7 +21,7 @@ function calculaSuma() {
     const err1 = "Introdueix un nombre"
     let message = "";
 
-    if (isNaN(num1)|| isNaN(num2)) {
+    if (isNaN(num1) || isNaN(num2)) {
         message = err1;
         resultDiv.innerHTML = message
     }
