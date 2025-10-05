@@ -20,7 +20,7 @@
         <input type="text" placeholder="Introdueix un nom a la llista" id="nomsId">
         <div id="result"></div> */
 
-let quantsNoms = parseInt(prompt("Quants noms vols introduir a la llista?"));
+let quantsNoms = parseInt(prompt("Quants noms vols introduir a la llista?")); //recollir dades amb prompt no input
 const nomsLlista = [];
 let quinsNoms = "";
 let message = "";
