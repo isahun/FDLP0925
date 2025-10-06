@@ -15,7 +15,7 @@ function calculaSuma() {
     const num2 = parseInt(document.getElementById("num2").value);
     const diferencia = num1 - num2;
     const primerNum = Math.min(num1, num2);
-    const SegonNum = Math.max(num1, num2);
+    const segonNum = Math.max(num1, num2);
     let difArray = [];
     const resultDiv = document.getElementById("result");
     const err1 = "Introdueix un nombre"
@@ -25,7 +25,7 @@ function calculaSuma() {
         message = err1;
         resultDiv.innerHTML = message
     }
-        for (let i = primerNum; i <= SegonNum ; i++ ) {
+        for (let i = primerNum; i <= segonNum; i++ ) {
             difArray.push(i);
             }
 
@@ -34,7 +34,7 @@ function calculaSuma() {
                 suma += difArray[i];
             }        
             console.log(difArray);
-            console.log("The sum is " + suma); 
+            console.log("La suma és " + suma); 
             
             resultDiv.innerHTML = `La suma dels nombres compresos entre ${num1} i ${num2} és ${suma}.`
     

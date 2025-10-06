@@ -37,8 +37,9 @@ while (quantsNoms <= 0 || isNaN(quantsNoms)) { //validem amb bucle while per a q
 for (let i = 0; i < quantsNoms; i++) { //primer bucle for per recórrer tot el nou array a mida que es vagi formant amb nous inputs gracies al codi de dins
     quinsNoms = prompt("Quins noms vols introduir a la llista?"); //recollim input string de user
     nomsLlista.push(quinsNoms); //introduim aquest valor a l'array amb .push()
-    console.log(quinsNoms); //per comprovar que l'array conté tots els inputs que posa l'usuari
 }
+
+console.log(quinsNoms); //per comprovar que l'array conté tots els inputs que posa l'usuari
 
 const nomsAmbA = []; //creem un nou array fora del bucle, on guardarem els valors q comencen per A del primer array, si n'hi ha
 
