@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Irene Sahun">
+    <meta name="keywords" content="Mòdul 5, apunts, bucle while i correcció exercicis 1 i 2, 06/10/25 ">
+    <title>Títol del document</title>
+</head>
+<body>
+
+    <script>
+/*
+BUCLES WHILE I DO WHILE: indeterminados
+
+//while vs do - while
+3 elements, igual q FOR:
+    inici   
+    condició
+    canvi */
+
+let i = 0;
+
+while (i < 10) {
+		console.log(i);
+		i++
+}
+//Igual q el for, pero els elements estan en diferents linies. Aquet es l’exemple de w3school, pero tot i q esta en while no serveix x veure un bucle indeterminado, 
+// pero serveix x veure les 3 estructures del for q tb estan presents al while. El pretext d dalt, el de w3schools, amb numeros, sempre ho treballarem amb for.
+
+//Millor exemple x while, el de la pluja:
+
+let lluvia = true //HARDCODEJAT a mas no poder
+while(lluvia==true) {
+	console.log("agafa paraigues");
+
+	lluvia = confirm("sigue lloviendo?");  //li demanem al usuari, pa sortir del bucle, canviem el valor de la variable inicial per a sortir. 
+    // AIXO SI Q ENTRARA A L’EXAMEN FINAL, quan no sabem el final tirem de WHILE. Fins q no trobem aquesta condicio seguirem buscant, amb el bucle while. 
+
+}
+
+//Un altre exemple
+let camiseta = false;
+
+while(!camiseta) {
+	console.log("sigue buscando");
+	camiseta = confirm("la has encontrado?");
+
+}
+
+console.log("La encontre");
+
+
+
+//exemple marcelo
+
+let pwdDDBB = "qwerty" //la que va fer en el seu moment
+//al final venim aqui a afegir una variable comptador: 
+let pwdActual = prompt("Escriba su password")
+let count = 1; //i tb ho afegim a la condicio del while
+let allCorrect = false; //ALTERNATIVA, nova variable q afegim al final, 
+//per l'alternativa de donar missatge si s'encerta
+
+while (pwdDDBB !== pwdActual && count < 3) { 
+	console.log("contraseña invalida");
+	pwdActual = prompt("Escriba su password");
+	
+    //ALTERNATIVA afegida al final, treuriem el console d'eureka, si volem donar un missatge si s'encerta el password:
+    if (pwdDDBB === pwdActual) {
+        allCorrect = true;
+    } //fi d'ALTERNATIVA OPERACIONS
+
+    //llavors despres d afegir variable count = 1, aqui afegim:
+	count++
+}
+
+//O trobo el password d una manera o de l’altra, per tant ara mai es veura eureka x tant, va fora
+console.log("Eureka"); 
+
+
+
+if (allCorrect) { //ALTERNATIVA DISPLAY 
+    console.log("Benvingut");
+}
+
+    </script>
+</body>
+</html>
