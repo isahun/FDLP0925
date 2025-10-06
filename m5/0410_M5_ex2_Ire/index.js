@@ -35,7 +35,8 @@ function calculaSuma() {
                 suma += difArray[i];
             }        
             console.log(difArray);
-            console.log("The sum is " + suma); 
+            //console.log("La suma dona " + suma); 
+            message = "La suma dona " + suma; 
         
         } else {
             
@@ -48,8 +49,11 @@ function calculaSuma() {
                 suma += difArray[i];
             }        
             console.log(difArray);
-            console.log("The sum is " + suma); 
+            //console.log("La suma dona " + suma);
+            message = "La suma dona " + suma; 
         }
+
+        resultDiv.innerHTML = message;
     
     }
 
