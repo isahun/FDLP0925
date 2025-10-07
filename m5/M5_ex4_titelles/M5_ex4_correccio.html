@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="Mòdul5, exercici 4 CORRECCIÓ, bucles i arrays">
+  <meta name="author" content="Irene Sahun">
+  <title>M5 exercici 4, titelles </title>
+</head>
+<body>
+
+<label for="QuantsNens">Escriu quants nens assistiran: </label>
+<input type="number" placeholder="Escriu un número" id="numNens">
+<br>
+<button type="button" onclick="omplirAforament()">Fes clic.</button>
+<div id="result"></div>
+
+<script>
+//demanar edats, quants cops fins arribar a numNens? o cantidad?
+//validar
+
+//diferents maneres
+// comptador <= num
+//comptador > 0 comptador --
+//arrays
+
+function omplirAforament() {
+    //CREAR VARIABLES 
+    const quantsNens = parseInt(document.getElementById("numNens").value);
+    const resultDiv = document.getElementById("result");
+    const err = "Introdueix un nombre vàlid"
+
+    //VALIDACIONS: amb return 
+    if(isNaN(quantsNens) || quantsNens < 1)
+    resultDiv.innerHTML = err;
+    return;
+
+    //CREEM VARIABLES X ACUMULAR VALORS D'INTENTS I EDATS AL BUCLE
+    let comptador = 0;
+    let suma = 0;
+
+    do { //FINS QUE NO ARRIBEM AL BUCLE NO RECOLLIM L'EDAT
+    
+        let edatNens = parseInt(prompt("Introdueix una edat"))
+
+        if (edatNens >= 5 && edatNens < 13 && !isNaN(edatNens)) {
+            comptador ++ //pugem el comptador q ens treurà del bucle si = quantsNens
+            suma += edatNens //per acumular les edats i sumar-les a cada volta
+        }
+
+    } while (comptador < quantsNens)
+
+    average = suma / quantsNens;
+
+    resultDiv.innerHTML = `La mitja d'edat és ${average.toFixed(1)}`
+
+}
+
+</script>
+
+</body>
+</html>
