@@ -26,7 +26,7 @@ function sendNum() {
 let num = null; //x inicialitzar el bucle
 let resultDiv = document.getElementById("result");
 
-let diferencia = 0; 
+let diferencia = null; 
 let message = "";
 const err1 = "Introdueix un nombre entre 1 i 500"
 const mess1 = "Fred, fred, el teu número és més gran";

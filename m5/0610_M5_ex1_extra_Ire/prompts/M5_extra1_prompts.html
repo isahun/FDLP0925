@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Mòdul 5, exercici1 extra, bucles">
+    <meta name="author" content="Irene Sahun">
+    <title></title>
+</head>
+<body>
+    <script>
+
+let num = null;
+const numPC = parseInt(Math.floor(Math.random()*500)+1);
+let message = "";
+const err1 = "Introdueix un nombre entre 1 i 500";
+const mess1 = "Fred, fred, el teu número és més gran";
+const mess2 = "Fred, fred, el teu número és més petit";
+const mess3 = "Tebi, tebi, el teu número és més gran";
+const mess4 = "Tebi, tebi, el teu número és més petit";
+const mess5 = "Calent, calent, el teu número és més gran";
+const mess6 = "Calent, calent, el teu número és més petit";
+const mess7 = "Enhorabona, has encertat el nombre!";
+let userEncert = false;
+
+alert(numPC);
+
+while (!userEncert) {
+    num = parseInt(prompt("Introdueix un nombre entre 1 i 500"))
+
+    if (isNaN(num)|| num < 0 || num > 500) {
+    alert(err1);
+}
+
+    if (!(num === numPC)) {
+        let diferencia = null;
+        if (num > numPC){
+            diferencia = num - numPC
+            if (diferencia < 15) {
+                alert(mess5);
+            } else if (diferencia >= 15 && diferencia < 50) {
+                alert(mess3);
+            } else if (diferencia >= 50) {
+                alert(mess1);
+            } 
+        } else if (numPC > num) {
+            diferencia = numPC - num;
+            if (diferencia < 15) {
+                alert(mess6);
+                } else if (diferencia >= 15 && diferencia < 50) {
+                    alert(mess4);
+                } else if (diferencia >= 50) {
+                    alert(mess2); 
+                }
+            } 
+            
+        } else { 
+                userEncert = true;
+                alert(mess7);
+            }
+    }
+
+    </script>
+</body>
+</html>
