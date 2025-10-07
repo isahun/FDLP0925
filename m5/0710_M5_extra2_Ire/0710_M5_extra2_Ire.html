@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Mòdul 5, exercici extra2, bucles">
+    <meta name="author" content="Irene Sahun">
+    <title>Dibuixar L</title>
+</head>
+<body>
+<div id="result"></div>
+
+<script>
+    //Realitza un programa que pinti la lletra L per pantalla feta amb asteriscs.
+    // El programa demanarà l'altura.
+    // El pal horitzontal de la L tindrà una longitud de la meitat (divisió entera entre 2) de l'altura més un.
+
+    let height = parseInt(prompt("Introdueix una alçada"));
+    const resultDiv = document.getElementById("result");
+    const err1 = "Introdueix una alçada vàlida";
+
+    while (isNaN(height) || height < 1) { 
+        alert(err1)
+        height = parseInt(prompt("Introdueix una alçada"))
+    }
+
+    let long = Math.floor(height / 2 ) + 1;
+    let i = 0;
+
+    for (let i = 0; i < height; i++) {
+        resultDiv.innerHTML += "*" + "<br>"
+    }
+
+    for (let i = 0; i < long; i++) {
+        resultDiv.innerHTML += "*"
+    }
+    
+    //AMB DO WHILE 
+    /*
+    let numAsteriscV = 0; pel bucle do while
+    let numAsteriscH = 0; pel bucle do while
+    
+    do {
+        resultDiv.innerHTML += "*" + "<br>"
+    numAsteriscV ++
+    } while (numAsteriscV < height)
+
+    do {
+            resultDiv.innerHTML += "*"
+            numAsteriscH ++
+        }while (numAsteriscH < long)
+        */
+
+</script>
+</body>
+</html>
