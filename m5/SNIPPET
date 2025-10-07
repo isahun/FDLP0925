@@ -1,0 +1,21 @@
+{
+"HTML Metadata Base": {
+    "scope": "html",
+    "prefix": "ireHTML",
+    "body": [
+"<!DOCTYPE html>",
+"<html lang=\"en\">",
+"<head>",
+"    <meta charset=\"UTF-8\">",
+"    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">",
+"    <meta name=\"keywords\" content=\"Mòdul , exercicis o apunts, temes\">",
+"    <meta name=\"author\" content=\"Irene Sahun\">",
+"    <title>$1</title>",
+"</head>",
+"<body>",
+"  $2",
+"</body>",
+"</html>"],
+"description": "Plantilla HTML mínima funcional"
+}
+}
