@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="author" content="Irene Sahun">
+   <meta name="keywords" content=" ">
+   <title>M5 ex4 bucles</title>
+</head>
+<body>
+
+
+    <!--Fes un programa que demani quants nens i nenes volem introduir per fer una reserva d'una actuació de titelles.
+Un cop sabem el nombre de nens i nenes has de demanar les seves edats. Les edats només poden estar compreses entre 5 i 12 anys, 
+per tant, si en demanar una edat, l'usuari/ària introdueix una que no està en aquest rang, li has de tornar a demanar (fins que introdueixi una correcta).
+Finalment, has de mostrar per pantalla la mitjana d'edats dels nens.-->
+
+<input type="number" placeholder="Introdueix nombre de nens per la reserva" id="numNens">
+<button type="button" value="Fes clic per continuar" onclick="completeReservation()">Fes clic per continuar</button>
+<div id="result"></div>
+
+<script>
+
+// Funció principal: controla tot el procés de la reserva
+function completeReservation() {
+
+//Recollim dades i declarem variables
+const numNens = parseInt(document.getElementById("numNens").value);
+const resultDiv = document.getElementById("result");
+const err1 = "Introdueix un nombre superior a 0."
+const arrNens = [];
+let average = 0; //variable x calcular la mitjana d edats al final
+let suma = 0; //variable x acumular les edats dels nens
+
+//VALIDACIÓ1: nombre de nens: comprovem si nan i que és més gran que 0 o igual, i enviem error
+if (isNaN(numNens) || numNens <= 0) {
+    resultDiv.innerHTML = err1 ;
+    return; //el return després pk sino no es llegeix el missatge d'error
+    }
+
+//Iteració per seguir RECOLLINT EDATS mentre el length de l'array que guarda les edats tingui la longitud de llista introduida al primer pas
+while (arrNens.length < numNens) {
+//RECOLLIM EDATS
+let edatNens = parseInt(prompt("Introdueix una edat entre 5 i 12"));
+
+    while (edatNens < 5 || edatNens > 12) {
+        edatNens=parseInt(prompt("Valor incorrecte. Introdueix una edat entrer 5 i 12")) //prompt per tornar a donar un valor a edatNens        
+    }
+//VALIDACIÓ RANG EDAT UN COP RECOLLIM EL NUMERO
+if (edatNens >= 5 && edatNens < 13 && !isNaN(edatNens)) {
+        arrNens.push(edatNens);
+        }
+    }
+
+//Ara q sabem la longitud del array, és un bucle determinat, un FOR per GUARDAR els valors de les edats a la variable SUMA, per fer l'average després
+for (i = 0; i < arrNens.length; i++) {
+    suma += arrNens[i]   
+}
+
+average = suma / numNens
+
+resultDiv.innerHTML = average.toFixed(2);
+}
+
+
+
+</script>
+
+</body>
+</html>

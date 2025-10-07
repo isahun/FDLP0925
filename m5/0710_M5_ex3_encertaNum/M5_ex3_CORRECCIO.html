@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="Mòdul, exercicis o apunts, temes">
+  <meta name="author" content="Irene Sahun">
+  <title></title>
+</head>
+<body>
+
+    <button type="button" onclick="adivinar()">Adivina el número</button>
+
+    <script>
+        
+function adivinar() {
+    const numPC = Math.floor(Math.random()*10) + 1;
+    let numUser = parseInt(prompt("Escriu un número"));
+    const mess = "try again";
+    const exito = "great, el número elegido es: "
+
+    while (numUser !== numUser) {
+        alert(mess)
+        numUser = parseInt(prompt("Escriu un número"))
+    }
+
+    alert(exito + numPC);
+
+}
+
+    </script>
+
+</body>
+</html>
