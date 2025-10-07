@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+    //FUNCIONS: per fer que un codi es repeteixi quan la cridem
+    //Ex: IVA, x estalviar-nos afegir aixo en tot el sistema, pk necessitem calcular-ho en molts productes (exemple)
+    //En comptes de replicar el codi, criden la mateixa funcio i aquesta retornara el valor calculat.
+    //Va molt be x optimitzar, nomes cal modificar-ho a un lloc per a que apliqui a tot arreu.
+        //Les funcions tenen 2 etapes:
+        // 1. DECLARACIÓ (definim estructura i declarem lògica)
+        // 2. INVOCACIÓ (quan la cridem per a que se'n faci ús)
+
+        saludar(); //aquí la cridem després de definir-la a sota. Només l'hem declarat a sota, aquí la invoquem
+        saludar();
+        saludar(); //com podem cridar una funció q encaran o s'ha declarat? esta declarada mes a sota
+        //aixo es pk JS de per si es asincrònic, tot s'executa a la vegada, independentment de la seva posició al codi
+        //normalment les funcions pesades s'acostumen a definir a la part de sota, i ames permets q primer s'executi HTML i dp JS, 
+        //aixo permet temps de carrega mes rapid, encara q sigui el loading, pk et posiciona millor, 
+        // sembla q es carregui depressa i els motors de cerca et posicionen be (encara q nomes carregui el LOADING)
+
+        function saludar() {
+            document.write("Hola classe<p>");
+        }
+
+    </script>
+    
+</body>
+</html>

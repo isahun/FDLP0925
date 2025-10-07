@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keyword" content="JS, numero">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+    //Quan l’usuari introdueix un nombre, hem d veure la diferencia (fer un diferencial, sempre que siguin diferents) amb el número del pc: 
+    // si la diferencia entre els dos nombres es 10 o menys, es calent, el nombre es mes gran o mes petit, si es entre 10 i 20, tebi tebi, 
+    // el num es mes gran o mes petit, i mes de 20 fred.  
+    // PISTA (Sabem si es mes gran o petit si el resultat d la resta es positiu)
+
+    //TO DO: variables i prompt: input pel nombre del user, generació pel nombre random, resultats, errors, missatges// lògica amb estructures iteratives (while) q comparin els nombres i tornin missatges       
+        var numUser = null; // inicialitzem amb "null", un valor que no coincideixi amb numPc x garantir q entri al bucle. Si posem 0 i coincideix amb numPc d casualitat, no entrarà al bucle
+        var numPc = parseInt(Math.floor(Math.random()*1000));       
+        alert(numPc) //xivato x saber el numPc i testejar tots els missatges       
+        var userEncert = false; //iniciem amb false per a que entri al bucle       
+        var err1 = "Introdueix un nombre.";
+        var mess1 = "Calent, calent. El nombre que busquem és més petit.";
+        var mess2 = "Calent, calent. El nombre que busquem és més gran.";
+        var mess3 = "Tebi, tebi. El nombre que busquem és més petit.";
+        var mess4 = "Tebi, tebi. El nombre que busquem és més gran.";
+        var mess5 = "Fred, fred. El nombre que busquem és més petit.";
+        var mess6 = "Fred, fred. El nombre que busquem és més gran.";
+        var mess7 = "Enhorabona! Has encertat el nombre!";
+
+        while (!userEncert) {  //aquí diem: mentre el valor d variable sigui FALSE entra al bucle, per aixo li hem donat el valor FALSE al principi, pk garantim q entri,
+        // aqui no estem reassignant, estem preguntant o suposant 
+        //Demanem a l'usuari un nombre
+            numUser = parseInt(prompt("Digues un nombre")); 
+
+        // VALIDACIONS 
+        //si l’usuari deixa el camp en blanc ("") o posa només espais, parseInt("") retorna NaN, així que isNaN(numUser) ja el detecta, no cal afegir (numUser == " ")
+        //isNaN(numUser) cobreix tant text com camps en blanc.
+            if (isNaN(numUser)) {  
+                alert(err1);
+                continue;
+            }
+//comprovo si els 2 nombres son diferents, si són iguals serà l'else del final i es guanya el joc, canvia d valor la variable userEncert a true
+            if (numUser !== numPc) {
+                var diferencia; //la declarem un cop, la inicialitzem tants cops com necessitem dins de la iteració
+                if (numUser > numPc) {
+                    diferencia = numUser - numPc;
+                    if (diferencia <= 10) {
+                        alert(mess1);                        
+                    } else if (diferencia <= 20) {
+                        alert (mess3);
+                    } else {
+                        alert(mess5);
+                    }                    
+                } else { //a aquest else no li queda més remei que ser numUser < numPc perquè està dins de l'if numUser != numPc, no es contempla q siguin iguals, això es per l'últim else  
+                    diferencia = numPc - numUser;
+                    if (diferencia <= 10) {
+                        alert(mess2);                        
+                    } else if (diferencia <= 20) {
+                        alert (mess4);
+                    } else {
+                        alert(mess6);
+                    }  
+                }               
+            } else {
+                alert(mess7);
+                userEncert = true; //IMPORTANTÍSSIM PER SORTIR DEL BUCLE
+            }
+        }
+    </script>
+
+</body>
+</html>

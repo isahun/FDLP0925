@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //Quan l’usuari introdueix un nombre, hem d veure la diferencia (fer un diferencial, sempre que siguin diferents) amb el número del pc:
+        //si la diferencia entre els dos nombres es 10 o menys, es calent, el nombre es mes gran o mes petit, 
+        //si es entre 10 i 20, tebi tebi, el num es mes gran o mes petit, 
+        // i mes de 20 fred. 
+        // (Sabem si es mes gran o petit si el resultat d la resta es positiu) PISTA
+
+
+        //TO DO 
+        //variables: input pel nombre deel user, generació pel nombre random, resultats, errors, missatges
+        //lògica amb estructures condicionals q comparin els nombres i tornin missatges
+
+        var numPc = parseInt(Math.floor(Math.random()*1000));
+       
+        alert(numPc) //xivato x saber el numero d la pàgina i testejar tots els missatges         
+
+        var numUser = parseInt(prompt("Digues un nombre"));        
+        var resultat = " ";
+        var dif = numUser - numPc;
+        var err1 = "Introdueix un nombre.";
+        var mess1 = "Calent, calent. El nombre que busquem és més petit.";
+        var mess2 = "Calent, calent. El nombre que busquem és més gran.";
+        var mess3 = "Tebi, tebi. El nombre que busquem és més petit.";
+        var mess4 = "Tebi, tebi. El nombre que busquem és més gran.";
+        var mess5 = "Fred, fred. El nombre que busquem és més petit.";
+        var mess6 = "Fred, fred. El nombre que busquem és més gran.";
+        var mess7 = "Enhorabona! Has encertat el nombre!";
+
+
+        //validacions
+        if (isNaN(numUser)) {
+            alert(err1);
+        } else if (numUser == " ") {
+            alert(err1);
+        } else { //operacions
+            if ((dif <= 10) && (numUser > numPc)) {
+                alert(mess1);
+            } else if ((dif <= 10) && (numUser < numPc)) {
+                alert(mess2);
+            } else if (((dif > 10) && (dif <= 20)) && (numUser > numPc)) {
+                alert(mess3);
+            } else if (((dif > 10) && (dif <= 20)) && (numUser < numPc)) {
+                alert(mess4);
+            } else if ((dif > 20) && (numUser > numPc)) {
+                alert(mess5);
+            } else if ((dif > 20) && (numUser < numPc)) {
+                alert(mess6);
+            } else {
+                alert(mess7);
+            }
+        }
+
+    </script>
+</body>
+</html>

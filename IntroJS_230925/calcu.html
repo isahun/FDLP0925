@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //constant no modificable
+        var num1 = 2; //podria ser const num1 = 2, seria constant, no canviarà el valor
+        var num2 = 3;
+
+        
+        //operadors d'assignació
+        //num1 = num1 + 2; és el mateix que num1 += 2;
+
+        //num1++; //incrementa una unitat
+
+       num1 = prompt("Digues un nombre");
+       num2 = prompt("digues un altre nombre");
+       
+       //num1 = num1 + 2; --> num1 té dos valors diferents, i es llegeix de dreta a esquerra, a la dreta num1 val 2, a l'esquerra val 4
+       
+       num1 = parseInt (num1); //super important el canvi de tipus, I SABER LES CONSEQÜÈNCIES
+       num2 = parseint(num2)
+        document.write(num1+"<p>");
+        document.write(++num1+num2);
+        document.write("<p>"+num1);
+        document.write(num1 + num2);
+
+        //document.write(num1++ + num2); --> dona 5, perquè
+        //document.write(num1 + <"p">); 
+        //document.write("<p>" + num1); obrim la capsa i preguntem els valors, per saber en quin moment esta el fallo
+        //per què dona 5? farem migas de pan: document.write(num1); per coneixer el valor de num1 i ubicar el problema
+        //pk primer consumeix la variable (QUAN VAL 2) i després fa l'increment, PRO COM K VA DESPRES NO CANVIAVA. 
+        //Aquet operador és dels pocs q es pot emprar de 2 maneres diferents:
+            //posant var++ o ++variable, en fer això document.write(++num1 + num2) (repassar pk no pillo mucho)
+            //x això en els bucles en la primera repetició fa una cosa i a partir d la segona fa una altra
+
+        //26/09/2025 CONDICIONALS AMB AQUET EXEMPLE A UN ALTRE FILE
+
+        
+    </script>
+</body>
+</html>

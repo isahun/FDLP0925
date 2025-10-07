@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+    //FUNCIONS: per fer que un codi es repeteixi quan la cridem
+    //Ex: IVA, x estalviar-nos afegir aixo en tot el sistema, pk necessitem calcular-ho en molts productes (exemple)
+    //En comptes de replicar el codi, criden la mateixa funcio i aquesta retornara el valor calculat.
+    //Va molt be x optimitzar, nomes cal modificar-ho a un lloc per a que apliqui a tot arreu.
+        //Les funcions tenen 2 etapes:
+        // 1. DECLARACIÓ (definim estructura i declarem lògica)
+        // 2. INVOCACIÓ (quan la cridem per a que se'n faci ús)
+        let nom = "Silvia";
+        saludar(nom,8); //aquí la cridem després de definir-la a sota. Només l'hem declarat a sota, aquí la invoquem
+        saludar("Roger",52);
+        saludar("Aura",27); //com podem cridar una funció q encaran o s'ha declarat? esta declarada mes a sota
+        //aixo es pk JS de per si es asincrònic, tot s'executa a la vegada, independentment de la seva posició al codi
+        //normalment les funcions pesades s'acostumen a definir a la part de sota, i ames permets q primer s'executi HTML i dp JS, 
+        //aixo permet temps de carrega mes rapid, encara q sigui el loading, pk et posiciona millor, 
+        // sembla q es carregui depressa i els motors de cerca et posicionen be (encara q nomes carregui el LOADING)
+
+        function saludar(nom,edat){ //si fessim function saludar(nom){} no caldria declarar la variable again dins de la funció
+            //let nom = "Irene"; //aqui tem generant un altra variable amb el mateix valor pero amb un espai de memoria diferent (com dos irenes en dos classes diferents)
+            document.write("El meu nom és " + nom + " i tinc " + edat +" anys" + "<p>");
+        }
+
+        //per vigilar com canvien les variables, HEM DE VIGILAR ELS SCOPES, hem de tenir clar on neix viu i mor una variable,
+        //quin ambit d'actuació té
+
+        //3 normes a complir
+        //1. si desde fora d la funcio s'envia alguna cosa, la funcio ha d esperar rebre algo
+        //2. TIPUS: que la info dels dos costats d la valla sigui en el mateix idioma, meaning q la funcio ha d esperar rebre el mateix tipus de dada que hi ha fora
+        //3. Si passem un string i un number, la funció ha d 'esperar un string i un number. Ex: Si parlo del temps i renfe, s'espera rebre els dos temes en aquests ordre    
+
+        //nota: tal com ho hem fet no esta be, el DOCUMENT.WRITE no es com es fa servir:
+        //En teoria no es poden posar metodes d'entrada dins de la funcio, per la logica del MVC (model, view control). Les funcions han d ser controladors C, 
+        //mai no han d tenir output, ni interactuar amb l'usuari. Les funcions son com "no pensis, executa, no et pago x pensar"
+        //ex: vidrier q posa vidre i li es igual el vehicle. Si la circuiteria esta malament no es problema seu. Si no hi ha vidres al carro, tp es el seu probl.
+
+        //RETURN: permet a la funció tornar la pilota. En fer retorn nomes es permet enviar un element. Molts pocs llenguatges permeten fer multiples retorns (Go i Rust),
+        
+
+    </script>
+    
+</body>
+</html>

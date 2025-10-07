@@ -1,0 +1,155 @@
+PROBLEMES
+1. Realitzar un programa que acumuli (sumi) valors ingressats per teclat fins a ingressar al 9999 (no sumar aquest valor, només indica que ha finalitzat la càrrega). Imprimir el valor acumulat i informar si aquest valor és zero, major a zero o menor a zero.
+2. En un banc es processen dades dels comptes corrents dels seus clients. De cada compte corrent es coneix: número de compte, nom de el client i saldo actual. L'ingrés de dades ha de finalitzar a l'ingressar un valor negatiu en el número de compte.
+Es demana fer un programa que llegeixi les dades dels comptes corrents i informe:
+a) De cada compte: número de compte, nom de el client i estat del compte segons el seu saldo, sabent que:
+Estat del compte 'Creditor' si el saldo és> 0.
+                        'Deutor' si el saldo és <0.
+                        'Nul' si el saldo és = 0.
+b) La suma total dels saldos creditors.
+3. Es va realitzar un cens provincial i es desitja processar la informació obtinguda en aquest cens. De cadascuna de les persones censades es té la següent informació: número de document, edat i sexe ( 'femení' o 'masculí')
+Es demana fer un programa que llegeixi les dades de cada persona censada (per finalitzar ingressar el valor zero en el nombre de document) i informar:
+ 
+a) Quantitat total de persones censades.
+b) Quantitat d'homes.
+c) Quantitat de dones.
+d) Quantitat d'homes que tinguin l'edat entre 16 i 65 anys.
+
+Problema 1.
+
+
+<html>
+<head>
+</head>
+<body>
+
+<script type="text/javascript">
+  var valor;
+  var suma=0;
+  do {
+    valor=prompt('Ingrese un valor (9999 para finalizar)','');
+    valor=parseInt(valor);
+    if (valor!=9999)
+    {
+      suma=suma+valor;
+    }
+  } while(valor!=9999);
+  document.write('Valor acumulado total:'+suma);
+  document.write('<br>');
+  if (suma>0)
+  {
+    document.write('El valor acumulado es mayor a cero');
+  }
+  else
+  {
+    if (suma==0)
+    {
+      document.write('El valor acumulado es cero');
+    }
+    else
+    {
+      document.write('El valor acumulado es menor a cero');
+    }
+  }
+</script>
+
+</body>
+</html>
+     
+
+
+Problema 2.
+
+
+<html>
+<head>
+</head>
+<body>
+
+<script type="text/javascript">
+  var nrocuenta;
+  var nombre;
+  var saldo=0;
+  var saldoacre=0;
+  do {
+    nrocuenta=prompt('Ingrese nro de cuenta:','');    
+    nrocuenta=parseInt(nrocuenta);
+    if (nrocuenta>=0)
+    {
+      nombre=prompt('Nombre del cliente:');
+      saldo=prompt('Saldo actual:','');
+      saldo=parseInt(saldo);
+      if (saldo>0)
+      {
+        saldoacre=saldoacre+saldo;
+        document.write(nombre+' tiene saldo acreedor<br>');
+      }
+      else
+      {
+        if (saldo<0)
+        {
+          document.write(nombre+' tiene saldo deudor<br>');
+        }
+        else
+        {
+          document.write(nombre+' tiene saldo nulo<br>');
+        }
+      }
+      
+    }
+  }while(nrocuenta>0);
+  document.write('Suma total de saldos acreedores:'+saldoacre);
+  
+</script>
+
+</body>
+</html>
+
+
+Problema 3.
+
+
+
+<html>
+<head>
+</head>
+<body>
+
+<script type="text/javascript">
+  var documento;
+  var edad;
+  var totalpersonas=0;
+  var cantvarones=0;
+  var cantmujeres=0;
+  var cantvaronesgrandes=0;
+  do {
+    documento=prompt('Ingrese nro de documento:','');
+    documento=parseInt(documento);
+    if (documento>0)
+    {
+      edad=prompt('Ingrese la edad:','');
+      edad=parseInt(edad);
+      sexo=prompt('Ingrese el sexo (masculino/femenino):','');
+      if (sexo=='masculino')
+      {
+        cantvarones=cantvarones+1;
+        if (edad>=16 && edad<=65)
+        {
+          cantvaronesgrandes=cantvaronesgrandes+1;
+        }
+      }
+      if (sexo=='femenino')
+      {
+        cantmujeres=cantmujeres+1;
+      }
+      totalpersonas=totalpersonas+1;
+    }
+  }while(documento!=0);
+  document.write('Total de personas censadas: '+totalpersonas+'<br>');
+  document.write('Cantidad de varones: '+cantvarones+'<br>');
+  document.write('Cantidad de mujeres: '+cantmujeres+'<br>');   
+  document.write('Cantidad de varones entre 16 y 65 años: '+cantvaronesgrandes+'<br>');   
+</script>
+
+</body>
+</html>

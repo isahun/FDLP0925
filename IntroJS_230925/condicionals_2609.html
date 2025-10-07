@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>  //CONDICIONALS I OPERADORS                           //26/09/2025
+
+        num1 = prompt("digues un nombre");
+        num2 = prompt("digues un altre nombre");
+        
+     if(num1 <= 10 && num1 >= 0) { //pregunta pa chatgpt, si parsegem dins de la funcio, el q hi ha dins del if() es podrar comparar
+        //com a valors numerics?
+        num1 = parseInt(num1); //super important el canvi de tipus, I SABER LES CONSEQÜÈNCIES
+        num2 = parseInt(num2);
+        document.write(num1 + num2); //document.write(++num1 + num2); treiem el ++
+        //document.write(num1 + "<p>");
+        //document.write("<p>" + num1);
+        //document.write(num1 + num2);
+    } else if (num1 < 0) {
+            document.write("Has de dir un nombre positiu");
+    } else if (isNaN(num1)) { //ell ho fa amb (num1 == NaN)
+            document.write("Has d'introduir un caràcter numèric.");
+    } else { //només n'hi ha un, i MAI porta condició
+            document.write("Has de dir un nombre menor o igual a 10");
+    }
+    //si tampoc volem q juguin els negatius, hem d fer VALIDACIONS (afegim && num1 >= 0 a la línia 14 on està l'if)
+    //ara podem afegir else if (q es opcional i en podem posar tants com vulguem), per afegir un missatge personalitzat x cada error, i així millorar UI/UX.
+
+    //OPERADORS CONDICIONALS
+
+    // < >
+    // <= >=
+    // ==
+    // != ojo amb aquet q fan molt la pua a les entrevistes!!
+
+    //ara volem avaluar quan aquest nombre no és un nombre i poder-li dir a l'usuari
+
+    
+    </script>    
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        //exercici concurs super WHILE, però AMB 3 INTENTS, Q també es while     26/09/2025
+
+        var numPc = parseInt((Math.random() * 500) + 1); //de l'1 al 500
+        var numUser = 0;
+        var intents = 3; //per contabilitzar els intents a gastar 
+        
+        
+        alert(numPc); //xivato x saber el nombre guanyador i fer TEST d si surt el missatge, ho hem posat al final, després d'enhorabona
+
+        // while: només necessita un paràmetre pa q es compleixi la condició
+        while((numUser != numPc) && (intents > 0)) { //en aquet cas esta MALAMENT posar el 3 aixi, es un VALOR MAGIC pk no te justificacio, si ve un company no sabra ni q es
+            //aqui haurem de modificar per a limitar a 3 INTENTS, i OJO pk podem caure en un bucle infinit i petar la RAM
+            //com que const = intents és 0, sempre es complirà la condició, HEM DE VIGILAR DE NO DEIXAR-HO AIXÍ PK BUCLE INFINIT
+            numUser = prompt("Digues un nombre entre 1 i 500");        
+
+            if (numUser != numPc) {
+                alert("Número incorrecte");
+                intents ++; //això és el que passara si fallem, que l'intent augmentara 1 (PER TRENCAR EL BUCLE INFINIT), l'increment s'ha de fer aqui sempre
+            } 
+
+        } //la unica possibilitat x la qual trencarem el while sera si és numPc == numUser, i l'alerta la posem FORA DE LA FUNCIÓ, pk si no no es llegiria mai
+
+        
+        if (intents == 3){
+            alert("Has excedit els teus intents.");
+        } else {
+            alert("Enhorabona"); //aixo ho hem de filtrar, si hem sortit pk hem guanyat o pk hem exhaurit els intents
+        }
+    </script>
+    
+</body>
+</html>

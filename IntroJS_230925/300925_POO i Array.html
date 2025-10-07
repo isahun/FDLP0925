@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <!--
+
+    ARRAYS 
+    Hem d'agafar agilitat x entendre posicions vs indexs. Els arrays simples s'autoindexen sols. 
+    Els arrays compostos ens permeten posar indexs personalitzats, en forma d'strings o de numbers.
+
+    Tot i que a JS els arrays ens permeten emmagatzemar dades de diferent tipus, es un ENGANY, l'ordinador no funciona així.    
+    
+    -->
+     <script>
+    
+        let nom = "Silvia";
+        let resposta = saludar(nom,8);
+        let resposta1 = saludar("Roger",52);
+        let resposta2 = saludar("Aura",27);
+
+        let ciutats = ["Saigon", "Hue", "Nha Trang", "Dien Bien Phu", "Sapa"]; //CREEM ARRAY
+        //si li demanem que recuperi un atribut en una posició que no existeix ens torna error OUT OF BOUNCE
+
+        document.write(ciutats[3] + "<p>");
+        //COM eliminem un valor en una posicio?
+        ciutats[3] = "Mui Nhe";
+        document.write(ciutats[3] + "<p>");
+
+
+
+        document.write("El PC ha dit " + resposta + "<p>");
+        document.write("L'Oriol ha dit " + resposta1 + "<p>");
+        document.write("La recepcionista ha dit  " + resposta2 + "<p>");
+
+        function saludar(nom,edat){ 
+            return "Hola classe, El meu nom és " + nom + " i tinc " + edat +" anys." + "<p>";
+        }       
+
+        
+    </script>
+</body>
+</html>

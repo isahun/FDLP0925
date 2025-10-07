@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="POO, exercici banc">
+    <meta name="Author" content="Irene">
+    <title>Document</title>
+    <script src="Client.js"></script>
+
+</head>
+<body>
+    <script>
+        //comencem cridant un objecte, invoquem la classe CLIENT ()
+
+        //var client1 = new Client("Wally",1234); //alies que li donem. Client() és una classe.
+        //si donem f5 ens dirà q no existeix la classe client, ara l'anem a crear
+        //objecte q contingui la classe sempre s'ha de dir igual q la classe
+        //client1.nom = "Nerea"; //venim d js i afegim info //VALE ARA DESPRES DELS SETTERS, VENIM A FER AIXO:
+        //client1.setNom("Nerea"); //despres de fer setters a client.js canviem client1.nom a client1.getNom()
+        //document.write(client1.getNom() + "<p>"); //despres de fer getters a client.js canviem client1.nom a client1.getNom
+        //document.write(client1.toString()); //convertim a string la variable client1
+
+        //ANEM A CREAR LO Q ENS HA PROMES
+
+        var clients = []; //1. creem un array buit
+        var opció = 0; //per defecte 0
+        var respuesta = "";
+        var nom = "";
+        var pin = 0;
+
+
+        //anem a fer una estructura iterativa: DO WHILE, la diferencia amb while es q el codi s'executara almenys una vegada pk evalua la condicio a toro pasado
+
+        do {
+            opcio = parseInt(prompt("Welcome to Ciberbank\n" +
+                "0. Sortir\n" +
+                "1. Crear client\n" +
+                "2. Veure client\n" +
+                "3. Eliminar client" 
+            )); //salts de linia aqui amb \n
+            //ara fem switch PER PODER AVALUAR LA PROPOSTA QUE HA FET L'USUARI
+            switch (opcio){
+                case 1: 
+                //TO DO: ja el seguirem desenvolupant
+                nom = prompt("Digues el nom"); //no tenim la variable q es digui nom, ADALT DE TOT
+                pin = parseInt(prompt("Digues el pin"));//same, hem de crear la variable PIN. Aqui podriem fer parse int pero si el pin fos 0909 en passar a INT es llegiria 909, sense '0'
+                respuesta = crearClient(nom,pin); //creem una funció (q se sol fer en un arxiu apart), per simplificar tot, anem abaix, abans del tancament de l'script
+                    break;
+                case 2:
+                //TO DO 
+                nom = prompt("Digues el nom");
+                respuesta = veureClient(nom);
+                    break;
+                case 3:
+                //TO DO
+                    eliminarClient()
+                    break;
+                case 0:
+                    respuesta = "Adéu Andreu";
+                    break;
+                default:
+                    respuesta = "Opció errònia. Tria una opció entre 0 i 3."; //la variable l'hem de crear adalt, on la resta d variables, anar a l 28
+                    break;
+            }
+
+            //resposta FORA DEL SWITCH
+
+            alert(respuesta);
+        } while(opcio != 0);
+        //com imprimir tots els elements de cop? anem a JS, metodes propis
+
+        function crearClient(nom,pin){ //1. crear client
+            let clientNou = new Client(nom,pin); //ARA HEM GUARDAT L'OBJECTE A LA VARIABLE CLIENTS NOUS, ARA FIQUEM EL valor dins l'array. dins de Client.
+            clients.push(clientNou); //com git, el push, per incloure
+            return "Client " + nom + " creat correctament."
+        }
+        function buscarClient(nom){
+            let idTrobat = -1;
+            let resposta = "";
+            let trobat = false; //s'ha trobat el valor o no? afegim un && a la condició del for, 
+            for(let i = 0; i < clients.length && !trobat; i++){ //i < clients.length, i HA DE SER MENOR A LA QUANTITAT TOTAL D VALORS DINS D L'ARRAY
+                if(clients[i].getNom() == nom){
+                    idTrobat = i; //i ara creem variable idTrobat amb un valor q mai pugui ser part d un array, com -1
+                    trobat = true; //aixi finalitzem el bucle de forma neta
+                }
+            }
+        }
+        
+        function veureClient(nom) { //2. veure client. Ara fem for pk sabem la dimensio de l'array, sabem quantes vegades s'ha d repetir el bucle
+            let idTrobat = -1;
+            let resposta = "";
+            for(let i = 0; i < clients.length; i++){ //i < clients.length, i HA DE SER MENOR A LA QUANTITAT TOTAL D VALORS DINS D L'ARRAY
+                if(clients[i].getNom() == nom){
+                    idTrobat = i; //i ara creem variable idTrobat amb un valor q mai pugui ser part d un array, com -1
+                }
+
+                if(idTrobat == -1){
+                    resposta = "usuari no trobat";
+                } else {
+                    resposta = clients[idTrobat].toString(); //
+                }
+                return resposta;
+
+            }
+
+        }
+
+        function eliminarClient(nom){
+            let resposta = "";
+            let idTrobat = buscarClient(nom);
+
+            if(idTrobat == -1){
+                resposta = "Usuari no trobat";
+            } else { 
+                clients[idTrobat] = "";
+                resposta = "Usuari " + nom + ""
+            }
+
+        }
+
+
+    </script>
+</body>
+</html>

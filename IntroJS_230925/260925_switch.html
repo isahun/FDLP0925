@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //TO DO: Pedra paper i tisora amb l'ordinador
+        //necessitarem una variable per l'input de l'user i una altra pel numero del pc, q sera random
+        //tot i qno hi ha res random en pcs
+
+        //VALIDACIONS: 
+        // que no surti del valor 3, adaptant la funcio Math.random(); amb el *3: var numPc = Math.random() * 3; tornem a la línia 14
+        //ara volem garantir que el terra sigui l'1, ja que el sostre l'hem definit com a 3, ara surten numeros tipo 2.102050360327046, entre 1 i 3: var numPc = (Math.random() * 3) + 1;
+        //ara volem que no hi hagi valors de coma flotant amb el parseInt a tot el que hem fet fins ara  var numPc = parseInt(Math.random() * 3) + 1;
+
+        var numPc = parseInt((Math.random() * 3) + 1); //posem un PUNT entre Math i random pk li estem demanant una funcionalitat concreta de la llibreria MATH, q en conté moltes altres
+        var numUser = 0; //per ser sobreescrit després
+        var opcioPC = " ";//aquestes dues les venim a fer després de la línia 38, de parlar del switch a sota
+        var opcioUser = "";
+        var message = "";
+        
+        //document.write(numPc); //quan llegim en consola apareixen numeros d'aquest tipus 0.24877019523680366, i en fer F5 va canviant, pero sempre es d aquet tipus
+        //x aixo sabem q no es 100% aleatori
+        //si mantenim el document.write, no es veura fins q s'executi tot el codi per sota, no tindriem visibilitat, 
+        //per aixo el canviem x alert, k treballa al mateix nivell q el prompt (finesta emergent)
+
+        alert(numPc);
+
+        numUser = parseInt(prompt("Digues una opció:\n1. Pedra\n2. Paper\n3. Tisores")); //per maquetar amb prompts hem de fer servir caràcters d'escapament. L'equivalent a <br> en caracters d'escapament és \n
+        //pregunta: es el mateix fer tot això a la variable directament? aqui no podem fer el .value pk no son inputs d'html
+        //numUser = parseInt(prompt("Digues una opció:\n" +
+        // "1. Pedra\n" +
+        // "2. Paper\n" +
+        // "3. Tisores")); així es tallen les línies si ens hem passat de llarg
+        
+        //el SWITCH nomes es fa servir quan NOMES TENIM UNA SOLA VARIABLE A AVALUAR i molts valors possibles, assignar un string a cadascuna d les opcions triades (dels valors triats)
+        //SWITCH és molt semblant al if, pero nomes te una variable a analitzar, que és numPc.
+
+        switch (numPc) { //si ho llegim tal qual, de case en case sense break, cada cas va substituint l'anterior, x aixo surt No vàlid.
+            case 1:
+                opcioPC = "Pedra";
+                break;
+            case 2:
+                opcioPC = "Paper";
+                break;
+            case 3:
+                opcioPC = "Tisores";
+                break;
+            default:
+                opcioPC = "No vàlid.";
+        }
+
+        switch (numUser) { //si ho llegim tal qual, de case en case sense break, cada cas va substituint l'anterior, x aixo surt No vàlid.
+            case 1:
+                opcioUser = "Pedra";
+                break;
+            case 2:
+                opcioUser = "Paper";
+                break;
+            case 3:
+                opcioUser = "Tisores";
+                break;
+            default:
+                opcioUser = "No vàlid.";
+            }
+
+
+            //Ara nem a fer un operador ternari, LA RESPOSTA, creem la variable ara
+
+            resposta = ((numPc == 1 && numUser == 3) || (numPc == 2 && numUser == 1) || (numPc == 3 && numUser == 2)) ? "Jo " + opcioPC + " i tu " + opcioUser + ". He guanyat.":
+            "Jo " + opcioPC + " i tu " + opcioUser + ".Has guanyat."; //establim 3 situacions en què guanyem
+            //l'interrogant munta el seguent: vull un string que digui "jo" referintse al PC i concatenarem amb el q ha tret el pc + concatenem amb "i tu" concatenem amb opcio user
+
+            document.write(resposta);
+    
+
+    </script>
+    
+</body>
+</html>

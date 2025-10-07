@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta name="author" content="Irene Sahun">
+   <meta name="keywords" content=" ">
+   <title>M5 ex3 Irene Sahun</title>
+</head>
+<body>
+
+<button type="button" value="Fes clic" onclick="getNumber()">Fes clic per introduir un nombre</button>
+
+ <script>
+
+//Aquesta línia de codi:
+
+//Math.ceil((Math.random() * 10));
+//Retorna un número entre el 1 i el 10 de forma aleatòria.
+//L’exercici consisteix a què l’usuari/ària ha d'endevinar el número escollit aleatòriament pel programa.
+
+//El programa, demana números a l’usuari/ària fins que aquest encerti el número aleatori generat pel programa.
+
+//Un cop l’usuari/ària ha endevinat el número, es mostrarà per pantalla el següent missatge: “Enhorabona, el número era X”.
+
+let num = null;
+const numPC = Math.floor(Math.random()*10)+1;
+const err1 = "Introdueix un nombre entre 1 i 10";
+const mess = "Enhorabona, has encertat el nombre!";
+let userEncert = false;
+
+
+function getNumber() {
+alert(numPC);
+
+while (!userEncert) {
+    
+    num = parseInt(prompt("Introdueix un nombre entre 1 i 10"))
+
+        if (isNaN(num)|| num <= 0 || num > 10) {
+        alert(mess1);
+        }
+
+        if (num !== numPC) {
+            num = parseInt(prompt("Introdueix un nombre entre 1 i 10"))    
+        } else { 
+                userEncert = true;
+                alert(mess);
+            }
+    }
+}
+    </script>
+</body>
+</html>

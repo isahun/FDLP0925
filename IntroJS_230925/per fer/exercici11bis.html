@@ -1,0 +1,250 @@
+Ejercicio11
+
+1. Escriure un programa que llegeixi 10 notes de alumnes i ens informe quants tenen notes majors o iguals a 7 i quants menors.
+2. Es ingressen un conjunt de 5 altures de persones per teclat. Mostra l'altura mitjana de les persones.
+3. En una empresa treballen 5 empleats els sous oscil·len entre € 100 i € 500, realitzar un programa que llegeixi els sous que cobra cada empleat i informe quants empleats cobren entre € 100 i € 300 i quants cobren més de € 300. A més el programa haurà d'informar l'import que gasta l'empresa en sous a el personal.
+4. Realitzar un programa que imprimeixi 20 termes de la sèrie 5 - 10 - 15 - 20, etc. (No s'ingressen valors per teclat)
+5. Mostrar els múltiples de 10 fins al valor 1500.
+Ha d'aparèixer en pantalla 10 - 20 -30 etc.
+6. Realitzar un programa que permeti carregar dues llistes de 3 valors cadascuna. Informar amb un missatge quina de les dues llistes té un valor acumulat més gran (missatges 'Llista 1 major', 'Llista 2 major', 'Llistes iguals')
+Cal tenir en compte que pot haver-hi dos o més estructures repetitives en un algoritme.
+7. Desenvolupar un programa que permeti carregar 5 números sencers i després ens informe quants valors van ser parells i quants imparells.
+Emprar l'operador "%" a la condició de l'estructura condicional.
+        if (valor% 2 == 0)
+L'operador "%" retorna la resta de la divisió valor / 2. Per exemple: 12% 2, retorna 0; 13% 2, retorna 1, perquè la resta de dividir 13 a 2 és 1.
+
+Problema 1.
+
+
+<html>
+<head>
+</head>
+<body>
+
+<script type="text/javascript">
+  var x=0;
+  var cant1=0;
+  var cant2=0;
+  while (x<10)
+  {
+    var nota;
+    nota=prompt('Ingrese nota','');
+    if (nota>=7)
+    {
+      cant1=cant1+1;
+    }
+    else
+    {
+      cant2=cant2+1;
+    }
+    x=x+1;
+  }
+  document.write('Cantidad de alumnos con notas mayores o iguales a 7:'+cant1);
+  document.write('<br>');
+  document.write('Cantidad de alumnos con notas menores a 7:'+cant2);
+</script>
+
+</body>
+</html>
+     
+
+
+Problema 2.
+
+
+<html>
+<head>
+</head>
+<body>
+
+<script type="text/javascript">
+  var x=0;
+  var suma=0;
+  while (x<5)
+  {
+    var altura;
+    altura=prompt('Ingrese la altura en centímetros(Ej. 175)','');
+    altura=parseInt(altura);
+    suma=suma+altura;
+    x=x+1;
+  }
+  var promedio=suma/5;
+  document.write('La altura promedio de las cinco personas es:'+promedio);
+</script>
+
+</body>
+</html>
+     
+
+
+Problema 3.
+
+
+<html>
+<head>
+</head>
+<body>
+
+<script type="text/javascript">
+  var cont1=0;
+  var cont2=0;
+  var total=0;
+  var sueldo;
+  var x=0;
+  while (x<5)
+  {
+    sueldo=prompt('Ingrese el sueldo','');
+    sueldo=parseInt(sueldo);
+    if (sueldo<=300)
+    {
+      cont1=cont1+1;
+    }
+    else
+    {
+      cont2=cont2+1;
+    }
+    total=total+sueldo;
+    x=x+1;
+  }
+  document.write('Cantidad de empleados que cobran 300 o menos:'+cont1);
+  document.write('<br>');
+  document.write('Cantidad de empleados que cobran más de 300:'+cont2);
+  document.write('<br>');
+  document.write('Gastos en sueldos en la empresa:'+total);
+</script>
+
+</body>
+</html>
+     
+
+Problema 4.
+
+
+<html>
+<head>
+</head>
+<body>
+
+<script type="text/javascript">
+  var serie=5;
+  var x=0;
+  while (x<20)
+  {
+    document.write(serie+' ');
+    x=x+1;
+    serie=serie+5;
+  }
+</script>
+
+</body>
+</html>
+
+
+
+Problema 5.
+
+
+<html>
+<head>
+</head>
+<body>
+
+<script type="text/javascript">
+  document.write('Múltiplos de 10 hasta el 1500<br>');
+  var multiplo=10;
+  while (multiplo<=1500)
+  {
+    document.write(multiplo+' ');
+    multiplo=multiplo+10;
+  }
+</script>
+
+</body>
+</html>
+     
+
+
+Problema 6.     
+
+
+<html>
+<head>
+</head>
+<body>
+
+<script type="text/javascript">
+  var total1=0;
+  var x=0;
+  var nro;
+  while(x<3)
+  {
+    nro=prompt('Ingrese valor de la primer lista:','');
+    nro=parseInt(nro);
+    total1=total1+nro;
+    x=x+1;
+  }
+  var total2=0;
+  x=0;
+  while(x<3)
+  {
+    nro=prompt('Ingrese valor de la segunda lista:','');
+    nro=parseInt(nro);
+    total2=total2+nro;
+    x=x+1;
+  }
+  if (total1>total1)
+  {
+    document.write('Tiene mayor valor la lista1');
+  }
+  else
+  {
+    if (total1<total2)
+    {
+      document.write('Tiene mayor valor la lista2');
+    }
+    else
+    {
+      document.write('Tienen el mismo valor acumulado las dos listas');
+    }
+  }
+</script>
+
+</body>
+</html>
+
+
+
+Problema 7.
+
+
+<html>
+<head>
+</head>
+<body>
+
+<script type="text/javascript">
+  var cantpares=0;
+  var cantimpares=0;
+  var x=0;
+  var valor;
+  while (x<5)
+  {
+    valor=prompt('Ingrese un valor','');
+    valor=parseInt(valor);
+    if (valor%2==0)
+    {
+      cantpares=cantpares+1;
+    }
+    else
+    {
+      cantimpares=cantimpares+1;
+    }
+    x=x+1;
+  }
+  document.write('Cantidad de valores pares ingresados:'+cantpares);
+  document.write('<br>');
+  document.write('Cantidad de valores impares ingresados:'+cantimpares);
+</script>
+
+</body>
+</html>

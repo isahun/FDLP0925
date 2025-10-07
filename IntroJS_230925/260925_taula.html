@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        //ESTRUCTURES ITERATIVES PRÀCTICA 26092025
+        //EL FOR és el més tontet de tot, se li ha de dir tot:
+            //la inicialització (amb la variable de control, la qual té com objectiu controlar quants cops es repeteix aquet bucle)
+            //la condició per a que i entri a jugar, 
+            //el comportament d'i en cada iteració (i++)
+            //1a execucio, s'ignora el tercer parametre, a partir de la segona endavant, s'ignora la primera.
+        var taula = 0;
+
+        taula = prompt("Digues la taula?");
+        for (var i = 0; i <= 10; i++) { //genera variable i, i li guarda el valor 0
+            let resultat = taula * i; //creem la variable resultat només la necessitem dins la funció, no la podem crear abans, pk la I nomes la sabem dins de la funció
+            document.write(i + " x " + taula + " = " + resultat + "<br>"); //l'intèrpret en acabar torna a entrar a la condició,
+            //pero entra pel final, ignorant el primer parametre 
+            //let: defineix la visiblitat de la variable alla on esta posada, ell la fa servir. el fa servir dins de la funcio, x tema ambit.
+            //millor crear variables en ambits tancats (let), quantes menys variables globals (var) millor
+        }
+
+        //MVC --> patró de disseny en programar (altres, hexagonal, molecular, etc.) Module + View + Control
+
+        //si fessim això no ens treuria res, pk ha nascut i mort dins de la funció:
+        document.write(i); 
+
+
+
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,53 @@
+<html>
+<head>
+</head>
+<body>
+
+<script type="text/javascript">
+
+var vec=[];
+var valor;
+var indice=0;
+do {
+valor=prompt('Ingrese un valor entero (0 para finalizar)','');
+valor=parseInt(valor);
+if (valor!=0)
+{
+vec[indice]=valor;
+indice++;
+}
+} while (valor!=0);
+var f;
+var suma=0;
+for(f=0;f<vec.length;f++)
+{
+suma=suma+vec[f];
+}
+document.write('Se ingresaron '+vec.length+' valores<br>');
+document.write('La suma de los valores ingresados es:'+suma);
+
+</script>
+
+</body>
+</html>
+
+Definim un vector buit:
+var vec = [];
+Vam crear una estructura repetitiva do / while que s'executarà fins que ingressem a la variable valor el zero:
+do {
+valor=prompt('Ingrese un valor entero (0 para finalizar)','');
+valor=parseInt(valor);
+if (valor!=0)
+{
+vec[indice]=valor;
+indice++;
+}
+} while (valor!=0);
+Cada vegada que ingresem un valor diferent a zero l'hi assignem a una component de el vector i perquè ocupin posicions consecutives definim un comptador anomenat índex que s'inicia a zero previ a l'estructura repetitiva:
+if (valor!=0)
+{
+vec[indice]=valor;
+indice++;
+}
+
+Quan vam sortir de do / while mostrem l'atribut length de el vector i sumem els seus components per mostrar dit acumulador.

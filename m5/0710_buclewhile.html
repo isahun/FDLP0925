@@ -9,5 +9,70 @@
 </head>
 <body>
 
+<script>
+
+//Repas bucles d'ahir 6/10
+
+//bucle determinado: cuando sea mayor i igual a 18 podre responderte
+//bucle indeterminado: 
+
+let access = false
+while (access) {
+	console.log("Tienes que iniciar sesion");
+	access = confirm ("tienes acceso?")
+}
+
+//endevinar paraules amb A
+
+let palabra = "";
+let palabraEncontrada = true //aquet es el punt de control, el que decidira si entrem o no al bucle
+let palabraUser = prompt("Escribe una palabra que empiece por A")
+
+while(palabraEncontrada) {
+
+	if (palabraUser.toLoewrCase().charAt(0) === "a") {
+		palabraEncontrada = false;
+		palabra = palabraUser
+    } else {
+        palabraUser = prompt("Prueba con otra")
+}
+}
+
+//BUCLES DO WHILE
+
+//let lluvia = true 
+//while (lluvia) {
+//    console.log("Lleva paraguas")
+  //  lluvia = confirm("Sigue lloviendo?")
+//}
+
+let lluvia
+
+do {
+    lluvia = confirm("Esta lloviendo?")
+
+    if (lluvia) {
+    console.log("ja ja");
+    }
+
+} while (lluvia) //Si es false NO repetirà el codi, si és TRUE sí que es repeteix
+
+//METODE MATH
+
+Math.floor((Math.random() * 10));
+Math.ceil((0.96 * 10))
+Math.min(3, 8, 1)
+Math.max(3, 8, 1)
+Math.random() //0, 0.
+
+Math.ceil(3.4) // ens acosta al enter més proper, no funciona com redondeo, com el Math.round(), sinó que es queda el numero x sobre si hi ha decimals. Aquí seria el 4
+Math.ceil(6.2)// 7, independentment del punt decimal q tingui, math ceil ho porta al nivell superior
+
+Math.floor(3.4) // 3
+Math.floor(1.8) // 1
+
+Math.round(3.5)// redondea normal, 4
+
+</script>
 </body>
 </html>

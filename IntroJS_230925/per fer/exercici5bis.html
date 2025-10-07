@@ -1,0 +1,61 @@
+PROBLEMES
+1. Es ingressen tres notes d'un alumne, si la mitjana és més gran o igual a set mostrar el missatge 'Promocionat'. Tenir en compte que per obtenir la mitjana hem de operar suma = nota1 + nota2 + Nota3; i després fer mitjana = suma / 3;
+Quan carreguem una nota i volem convertir immediatament el valor ingressat a sencer podem fer:
+nota1 = prompt ( 'Introduïu la primera nota:', '');
+nota1 = parseInt (nota1);
+2. Sol·licitar que s'ingressi dues vegades una clau. Mostra un missatge si són iguals (tenir en compte que per veure si dues variables tenen el mateix valor emmagatzemat hem d'utilitzar l'operador ==)
+
+Problema 1.
+
+
+<html>
+<head>
+</head>
+<body>
+
+<script type="text/javascript">
+  var nota1;
+  var nota2;
+  var nota3;
+  nota1=prompt('Ingrese primer nota','');
+  nota1=parseInt(nota1);
+  nota2=prompt('Ingrese segunda nota','');
+  nota2=parseInt(nota2);
+  nota3=prompt('Ingrese tercer nota','');
+  nota3=parseInt(nota3);
+  var suma;
+  suma=nota1+nota2+nota3;
+  var promedio;
+  promedio=suma/3;
+  if (promedio>=7)
+  {
+    document.write('Promocionado');
+  }
+</script>
+
+</body>
+</html>
+     
+
+
+Problema 2.
+
+
+<html>
+<head>
+</head>
+<body>
+
+<script type="text/javascript">
+  var clave1;
+  var clave2;
+  clave1=prompt('Ingrese una clave:','');
+  clave2=prompt('Repita el ingreso de la clave:','');
+  if (clave1==clave2)
+  {
+    document.write('Ingreso las dos claves iguales');
+  }
+</script>
+
+</body>
+</html>
