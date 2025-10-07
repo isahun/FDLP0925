@@ -14,7 +14,7 @@ function prettyWord() {
     //validacions
     if (!isNaN(word)) return resultParraf.innerHTML = err2; //això és més robust q lo de sota com a validació
     if (typeof word == "number") return resultParraf.innerHTML = err2;
-    if (word == "") return resultParraf.innerHTML = err1; //podriem eliminarla
+    if (word == "") return resultParraf.innerHTML = err1; //podriem eliminarla 
 
     //OPERATE
     //charAt

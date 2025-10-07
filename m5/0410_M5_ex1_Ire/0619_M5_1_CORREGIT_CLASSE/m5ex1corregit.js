@@ -32,7 +32,7 @@ for (let i = 0; i < num; i++) {
         }
     } else {
         i--
-        alert ("És un espai en blanc")
+        alert ("És un espai en blanc") //REVISAR AIXO
     }
 }
 resultDiv.innerHTML = `Els noms que comencen per A són: ${message}`

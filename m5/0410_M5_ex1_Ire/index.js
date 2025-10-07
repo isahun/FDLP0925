@@ -11,14 +11,14 @@
         output per mostrar els noms que comencen per la lletra A
 
         JS 
-        variables (array, numero de noms, nom introduit, missatge, errors)
+        variables (prompts, array, numero de noms, nom introduit, missatge, errors)
         validacions - condicionals
         bucle for per introduir noms al array
         bucle for per mostrar llista de noms de l'array final, i charAt per seleccionar nomes els q comencen x A a la llista final -->
 
-        <input type="number" placeholder="Introdueix quants noms té la teva llista" id="nomsQuants">
-        <input type="text" placeholder="Introdueix un nom a la llista" id="nomsId">
-        <div id="result"></div> */
+        <div id="result"></div>
+        <script src="index.js"></script>
+ */
 
 let quantsNoms = parseInt(prompt("Quants noms vols introduir a la llista?")); //recollir dades amb prompt no input
 const nomsLlista = [];

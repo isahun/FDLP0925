@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Mòdul , exercicis o apunts, temes">
+    <meta name="author" content="Irene Sahun">
+    <title></title>
+</head>
+<body>
+<!--Modifica l'exercici 3 del Mòdul 4.
+Has de demanar paraules fins que tinguis tres boniques. Has d'anar guardant les paraules boniques en un array i 
+quan tinguis les tres, imprimir-les.
+
+TO DO
+variables
+prompts per agafar les paraules
+array 
+bucle x repassar array i guardar paraules fins que n'hi hagi 3
+display
+
+VARIABLES
+paraulaUser = prompt("Introdueix una paraula")
+arrParaules = []
+resultDiv = document.getElementbyId("result")
+-->
+
+<div id="result"></div>
+
+<script>
+    //VARIABLES
+    const arrWords = [];
+    const resultDiv = document.getElementById("result");
+    const err1 = "Has d'introduir una paraula"        
+
+    let numNiceWords = 0; //declarada fora d bucle pk volem mantenir l'estat entre iteracions i q comenci d 0
+
+    //OPERACIONS
+    do { //do while pk volem demanar almenys una paraula abans d comprovar res
+        let wordUser = prompt("Introdueix una paraula");//variable local d bucle pk nomes cal aqui
+        
+        //VALIDEM LA PARAULA RECOLLIDA i repetim prompt fins q sigui vàlida
+        while (!isNaN(wordUser) || wordUser == null || wordUser.trim() === "") { //comprovem NULL (cancel del prompt) ABANS DE TRIM PA K NO PETI
+            //amb wordUser.trim() comprovem q l'usuari no ha introduit nomes espais
+        alert(err1);
+        wordUser = prompt("Introdueix una paraula");
+    }
+        //agafem el primer caràcter de la paraula i el passem a minus i tb agafem length x comparar dp
+        let firstChar = wordUser.charAt(0).toLowerCase();
+        let lengthWord = wordUser.length;
+        //comparem amb condició establerta en ex paraules boniques
+        if (firstChar == "h" && lengthWord == 9 || firstChar == "p" && lengthWord == 5) {
+            arrWords.push(wordUser); //si es compleix, s'afegeix el valor al array
+            numNiceWords ++; //si es compleix, pugem 1 al comptador, per sortir quan sigui 3
+        }
+        console.log(wordUser)//per comprovar les paraules introduides
+        console.log(arrWords)//per comprovar com queda l'array a cada volta
+    } while (numNiceWords < 3)
+
+    //impressió d'array final x consola x confirmar
+    console.log(arrWords);
+    //missatge final
+    resultDiv.innerHTML = `La llista de les teves 3 paraules boniques és: ${arrWords.join(", ")}` //fem arrWords.join(", ") per mostrar-ho més net
+
+
+
+</script>
+
+</body>
+</html>

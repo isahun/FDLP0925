@@ -25,13 +25,13 @@ while (access) {
 //endevinar paraules amb A
 
 let palabra = "";
-let palabraEncontrada = true //aquet es el punt de control, el que decidira si entrem o no al bucle
+let palabraNoEncontrada = true //aquet es el punt de control, el que decidira si entrem o no al bucle
 let palabraUser = prompt("Escribe una palabra que empiece por A")
 
-while(palabraEncontrada) {
+while(palabraNoEncontrada) {
 
-	if (palabraUser.toLoewrCase().charAt(0) === "a") {
-		palabraEncontrada = false;
+	if (palabraUser.toLowerCase().charAt(0) === "a") {
+		palabraNoEncontrada = false;
 		palabra = palabraUser
     } else {
         palabraUser = prompt("Prueba con otra")
