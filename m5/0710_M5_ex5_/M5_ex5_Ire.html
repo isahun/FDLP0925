@@ -42,27 +42,29 @@ resultDiv = document.getElementbyId("result")
         //VALIDEM LA PARAULA RECOLLIDA i repetim prompt fins q sigui vàlida
         while (!isNaN(wordUser) || wordUser == null || wordUser.trim() === "") { //comprovem NULL (cancel del prompt) ABANS DE TRIM PA K NO PETI
             //amb wordUser.trim() comprovem q l'usuari no ha introduit nomes espais
-        alert(err1);
-        wordUser = prompt("Introdueix una paraula");
-    }
+            alert(err1);
+            wordUser = prompt("Introdueix una paraula");
+        }
+
         //agafem el primer caràcter de la paraula i el passem a minus i tb agafem length x comparar dp
         let firstChar = wordUser.charAt(0).toLowerCase();
         let lengthWord = wordUser.length;
-        //comparem amb condició establerta en ex paraules boniques
+
+        //comparem amb condicions establertes en exercici d paraules boniques
         if (firstChar == "h" && lengthWord == 9 || firstChar == "p" && lengthWord == 5) {
             arrWords.push(wordUser); //si es compleix, s'afegeix el valor al array
             numNiceWords ++; //si es compleix, pugem 1 al comptador, per sortir quan sigui 3
         }
+        
         console.log(wordUser)//per comprovar les paraules introduides
         console.log(arrWords)//per comprovar com queda l'array a cada volta
-    } while (numNiceWords < 3)
+    
+    } while (numNiceWords < 3) //condició a trencar x sortir del bucle, a través de numNuceWords++
 
     //impressió d'array final x consola x confirmar
     console.log(arrWords);
     //missatge final
-    resultDiv.innerHTML = `La llista de les teves 3 paraules boniques és: ${arrWords.join(", ")}` //fem arrWords.join(", ") per mostrar-ho més net
-
-
+    resultDiv.innerHTML = `La llista de les teves 3 paraules boniques és: ${arrWords.join(", ")}` //fem arrWords.join(", ") per mostrar-ho més net en llista
 
 </script>
 

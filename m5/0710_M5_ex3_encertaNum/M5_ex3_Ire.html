@@ -29,7 +29,6 @@ const err1 = "Introdueix un nombre entre 1 i 10";
 const mess = "Enhorabona, has encertat el nombre!";
 let userEncert = false;
 
-
 function getNumber() {
 alert(numPC);
 
@@ -44,9 +43,9 @@ while (!userEncert) {
         if (num !== numPC) {
             num = parseInt(prompt("Introdueix un nombre entre 1 i 10"))    
         } else { 
-                userEncert = true;
-                alert(mess);
-            }
+            userEncert = true;
+            alert(mess);
+        }
     }
 }
     </script>
