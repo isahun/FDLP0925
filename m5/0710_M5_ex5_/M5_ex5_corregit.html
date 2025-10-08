@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="Mòdul, exercicis o apunts, temes">
+  <meta name="author" content="Irene Sahun">
+  <title></title>
+</head>
+<body>
+
+<button type="button" onclick="chooseBeautifulWord()">Fes clic</button>
+<div id="result"></div> 
+
+<script>
+//CORRECCIÓ EX5 M5
+
+//3 WORD IN ARRAY
+
+function chooseBeautifulWord() {
+    const result = document.getElementById("result");
+    const limit = 3;
+
+    const arrBeautifulWord = [];
+
+    do {
+        let word = prompt("Introdueix una paraula"); //inici
+        
+        //validacions dins del bucle pk és on recollim les dades,
+        // i volem q es validin cada volta
+
+        if(!isNaN(word) || word === "") {
+            alert("Introdueix una paraula.")
+        }
+
+        if (word.length == 9 && word.toLowerCase().charAt(0) === "h" ||
+        word.length == 5 && word.toLowerCase().charAt(0) === "p") {
+            arrBeautifulWord.push(word) //canvi
+            //continue //en una versio li posa aqui, sense afectar res mes, com q salta linia?
+        }
+
+
+    } while (arrBeautifulWord.length < limit) //condició
+
+    console.log(arrBeautifulWord);
+
+    result.innerHTML = `Les paraules boniques que has posat són: <br> 
+                            ${arrBeautifulWord.join("<br>")}` //detalls com br pel display
+
+}
+</script>
+</body>
+</html>

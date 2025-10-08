@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="Mòdul5 i comencem 6, apunts, temes bucles i funcions">
+  <meta name="author" content="Irene Sahun">
+  <title></title>
+</head>
+<body>
+    <input type="number" placeholder="Introdueix un numero" id="num">
+    <button type="button" onclick="letstart()">Fes clic per començar</button>
+    <div id="result"></div>
+
+<script>
+letstart() //Com q llegeix en ordre vertical, que passa si invoquem la funció abans que existeixi? 
+// Com que és el q s'anomena funcions declarades, reserva espai en memoria d totes 
+// les funcions, fa una 2a lectura x llegir les invocacions. En aquet cas no dona error.
+//La contrapartida de les funcions declarades són les funcions expressades (arrowfunct, etc.)
+//l'ordre en q invoquem les funcions determina l'ordre jerarquic en q es llegiran
+
+
+function letstart() {
+
+    const result = document.getElementById("result");
+    const numInput = parseInt(document.getElementById("num").value);
+
+    console.log(numInput);
+    alert(numInput) //aquestes 2 tb son funcions, dins d una funcio gran
+    result.innerHTML = "hola"
+
+    const messageUser = prompt ("que tal?")
+}
+
+function letContinuous() {
+    console.log("Hola classe");
+    console.log("29"-10);
+}
+
+letstart()
+letContinuous()
+
+//Amb paràmetres: Té variable entre parèntesis, entrelazado cuántico
+function saludar(message) { //en invocar tb haura de portar el parameter, es allo q volem q es vegi en la consola.
+	console.log(message);
+}
+saludar("Se está entendiendo?")
+saludar("te gusta JS?")
+
+//Sense paràmetres: No té variable entre parèntesis:
+function saludar2() {
+	console.log("HolaClasse")
+}
+
+//copiat tot lo de dalt
+
+function withReturn() {
+	let suma = 2+3
+	return suma //tornem aquest valor PERÒ NO L’ESTEM IMPRIMINT
+	}
+
+    console.log(withReturn());
+
+function validateData(dataUser) { //surt undefined si no hi ha claudators
+    //numero negatiu
+    //new boolean var = si dataUser es un numero i que sigui major q 0
+    console.log(dataUser);
+    console.log(dataUser > 0);
+    console.log(!isNaN(dataUser));
+    
+	let booleanVar = !isNaN(dataUser) && dataUser > 0  //si volem validar un nombre, ens dira T o F
+	return booleanVar 
+    
+    } //li hem de posar per tornar la info, no imprimir
+    
+    console.log(validateData(8)); // Anem canviant el número del parametre per veure com aplica la funcio als valors q vulguem
+    console.log(validateData(-8));
+    console.log(validateData());
+
+    //un altre exemple amb arrays
+
+    const arrNums = [1, 2, 3, 4, 5, 6];
+    let eliminado = arrNums.pop() //elimina
+    console.log("eliminado: " + eliminado);
+
+    arrNums.join();
+    arrNums.join("<br>");
+    arrNums.join("*****")
+    
+
+
+
+</script>
+
+
+</body>
+</html>
