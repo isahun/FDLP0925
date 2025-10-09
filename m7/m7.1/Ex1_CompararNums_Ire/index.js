@@ -49,11 +49,10 @@ if ((num1 === num2) && (num1 == num3)) {
                 message = `El nombre més petit és ${num2}, i ${num1} i ${num3} són més grans però iguals entre si.`
                 } else if (dif12 === 0) {
                     message = `El nombre més petit és ${num3}, i ${num1} i ${num2} són més grans però iguals entre si.`
-                } 
-                else if (dif23 !== 0) {
-                    message = `El nombre més gran és ${num1} i el més petit és ${numLow}.`
-                }
-            break;
+                    } else if (dif23 !== 0) {
+                        message = `El nombre més gran és ${num1} i el més petit és ${numLow}.`
+                    }
+        break;
 
         case num2:
             if (dif13 === 0) {
@@ -65,7 +64,7 @@ if ((num1 === num2) && (num1 == num3)) {
                 } else if (dif23 !== 0) {
                     message = `El nombre més gran és ${num2} i el més petit és ${numLow}.`
             }
-            break;
+        break;
         
         case num3:
             if (dif13 === 0) {
@@ -77,7 +76,7 @@ if ((num1 === num2) && (num1 == num3)) {
                 } else if (dif23 !== 0) {
                     message = `El nombre més gran és ${num3} i el més petit és ${numLow}.`
             }
-            break;
+        break;
         }
 
 }
