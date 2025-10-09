@@ -3,11 +3,132 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="keywords" content="Mòdul 6, apunts, temes">
+  <meta name="keywords" content="Mòdul 6, apunts, funcions">
   <meta name="author" content="Irene Sahun">
   <title></title>
 </head>
 <body>
-  
+
+<script>
+  //DECLARADES VS EXPRESSADES
+
+  //En les funcions declarades podem preguntar, invocar tants cops com vulguem la funció,
+  //on i quan vulguem.
+
+  function myFirstFunct() {
+    console.log("Hola");
+  }
+
+  //1 declaració
+  //2 invocació
+    // nom funció ()
+    //codi o onclick (hi ha més events)
+    //el que vulguem
+  //exemples de funcions amb q hem treballat
+  //document.getElementById("num");
+  //array methods
+    //pop()
+    //split()
+    //push()
+    //join()
+  //console.log()
+  //window.alert()
+  // Number.isNaN()
+  //Number.parseFloat()
+
+ //FUNCIÓ AMB PARÀMETRES I NO RETURN (con con)
+
+  function withParam(mosca, mantis, cienpies, saltamarti = "jorge") { //asignem argument a parametre4 (posicio 3)
+    //params
+      //n param
+      //separats per comes
+      //si no especifiquem paràmetre, per defecte value = UNDEFINED
+          console.log(mosca, mantis, cienpies, saltamarti);
+          console.log(cienpies);
+    }
+
+    //withParam()
+    //withParam([6,7,8])
+    //withParam("hola")
+    //withParam(645465)
+
+    //FUNCIÓ AMB PARÀMETRES I NO RETURN (con con)
+
+    withParam ("pepe", "juanca", "martin", "hola") // "hola" substitueix al valor q hem posat a saltamarti
+    withParam ("pepe", "juanca", "martin") //ara si no posem res a l'última posició en principi imprimeix el valor assignat x defecte, "jorge".
+    withParam(); //si ara l'invoquem buida només ens torna el nom assignat x defecte a saltamarti, la resta undefined.
+
+//function myFunction(x, y = 10) { //aqui especifiquem un valor. If y is not passed or undefined, then y = 10.
+  //return x + y;
+//} 
+//document.getElementById("demo").innerHTML = myFunction(5); //llavors el q s'imprimirà serà 15, 5 serà el valor de x
+//però si al output posem un altre paràmetre alcostat del 5, on hauria d ser la y, es substitueix pel nou:
+
+//document.getElementById("demo").innerHTML = myFunction(5,5); //ara s'imprimeix 10, s'ha sobreescrit la y.
+
+
+//function withParaWithReturn(num1, num2) {
+  //let suma = num1 + num2
+  //const arrReturn = [true, suma]
+//  return arrReturn //Aqui estem retornant un tipus de dada compostes, un array.
+
+//  suma = 4 + 6
+//  return suma
+//}
+
+function withParaWithReturn() {
+  let suma = num1 + num2
+
+  if (!isNaN(suma)) return null
+
+  return suma
+
+  suma = 4 + 6
+  return suma
+}
+let sumaResult = withParaWithReturn(4, 6)
+console.log(sumaResult);
+
+
+function conconStr(message) { //param: str | return: str
+
+    if (message == " ") return "Invalid values" //validació resposta en blanc
+
+    let longMessage = message + "Classe"
+    return longMessage
+}
+
+let messageToPrint = conconStr("")
+console.log(messageToPrint); //INVALID VALUES
+
+function mayor10 (num) {
+ // let esMayor = num > 10
+  return num > 10
+}
+
+console.log(mayor10(8))
+
+
+
+function noParamWithReturn() {
+  //let confirmació = confirm("te gusta programar")
+  // return confirmació
+  return confirm("te gusta programar")
+}
+
+function letValidate() {
+  let numUser = prompt("edad") 
+
+  if (mayor10(numUser)) return console.log ("too old");
+
+  console.log("Necesitas el permiso de tus papis");
+
+  let confirmJS = noParamWithReturn() //confirmJS ho detecta java script com a booleà, sap q ve d'un confirm, OK = T, Cancel = False
+
+  confirmJS ? "nice" : "Que penica"; //expressió ternaria si es confirma o no el resultat de la funció citada a la línia de dalt
+
+}
+
+</script>
 </body>
 </html>
