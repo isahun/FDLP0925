@@ -3,11 +3,6 @@
 /*
 Taula de multiplicar. L’usuari/ària introduirà un número (de l'1 al 10) per pantalla, i utilitzant un bucle, el programa li mostrarà la taula de multiplicar d’aquell número. 
     TO DO
-    HTML
-        input pel nombre del user
-        div result
-        botó
-        script
     JS
     variables
         numero
@@ -39,9 +34,9 @@ if (isNaN(numUser)){
     return;
 }
 
-for (let i = 0; i < 10; i++) {
+for (let i = 0; i <= 10; i++) {
     multi = i*numUser;
-    message += numUser + " x " + i + " = " + multi;
+    message += "<br>" + numUser + " x " + i + " = " + multi + "<br>";
 }
 
 resultDiv.innerHTML = message;
