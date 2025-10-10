@@ -10,16 +10,14 @@
 <body>
   <!--Crea un menú que permeti canviar d’unitats:
 
-Passar de metres a peus.
-
-De peus a metres..
-
-De metres a iardes.
-
-De iardes a metres.
+Passar de metres a peus. 1
+De peus a metres.2 
+De metres a iardes.3
+De iardes a metres.4
 
 TO DO
 HTML
+    inputs per nombres (2)
     selects per cada opció 
     div
     botó
@@ -30,9 +28,21 @@ JS
         4 més x cada conversió
         1 switch per cada opció
         display  
-    
     -->
+  <input type="number" placeholder="Introdueix un número" id="num">
+        <select name="Conversions" id="conversion">
+            <option value="0">Tria una conversió</option>
+            <option value="1">De metres a peus</option>
+            <option value="2">De peus a metres</option>
+            <option value="3">De metres a iardes</option>
+            <option value="4">De iardes a metres</option>            
+        </select>  
+        <p></p>
+        <button type="button" onclick="convertNums()">Fes clic per saber el resultat</button>
+        <p></p>
+        <div id="result"> </div>
+        <script src="index.js"></script>   
 
-    <select ></select>
+    
 </body>
 </html>
