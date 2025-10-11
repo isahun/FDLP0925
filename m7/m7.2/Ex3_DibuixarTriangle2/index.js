@@ -20,14 +20,12 @@ Fer un programa on l’usuari/ària introdueix per pantalla un caràcter i un n�
     <script src="index.js"></script>
 */
 
-function drawSquare() {
+function drawInvTriangle() {
 
 const numUser = parseInt(document.getElementById("num").value);
-const charUser = document.getElementById("char").value;
 const resultDiv = document.getElementById("result");
 let message = "";
 const err1 = "Introdueix un nombre";
-const err2 = "Introdueix un caràcter";
 
 //VALIDACIONS
 if (isNaN(numUser) || numUser <= 0) {
@@ -35,41 +33,17 @@ if (isNaN(numUser) || numUser <= 0) {
     return;
 }
 
-if (charUser === "") {
-    resultDiv.innerHTML = err2;
-    return;
-}
-
 //OPERACIONS
+let i = 0; //index q controla el bucle exterior, el q diu quantes files hi haurà (numUser files)
+let j = 0; //index diferent q controla bucle interior i per tant quants asteriscs per fila hi haurà
 
-    for (let i = 0; i < numUser; i++ ) {
-        message += charUser.repeat(numUser) + "\n";
-    }
-
-resultDiv.innerHTML = message;
-
-
-/*
-
-    for (let i = 0; i < numUser; i++ ) {
-        message += "<br>" + "*";
-
-        for (let i = 1; i < numUser; i++ ) {
-        message += "*";
-    }
-    }
-
-    ALTERNATIVA
-    
-//OPERACIONS
-let i = null;
-let j = null;
-
-for (i = 1; i <= numUser; i++) {
-    for (j = 1; j <= numUser; j++) { //si aquí posem j<= i ens treu un triangle, perquè i és un valor variable que depèn del primer bucle, afegirà a mesura que creixi la i
-        message += "*";
+for (i = numUser; i > 0; i--) { //la i defineix les files i parteix de la "base" numUser, pk la volem a la primera linia, i restant 1 a "i" a cada iteració
+    for (j = 1; j <= i; j++) {
+        message += "*"; //afegeix un asterisc a la linia numero "i" a cada iteració (la "i" la defineix el bucle exterior)
     }
     message += "<br>"    
 }
-*/
+
+resultDiv.innerHTML = message;
+
 }
