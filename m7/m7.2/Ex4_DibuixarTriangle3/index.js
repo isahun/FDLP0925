@@ -25,7 +25,7 @@ for (i = 1; i <= numUser; i++) { //la i defineix les files i parteix de la "base
     message += "<br>"    
 }
 
-for (i = numUser-1; i > 0; i--) { //la i defineix les files i parteix de la "base" numUser, pk la volem a la primera linia, i restant 1 a "i" a cada iteració
+for (i = numUser-1; i > 0; i--) { //fem numUser-1 pk l'invertit tingui una fila menys i el triangle final tingui punta
     for (j = 1; j <= i; j++) {
         message2 += "*"; //afegeix un asterisc a la linia numero "i" a cada iteració (la "i" la defineix el bucle exterior)
     }
