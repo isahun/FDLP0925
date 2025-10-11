@@ -30,13 +30,13 @@ if (isNaN(num1) || isNaN(num2) || isNaN(num3)) {
 let dif12 = num1 - num2;
 let dif13 = num1 - num3;
 let dif23 = num2 - num3;
-let numLarge = Math.max(num1, num2, num3);
+let numLarge = Math.max(num1, num2, num3); //per tenir sempre 
 let numLow = Math.min(num1, num2, num3);
 
-if ((dif12 === 0) && (dif23 === 0)) {
+if ((dif12 === 0) && (dif23 === 0)) { //primer l'opcio més restrictiva
     message = "Els tres números són iguals."
 
-        } else if (numLarge === num1) {
+        } else if (numLarge === num1) { //combinacions si num1 és el més gran
             if (dif12 === 0) {
                 message = `${messLower} + ${num3}, i ${num1} i ${num2} ${messSameHigh}`
             } else if (dif13 === 0) {
@@ -47,7 +47,7 @@ if ((dif12 === 0) && (dif23 === 0)) {
                             message = `${messHigher} ${num1} i el més petit és ${numLow}.`
                         }
 
-            } else if (numLarge === num2) {
+            } else if (numLarge === num2) { //combinacions si num2 és el més gran
                 if (dif12 === 0) {
                     message = `${messLower} + ${num3}, i ${num1} i ${num2} ${messSameHigh}`
                     } else if (dif23 === 0) {
@@ -57,7 +57,7 @@ if ((dif12 === 0) && (dif23 === 0)) {
                             } else if (dif13 !== 0) {
                                 message = `${messHigher} ${num2} i el més petit és ${numLow}.`                                    }
 
-                } else if (numLarge === num3) {
+                } else if (numLarge === num3) { //combinacions si num3 és el més gran
                     if (dif13 === 0) {
                         message = `${messLower} + ${num2}, i ${num1} i ${num3} ${messSameHigh}`
                         } else if (dif23 === 0) {
