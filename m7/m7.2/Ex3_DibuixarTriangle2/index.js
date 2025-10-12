@@ -34,8 +34,8 @@ if (isNaN(numUser) || numUser <= 0) {
 }
 
 //OPERACIONS
-let i = 0; //index q controla el bucle exterior, el q diu quantes files hi haurà (numUser files)
-let j = 0; //index diferent q controla bucle interior i per tant quants asteriscs per fila hi haurà
+let i = 0; //index q controla el bucle exterior
+let j = 0; //index q controla bucle interior, quants asteriscs per fila hi haurà
 
 for (i = numUser; i > 0; i--) { //la i defineix les files i parteix de la "base" numUser, perquè en ser invertit la volem a la primera linia, i restant 1 a "i" a cada iteració
     for (j = 1; j <= i; j++) {
