@@ -1,6 +1,4 @@
 "use strict"
-
-
 /*
 Crea un programa que sol·liciti a l'usuari/ària quants noms desitja introduir. Una vegada tenim aquest número, 
     demanarem a l'usuari/ària tants noms de persona com ha dit prèviament i els emmagatzemarem en un Array. 
