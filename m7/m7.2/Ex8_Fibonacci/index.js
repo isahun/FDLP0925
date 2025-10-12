@@ -20,6 +20,7 @@ for (i = numUser; i > 0; i--) { //la i defineix les files i parteix de la "base"
     }
     message += "<br>"    
 }
+Fibo:  Fn = Fn-1 + Fn-2
 */
 
 //VALIDACIONS
@@ -28,18 +29,11 @@ for (i = numUser; i > 0; i--) { //la i defineix les files i parteix de la "base"
     return;
     }
 
-let numAlt = numUser
-let suma = 0;
-let i = 0;
-let j = 0;
+let sumFibo = 0;
 
-    for (i = numAlt; i > 0; i --){
-        i = i-2
-        for (j = 1; j <= i; j++) {
-            message += i;
-        }
-
-        message += ","
+    for (let i = 2; i <= numUser; i ++){
+        sumFibo = (i-2) + (i-1);
+        message += sumFibo + ", ";
     }
 
     resultDiv.innerHTML = message;
