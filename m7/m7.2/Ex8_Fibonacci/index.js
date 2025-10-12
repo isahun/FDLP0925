@@ -1,44 +1,42 @@
 "use strict"
 
-function calcFibonacci() {
-    const numUser = parseInt(document.getElementById("num").value)
-    const resultDiv = document.getElementById("result")
-    const err = "Introdueix un nombre"
-    let message = "";
-
 /* Cada número se calcula sumando los dos anteriores a él.
-el 2 se obtiene sumando los dos números anteriores (1+1),
-el 3 se obtiene sumando los dos números anteriores (1+2),
-el 5 es (2+3),
 Si l’usuari/ària introdueix el 10, el resultat ha de ser:
 0,1,1,2,3,5,8,13,21,34
 
---> 
-for (i = numUser; i > 0; i--) { //la i defineix les files i parteix de la "base" numUser, pk la volem a la primera linia, i restant 1 a "i" a cada iteració
-    for (j = 1; j <= i; j++) {
-        message += "*"; //afegeix un asterisc a la linia numero "i" a cada iteració (la "i" la defineix el bucle exterior)
-    }
-    message += "<br>"    
-}
 Fibo:  Fn = Fn-1 + Fn-2
 */
 
+function calcFibo() {
+    const numUser = parseInt(document.getElementById("num").value)
+    const resultDiv = document.getElementById("result")
+    const err = "Introdueix un nombre"
+    let preVal1 = 1; //valor prefixat de la posició 1 en començar successio (n-1)
+    let preVal2 = 0; //valor prefixat de la posició 0 en començar successió (n-2)
+    let newNum = 0; //el nou valor a cada iteració, és a dir la suma del seu n-1 + n-2
+    let message = `${preVal2}, ${preVal1}, `; //x mantenir el 0 i l'1 a la llista tot i q no surtin del bucle
+
 //VALIDACIONS
-    if (isNaN(numUser)) {
+    if (isNaN(numUser)|| numUser <= 3) {
     resultDiv.innerHTML = err;
     return;
     }
 
-let sumFibo = 0;
+//comencem el bucle en i=2 calculant el nombre en posició 3 a partir del q tenim a les posicions 1 i 2 prefixades i q no podem obtenir dins del bucle (0,1)
 
-    for (let i = 2; i <= numUser; i ++){
-        sumFibo = (i-2) + (i-1);
-        message += sumFibo + ", ";
+    for (let i = 2; i < numUser; i ++){
+        newNum = preVal1 + preVal2; //suma dels dos valors anteriors per obtenir el següent número de la sèrie
+        preVal2 = preVal1; //desplacem el valor (n-1) per convertir-lo en el nou (n-2)
+        preVal1 = newNum; //actualitzem (n-1) amb el nou valor calculat, quan sumPre torni a entrar al bucle ho farà com a n-1
+        
+        if (i !== numUser-1) {
+            message += newNum + ", ";
+                } else {
+            message += newNum
+        }
+        
     }
 
     resultDiv.innerHTML = message;
-
-
-
 
 }
