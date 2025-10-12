@@ -19,7 +19,7 @@ function taskList() {
 
 const userOption = parseInt(document.getElementById("userOption").value);
 const resultDiv = document.getElementById("result");
-const case0 = "Adéu!";
+const err = "Has de triar una opció!";
 const arrTasks = [];
 let message = "";
 
@@ -28,44 +28,55 @@ let rmTaskStr = "";
 let rmTaskInd = "";
 let rmIndOf = "";
 
-while (userOption !== 0) {
-
 switch (userOption) {
     case 0:
-        message = case0;
+        message = err;
         break;
     case 1:
-        let howManyTasks = parseInt("Quantes tasques vols introduir?");
         do {
-            addTaskStr = prompt("Introdueix una tasca:");
-            arrTasks.push(addTaskStr);
-            i ++
-        } while (i < howManyTasks)
+        let howManyTasks = prompt("Quantes tasques vols introduir?");
+        let i = 0;
+        
+            do {
+                addTaskStr = prompt("Introdueix una tasca:");
+                arrTasks.push(addTaskStr);
+                i ++
+            } while (i < howManyTasks)
+
+        } while (howManyTasks !== null || addTaskStr !== null)
         break;
     case 2:
         message = arrTasks.join("<br>");
         break;
     case 3:
-        let howManyRm = parseInt("Quantes tasques vols esborrar?");
-        let rmConfirm = "";
-        do {
-            rmConfirm = confirm("Si vols esborrar per posició: OK. <br> Si vols esborrar per paraula clau: Cancel");
+        do { 
+            let howManyRm = parseInt("Quantes tasques vols esborrar?");       
+            let rmConfirm = "";
+            let j = 0;
 
-            if (rmConfirm) {
-                rmTaskInd = parseInt(prompt("Introdueix la posició de la tasca a esborrar"));
-                arrTasks.splice((rmTaskInd - 1), 1);
-                
-            } else {
-                rmTaskStr = prompt("Introdueix la tasca a esborrar:");
-                rmIndOf = arrTasks.indexOf(rmTaskStr);     
-            }
-        } while (i < howManyRm)
-            
+            do {
+                rmConfirm = confirm("Si vols esborrar per posició: OK. <br> Si vols esborrar per paraula clau: Cancel");
+
+                if (rmConfirm) {
+                    rmTaskInd = parseInt(prompt("Introdueix la posició de la tasca a esborrar"));
+                    arrTasks.splice((rmTaskInd - 1), 1);
+                    
+                } else {
+                    rmTaskStr = prompt("Introdueix la tasca a esborrar:");
+                    rmIndOf = arrTasks.indexOf(rmTaskStr);
+                    arrTasks.splice((rmIndOf), 1);
+                }
+                j++
+
+            } while (j < howManyRm)
+
+        } while (howManyRm !== null)
+
         message = "Tasca esborrada, així queda la teva llista: " + arrTasks.join("<br>")
         
         break;
     }
-}
-resultDiv.innerHTML = message;
+
+    resultDiv.innerHTML = message;
 
 }
