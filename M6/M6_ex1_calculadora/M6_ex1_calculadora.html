@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="Mòdul, exercicis o apunts, temes">
+  <meta name="author" content="Irene Sahun">
+  <title></title>
+</head>
+<body>
+<!--Calculadora arcaica. El programa demana a l’usuari/ària que introdueixi dos números i l’operació que desitja realitzar. 
+
+Cada operació (suma, resta, multiplicació, divisió i mòdul) estarà programada en una funció diferent.-->
+
+<input type="number" placeholder="Introdueix el primer nombre" id="num1">
+<input type="number" placeholder="Introdueix el segon nombre" id="num2">
+<select id="userOperator">
+    <option value="0">Tria un operador</option>
+    <option value="1">Suma</option>
+    <option value="2">Resta</option>
+    <option value="3">Multiplicació</option>
+    <option value="4">Divisió</option>
+</select>
+<p></p>
+<button type="button" onclick="operateNums()">Fes clic per saber el resultat</button>
+<div id="result"></div>
+<script src="index.js"></script>
+
+</body>
+</html>

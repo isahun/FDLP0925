@@ -1,37 +1,51 @@
 "use strict"
 
-function validateData(numNoms) {
-    while (numNoms <= 0 || isNaN(numNoms)) {
-    alert("Introdueix un número major a 0");
-    numNoms = parseInt(prompt("Quants noms vols posar a la llista?"))}
+//VERSIÓ CLASSE
+
+function validate(num) {
+    return isNaN(num) || num <= 0
+} //ens tornarà si és true o false, T 
+
+function printMessage(elementHTML, message) {
+    elementHTML.innerHTML = message;
 }
 
-function printNamesWithA() {
-    let i = 0;
-    for (i = 0; i < numNoms; i++) {
-    quinsNoms = prompt("Quins noms vols introduir a la llista?"); 
-    arrNames.push(quinsNoms); 
+function operate(num) { //aqui va numUser de la funcio addNames()
+    //num fins quant girarem
+    //on guardem la info
     
-    let firstChar = arrNames[i].toLowerCase().charAt(0); 
-    if (firstChar === "a") return arrNames
+    const arrNames = [];
+    const arrNamesWithA = [];
+
+    for (let i = 0; i < num; i++) {
+        let addName = prompt("Escriu un nom");
+
+        if (addName.trim() !== "") {
+            arrNames.push(addName);
+        
+            if (addName.charAt(0).toLowerCase() == "a") {
+                arrNamesWithA.push(addName);
+            }
+        } else { //per evitar que l'user introdueixi entremig dels noms un espai en blanc
+            i--
+            alert ("És un espai en blanc")
+        }
+    }
+
+    return arrNamesWithA
 }
 
-    let firstChar = arrNames[i].toLowerCase().charAt(0); 
-    if (firstChar === "a") return arrNames
+function addNames() {
+        
+    const resultDiv = document.getElementById("result");
+    const numUser = parseInt(document.getElementById("numUser").value);
+    const err = "Valor invàlid."
+
+    if (validate(numUser)) return printMessage(resultDiv, err)
+
+    const resultOperateArray = operate(numUser);
+    const message = `Els noms que comencen per A són: ${resultOperateArray.join(",")}`
+    printMessage(resultDiv, message)
+
 }
-
-const numNoms = parseInt(prompt("Quants noms vols introduir a la llista?"))
-const resultDiv = document.getElementById("result");
-let arrNames = [];
-let quinsNoms = "";
-
-function nameswithA() {
-
-    validateData(numNoms)
     
-    printNamesWithA()
-
-    console.log(printNamesWithA(arrNames))
-
-
-}

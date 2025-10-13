@@ -1,8 +1,16 @@
 "use strict"
+function multipleOperate(num1, num2) {
+     if (num1 % num2 === 0) {
+            return "True"
+        } else {
+            return "False"
+        }
+}
+    
 
-    function isMultiple(num1, num2) {
-        num1 = parseInt(document.getElementById("num1").value);
-        num2 = parseInt(document.getElementById("num2").value);
+function isMultiple() {
+        const num1 = parseInt(document.getElementById("num1").value);
+        const num2 = parseInt(document.getElementById("num2").value);
         let message = "";
         let isMultiple = num1 % num2
         let err = "Introdueix un nombre"
@@ -10,14 +18,7 @@
 
         //VALIDACIONS
         if (isNaN(num1) || isNaN(num2)) return resultDiv.innerHTML = err;
+        
 
-
-        //OPERACIONS
-        if (isMultiple === 0) {
-            message = "True"
-        } else {
-            message = "False"
-        }
-
-        resultDiv.innerHTML = message
+        resultDiv.innerHTML = "Els teus números són múltiples? " + multipleOperate(num1, num2); 
     }
