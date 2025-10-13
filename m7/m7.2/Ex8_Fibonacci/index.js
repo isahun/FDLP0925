@@ -41,3 +41,6 @@ function calcFibo() {
     resultDiv.innerHTML = message;
 
 }
+
+
+
