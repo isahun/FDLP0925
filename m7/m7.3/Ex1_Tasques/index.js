@@ -15,42 +15,52 @@ JS
     o un switch 
 */
 
+/*function validateNumTasks(numTasks) {
+    if (isNaN(numTasks) || numTasks === 0) {
+    resultDiv.innerHTML = err2;
+    return;
+} 
+}*/
+
 function taskList() {
 
 const userOption = parseInt(document.getElementById("userOption").value);
 const resultDiv = document.getElementById("result");
 const err = "Has de triar una opció!";
+const err2 = "Has d'introduir un nombre més gran que 0";
 const arrTasks = [];
 let message = "";
-
+let howManyTasks = 0;
 let addTaskStr = "";
 let rmTaskStr = "";
 let rmTaskInd = "";
 let rmIndOf = "";
+let userExit = false;
 
+while (!userExit) {
 switch (userOption) {
     case 0:
         message = err;
+;
         break;
     case 1:
         do {
-        let howManyTasks = prompt("Quantes tasques vols introduir?");
+        howManyTasks = parseInt(prompt("Quantes tasques vols introduir?"));
         let i = 0;
-        
             do {
                 addTaskStr = prompt("Introdueix una tasca:");
                 arrTasks.push(addTaskStr);
                 i ++
             } while (i < howManyTasks)
 
-        } while (howManyTasks !== null || addTaskStr !== null)
+        } while (addTaskStr != "")
         break;
     case 2:
         message = arrTasks.join("<br>");
         break;
     case 3:
         do { 
-            let howManyRm = parseInt("Quantes tasques vols esborrar?");       
+            let howManyRm = parseInt(prompt("Quantes tasques vols esborrar?"));       
             let rmConfirm = "";
             let j = 0;
 
@@ -73,10 +83,10 @@ switch (userOption) {
         } while (howManyRm !== null)
 
         message = "Tasca esborrada, així queda la teva llista: " + arrTasks.join("<br>")
-        
         break;
     }
-
+    userExit = true;
+}
     resultDiv.innerHTML = message;
 
 }
