@@ -2,7 +2,7 @@
 
 class Client { //per qualsevol llenguatge es important saber: L'ORDRE ES IMPERATIU
     //a les classes no es posa VAR ni LET x declarar variables, ni tampoc el FUNCTION
-    //1. ATRIBUTS
+    //1. ATRIBUTS: característiques que tindrà el client, un nom, un pin un saldo
     nom;
     pin;
     saldo = 0; //un cop tenim això anem al index HTML i li diem document.write(client1.nom).. surt en blanc pk no hem connectat html i js
@@ -19,9 +19,10 @@ class Client { //per qualsevol llenguatge es important saber: L'ORDRE ES IMPERAT
     //CONSTRUCTOR NO ES OBLIGATORI
 
     constructor(nom,pin,saldo){ //(recordem q es una FUNCIO) ara fem cadascuna d assignacions, amb THIS. Amb this el podem treballar on sigui, sense només dins del metode constructor
-        this.nom = nom; //Amb this el podem treballar on sigui, sense només dins del metode constructor.
+        this.nom = nom; //Amb this el podem treballar on sigui, no només dins del metode constructor.
         this.pin = pin;
         this.saldo = 0;}
+
     //3. GETTERS --> micromètodes segmentats x cadascun dels atributs pro tb x cada un dels proposits: quan vulguem obtenir l'atribut nom, farem servir un metode especial
     //  nomes x agafar aquesta info, quan el vulguem sobreescriure, farem un altre metode x sobreescriure. Si fem un get del nom ens toranra el nom sencer. 
     // Com ? Pk tenim el nom guardat en una banda, el primer en una altra i el segon en altre, pro x no exposar la base d dades i les debilitats, 

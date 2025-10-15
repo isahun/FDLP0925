@@ -1,0 +1,74 @@
+<script>
+
+    //OBJECTES LITERALS
+        //tipus de dades complexa
+        //poden incloure qualsevol tipus de dades
+        //té caràcterístiques i pot fer accions
+        //té propietats i mètodes === variables i funcions
+
+        //sintaxis
+
+        const ampolla = {
+            color : "gris",
+            contingut : "aigua",
+            capacitat : "600 ml"
+
+        }
+
+        botella("color") //GETTER 
+        botella.contenido //GETTER dues maneres de llegir la info d'una propietat
+        botella.contenido = "te" //SETTER
+
+        botella["color"]
+        let propiedad = "capacitat"
+        console.log ( botella[propiedad] ) //600
+        propiedad = "color"
+        console.log( botella[propiedad] ) // gris
+        propiedad = "contenido"
+        console.log( botella[propiedad] ) //té
+        
+        //maneres dinàmiques i estàtiques d'anar canviant propietats
+
+const rosa = {
+    nom :  "Rosa",
+    cognom : "Tirado",
+    dni: "12345678A",
+    edat : 35,
+    adreça : {
+        carrer : "de la piruleta",
+        num : 123,
+        poblacio : "Barcelona",
+        porta : 1
+    },
+    casada : false,
+    hobbies : ["musica", "llegir", "muntanyisme", "programació"],
+
+    parlar : function () {
+        console.log("parlar massa");
+    },
+    menjar : function () {
+        console.log("només bledes");
+    }
+}
+
+console.log(rosa.edat); //GETTER, x llegir dades
+rosa.edat = 12 //SETTER, modificar dades
+console.log(rosa.edat); //llegeix again
+
+//MÈTODES
+rosa.parlar()
+rosa.menjar()
+
+//dni
+rosa.dni
+//estat civil
+rosa.casada
+//població
+rosa.adreça.poblacio
+//hobbies: PROGRAMAR
+rosa.hobbies[1]
+
+console.log(rosa);
+console.log(rosa.hobbies[1]);
+
+</script>
