@@ -2,23 +2,20 @@
 
 /*
 <!-- L’usuari/ària ha d’introduir un DNI i el programa ha de dir si la lletra és correcte o no amb el nombre de DNI. 
- Si la lletra no és correcta, ha de dir quina lletra és la correcta.
+Si la lletra no és correcta, ha de dir quina lletra és la correcta.
 Per calcular la lletra DNI has de prendre el número de DNI a verificar i dividir-lo entre 23. 
 La resta es reemplaça per una lletra que ja està assignada a aquest nombre mitjançant la taula adjunta:
 -->
-
-<input type="text" placeholder="Introdueix un número de DNI" id="userDNI">
-<p>Fes clic per saber si la lletra del DNI és correcta:</p>
-<button type="button" onclick="isRightLetterDNI()">Fes clic</button>
-<p></p>
-<div id="result"></div>
-
-<script src="index.js"></script>
 */
-
 
 function validateDNI (userDNI, userDNInum, userDNIletter) {
     return userDNI.trim() == "" ||isNaN(userDNInum) || !isNaN(userDNIletter) //nose pk no funciona .trim() com amb l'anterior
+}
+
+function findEquivalence (letterFix, modulDNI, moduleFix) {
+
+    return letterFix[modulDNI] == letterFix[moduleFix]
+    
 }
 
 function isRightLetterDNI() {
@@ -27,22 +24,27 @@ function isRightLetterDNI() {
     const err = "Has d'introduir un número de DNI"
     let message = ""
 
-    const userDNIletter = [userDNI.split("").splice(-1, 8)]
-    const userDNInum = parseInt(userDNI.splice(0,1));
+    const userDNIletter = [userDNI.split("").splice(-1, 8)] 
+    let userDNInum = userDNI.slice(0,-1) //string
 
-    validateDNI(userDNI, userDNInum, userDNIletter)
+    userDNInum = parseInt(userDNInum); //a num
 
-    const arrDNI = [userDNInum[userDNIletter]]
+    if (validateDNI(userDNI, userDNInum, userDNIletter)) return resultDiv.innerHTML = err; //mirar si va be aixi o cal desplegar i fer innerHTML
 
-//FER SWITCH AMB RESTO I .mathRound per arrodonir el resto %
     let modulDNI = Math.round(userDNInum % 23).toFixed(0);
 
     //fer un array amb les lletres i mirar si amb quina i de l'array coincideix el modul
+    const letterFix = ["T", "R", "W", "A", "G", "M", "Y", "F", "P", "D", "X", "B", "N", "J", "Z", "S", "Q", "V", "H", "L", "C", "K", "E"] //23 lletres
+    const moduleFix = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22] //23 nums
 
+    let isRightLetter = findEquivalence(letterFix, modulDNI, moduleFix);
     
+    if (isRightLetter){
+        message = `La lletra ${userDNIletter} es correspon amb el número de DNI ${userDNInum}.`
+    } else {
+        message = `La lletra ${userDNIletter} NO es correspon amb el número de DNI ${userDNInum}. La lletra correcta és ${letterFix[modulDNI]}`
+        }
 
-
-
-    
+    resultDiv.innerHTML = message;
 
 }
