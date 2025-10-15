@@ -1,12 +1,5 @@
 "use strict"
 
-/*
-<!-- L’usuari/ària ha d’introduir un DNI i el programa ha de dir si la lletra és correcte o no amb el nombre de DNI. 
-Si la lletra no és correcta, ha de dir quina lletra és la correcta.
-Per calcular la lletra DNI has de prendre el número de DNI a verificar i dividir-lo entre 23. 
-La resta es reemplaça per una lletra que ja està assignada a aquest nombre mitjançant la taula adjunta:
--->
-*/
 
 function validateDNI (userDNI, userDNInum, userDNIletter) {
     return userDNI.trim() == "" ||isNaN(userDNInum) || !isNaN(userDNIletter) 
@@ -33,9 +26,9 @@ function isRightLetterDNI() {
 
     let modulDNI = Math.round(userDNInum % 23).toFixed(0);
 
-    //fer un array amb les lletres i mirar si amb quina i de l'array coincideix el modul
-    const letterFix = ["T", "R", "W", "A", "G", "M", "Y", "F", "P", "D", "X", "B", "N", "J", "Z", "S", "Q", "V", "H", "L", "C", "K", "E"] //23 lletres
-    const moduleFix = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22] //23 nums
+    //fer un array amb les lletres i mirar amb quina i de l'array coincideix el modul
+    const letterFix = ["T", "R", "W", "A", "G", "M", "Y", "F", "P", "D", "X", "B", "N", "J", "Z", "S", "Q", "V", "H", "L", "C", "K", "E"] 
+    const moduleFix = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22] 
 
     let isRightLetter = findEquivalence(letterFix, modulDNI, moduleFix);
     
