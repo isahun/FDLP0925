@@ -9,7 +9,7 @@ La resta es reemplaça per una lletra que ja està assignada a aquest nombre mit
 */
 
 function validateDNI (userDNI, userDNInum, userDNIletter) {
-    return userDNI.trim() == "" ||isNaN(userDNInum) || !isNaN(userDNIletter) //nose pk no funciona .trim() com amb l'anterior
+    return userDNI.trim() == "" ||isNaN(userDNInum) || !isNaN(userDNIletter) 
 }
 
 function findEquivalence (letterFix, modulDNI, moduleFix) {
