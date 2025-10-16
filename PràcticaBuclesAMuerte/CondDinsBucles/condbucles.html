@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Mòdul , exercicis o apunts, temes">
+    <meta name="author" content="Irene Sahun">
+    <title></title>
+</head>
+<body>
+
+<!--Escriu un bucle que imprimeixi els números de 1 a 20, 
+però substitueix múltiplos de 3 per "Fizz" i múltiplos de 5 per "Buzz".-->
+<div id="result"></div>
+<button type="button" onclick="fizzNum()">Fes clic</button>
+
+<script>
+function fizzNum() {
+let i = 0;
+let message = "";
+const resultDiv = document.getElementById("result");
+
+while (i < 20) {
+    i++
+    let indexString = "";
+    if (i % 3 === 0) {
+        indexString = "Fizz, ";
+        message += indexString;
+
+    } else if (i % 5 === 0) {
+        indexString = "Buzz, ";
+        message += indexString;
+    } else {
+    message += i + ", ";
+    }
+
+}
+resultDiv.innerHTML = message;
+}
+
+</script>
+
+</body>
+</html>

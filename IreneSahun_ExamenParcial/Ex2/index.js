@@ -14,9 +14,6 @@ function calcMulti () {
         for (let j = 0; j < arrOriginal.length; j++) {
             if (i !== j) { //x multiplicar només si tenen indexs diferents, x deixar fora la posició actual
             // "i" és index de l'element q tem calculant, i "j" del que estem multiplicant al bucle interior
-                if (arrOriginal[j] < 0) {
-                    arrOriginal[j] *= -1
-                }
                 resultMulti *= arrOriginal[j];
             }
         }
