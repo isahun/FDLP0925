@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="Examen Parcial 16/10">
+  <meta name="author" content="Irene Sahun">
+  <title>Ex3</title>
+</head>
+<body>
+  <!--
+  Ajuda a l'àlien a envair la terra. Com?
+Sol·licita a l'usuari un número. A partir d'aquest número construeix un mapa espacial (un quadrat) dins del qual has de crear un camí perquè l'Àlien arribi al tercer planeta al voltant del sol.
+
+En l'html trobaràs un div amb id "route", aquest no ha de ser modificat, i dins trobaràs un div amb id "result" és on desplegaràs l'aplicació
+Dins del JS trobaràs les "const" que has d'usar
+S'adjunta un exemple d'un mapa espacial completat (de 9 línies)-->
+
+ <input type="number" placeholder="Introdueix un número" id="num">
+ 
+    <button type="button" onclick="alienMap()">Fes clic</button>
+    <p></p>
+    <div style="display: flex; justify-content: center;" id="route">
+        <div style="font-size: 30px; ">👽</div>
+        <div id="result" style="line-height: 2;"></div>
+        <div style="display: flex; align-items: flex-end; font-size: 30px;">🌍</div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>

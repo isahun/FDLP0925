@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="Examen Parcial 16/10">
+  <meta name="author" content="Irene Sahun">
+  <title>Ex1</title>
+</head>
+<body>
+<!--Bucle
+Crea dues matrius anomenades array1 i array2.
+Amb un únic bucle for, omple al mateix temps, és a dir, en una sola operació, les dues matrius:
+array1: amb els nombres del 200 al 0 en intervals de 20.
+array2: amb els múltiples de 3 de la sèrie anterior.
+La sortida haurà de ser la següent:
+
+Array1: 200, 180, 160, 140, 120, 100, 80, 60, 40, 20, 0
+Array2: 60, 120, 180 -->
+
+<div id = "result"></div>
+
+<script>
+const array1 = [];
+const array2 = [];
+const resultDiv = document.getElementById("result");
+
+for (let i = 200; i >= 0; i -= 20){
+    array1.push(i)
+
+    if (i % 3 === 0 && i !== 0) {
+        array2.push(i)
+    }
+}
+
+resultDiv.innerHTML = "Array1: " + array1 + "<br>" + "Array2: " + array2.reverse();
+
+</script>
+
+
+</body>
+</html>
