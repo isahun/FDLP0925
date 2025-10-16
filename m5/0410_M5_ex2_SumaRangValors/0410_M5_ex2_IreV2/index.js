@@ -13,7 +13,6 @@ TO DO
 function calculaSuma() {
     const num1 = parseInt(document.getElementById("num1").value);
     const num2 = parseInt(document.getElementById("num2").value);
-    const diferencia = num1 - num2;
     const primerNum = Math.min(num1, num2);
     const segonNum = Math.max(num1, num2);
     let difArray = [];
