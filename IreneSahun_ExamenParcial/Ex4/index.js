@@ -1,14 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="keywords" content="Examen Parcial 16/10">
-  <meta name="author" content="Irene Sahun">
-  <title>Ex4</title>
-</head>
-<body>
-<!-- Estàs desenvolupant un simulador de cursa de cotxes entre dos jugadors. Ambdós cotxes tenen una quantitat de combustible i es mouen una distància aleatòria en cada torn.
+"use strict"
+
+/*
+ Estàs desenvolupant un simulador de cursa de cotxes entre dos jugadors. Ambdós cotxes tenen una quantitat de combustible i es mouen una distància aleatòria en cada torn.
 
 Regles de l'Exercici
 Tant el cotxe del jugador 1 com el del jugador 2 comencen amb una quantitat de combustible.
@@ -35,12 +28,12 @@ Jugador 2 avança 8 unitats. Combustible restant: 87.
 ...
 
 Resultat1: El jugador 1 ha guanyat! o 
-Resultat2: El jugador 2 ha guanyat!-->
+Resultat2: El jugador 2 ha guanyat!
 
-<button type="button" onclick="cursaCotxes()">Fes clic per començar</button>
-<p></p>
-<div id="result"></div>
-<script src="index.js"></script>
+*/
 
-</body>
-</html>
+function cursaCotxes() {
+    const combCar1 = 100;
+    const combCar2 = 100;
+    
+}
