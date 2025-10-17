@@ -11,8 +11,6 @@ function multipleOperate(num1, num2) {
 function isMultiple() {
         const num1 = parseInt(document.getElementById("num1").value);
         const num2 = parseInt(document.getElementById("num2").value);
-        let message = "";
-        let isMultiple = num1 % num2
         let err = "Introdueix un nombre"
         const resultDiv = document.getElementById("result");
 
