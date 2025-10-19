@@ -72,3 +72,171 @@ console.log(rosa);
 console.log(rosa.hobbies[1]);
 
 </script>
+
+<!--
+Apunts POO 15/10
+
+Per visualitzar o no visualitzar un element HTML-->
+
+<input type="text" placeholder="exemple" id="name---user">
+<button type="button" onclick="seVe()">Se ve</button>
+<button type="button" onclick="noSeVe()">No se ve</button>
+
+<script>
+//TO DO LIST
+// CRUD
+    //create
+    //delete
+    //read
+    //update
+
+    function seVe() {
+        const nameUserInput = document.getElementById("name---user");
+        nameUserInput.style.display = "block";
+    }
+
+    function noSeVe() {
+        const nameUserInput = document.getElementById("name---user");
+        nameUserInput.style.display = "none";
+    }
+
+    const irene = {
+        nombres : ["irene", "virginia"],
+        edad : 33,
+        altura : 1.65,
+        hobbies : ["programar", "leer", "hacer fotos"],
+        deporte : false, 
+        familia : {
+            mami : "pepi",
+            papi : "enric",
+            hermana : "cris"
+        }
+    }
+
+        const irene2 = {
+        nombres : ["irene", "virginia"],
+        edad : 33,
+        altura : 1.65,
+        hobbies : ["leer", "hacer fotos"],
+        deporte : false, 
+        familia : {
+            mami : "pepi",
+            papi : "enric",
+            hermana : "cris"
+        }
+    }
+
+        const irene3 = {
+        nombres : ["irene", "virginia"],
+        edad : 31,
+        altura : 1.65,
+        hobbies : ["programar", "hacer fotos"],
+        deporte : true, 
+        familia : {
+            mami : "pepi",
+            papi : "Fernando",
+            hermana : "cris"
+        }
+    }
+
+        const irene4 = {
+        nombres : ["irene", "virginia"],
+        edad : 31,
+        altura : 1.65,
+        hobbies : ["programar", "hacer fotos"],
+        deporte : true, 
+        familia : {
+            mami : "pepi",
+            papi : "enric",
+            hermana : "cris"
+        }
+    }
+
+    //irene deporte
+    irene.deporte //booleà, sortirà false
+
+    const irenes = [irene, irene2, irene3, irene4]
+    irenes[0].deporte
+    irene[1].deporte
+    irene[2].deporte //si fessim irene[3] undefined
+    irene[3].deporte //ara afegim una més
+
+    let ireneDeportiva;
+    let indexIrene;
+    const lineIreneDeportivaArr = [] //x saber quantes irenes son deportivas
+
+    for (let i = 0; i < irenes.length; i++){
+        let ireneActual = irenes[i] //cada iteració
+        //if (ireneActual.edad === 19) { //ens sortirien els 
+        if (ireneActual.deporte === true) {
+            console.log("Almenos 1 irene hace deporte", i);
+            console.log(irene[i]);
+            ireneDeportiva = ireneActual; //objecte
+            indexIrene = i; //numero
+            lineIreneDeportivaArr.push(ireneActual) 
+            //per treure amb for TOTES les irenes q tenen true, q son deportivas, amb lo anterior nomes ens diu sobre la ultima irene
+        } else {
+            console.log("Esta Irene no hace deporte ", i)
+        }
+    }
+    //per imprimir aquesta irene
+    console.log(ireneDeportiva); //obj
+    console.log(irenes[indexIrene]); // array[index] == obj
+    console.log(lineIreneDeportivaArr); //new arr
+
+    //el mateix amb l’edat (adalt), pero aixo es nomes quan ataquem propietat 
+    // al primer nivell. Pero podriem entrar per veure la familia, el pare, 
+    // i trobar la q te el pare diferent.
+
+    const irenes2 = [irene, irene2, irene3, irene4];
+    let ireneFernando = null;
+
+    for (let j = 0; j < irenes2.length; j++){
+
+        if (irene2[j].familia.papi == "Fernando") { //mètode 1
+            ireneFernando = irenes2[j]
+        }
+
+        //mètode 2, hauríem d crear var x ireneActual
+        //if (ireneActual.familia.papi == "Fernando") {}
+    }
+
+    //print fernando e irene
+    console.log(ireneFernando);
+
+    // Ara amb els hobbies, la lectura:
+
+    const irenesLectoras = [];
+    for (let k = 0; k < irenes2.length; k++){
+        const ireneActual2 = irenes2[k];
+
+        if (ireneActual2.hobbies.indexOf("leer") != -1) {
+            irenesLectoras.push(ireneActual2)
+        }
+    }
+
+    //si fem això d dalt ens imprimeix l’objecte sencer, no el nom de l’objecte:
+    console.log(irenesLectoras);
+    
+    //ultim exemple, x saber quantes irenes lectores, necessitem un array
+
+    for (let k = 0; k < irenes2.length; k++){
+        const ireneActual2 = irenes2[k];
+        const ireneActualHobbies = ireneActual2.hobbies
+
+        for (let i = 0; i < ireneActualHobbies.length; i++) {
+            //el q hi ha en aquet for equival al metode includes, ma o meno
+            const element = ireneActualHobbies[k];
+
+            if (element == "leer") {
+                console.log(true);
+            }
+        }
+    }
+    
+    console.log(irenesLectoras);
+
+
+
+
+</script>

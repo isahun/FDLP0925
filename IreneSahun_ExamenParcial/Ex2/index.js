@@ -18,6 +18,10 @@ function calcMulti () {
             }
         }
 
+    if (resultMulti < 0) {
+        resultMulti *= -1
+    }
+
         arrFinal.push(resultMulti);
     }
     

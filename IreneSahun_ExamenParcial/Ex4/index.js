@@ -36,12 +36,13 @@ Resultat2: El jugador 2 ha guanyat!
 function cursaCotxes() {
     let combCar1 = 100;
     let combCar2 = 100;
-    //let combCars = 100;
     let message = "";
-    let resultDiv = document.getElementById("result");
+    const resultDiv = document.getElementById("result");
+    const resultDiv2 = document.getElementById("result2");
     let resultat = "";
     let distCar1 = 0;
     let distCar2 = 0;
+    let turnCounter = 0;
 
     
     while (combCar1 > 0 && combCar2 > 0){
@@ -52,18 +53,19 @@ function cursaCotxes() {
         combCar1 = combCar1 - distCar1;
         combCar2 = combCar2 - distCar2;
 
-        resultDiv.innerHTML += `El jugador 1 avança ${distCar1} unitats. Combustible restant: ${combCar1}. <br>
+        turnCounter ++
+
+        message = `Torn ${turnCounter}: El jugador 1 avança ${distCar1} unitats. Combustible restant: ${combCar1}. <br>
         El jugador 2 avança ${distCar2} unitats. Combustible restant: ${combCar2}. <br>`;
 
-        //resultDiv.innerHTML += message + "<br>";
+        resultDiv2.innerHTML += message + "<br>";
 
     }
 
-
     if (combCar1 <= 0){
-            resultat = "El jugador 1 ha guanyat!"
+            resultat = "El jugador 1 ha guanyat!";
         } else if (combCar2 <= 0){
-            resultat = "El jugador 2 ha guanyat!"
+            resultat = "El jugador 2 ha guanyat!";
         }
 
             
