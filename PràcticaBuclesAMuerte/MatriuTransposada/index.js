@@ -11,15 +11,14 @@ function transposeMatrix() {
     let i = 0;
     let j = 0;
 
-    for (i = 0; i <= arrNums.length-1; i++) {
-        let fila = [];
-        for (j = 0; j < arrNums[i].length; j++){
-
-            fila.splice(i, 0, arrNums[i][j]);
-        }
-        //transArrNums.splice(i, 0, fila[i]);
-        transArrNums.push(fila[i]);
+    for (i = 0; i <= arrNums.length-1; i++) { //primer bucle per crear els sub arrays buits
+        transArrNums.push([])
     }
-    
-    resultDiv.innerHTML = transArrNums.join(",");
+
+    for (i = 0; i <= arrNums.length-1; i++) {
+        for (j = 0; j < arrNums[i].length; j++){
+            transArrNums[j].push(arrNums[i][j]);
+        }
+    }
+    resultDiv.innerHTML = transArrNums;
 }

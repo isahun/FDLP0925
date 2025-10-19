@@ -1,7 +1,8 @@
 "use strict"
 
 /*
- Estàs desenvolupant un simulador de cursa de cotxes entre dos jugadors. Ambdós cotxes tenen una quantitat de combustible i es mouen una distància aleatòria en cada torn.
+ Estàs desenvolupant un simulador de cursa de cotxes entre dos jugadors. 
+ Ambdós cotxes tenen una quantitat de combustible i es mouen una distància aleatòria en cada torn.
 
 Regles de l'Exercici
 Tant el cotxe del jugador 1 com el del jugador 2 comencen amb una quantitat de combustible.
@@ -33,7 +34,45 @@ Resultat2: El jugador 2 ha guanyat!
 */
 
 function cursaCotxes() {
-    const combCar1 = 100;
-    const combCar2 = 100;
+    let combCar1 = 100;
+    let combCar2 = 100;
+    //let combCars = 100;
+    let message = "";
+    let resultDiv = document.getElementById("result");
+    let resultat = "";
+    let distCar1 = 0;
+    let distCar2 = 0;
+
+    
+    while (combCar1 > 0 && combCar2 > 0){
+
+        distCar1 = parseInt(Math.floor(Math.random()*10));
+        distCar2 = parseInt(Math.floor(Math.random()*10));
+
+        combCar1 = combCar1 - distCar1;
+        combCar2 = combCar2 - distCar2;
+
+        resultDiv.innerHTML += `El jugador 1 avança ${distCar1} unitats. Combustible restant: ${combCar1}. <br>
+        El jugador 2 avança ${distCar2} unitats. Combustible restant: ${combCar2}. <br>`;
+
+        //resultDiv.innerHTML += message + "<br>";
+
+    }
+
+
+    if (combCar1 <= 0){
+            resultat = "El jugador 1 ha guanyat!"
+        } else if (combCar2 <= 0){
+            resultat = "El jugador 2 ha guanyat!"
+        }
+
+            
+
+    resultDiv.innerHTML = resultat;
+
+
+
+
+    
     
 }
