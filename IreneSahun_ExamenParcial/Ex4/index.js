@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 
 /*
  Estàs desenvolupant un simulador de cursa de cotxes entre dos jugadors. 
@@ -34,47 +34,36 @@ Resultat2: El jugador 2 ha guanyat!
 */
 
 function cursaCotxes() {
-    let combCar1 = 100;
-    let combCar2 = 100;
-    let message = "";
-    const resultDiv = document.getElementById("result");
-    const resultDiv2 = document.getElementById("result2");
-    let resultat = "";
-    let distCar1 = 0;
-    let distCar2 = 0;
-    let turnCounter = 0;
+  let combCar1 = 100;
+  let combCar2 = 100;
+  let message = "";
+  const resultDiv = document.getElementById("result");
+  const resultDiv2 = document.getElementById("result2");
+  let resultat = "";
+  let distCar1 = 0;
+  let distCar2 = 0;
+  let turnCounter = 0;
 
-    
-    while (combCar1 > 0 && combCar2 > 0){
+  while (combCar1 > 0 && combCar2 > 0) {
+    distCar1 = parseInt(Math.floor(Math.random() * 10));
+    distCar2 = parseInt(Math.floor(Math.random() * 10));
 
-        distCar1 = parseInt(Math.floor(Math.random()*10));
-        distCar2 = parseInt(Math.floor(Math.random()*10));
+    combCar1 = combCar1 - distCar1;
+    combCar2 = combCar2 - distCar2;
 
-        combCar1 = combCar1 - distCar1;
-        combCar2 = combCar2 - distCar2;
+    turnCounter++;
 
-        turnCounter ++
-
-        message = `Torn ${turnCounter}: El jugador 1 avança ${distCar1} unitats. Combustible restant: ${combCar1}. <br>
+    message = `Torn ${turnCounter}: El jugador 1 avança ${distCar1} unitats. Combustible restant: ${combCar1}. <br>
         El jugador 2 avança ${distCar2} unitats. Combustible restant: ${combCar2}. <br>`;
 
-        resultDiv2.innerHTML += message + "<br>";
+    resultDiv2.innerHTML += message + "<br>";
+  }
 
-    }
+  if (combCar1 <= 0) {
+    resultat = "El jugador 1 ha guanyat!";
+  } else if (combCar2 <= 0) {
+    resultat = "El jugador 2 ha guanyat!";
+  }
 
-    if (combCar1 <= 0){
-            resultat = "El jugador 1 ha guanyat!";
-        } else if (combCar2 <= 0){
-            resultat = "El jugador 2 ha guanyat!";
-        }
-
-            
-
-    resultDiv.innerHTML = resultat;
-
-
-
-
-    
-    
+  resultDiv.innerHTML = resultat;
 }
