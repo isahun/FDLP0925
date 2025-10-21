@@ -1,17 +1,29 @@
 "use strict"
 
-const client1 = {
-    dni : "12345678A",
-    edat : 35,
-    nacionalitat : "catalana",
-    volsAgafats : 5
+function createClient() {
+//const client1 = new Client ("26374857J", "40", "Sueca", 6);
+//const client2 = new Client ("84635243U", "32", "Irlandesa", 5);
 
-}
+const dniUser = document.getElementById("dni").value;
+const ageUser = parseInt(document.getElementById("age").value);
+const nationality = document.getElementById("nationality").value;
+const flightsNum = parseInt(document.getElementById("flightsNum").value);
+const resultDiv = document.getElementById("result");
+const result2Div = document.getElementById("result2");
+const err = "Introdueix un valor vàlid."
 
-const client2 = {
-    dni : "12545678A",
-    edat : 40,
-    nacionalitat : "catalana",
-    volsAgafats : 8
+if (!dniUser || !nationality || isNaN(ageUser) || isNaN(flightsNum)) return resultDiv.innerHTML = err;
+
+const newClient = new Client (dniUser, ageUser, nationality, flightsNum);
+
+newClient.dni = "26374857J";
+newClient.edat = 37;
+newClient.nacionalitat = "Holandesa";
+newClient.volsAgafats = 10;
+
+
+resultDiv.innerHTML = `<pre> ${newClient.toString()} </pre>`;
+
+result2Div.innerHTML = `Nou DNI: ${newClient.dni} <br> Nova edat: ${newClient.edat} <br>`
 
 }

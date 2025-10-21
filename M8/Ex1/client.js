@@ -1,48 +1,53 @@
 "use strict"
-
-
 class Client {
 
     #dni;
-    _edat;
-    _nacionalitat;
-    _volsAgafats;
+    #edat;
+    #nacionalitat;
+    #volsAgafats;
+
+//1. Constructor
 
 constructor (dni, edat, nacionalitat, volsAgafats) {
     this.#dni = dni;
-    this._edat = edat;
-    this._nacionalitat = nacionalitat;
-    this._volsAgafats = volsAgafats;
+    this.#edat = edat;
+    this.#nacionalitat = nacionalitat;
+    this.#volsAgafats = volsAgafats;
 
 }
+//2. Getters i Setters
 
-get dni() {
-    let confirmUser = confirm("Ets l'usuari?")
-    if (confirmUser === true) {
-        return this.#dni
+//getters
+get dni() { return this.#dni }
+get edat() { return this.#edat }
+get nacionalitat() { return this.#nacionalitat }
+get volsAgafats() { return this.#volsAgafats }
+
+//setters
+set dni(newDNI) {
+    if (newDNI.length <= 9){
+        this.#dni = newDNI;
     }
 }
 
-
-//atributs
-/*
-
-//get
-//set no els fem x falta d temps
-
-//general [ingresar()] [retirar()]
-
-//propis
-toString();{
-    return "Compte num. " + this.id + " amb saldo " + this.saldo; + " euros.";
+set edat(newEdat) { 
+    if (newEdat > 0 && newEdat < 120) {
+        this.#edat = newEdat;
+    }
 }
 
-} 
+set nacionalitat(newNacionalitat) { this.#nacionalitat = newNacionalitat }
+set volsAgafats(newVolsAgafats) { this.#volsAgafats = newVolsAgafats }
+    
+carbonFootprint () { return this.#volsAgafats * 0.5 }
 
-A més del constructor, la classe Client ha de disposar dels següents mètodes:
-
-mètodes que permetin consultar i modificar cadascun dels atributs.
-un mètode que calcula la petjada de carboni (multiplicant els viatges per 0,5 tones de CO₂).
-un mètode que retornarà una descripció completa del client (toString()).
-*/
+toString() {
+        return `
+            DNI: ${this.#dni}
+            Edat: ${this.#edat}
+            Nacionalitat: ${this.#nacionalitat}
+            Vols agafats: ${this.#volsAgafats}
+            Petjada de carboni: ${this.carbonFootprint()}
+            `
+    }
 }
