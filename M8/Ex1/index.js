@@ -1,6 +1,7 @@
 "use strict"
 
 function createClient() {
+
 //const client1 = new Client ("26374857J", "40", "Sueca", 6);
 //const client2 = new Client ("84635243U", "32", "Irlandesa", 5);
 
@@ -24,6 +25,7 @@ newClient.volsAgafats = 10;
 
 resultDiv.innerHTML = `<pre> ${newClient.toString()} </pre>`;
 
-result2Div.innerHTML = `Nou DNI: ${newClient.dni} <br> Nova edat: ${newClient.edat} <br>`
+result2Div.innerHTML = `Nou DNI: ${newClient.dni} <br> Nova edat: ${newClient.edat} <br> Nova nacionalitat: ${newClient.nacionalitat} <br> 
+Nous vols agafats: ${newClient.volsAgafats} <br> Nova petjada de carboni: ${newClient.carbonFootprint()}`
 
 }

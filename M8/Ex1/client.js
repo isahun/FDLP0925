@@ -25,7 +25,7 @@ get volsAgafats() { return this.#volsAgafats }
 
 //setters
 set dni(newDNI) {
-    if (newDNI.length <= 9){
+    if (newDNI.length == 9){
         this.#dni = newDNI;
     }
 }
