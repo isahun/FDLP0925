@@ -13,6 +13,7 @@ constructor (dni, edat, nacionalitat, volsAgafats) {
     this.#edat = edat;
     this.#nacionalitat = nacionalitat;
     this.#volsAgafats = volsAgafats;
+    this.tons = 0.5
 
 }
 //2. Getters i Setters
@@ -39,14 +40,14 @@ set edat(newEdat) {
 set nacionalitat(newNacionalitat) { this.#nacionalitat = newNacionalitat }
 set volsAgafats(newVolsAgafats) { this.#volsAgafats = newVolsAgafats }
     
-carbonFootprint () { return this.#volsAgafats * 0.5 }
+carbonFootprint () { return this.volsAgafats * this.tons }
 
-toString() { //str
+toString() { //str. Aquí no posem ni # ni _
         return `
-            DNI: ${this.#dni}
-            Edat: ${this.#edat}
-            Nacionalitat: ${this.#nacionalitat}
-            Vols agafats: ${this.#volsAgafats}
+            DNI: ${this.dni} 
+            Edat: ${this.edat}
+            Nacionalitat: ${this.nacionalitat}
+            Vols agafats: ${this.volsAgafats}
             Petjada de carboni: ${this.carbonFootprint()}
             `
     }

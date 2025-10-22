@@ -11,6 +11,7 @@ constructor (flightNum, distanceKm, company, numPassengers, numMotors) {
     this._company = company;
     this._numPassengers = numPassengers;
     this._numMotors = numMotors;
+    this.tons = 0.1 //declarem aquí la constant de les tones de carboni x la funcio, pro en breus ho treurem
 
 }
 //2. Getters i Setters
@@ -32,11 +33,11 @@ set company(newCompany) { this._company = newCompany }
 set numPassengers(newNumPassengers) { this._numPassengers = newNumPassengers }
 set numMotors(newNumMotors) { this._numMotors = newNumMotors }
 
-calcCarbonFootprint () { return (this._distanceKm / 1000) * 0.1 }
+calcCarbonFootprint () { return ((this._distanceKm / 1000) * 0.1) * this._numMotors }
 
 toString() { //str, no posem ni _ ni # pk ja fem servir getters
         return `
-            DNI: ${this.flightNum} 
+            Número de vol: ${this.flightNum} 
             Distància (km): ${this.distanceKm}
             Número de passatgers: ${this.numPassengers}
             Número motors: ${this.numMotors}
