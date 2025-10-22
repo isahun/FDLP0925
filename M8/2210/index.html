@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keywords" content="Mòdul, exercicis o apunts, temes">
+  <meta name="author" content="Irene Sahun">
+  <title></title>
+</head>
+<body>
+
+    <script>
+        
+    //FUNCIONS EXPRESSADES
+        //FUNCIONS ANONIMES
+
+        const sumar = function (num1, num2) {
+            return num1 + num2
+        }
+    //FUNCIONS FLETXA O ARROW
+    //() => {}
+
+    //const sumarArrow = (num1, num2) => {return num1 + num2}
+
+    //si estem en una sola linia d'escriptura podem eliminar les claus {}
+    //a més, si la funció tb te un return, es considerara un return implicit
+    //i no caldra expressar el return. NOmés si no porta claus, es la senyal.
+    //Si porta claus {}, FORÇOSAMENT necessitariem un return.
+    //Queda aixi netejat de dalt:
+
+    const sumarArrow = (num1, num2) => num1 + num2
+
+    const multiplicarPor2 = (num) => num * 2 //sintetitzat, q fa la funcio? agafa una var (num) i la multiplica x 2
+
+    //pero si tinc un únic paràmetre, fins i tot podem petar-nos els parèntesi,
+    //en pro d'una lectura ràpida i concisa
+
+    //No és el mateix el .this en una funció declarada q en una expressada:
+
+    const persona = {
+        saludar : function () {
+            console.log("hello world");
+            console.log(this);
+        },
+
+        saludarClase : () => console.log(this)
+
+    }
+
+    persona.saludar()
+    persona.saludarClase()
+
+
+    //FUnció CALLBACK
+    //Se'ls dona poc ús pk es mes lioso. Per exemple el metode filter() de js esta passant una funció com a paràmetre,
+    //una funció que no esta declarada en el moment. No té parèntesis (w3school array filter)
+
+    const ages = [32, 33, 16, 40];
+    const resultArr = ages.filter ( (age) => age >= 18 ); //42, 33, 34
+    //nomes em donara array resultant d aquells numeros q siguin mes grans o igual a 18
+    //anem avaluant ada valor del parametre de la var q estem filtrant (ages)
+    //Obtenim el mateix resultat amb funcions fletxa q amb
+
+    //D'on surt aquest age? Sempre necessitem un parameteer x crear la funcio, és merament un PARÀMETRE.
+    //Q fara el parametre? Filter va en bucle, desd principi fins al final del array, i necessitem un nickname
+    //q vagi elemento x elemento per l'array. El nom li posem nosaltres, al capdavall filtrem pel VALOR dels elements de l'array
+
+        //Q esta passant per sota del filter?
+
+        for (let index = 0; index < ages.length; index++) {
+            console.log(ages[index])
+
+            if (edades[index] >= 18) arrResultDelFor.push(ages[index])
+
+        }
+
+        //COM UNIFIQUEM ?
+
+        const arrNames = ["Carles", "Polina", "Irenes", "Enrique", "Prince"]
+
+        //indexof 
+        //includes
+        //bucles
+            //for inicio i fin del array, SEMPRE va fins el final encara q ja ho hagi trobat
+            //while --> per a que s'aturi i pari d'iterar quan troba el q busquem
+                //fins que troba el nom OR
+                //fins que acaba l'array
+            //si hi hagués més de una polina
+
+            //trobar nom
+            let nom = "Polina";
+            let found = false;
+
+            //trobar posició
+            
+            //length
+            let i = 0;
+            let = indexPolina; //necessitem una altra variable per buscar per index, i aquesta variable
+            //el nem actualitzant dins del bucle
+
+            do {
+                console.log(arrNames[i], nom)
+                if (arrNames[i] === nombres){
+                    found = true;
+                    console.log("posicion", i)
+                    indexPolina = i; 
+                    objectFound = arrNames[i] //com filtrem un client en concret x fer modificacio
+                }
+                i++
+                
+            } while (i < arrNames.length && found == false ) 
+            //d'aquesta manera ens comprovara si encara no hem arribat al final del array i si encara no hem trobat a ningu
+            //si trobem algu, found es tornara true, o si no trobem a ningu seguira iterant fins el final.
+
+            //Amb aixo acabem de fer un includes. TIPUS DE FILTRES:
+            console.log("Includes", found) //boolean
+            console.log("posició", indexPolina) //linia 98 nova variable, linia 106 assignem valor
+            console.log("elemento", objectFound) //string
+
+            //anem a DDBB i client (Ex1), quan estiguem aplicant aquesta logica a un array d objectes, 
+            //obtindrem un objecte, pk es del que esta fet l'array, o be l'index(linia 117), o be l'objecte (linia118)
+
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>

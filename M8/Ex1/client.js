@@ -41,7 +41,7 @@ set volsAgafats(newVolsAgafats) { this.#volsAgafats = newVolsAgafats }
     
 carbonFootprint () { return this.#volsAgafats * 0.5 }
 
-toString() {
+toString() { //str
         return `
             DNI: ${this.#dni}
             Edat: ${this.#edat}

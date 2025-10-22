@@ -13,21 +13,22 @@ const resultDiv = document.getElementById("result");
 const result2Div = document.getElementById("result2");
 const err = "Introdueix un valor vàlid."
 
-if (!dniUser || !nationality || !ageUser || !flightsNum) return resultDiv.innerHTML = err;
+if (!dniUser || !nationality || isNaN(ageUser) || isNaN(flightsNum)) return resultDiv.innerHTML = err;
 //podem fer !variable x les numeriques tambe
 
 //instància
 const newClient = new Client (dniUser, ageUser, nationality, flightsNum);
 
-newClient.dni = "26374857J";
-newClient.edat = 37;
-newClient.nacionalitat = "Holandesa";
-newClient.volsAgafats = 10;
-
 
 resultDiv.innerHTML = `<pre> ${newClient.toString()} </pre>`;
 
-result2Div.innerHTML = `Nou DNI: ${newClient.dni} <br> Nova edat: ${newClient.edat} <br> Nova nacionalitat: ${newClient.nacionalitat} <br> 
-Nous vols agafats: ${newClient.volsAgafats} <br> Nova petjada de carboni: ${newClient.carbonFootprint()}`
-
 }
+
+function update1Client() {
+    const primerClient = clients[0] //hard code
+    const newNationality = "br"
+
+    if (newNationality == "" || newNationality.length > 3)  return{//exemples
+
+    }
+    }

@@ -13,7 +13,7 @@ const resultDiv = document.getElementById("result");
 const result2Div = document.getElementById("result2");
 const err = "Introdueix un valor vàlid."
 
-if (!dniUser || !nationality || !ageUser || !flightsNum) return resultDiv.innerHTML = err;
+if (!dniUser || !nationality || isNaN(ageUser) || isNaN(flightsNum)) return resultDiv.innerHTML = err;
 //podem fer !variable x les numeriques tambe
 
 //instància
