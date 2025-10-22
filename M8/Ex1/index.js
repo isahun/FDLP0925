@@ -46,9 +46,47 @@ function updateClient1() { //funció x actualitzar client 1 amb setter
 }
 
 function calcPetjadaClient() {
+    //Enlloc de treure la petjada d’un client, podem fer q nomes ens la tregui dels clients q tenen dni tal:
+
     if (clients.length < 1) return document.getElementById("result").innerHTML = "No hi ha clients guardats."
     
     const primerClient = clients[0];
     const petjadaClient1 = primerClient.carbonFootprint() //num
     document.getElementById("result").innerHTML = `L'emprempta de carboni d'aquest client és ${petjadaClient1}`
 }
+
+//buscar un client en concret
+
+function findObject() { //Aquesta funció busca dins de l’array clients un objecte Client 
+//que tingui un DNI igual al que l’usuari escriu per prompt(). 
+//“Busca quin client té aquest DNI i digue’m en quina posició de l’array està.”
+    //comprovem si l'array és buit
+    if (clients.length < 1) return document.getElementById("result").innerHTML = "No hi ha clients guardats."
+
+    const dniFiltre = prompt("Escrigui el seu DNI");
+
+    let i = 0; //comptador d bucle, posicio actual dins array
+    let position = -1; //aqui guardarem la posicio on trobem el client, si en trobem un a clients[2], position = 2
+
+    do { //bucle x recorrer tot l'array, client x client
+        console.log(clients[i]) //cada objecte
+
+        if (clients[i].dni == dniFiltre){
+            position = i; //si hi ha coincidencia, actualitzem la variable de posició
+        }
+
+        i++ //augmentem i per passar al seguent client, i continua fins arribar al final de l'array
+    } while ( i < clients.length && position == -1) //fins que la i sigui mes gran q el maxim d posicions d l'array o no es trobi
+    //si mostra -1 vol dir q no hi ha cap client amb aquet DNI
+        console.log(position, "posició"); //ens torna la posició
+
+        if (position != -1) {
+            console.log("Eureka", clients[position]);
+        } else { //Aqui ens imprimira l’objecte amb l’if posicio != i el console log Eureka
+            console.log("No existeix en la teva base de dades");
+        } //Missatges diferents si s’ha trobat o no
+
+}
+
+findObject()
+

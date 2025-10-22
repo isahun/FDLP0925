@@ -11,11 +11,11 @@ constructor (flightNum, distanceKm, company, numPassengers, numMotors) {
     this._company = company;
     this._numPassengers = numPassengers;
     this._numMotors = numMotors;
+    this.km = 1000; //declarem aqui la constant dels km x tnes de carboni
     this.tons = 0.1 //declarem aquí la constant de les tones de carboni x la funcio, pro en breus ho treurem
-
 }
-//2. Getters i Setters
 
+//2. Getters i Setters
 //getters
 get flightNum() { return this.#flightNum }
 get distanceKm() { return this._distanceKm }
@@ -24,8 +24,6 @@ get numPassengers() { return this._numPassengers }
 get numMotors() { return this._numMotors }
 
 //setters
-
-
 
 set flightNum(newFlightNum) { this.#flightNum = newFlightNum }
 set distanceKm(newDistanceKm) { this._distanceKm = newDistanceKm }

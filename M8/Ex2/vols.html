@@ -21,27 +21,31 @@ Crea dos clients i comprova que els mètodes creats funcionen correctament. És 
 
 Recordeu que cada classe s'ha de guardar en un fitxer diferent i enllaçar-se apropiadament a l'html.-->
 
-<label for="dni">Escrigui el seu DNI</label>
-    <input type="text" name="" id="dni"><br>
+<label for="flightNum">Escrigui el seu número de vol</label>
+    <input type="text" name="" id="flightNum"><br>
 
-<label for="age">Escrigui la seva edat</label>
-    <input type="number" name="" id="age"><br>
+<label for="company">Escrigui la companyia:</label>
+    <input type="text" name="" id="company"><br>
 
-<label for="nationality">Nacionalitat: </label>
-    <input type="text" name="" id="nationality"><br>
+<label for="distanceKm">Escrigui la distància en KM:</label>
+    <input type="number" name="" id="distanceKm"><br>
 
-<label for="flightsNum">Quants vols ha agafat?</label>
-    <input type="number" name="" id="flightsNum"><br>
+<label for="numPassengers">Número de passatgers: </label>
+    <input type="number" name="" id="numPassengers"><br>
 
-<button type="button" onclick="createClient()">Fes clic</button>
-<button type="button" onclick="updateClient()">Modificar client</button>
+<label for="numMotors">Número de Motors</label>
+    <input type="number" name="" id="numMotors"><br>
+
+<button type="button" onclick="createFlight()">Crear vol nou</button>
+<button type="button" onclick="removeFlight()">Eliminar vol</button>
+<button type="button" onclick="checkFlight()">Veure vol</button>
+<button type="button" onclick="changeFlight()">Canviar vol</button>
 
 
 <div id="result"></div>
 <p></p>
-<div id="result2"></div>
 
-<script src = "client.js"></script> 
+<script src = "Vol.js"></script> 
 <script src = "DDBB.js"></script> 
 <script src = "index.js"></script> 
 

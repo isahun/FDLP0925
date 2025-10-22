@@ -1,3 +1,3 @@
 "use strict"
 
-const clients = [];
+const flightsArr = [];
