@@ -12,8 +12,10 @@
 
 Calcular material taula (crida a una funció que rep un boolean que representi si la persona té experiència o no) si té, 
 retornarà el missatge "taula de fibra", si no retornarà el missatge "taula d'espuma". (demanem per pantalla si l'usuari/ària si té experiència o no)
+
 Imprimir forecast (crida a una funció  que rep l'alçada de l'onada en metres). Si l'alçada és més de 2 metres, imprimirà "onades grans", 
 si no imprimirà "onades petites". (Introduïm l'alçada de les onades per pantalla, simulant que les rebem d'una aplicació externa)
+
 Calcula el cost per reserva (crida a una funció  que rep els minuts de reserva i el tipus de taula reservada i retorna el cost de la reserva).
 (demanem per pantalla els minuts i el tipus)
 
@@ -23,6 +25,42 @@ Sortir del programa.
 
 Fins que la persona no escrigui un 4, el programa ha de continuar mostrant el menú i donar la possibilitat de fer accions.
 -->
+
+<p>Benvingut a la teva botiga de surf!</p>        
+<select name="Opcions" id="userOption">
+        <option value="0">Tria una opció del menú</option>
+        <option value="1">Calcula el material de la taula</option>
+        <option value="2">Imprimeix el forecast</option>
+        <option value="3">Calcula el cost per reserva</option>
+</select>  
+<p></p>
+<label for="userExperience">Tens experiència?</label>
+<!-- <input type="text" placeholder= "Sí / No" id="userExperience"> -->
+<select name="userExperience" id="userExperience">
+        <option value="0">No</option>
+        <option value="1">Sí</option>
+</select>  
+
+<p></p>
+
+<p></p>
+<label for="waveHeight">Introdueix una alçada d'onada:</label>
+<input type="text" placeholder= "Escriu una alçada" id="waveHeight">
+<p></p>
+
+<p></p>
+<label for="bookingCost">Introdueix els minuts de reserva:</label>
+<input type="text" placeholder= "Ex: 60 min" id="bookingCost">
+<label for="bookingCost2">Introdueix el tipus de taula:</label>
+<input type="text" placeholder= "Escuma o fibra" id="bookingCost2">
+<p></p>
+
+
+<button type="button" onclick="navigateMenu()">Fes clic</button>
+<p></p>
+<div id="result"> </div>
+
+<script src="index.js"></script>  
 
 
 </body>
