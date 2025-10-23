@@ -44,7 +44,7 @@ set numPassengers(newNumPassengers) { this._numPassengers = newNumPassengers }
 set numMotors(newNumMotors) { this._numMotors = newNumMotors }
 
 calcCarbonFootprint () { 
-    return ((this._distanceKm / Vol.km) * Vol.tons) * this.numMotors  
+    return parseFloat(((this._distanceKm / Vol.km) * Vol.tons) * this.numMotors)  
     //les propietats estatiques citen directament la classe enlloc del this (k es exclusiu del contingu del constructor)
 }
 
@@ -55,7 +55,7 @@ toString() { //str, no posem ni _ ni # pk ja fem servir getters
             Companyia aèria: ${this.company}
             Número de passatgers: ${this.numPassengers}
             Número motors: ${this.numMotors}
-            Petjada de carboni: ${this.calcCarbonFootprint()}
+            Petjada de carboni: ${this.calcCarbonFootprint().toFixed(4)}
             `
     }
 }

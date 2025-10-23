@@ -22,26 +22,54 @@ JS
 } 
 }*/
 
+const arrTasks = [];
+
+function catchUserOption() {
+    const userOption = parseInt(document.getElementById("userOption").value);
+    return userOption //returns a num
+}
+
+function catchTask() {
+    const userTask = document.getElementById("userTask").value
+    if (!userTask) {
+        return document.getElementById("result").innerHTML = "Has d'introduir una tasca.";
+    } else {
+    return userTask.toLowerCase(); //returns a string
+    }
+}
+
+function addTask() {
+    const userTask = catchTask()
+    arrTasks.push(userTask);
+}
+
+function showTasks() {
+    return arrTasks.join("<br>")
+}
+
+function removeTask() {
+    const userTask = catchTask()
+
+arrTasks.splice(i, 1)
+
+}
+
 function taskList() {
 
 const userOption = parseInt(document.getElementById("userOption").value);
 const resultDiv = document.getElementById("result");
 const err = "Has de triar una opció!";
 const err2 = "Has d'introduir un nombre més gran que 0";
-const arrTasks = [];
 let message = "";
 let howManyTasks = 0;
 let addTaskStr = "";
 let rmTaskStr = "";
 let rmTaskInd = "";
 let rmIndOf = "";
-let userExit = false;
 
-while (!userExit) {
 switch (userOption) {
     case 0:
         message = err;
-;
         break;
     case 1:
         do {
@@ -84,8 +112,7 @@ switch (userOption) {
 
         message = "Tasca esborrada, així queda la teva llista: " + arrTasks.join("<br>")
         break;
-    }
-    userExit = true;
+   
 }
     resultDiv.innerHTML = message;
 

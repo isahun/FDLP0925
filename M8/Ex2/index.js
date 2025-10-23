@@ -1,8 +1,7 @@
 "use strict"
 
-
+//Declarem resultDiv com a funció global per poder sobreescriure el resultat amb cada funció
 const resultDiv = document.getElementById("result");
-
 
 function findFlight(nVol) { //Ens tornarà una posició, un NUMERO. Entrelazado cuantico amb el num d vol q introduirà l'usuari
 
@@ -73,14 +72,14 @@ function checkFlight() {
     if (flightsArr.length < 1) return resultDiv.innerHTML = "No hi ha vols guardats."
     
     //recollim input i validem
-    const flightNum = document.getElementById("flightRead").value;
+    const flightNum = document.getElementById("readFlight").value;
     if (!flightNum) return resultDiv.innerHTML = "Has d'introduir un número de vol vàlid."
 
     //buscar al array amb la funció
     const flightPosition = findFlight(flightNum)
     if (flightPosition == -1) return resultDiv.innerHTML = "Aquest vol no existeix.";
 
-    resultDiv.innerHTML = flightsArr[flightPosition].toString();
+    resultDiv.innerHTML = `<pre>${flightsArr[flightPosition].toString()}</pre>`;
 }
 
 function removeFlight () {
@@ -100,33 +99,6 @@ function removeFlight () {
     resultDiv.innerHTML = "S'ha eliminat el vol correctament."
 }
 
-    
-    //ens estalviem de fer tot això amb la funció findFlight():
-
-    //let i = 0; //comptador d bucle, posicio actual dins array
-    //let position = -1; //aqui guardarem la posicio on trobem el client, si en trobem un a clients[2], position = 2
-
-    //do { //bucle x recorrer tot l'array, client x client
-    //    console.log(flightsArr[i]) //cada objecte
-
-    //    if (flightsArr[i].flightNum == flightFilter){
-    //        position = i; //si hi ha coincidencia, actualitzem la variable de posició
-    //    }
-
-    //    i++ //augmentem i per passar al seguent client, i continua fins arribar al final de l'array
-    //} while ( i < flightsArr.length && position == -1) //fins que la i sigui mes gran q el maxim d posicions d l'array o no es trobi
-    //si mostra -1 vol dir q no hi ha cap client amb aquet DNI
-    //    console.log(position, "posició"); //ens torna la posició
-
-    //    if (position != -1) {
-    //        flightsArr.splice(i, 1);
-    //        return resultDiv.innerHTML = "S'ha eliminat el vol correctament."
-    //    } else {
-    //        return resultDiv.innerHTML = "No existeix aquest vol en la teva base de dades";
-    //    } //Missatges diferents si s’ha trobat o no
-
-
-
 function changeFlight() {
     if (flightsArr.length < 1) return resultDiv.innerHTML = "No hi ha vols guardats amb aquest número."
 
@@ -136,8 +108,8 @@ function changeFlight() {
     const flightPosition = findFlight(flightNum);
     if (flightPosition == -1) return resultDiv.innerHTML = "Aquest vol no existeix."
             
-    let setAttribute = parseInt(prompt("Quin atribut vols modificar? <br> 1. Núm vol <br> 2. Distància KM <br> 3. Companyia <br> 4. Nombre de passatgers <br> 5. Nombre de motors"))
-    const newValue = prompt("Valor?")
+    let setAttribute = parseInt(prompt("Quin atribut vols modificar? <br> 1. Distància KM <br> 2. Companyia <br> 3. Nombre de passatgers <br> 4. Nombre de motors"))
+    const newValue = parseInt(prompt("Valor?"))
     //cridar als setters
 
             switch (setAttribute) { //no incloem el numero de vol pk no tenim pk canviar-ho, ens desajustaria l'aplicació pk massa coses depenen del num d vol
