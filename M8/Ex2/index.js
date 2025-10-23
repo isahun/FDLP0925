@@ -7,17 +7,19 @@ const resultDiv = document.getElementById("result");
 function findFlight(nVol) { //Ens tornarà una posició, un NUMERO. Entrelazado cuantico amb el num d vol q introduirà l'usuari
 
     //flightNum q busquem, dins flightsArr
+    let flightPosition = -1 //partim de que no ho troba
+    if (flightsArr.length < 1) return flightPosition
+
     let i = 0; //compte
-    let position = -1 //partim de que no ho troba
 
     do {
         if(flightsArr[i].flightNum === nVol) {
-            position = i;
+            flightPosition = i;
         }
         i++
-    } while (i < flightsArr.length && position == -1)
+    } while (i < flightsArr.length && flightPosition == -1)
 
-    return position; //la funció genera un nombre, l'index
+    return flightPosition; //la funció genera un nombre, l'index
 }
 
 function createFlight() {
@@ -71,11 +73,11 @@ function checkFlight() {
     if (flightsArr.length < 1) return resultDiv.innerHTML = "No hi ha vols guardats."
     
     //recollim input i validem
-    const flightReadUser = document.getElementById("flightRead").value;
-    if (!flightReadUser) return resultDiv.innerHTML = "Has d'introduir un número de vol vàlid."
+    const flightNum = document.getElementById("flightRead").value;
+    if (!flightNum) return resultDiv.innerHTML = "Has d'introduir un número de vol vàlid."
 
     //buscar al array amb la funció
-    const flightPosition = findFlight(flightReadUser)
+    const flightPosition = findFlight(flightNum)
     if (flightPosition == -1) return resultDiv.innerHTML = "Aquest vol no existeix.";
 
     resultDiv.innerHTML = flightsArr[flightPosition].toString();
@@ -87,64 +89,64 @@ function removeFlight () {
 //comprovem si l'array és buit
     if (flightsArr.length < 1) return resultDiv.innerHTML = "No hi ha vols guardats."
 
-    const flightFilter = prompt("Escrigui el seu número de vol");
+    const flightNum = document.getElementById("removeFlight").value
+    if (!flightNum) return resultDiv.innerHTML = "Has d'introduir un número de vol."
 
-    let i = 0; //comptador d bucle, posicio actual dins array
-    let position = -1; //aqui guardarem la posicio on trobem el client, si en trobem un a clients[2], position = 2
+    const flightPosition = findFlight(flightNum);
+    if (flightPosition == -1) return resultDiv.innerHTML = "Aquest vol no existeix."
 
-    do { //bucle x recorrer tot l'array, client x client
-        console.log(flightsArr[i]) //cada objecte
+    flightsArr.splice(flightPosition, 1);
 
-        if (flightsArr[i].flightNum == flightFilter){
-            position = i; //si hi ha coincidencia, actualitzem la variable de posició
-        }
-
-        i++ //augmentem i per passar al seguent client, i continua fins arribar al final de l'array
-    } while ( i < flightsArr.length && position == -1) //fins que la i sigui mes gran q el maxim d posicions d l'array o no es trobi
-    //si mostra -1 vol dir q no hi ha cap client amb aquet DNI
-        console.log(position, "posició"); //ens torna la posició
-
-        if (position != -1) {
-            flightsArr.splice(i, 1);
-            return resultDiv.innerHTML = "S'ha eliminat el vol correctament."
-        } else {
-            return resultDiv.innerHTML = "No existeix aquest vol en la teva base de dades";
-        } //Missatges diferents si s’ha trobat o no
-
+    resultDiv.innerHTML = "S'ha eliminat el vol correctament."
 }
+
+    
+    //ens estalviem de fer tot això amb la funció findFlight():
+
+    //let i = 0; //comptador d bucle, posicio actual dins array
+    //let position = -1; //aqui guardarem la posicio on trobem el client, si en trobem un a clients[2], position = 2
+
+    //do { //bucle x recorrer tot l'array, client x client
+    //    console.log(flightsArr[i]) //cada objecte
+
+    //    if (flightsArr[i].flightNum == flightFilter){
+    //        position = i; //si hi ha coincidencia, actualitzem la variable de posició
+    //    }
+
+    //    i++ //augmentem i per passar al seguent client, i continua fins arribar al final de l'array
+    //} while ( i < flightsArr.length && position == -1) //fins que la i sigui mes gran q el maxim d posicions d l'array o no es trobi
+    //si mostra -1 vol dir q no hi ha cap client amb aquet DNI
+    //    console.log(position, "posició"); //ens torna la posició
+
+    //    if (position != -1) {
+    //        flightsArr.splice(i, 1);
+    //        return resultDiv.innerHTML = "S'ha eliminat el vol correctament."
+    //    } else {
+    //        return resultDiv.innerHTML = "No existeix aquest vol en la teva base de dades";
+    //    } //Missatges diferents si s’ha trobat o no
+
+
 
 function changeFlight() {
     if (flightsArr.length < 1) return resultDiv.innerHTML = "No hi ha vols guardats amb aquest número."
 
-    const flightFilter = prompt("Escrigui el seu número de vol");
+    const flightNum = document.getElementById("updateFlight").value;
+    if (!flightNum) return resultDiv.innerHTML = "Has d'introduir un número de vol vàlid."
 
-    let i = 0; //comptador d bucle, posicio actual dins array
-    let position = -1; //aqui guardarem la posicio on trobem el client
+    const flightPosition = findFlight(flightNum);
+    if (flightPosition == -1) return resultDiv.innerHTML = "Aquest vol no existeix."
+            
+    let setAttribute = parseInt(prompt("Quin atribut vols modificar? <br> 1. Núm vol <br> 2. Distància KM <br> 3. Companyia <br> 4. Nombre de passatgers <br> 5. Nombre de motors"))
+    const newValue = prompt("Valor?")
+    //cridar als setters
 
-    do { //bucle x recorrer tot l'array, client x client
-
-        if (flightsArr[i].flightNum == flightFilter){
-            position = i; //si hi ha coincidencia, actualitzem la variable de posició
-        }
-
-        i++ //augmentem i per passar al seguent client, i continua fins arribar al final de l'array
-    } while ( i < flightsArr.length && position == -1) //fins que la i sigui mes gran q el maxim d posicions d l'array o no es trobi
-    //si mostra -1 vol dir q no hi ha cap client amb aquet DNI
-        console.log(position, "posició"); //ens torna la posició
-
-        if (position != -1) {
-            let setAttribute = parseInt(prompt("Quin atribut vols modificar? <br> 1. Núm vol <br> 2. Distància KM <br> 3. Companyia <br> 4. Nombre de passatgers <br> 5. Nombre de motors"))
-
-            switch (setAttribute) {
-                case 1: 
-                const newFlightNum = prompt("Introdueix el nou número de vol");
-                
-                
-
+            switch (setAttribute) { //no incloem el numero de vol pk no tenim pk canviar-ho, ens desajustaria l'aplicació pk massa coses depenen del num d vol
+                case 1: flightsArr[flightPosition].distanceKm = newValue; break;
+                case 2: flightsArr[flightPosition].flightCompany = newValue; break;
+                case 3: flightsArr[flightPosition].numPassengers = newValue; break;
+                case 4: flightsArr[flightPosition].numMotors = newValue; break;
             }
 
-        } else {
-            return document.getElementById("result").innerHTML = "No existeix aquest vol en la teva base de dades";
-        } //Missatges diferents si s’ha trobat o no
+            resultDiv.innerHTML = ` Així queda el vol modificat: <pre>${flightsArr[flightPosition].toString()}</pre>`
 
 }
