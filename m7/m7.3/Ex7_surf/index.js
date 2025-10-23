@@ -26,14 +26,14 @@ function catchUserOption() {
 }
 
 function calcBoardMaterial(userExperience) {
-    if (userExperience === 1) userExperience = true;
-    if (userExperience === 0) userExperience = false;
+    if (userExperience === 1) userExperience = "Taula de fibra";
+    if (userExperience === 0) userExperience = "Taula d'escuma";
 
     return userExperience;
 }
 
 function printForecast(waveHeight) {
-    const waveThreshold = 2
+    const waveThreshold = 2;
     if(waveHeight > waveThreshold) {
         return "Onades grans."
     } else {
@@ -43,16 +43,27 @@ function printForecast(waveHeight) {
 
 function calcBookingCost(bookingCostMins, bookingCostBoard) {
 
+    const minsThreshold = 60;
+    const cost = (bookingCostMins / minsThreshold); 
+    let message = "";
 
+    if (bookingCostBoard === "escuma") {
+        message = cost * 20;
+    } else if (bookingCostBoard === "fibra") {
+        message = cost * 35;
+    }
+
+    return message;
 }
+
 
 
 function navigateMenu() {
 
-const userExperience = document.getElementById("userExperience").value;
+const userExperience = parseInt(document.getElementById("userExperience").value);
 const waveHeight = parseFloat(document.getElementById("waveHeight").value);
-const bookingCostMins = parseInt(document.getElementById("bookingCost").value);
-const bookingCostBoard = document.getElementById("bookingCost2").value;
+const bookingCostMins = parseFloat(document.getElementById("bookingCost").value);
+const bookingCostBoard = document.getElementById("bookingCost2").value.toLowerCase();
 
 const resultDiv = document.getElementById("result");
 const err = "Has de triar una opció!";
@@ -67,18 +78,17 @@ switch (userOption) {
         message = err;
         break;
     case 1:
-        userExperience = calcBoardMaterial(userExperience);
-        if (userExperience) { 
-            message =  "Taula de fibra"
-        } else {
-            message = "Taula d'escuma"
-        }
+        let boardType = calcBoardMaterial(userExperience);
+        message = boardType;
         break;
     case 2:
-        message = showTasks()
+        message = printForecast(waveHeight);
         break;
     case 3:
-        message = removeTask()
+        message = `El cost de la teva reserva és ${calcBookingCost(bookingCostMins, bookingCostBoard)}`;
+        break;
+    case 4:
+        message = "Has sortit del programa. Adéu!";
         break;
 }
     resultDiv.innerHTML = message;
