@@ -20,3 +20,67 @@ Fins que la persona no escrigui un 4, el programa ha de continuar mostrant el me
 -->
 */
 
+function catchUserOption() {
+    const userOption = parseInt(document.getElementById("userOption").value);
+    return userOption //returns a num
+}
+
+function calcBoardMaterial(userExperience) {
+    if (userExperience === 1) userExperience = true;
+    if (userExperience === 0) userExperience = false;
+
+    return userExperience;
+}
+
+function printForecast(waveHeight) {
+    const waveThreshold = 2
+    if(waveHeight > waveThreshold) {
+        return "Onades grans."
+    } else {
+        return "Onades petites"
+    }
+}
+
+function calcBookingCost(bookingCostMins, bookingCostBoard) {
+
+
+}
+
+
+function navigateMenu() {
+
+const userExperience = document.getElementById("userExperience").value;
+const waveHeight = parseFloat(document.getElementById("waveHeight").value);
+const bookingCostMins = parseInt(document.getElementById("bookingCost").value);
+const bookingCostBoard = document.getElementById("bookingCost2").value;
+
+const resultDiv = document.getElementById("result");
+const err = "Has de triar una opció!";
+let message = "";
+
+let userOption = catchUserOption();
+
+//validar madafaka
+
+switch (userOption) {
+    case 0:
+        message = err;
+        break;
+    case 1:
+        userExperience = calcBoardMaterial(userExperience);
+        if (userExperience) { 
+            message =  "Taula de fibra"
+        } else {
+            message = "Taula d'escuma"
+        }
+        break;
+    case 2:
+        message = showTasks()
+        break;
+    case 3:
+        message = removeTask()
+        break;
+}
+    resultDiv.innerHTML = message;
+
+}
