@@ -58,15 +58,15 @@ function removeFlight () {
 }
 
 function checkFlight() {
-
-    if (flightsArr.length < 1) return document.getElementById("result").innerHTML = "No hi ha vols guardats amb aquest número."
+    if (flightsArr.length < 1) return document.getElementById("result").innerHTML = "No hi ha vols guardats."
 
     const flightFilter = prompt("Escrigui el seu número de vol");
 
     let i = 0; //comptador d bucle, posicio actual dins array
     let position = -1; //aqui guardarem la posicio on trobem el client
 
-    do { //bucle x recorrer tot l'array, client x client
+    do { //bucle x recorrer tot l'array, client x client 
+        //SI VOLEM Q ENS MOSTRI TOTS ELS ELEMENTS, FEM UN BUCLE FOR, PK VOLEM LLELEGIR TOTES LES POSICIONS DE L'ARRAY
 
         if (flightsArr[i].flightNum == flightFilter){
             position = i; //si hi ha coincidencia, actualitzem la variable de posició
@@ -105,7 +105,16 @@ function changeFlight() {
         console.log(position, "posició"); //ens torna la posició
 
         if (position != -1) {
-            return document.getElementById("result").innerHTML = toString()
+            let setAttribute = parseInt(prompt("Quin atribut vols modificar? <br> 1. Núm vol <br> 2. Distància KM <br> 3. Companyia <br> 4. Nombre de passatgers <br> 5. Nombre de motors"))
+
+            switch (setAttribute) {
+                case 1: 
+                const newFlightNum = prompt("Introdueix el nou número de vol");
+                
+                
+
+            }
+
         } else {
             return document.getElementById("result").innerHTML = "No existeix aquest vol en la teva base de dades";
         } //Missatges diferents si s’ha trobat o no

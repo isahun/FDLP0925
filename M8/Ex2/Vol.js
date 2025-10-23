@@ -31,7 +31,7 @@ set company(newCompany) { this._company = newCompany }
 set numPassengers(newNumPassengers) { this._numPassengers = newNumPassengers }
 set numMotors(newNumMotors) { this._numMotors = newNumMotors }
 
-calcCarbonFootprint () { return ((this._distanceKm / 1000) * 0.1) * this._numMotors }
+calcCarbonFootprint () { return ((this._distanceKm / this.km) * this.tons) * this._numMotors }
 
 toString() { //str, no posem ni _ ni # pk ja fem servir getters
         return `
