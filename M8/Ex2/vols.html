@@ -8,46 +8,52 @@
   <title></title>
 </head>
 <body>
-  <!-- Fes un programa que tingui una classe anomenada Client.
 
+<!-- Fes un programa que tingui una classe anomenada Client.
 Aquesta classe Client tindrà com a atributs el DNI, l'edat, la nacionalitat i nombre de vols agafats.
-
 A més del constructor, la classe Client ha de disposar dels següents mètodes:
-
 mètodes que permetin consultar i modificar cadascun dels atributs.
 un mètode que calcula la petjada de carboni (multiplicant els viatges per 0,5 tones de CO₂).
 un mètode que retornarà una descripció completa del client (toString()).
 Crea dos clients i comprova que els mètodes creats funcionen correctament. És a dir, crida a tots els mètodes dels dos clients.
-
 Recordeu que cada classe s'ha de guardar en un fitxer diferent i enllaçar-se apropiadament a l'html.-->
 
-<label for="flightNum">Escrigui el seu número de vol</label>
-    <input type="text" name="" id="flightNum"><br>
+<div id="create-div">
+    <label for="flightNum">Escrigui el seu número de vol</label>
+        <input type="text" name="" id="flightNum"><br>
+    <label for="company">Escrigui la companyia:</label>
+        <input type="text" name="" id="company"><br>
+    <label for="distanceKm">Escrigui la distància en KM:</label>
+        <input type="number" name="" id="distanceKm"><br>
+    <label for="numPassengers">Número de passatgers: </label>
+        <input type="number" name="" id="numPassengers"><br>
+    <label for="numMotors">Número de Motors</label>
+        <input type="number" name="" id="numMotors"><br>
 
-<label for="company">Escrigui la companyia:</label>
-    <input type="text" name="" id="company"><br>
+    <button type="button" onclick="createFlight()">Crear vol nou</button>
+</div>
 
-<label for="distanceKm">Escrigui la distància en KM:</label>
-    <input type="number" name="" id="distanceKm"><br>
+<div id="read-div" style="margin-top: 15px;">
+    <button type="button" onclick="readAllFlights()">Mira tots els vols</button>
+    <label for="flightNum">Escrigui el número de vol:</label> <input type="text" id="readFlight"><br>
+    <button type="button" onclick="checkFlight()">Mira un Vol</button>
+</div>
 
-<label for="numPassengers">Número de passatgers: </label>
-    <input type="number" name="" id="numPassengers"><br>
+<div id="remove-div"  style="margin-top: 15px;">
+    <label for="flightNum">Escrigui el número de vol:</label> <input type="text" id="removeFlight"><br>
+    <button type="button" onclick="removeFlight()">Eliminar vol</button>
+</div>
 
-<label for="numMotors">Número de Motors</label>
-    <input type="number" name="" id="numMotors"><br>
-
-<button type="button" onclick="createFlight()">Crear vol nou</button>
-<button type="button" onclick="removeFlight()">Eliminar vol</button>
-<button type="button" onclick="checkFlight()">Veure vol</button>
-<button type="button" onclick="changeFlight()">Canviar vol</button>
-
+<div id="update-div"  style="margin-top: 15px;">
+    <label for="flightNum">Escrigui el número de vol a modificar:</label> <input type="text" id="updateFlight"><br>
+    <button type="button" onclick="changeFlight()">Modifica el vol:</button>
+</div>
 
 <div id="result"></div>
-<p></p>
 
-<script src = "Vol.js"></script> 
 <script src = "DDBB.js"></script> 
 <script src = "index.js"></script> 
+<script src = "Vol.js"></script>
 
 </body>
 </html>
