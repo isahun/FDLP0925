@@ -100,7 +100,6 @@ function removeFlight () {
     resultDiv.innerHTML = "S'ha eliminat el vol correctament."
 }
 
-    
     //ens estalviem de fer tot això amb la funció findFlight():
 
     //let i = 0; //comptador d bucle, posicio actual dins array
@@ -137,7 +136,7 @@ function changeFlight() {
     if (flightPosition == -1) return resultDiv.innerHTML = "Aquest vol no existeix."
             
     let setAttribute = parseInt(prompt("Quin atribut vols modificar? <br> 1. Núm vol <br> 2. Distància KM <br> 3. Companyia <br> 4. Nombre de passatgers <br> 5. Nombre de motors"))
-    const newValue = prompt("Valor?")
+    const newValue = prompt("Quin nou valor vols afegir?")
     //cridar als setters
 
             switch (setAttribute) { //no incloem el numero de vol pk no tenim pk canviar-ho, ens desajustaria l'aplicació pk massa coses depenen del num d vol
