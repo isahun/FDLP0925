@@ -17,7 +17,6 @@ Taula tipus fibra: 35 € cada 60 min.
 Sortir del programa.
 
 Fins que la persona no escrigui un 4, el programa ha de continuar mostrant el menú i donar la possibilitat de fer accions.
--->
 */
 
 function catchUserOption() {
@@ -94,3 +93,4 @@ switch (userOption) {
     resultDiv.innerHTML = message;
 
 }
+

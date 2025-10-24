@@ -8,8 +8,12 @@ function catchUserOption() {
 }
 
 function catchTask() {
-    const userTask = document.getElementById("userTask").value
-    if (!userTask) return ""
+    const userTask = document.getElementById("userTask").value.trim() //trim per netejar input d user d'espais
+    if (!userTask) {
+        document.getElementById("result").innerHTML = "Has d'introduir una tasca!"
+        return "" //en cas d'error no necessitem q ens torni res, només q informi al user de l'error
+    }
+    
     return userTask.toLowerCase(); //returns a string
     }
 
@@ -23,7 +27,7 @@ function addTask() {
         arrTasks.push(userTask);
     }
     
-    return "Has afegit la teva tasca correctament!"
+    return "Has afegit la teva tasca correctament!";
 }
 
 function showTasks() {
@@ -31,7 +35,7 @@ function showTasks() {
     for (let i = 0; i < arrTasks.length; i++) {
         message += (i + 1) + ". " + arrTasks[i] + "<br>";
     }
-    return message
+    return message;
 }
 
 function removeTask() {
@@ -41,11 +45,11 @@ function removeTask() {
     if (userTaskStr === "") {
         return "Has d'introduir una tasca.";
     } else if (taskInd === -1) {
-        return "Aquesta tasca no existeix."
+        return "Aquesta tasca no existeix.";
     }
 
     arrTasks.splice(taskInd, 1)
-    return "Tasca eliminada correctament."
+    return "Tasca eliminada correctament.";
 }
 
 function taskList() {

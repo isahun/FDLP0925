@@ -97,8 +97,8 @@ function removeFlight () {
     flightsArr.splice(flightPosition, 1);
 
     resultDiv.innerHTML = "S'ha eliminat el vol correctament."
-}
 
+    
     //ens estalviem de fer tot això amb la funció findFlight():
 
     //let i = 0; //comptador d bucle, posicio actual dins array
@@ -124,6 +124,7 @@ function removeFlight () {
     //    } //Missatges diferents si s’ha trobat o no
 
 
+}
 
 function changeFlight() {
     if (flightsArr.length < 1) return resultDiv.innerHTML = "No hi ha vols guardats amb aquest número."

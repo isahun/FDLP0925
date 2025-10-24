@@ -26,7 +26,7 @@ class User {
 
     //2. Manipular: GETTERS VS SETTERS
     //Getter, validacions opcionals
-    get userName() { return this._userName }; //validacions opcionals
+    get userName() { return this.#userName }; //validacions opcionals
     //Setter, validacions quasi obligatòries
     set userName(newUserName) { this.#userName = newUserName }; //sense validació
     //set userName(newUserName) { //amb validacions al setter
@@ -40,10 +40,9 @@ class User {
     get phoneNum() { return this.#phoneNum }
 
 
-
-    toString() {
+    toString() { //Fem servir els getters públics per mostrar la informació encapsulada.
         return `
-            name: ${this.userName} //treiem la barra baixa perq js llegeix adalt si es public o no
+            name: ${this.userName} 
             email: ${this.email}
             phone: ${this.phoneNum}
             
@@ -51,8 +50,8 @@ class User {
     }
 }
 
-//CRUD
-    //create - instància
-    //read - getter
-    //update - setter
-    //delete - de DB
+// CRUD: les operacions bàsiques d'un objecte o registre
+// Create -> crear nova instància de la classe
+// Read   -> obtenir dades (getters)
+// Update -> modificar dades (setters)
+// Delete -> eliminar (en un entorn real, seria d'una base de dades o array)
