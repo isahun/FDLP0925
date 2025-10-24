@@ -1,8 +1,7 @@
 "use strict"
 
-
+//Declarem resultDiv com a funció global per poder sobreescriure el resultat amb cada funció
 const resultDiv = document.getElementById("result");
-
 
 function findFlight(nVol) { //Ens tornarà una posició, un NUMERO. Entrelazado cuantico amb el num d vol q introduirà l'usuari
 
@@ -73,14 +72,14 @@ function checkFlight() {
     if (flightsArr.length < 1) return resultDiv.innerHTML = "No hi ha vols guardats."
     
     //recollim input i validem
-    const flightNum = document.getElementById("flightRead").value;
+    const flightNum = document.getElementById("readFlight").value;
     if (!flightNum) return resultDiv.innerHTML = "Has d'introduir un número de vol vàlid."
 
     //buscar al array amb la funció
     const flightPosition = findFlight(flightNum)
     if (flightPosition == -1) return resultDiv.innerHTML = "Aquest vol no existeix.";
 
-    resultDiv.innerHTML = flightsArr[flightPosition].toString();
+    resultDiv.innerHTML = `<pre>${flightsArr[flightPosition].toString()}</pre>`;
 }
 
 function removeFlight () {
@@ -100,6 +99,7 @@ function removeFlight () {
     resultDiv.innerHTML = "S'ha eliminat el vol correctament."
 }
 
+<<<<<<< HEAD
     //ens estalviem de fer tot això amb la funció findFlight():
 
     //let i = 0; //comptador d bucle, posicio actual dins array
@@ -126,6 +126,8 @@ function removeFlight () {
 
 
 
+=======
+>>>>>>> 4ddd418fc9151ec9a4b506890fecb365a53dadc9
 function changeFlight() {
     if (flightsArr.length < 1) return resultDiv.innerHTML = "No hi ha vols guardats amb aquest número."
 
@@ -135,8 +137,13 @@ function changeFlight() {
     const flightPosition = findFlight(flightNum);
     if (flightPosition == -1) return resultDiv.innerHTML = "Aquest vol no existeix."
             
+<<<<<<< HEAD
     let setAttribute = parseInt(prompt("Quin atribut vols modificar? <br> 1. Núm vol <br> 2. Distància KM <br> 3. Companyia <br> 4. Nombre de passatgers <br> 5. Nombre de motors"))
     const newValue = prompt("Quin nou valor vols afegir?")
+=======
+    let setAttribute = parseInt(prompt("Quin atribut vols modificar? <br> 1. Distància KM <br> 2. Companyia <br> 3. Nombre de passatgers <br> 4. Nombre de motors"))
+    const newValue = parseInt(prompt("Valor?"))
+>>>>>>> 4ddd418fc9151ec9a4b506890fecb365a53dadc9
     //cridar als setters
 
             switch (setAttribute) { //no incloem el numero de vol pk no tenim pk canviar-ho, ens desajustaria l'aplicació pk massa coses depenen del num d vol

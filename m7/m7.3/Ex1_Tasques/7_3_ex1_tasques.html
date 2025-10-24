@@ -24,14 +24,18 @@ JS
 <p>Crea la teva llista de tasques</p>        
 <select name="Opcions" id="userOption">
         <option value="0">Tria una opció del menú</option>
-        <option value="1">Afegeix tasca nova</option>
-        <option value="2">Mostra tasca</option>
-        <option value="3">Elimina tasca</option>
+        <option value="1">Afegeix una tasca nova</option>
+        <option value="2">Mostra totes les tasques</option>
+        <option value="3">Elimina una tasca</option>
 </select>  
 <p></p>
-<button type="button" onclick="taskList()">Fes clic per saber el resultat</button>
+<label for="userTask">Introdueix una tasca:</label>
+<input type="text" placeholder= "Escriu una tasca" id="userTask">
+<p></p>
+<button type="button" onclick="taskList()">Fes clic</button>
 <p></p>
 <div id="result"> </div>
+
 <script src="index.js"></script>   
 
 </body>
