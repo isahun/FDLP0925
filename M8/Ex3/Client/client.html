@@ -8,40 +8,63 @@
   <title></title>
 </head>
 <body>
-  <!-- Fes un programa que tingui una classe anomenada Client.
 
-Aquesta classe Client tindrà com a atributs el DNI, l'edat, la nacionalitat i nombre de vols agafats.
+<div id="createClient-div" style="margin-top: 15px;">
+  <label for="userDNI">Escriu el número de DNI:</label> <input type="text" id="userDNI"><br>
+  <label for="userNationality">Escriu la teva nacionalitat:</label> <input type="text" id="userNationality"><br>
+  <label for="userAge">Escriu la teva edat:</label> <input type="text" id="userAge"><br>
+  <button type="button" onclick="createClient()">Crea un client nou</button>    
+</div>
+<br>
 
-A més del constructor, la classe Client ha de disposar dels següents mètodes:
+<div id="removeClient-div"  style="margin-top: 15px;">
+    <label for="rmUserDNI">Escrigui el DNI del client a eliminar:</label> <input type="text" id="rmUserDNI"><br>
+    <button type="button" onclick="removeClient()">Elimina client</button>
+</div>
+<br>
 
-mètodes que permetin consultar i modificar cadascun dels atributs.
-un mètode que calcula la petjada de carboni (multiplicant els viatges per 0,5 tones de CO₂).
-un mètode que retornarà una descripció completa del client (toString()).
-Crea dos clients i comprova que els mètodes creats funcionen correctament. És a dir, crida a tots els mètodes dels dos clients.
+<div id="showClients-div"  style="margin-top: 15px;">
+    <label for="showClients">Mira tots els clients:</label><br>
+    <button type="button" onclick="showClients()">Mira tots els clients</button>
+</div>
+<br>
 
-Recordeu que cada classe s'ha de guardar en un fitxer diferent i enllaçar-se apropiadament a l'html.-->
+<div id="createFlight-div">
+  <label for="userFlightDNI">Escrigui el DNI del client associat al vol:</label>
+        <input type="text" name="" id="userFlightDNI"><br>
+  
+    <label for="flightNum">Escrigui el seu número de vol</label>
+        <input type="text" name="" id="flightNum"><br>
+    <label for="company">Escrigui la companyia:</label>
+        <input type="text" name="" id="company"><br>
+    <label for="distanceKm">Escrigui la distància en KM:</label>
+        <input type="number" name="" id="distanceKm"><br>
 
-<label for="dni">Escrigui el seu DNI</label>
-    <input type="text" name="" id="dni"><br>
+    <button type="button" onclick="createFlight()">Crear vol nou</button>
+</div>
+<br>
 
-<label for="age">Escrigui la seva edat</label>
-    <input type="number" name="" id="age"><br>
+<div id="footprint-div"  style="margin-top: 15px;">
+    <label for="footprintUserDNI">Escriu el DNI d'un client per calcular la seva empremta de carboni:</label> <input type="text" id="footprintUserDNI"><br>
+    <button type="button" onclick="calcClientFootprint()">Fes clic</button>
+</div>
+<br>
 
-<label for="nationality">Nacionalitat: </label>
-    <input type="text" name="" id="nationality"><br>
+<div id="footprintAv-div"  style="margin-top: 15px;">
+  <label for="footprintAv">Calcula l'empremta de carboni mitja de tots els clients:</label>
+    <button type="button" onclick="calcAvFootprint()">Fes clic</button>
+</div>
+<br>
 
-<label for="flightsNum">Quants vols ha agafat?</label>
-    <input type="number" name="" id="flightsNum"><br>
+<div id="ageAv-div"  style="margin-top: 15px;">
+  <label for="ageAv">Calcula la mitja d'edat dels clients adults:</label>
+  <button type="button" onclick="calcAvAge()">Fes clic</button>
+</div>
 
-<button type="button" onclick="createClient()">Fes clic</button>
-<button type="button" onclick="updateClient()">Modificar client</button>
-<button type="button" onclick="calcPetjadaClient()">Calcular petjada</button>
-<button type="button" onclick="findObject()">Trobar un client</button>
-
+<br>
+<br>
 
 <div id="result"></div>
-<p></p>
-<div id="result2"></div>
 
 <script src = "Vol.js"></script> 
 <script src = "client.js"></script> 

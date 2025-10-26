@@ -1,54 +1,45 @@
 "use strict"
 class Client {
 
-    #dni;
-    #edat;
-    #nacionalitat;
-    #volsAgafats;
+    #userDNI;
+    #userAge;
+    #userNationality;
+
+    static count = 1;
 
 //1. Constructor
 
-constructor (dni, edat, nacionalitat, volsAgafats) {
-    this.#dni = dni;
-    this.#edat = edat;
-    this.#nacionalitat = nacionalitat;
-    this._volsAgafats = [];
-    this.tons = 0.5
+constructor (userDNI, userAge, userNationality) {
+    this.#userDNI = userDNI;
+    this.#userAge = userAge;
+    this.#userNationality = userNationality;
+    this._userFlights = [];
+    this.id = Client.count ++;
 
 }
 //2. Getters i Setters
 
 //getters
-get dni() { return this.#dni }
-get edat() { return this.#edat }
-get nacionalitat() { return this.#nacionalitat }
-get volsAgafats() { return this.#volsAgafats }
+get userDNI() { return this.#userDNI }
+get userAge() { return this.#userAge }
+get userNationality() { return this.#userNationality }
+get userFlights() { return this._userFlights }
 
-//setters
-set dni(newDNI) {
-    if (newDNI.length == 9){
-        this.#dni = newDNI;
-    }
+set userFlights(newUserFlights) { 
+    this._userFlights = newUserFlights 
 }
 
-set edat(newEdat) { 
-    if (newEdat > 0 && newEdat < 120) {
-        this.#edat = newEdat;
-    }
+addClientFlight(userFlight) {
+    this.userFlights.push(userFlight);
+    userFlight.client = this;
 }
-
-set nacionalitat(newNacionalitat) { this.#nacionalitat = newNacionalitat }
-set volsAgafats(newVolsAgafats) { this.#volsAgafats = newVolsAgafats }
-    
-carbonFootprint () { return this.volsAgafats * this.tons }
 
 toString() { //str. Aquí no posem ni # ni _
         return `
-            DNI: ${this.dni} 
-            Edat: ${this.edat}
-            Nacionalitat: ${this.nacionalitat}
-            Vols agafats: ${this.volsAgafats}
-            Petjada de carboni: ${this.carbonFootprint()}
+            ID d'usuari: ${this.id} 
+            Edat: ${this.userAge}
+            Nacionalitat: ${this.userNationality}
+            Vols associats: ${this.userFlights}
             `
     }
 }

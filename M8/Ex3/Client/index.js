@@ -1,92 +1,136 @@
 "use strict"
 
-function createClient() {
-
-//const client1 = new Client ("26374857J", "40", "Sueca", 6);
-//const client2 = new Client ("84635243U", "32", "Irlandesa", 5);
-
-const dniUser = document.getElementById("dni").value;
-const ageUser = parseInt(document.getElementById("age").value);
-const nationality = document.getElementById("nationality").value;
-const flightsNum = parseInt(document.getElementById("flightsNum").value);
 const resultDiv = document.getElementById("result");
-//const result2Div = document.getElementById("result2");
-const err = "<small> Introdueix un valor vàlid. </small>"
 
-if (!dniUser || !nationality || !ageUser || !flightsNum) return resultDiv.innerHTML = err;
-//podem fer !variable x les numeriques tambe
+function findClient(rmUserDNI) { //Ens tornarà una posició, un NUMERO. Entrelazado cuantico amb el num d vol q introduirà l'usuari
 
-//instància
-const newClient = new Client (dniUser, ageUser, nationality, flightsNum);
+    //busquem DNI, dins de l'array clients
+    let clientPosition = -1 //partim de que no ho troba, i com q es do while executara el codi i x tant augmentara abans de trencar bucle
+    if (clients.length < 1) return clientPosition
 
-clients.push(newClient)
+    let i = 0; //compte
 
-//newClient.dni = "26374857J";
-//newClient.edat = 37;
-//newClient.nacionalitat = "Holandesa";
-//newClient.volsAgafats = 10;
-
-
-resultDiv.innerHTML = `<pre> ${newClient.toString()} </pre>`;
-
-//result2Div.innerHTML = `Nou DNI: ${newClient.dni} <br> Nova edat: ${newClient.edat} <br> Nova nacionalitat: ${newClient.nacionalitat} <br> 
-//Nous vols agafats: ${newClient.volsAgafats} <br> Nova petjada de carboni: ${newClient.carbonFootprint()}`
-
-}
-
-function updateClient1() { //funció x actualitzar client 1 amb setter
-    const primerClient = clients[0]; //HARD CODE assignem valor de index 0 de l'array a una constant x fer el canvi millor
-    const newNationality = "Swiss" 
-
-    if (newNationality == "" || newNationality.length > 3) return document.getElementById("result").innerHTML = "Nacionalitat incorrecta";
-    
-    primerClient.nationality = newNationality;
-
-    console.log(primerClient);
-}
-
-function calcPetjadaClient() {
-    //Enlloc de treure la petjada d’un client, podem fer q nomes ens la tregui dels clients q tenen dni tal:
-
-    if (clients.length < 1) return document.getElementById("result").innerHTML = "No hi ha clients guardats."
-    
-    const primerClient = clients[0];
-    const petjadaClient1 = primerClient.carbonFootprint() //num
-    document.getElementById("result").innerHTML = `L'emprempta de carboni d'aquest client és ${petjadaClient1}`
-}
-
-//buscar un client en concret
-
-function findObject() { //Aquesta funció busca dins de l’array clients un objecte Client 
-//que tingui un DNI igual al que l’usuari escriu per prompt(). 
-//“Busca quin client té aquest DNI i digue’m en quina posició de l’array està.”
-    //comprovem si l'array és buit
-    if (clients.length < 1) return document.getElementById("result").innerHTML = "No hi ha clients guardats."
-
-    const dniFiltre = prompt("Escrigui el seu DNI");
-
-    let i = 0; //comptador d bucle, posicio actual dins array
-    let position = -1; //aqui guardarem la posicio on trobem el client, si en trobem un a clients[2], position = 2
-
-    do { //bucle x recorrer tot l'array, client x client
-        console.log(clients[i]) //cada objecte
-
-        if (clients[i].dni == dniFiltre){
-            position = i; //si hi ha coincidencia, actualitzem la variable de posició
+    do {
+        if(clients[i].userDNI === rmUserDNI) {
+            clientPosition = i;
         }
+        i++
+    } while (i < clients.length && clientPosition == -1)
 
-        i++ //augmentem i per passar al seguent client, i continua fins arribar al final de l'array
-    } while ( i < clients.length && position == -1) //fins que la i sigui mes gran q el maxim d posicions d l'array o no es trobi
-    //si mostra -1 vol dir q no hi ha cap client amb aquet DNI
-        console.log(position, "posició"); //ens torna la posició
+    return clientPosition; //la funció genera un nombre, l'index
+}
+function createClient() {
+//CREAR VALIDACIO X SI INTENEM INTRODUIR DOS USERS AMB EL MATEIX DNI
 
-        if (position != -1) {
-            console.log("Eureka", clients[position]);
-        } else { //Aqui ens imprimira l’objecte amb l’if posicio != i el console log Eureka
-            console.log("No existeix en la teva base de dades");
-        } //Missatges diferents si s’ha trobat o no
+    const userDNI = document.getElementById("userDNI").value;
+    const userAge = parseInt(document.getElementById("userAge").value);
+    const userNationality = document.getElementById("userNationality").value;
+    const err = "<small> Introdueix un valor vàlid. </small>"
+
+    if (!userDNI || userDNI.length !== 9|| !userNationality || !userAge ) return resultDiv.innerHTML = err;
+    //podem fer !variable x les numeriques tambe
+
+    const newClient = new Client (userDNI, userAge, userNationality); //instanciem la classe client
+    clients.push(newClient) //i guardem a l'array el nou objecte client
+
+    resultDiv.innerHTML = `<pre> ${newClient.toString()} </pre>`;
 
 }
 
-findObject()
+function showClients() {
+    if (clients.length < 1) return resultDiv.innerHTML = "No hi ha clients guardats."
+    resultDiv.innerHTML = `<pre>${clients.toString()}</pre>`
+}
+
+function removeClient () {
+
+//comprovem si l'array clients és buit
+    if (clients.length < 1) return resultDiv.innerHTML = "No hi ha clients guardats."
+
+    const rmUserDNI = document.getElementById("rmUserDNI").value
+    if (!rmUserDNI || rmUserDNI.length !== 9) return resultDiv.innerHTML = "Has d'introduir un DNI vàlid."
+
+    const clientPosition = findClient(rmUserDNI);
+    if (clientPosition == -1) return resultDiv.innerHTML = "Aquest client no existeix."
+
+    let userConfirmation = confirm("Estàs segur que vols eliminar el client?")
+    if (userConfirmation === true) {
+        clients.splice(clientPosition, 1);
+        resultDiv.innerHTML = "S'ha eliminat el client correctament.";
+    } else {
+        return null;
+    }
+
+}
+
+function createFlight() {
+    const userFlightDNI = document.getElementById("userFlightDNI").value;
+    const flightNum = document.getElementById("flightNum").value;
+    const distanceKm = parseInt(document.getElementById("distanceKm").value);
+    const flightCompany = document.getElementById("company").value;
+
+     const err = "<small> Introdueix un valor vàlid. </small>"
+
+    if (!userFlightDNI || !flightNum || !distanceKm || !flightCompany ) return resultDiv.innerHTML = err;
+
+    let clientFlightPosition = findClient(userFlightDNI);
+
+    if (clientFlightPosition === -1) {
+        return `Aquest DNI no es troba a la llista.`
+    }
+
+    const newFlight = new Vol (flightNum, flightCompany, distanceKm);
+    
+    clients[clientFlightPosition].addClientFlight(newFlight);
+
+    return `Vol assignat amb èxit al client amb DNI ${userFlightDNI}.`
+}
+
+function calcUserAvAge() { 
+    let ageAverage = null;
+    let sum = null;
+    let adultArr = [];
+
+    for (let i = 0; i < clients.length ; i++) {
+        if (clients[i].userAge > 18) {
+            adultArr.push(clients[i]);
+        }
+    }
+
+        for (let i = 0; i < adultArr.length; i++){
+            sum += adultArr[i];
+        }
+    ageAverage = sum / (adultArr.length -1);
+
+    resultDiv.innerHTML = `La mitjana d'edat dels clients majors d'edat és ${ageAverage}.`
+}
+
+function calcClientFootprint() {
+    const userCarbonDNI = document.getElementById("userFlightDNI").value;
+    if (clients.length < 1) return document.getElementById("result").innerHTML = "No hi ha clients guardats."
+    
+    if (!userCarbonDNI || userCarbonDNI.length !== 9) return resultDiv.innerHTML = "Has d'introduir un DNI vàlid."
+    
+    const clientPosition = findClient(userCarbonDNI);
+    const clientFootprint = clients[clientPosition].calcPetjadaClient()
+
+    document.getElementById("result").innerHTML = `L'emprempta de carboni d'aquest client és ${clientFootprint}`
+}
+
+function calcAvFootprint() {
+
+    let footprintAv = null;
+    let sum = null;
+
+    for (let i = 0; i < clients.length ; i++) {
+
+        let clientFootprint = clients[i].calcCarbonFootprint();
+        sum += clientFootprint
+        
+    }
+    footprintAv = sum / (clients.length -1);
+
+    resultDiv.innerHTML = `La mitjana de la petjada de carboni de tots els clients és ${footprintAv.toFixed(2)}`
+}
+
 
