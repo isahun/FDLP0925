@@ -4,8 +4,9 @@ class Client {
     #userDNI;
     #userAge;
     #userNationality;
+    #userFlights
 
-    static count = 1;
+    static count = 0;
 
 //1. Constructor
 
@@ -13,8 +14,8 @@ constructor (userDNI, userAge, userNationality) {
     this.#userDNI = userDNI;
     this.#userAge = userAge;
     this.#userNationality = userNationality;
-    this._userFlights = [];
-    this.id = Client.count ++;
+    this.#userFlights = [];
+    this.id = ++Client.count;
 
 }
 //2. Getters i Setters
@@ -23,15 +24,20 @@ constructor (userDNI, userAge, userNationality) {
 get userDNI() { return this.#userDNI }
 get userAge() { return this.#userAge }
 get userNationality() { return this.#userNationality }
-get userFlights() { return this._userFlights }
+get userFlights() { return this.#userFlights }
 
-set userFlights(newUserFlights) { 
-    this._userFlights = newUserFlights 
-}
+set userDNI(newUserDNI) { this.#userDNI = newUserDNI }
+set userAge(newUserAge) { this.#userAge = newUserAge }
+set userNationality(newUserNationality) {this.#userNationality = newUserNationality}
+set userFlights(newUserFlights) { this.#userFlights = newUserFlights }
 
-addClientFlight(userFlight) {
-    this.userFlights.push(userFlight);
-    userFlight.client = this;
+
+addClientFlight(userFlight) { //per afegir un vol i que quedi guardat dins de l'array de vols de cada instancia de client
+    //traduït això fa newClient.addCliengFlight(newFlight)
+    this.userFlights.push(userFlight); //el THIS es refereix a la instancia concreta d Client q ha cridat el mètode
+    //Si tenim "this.userFlights", this === newClient, userFlights és l'array d vols dins de cada client, fins aquí associem VOL a CLIENT, falta la inversa:
+    userFlight.client = this; //aquesta línia, en concret ".client" assigna una propietat al userFlight, 
+    // en concret la propietat afegida a userFlight és la instància de client (this) q crida al mètode
 }
 
 toString() { //str. Aquí no posem ni # ni _
@@ -39,7 +45,10 @@ toString() { //str. Aquí no posem ni # ni _
             ID d'usuari: ${this.id} 
             Edat: ${this.userAge}
             Nacionalitat: ${this.userNationality}
-            Vols associats: ${this.userFlights}
+            <br>
+            Número de vols: ${this.userFlights.length}
+            <br>
+            Vols associats: ${this.userFlights.join("<br>")}
             `
     }
 }

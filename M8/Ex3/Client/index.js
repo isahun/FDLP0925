@@ -2,23 +2,7 @@
 
 const resultDiv = document.getElementById("result");
 
-function findClient(rmUserDNI) { //Ens tornarà una posició, un NUMERO. Entrelazado cuantico amb el num d vol q introduirà l'usuari
 
-    //busquem DNI, dins de l'array clients
-    let clientPosition = -1 //partim de que no ho troba, i com q es do while executara el codi i x tant augmentara abans de trencar bucle
-    if (clients.length < 1) return clientPosition
-
-    let i = 0; //compte
-
-    do {
-        if(clients[i].userDNI === rmUserDNI) {
-            clientPosition = i;
-        }
-        i++
-    } while (i < clients.length && clientPosition == -1)
-
-    return clientPosition; //la funció genera un nombre, l'index
-}
 function createClient() {
 //CREAR VALIDACIO X SI INTENEM INTRODUIR DOS USERS AMB EL MATEIX DNI
 
@@ -29,6 +13,7 @@ function createClient() {
 
     if (!userDNI || userDNI.length !== 9|| !userNationality || !userAge ) return resultDiv.innerHTML = err;
     //podem fer !variable x les numeriques tambe
+    if (findClient(userDNI) !== -1) return `Ja existeix un client amb aquest DNI.`
 
     const newClient = new Client (userDNI, userAge, userNationality); //instanciem la classe client
     clients.push(newClient) //i guardem a l'array el nou objecte client
@@ -69,7 +54,7 @@ function createFlight() {
     const distanceKm = parseInt(document.getElementById("distanceKm").value);
     const flightCompany = document.getElementById("company").value;
 
-     const err = "<small> Introdueix un valor vàlid. </small>"
+    const err = "<small> Introdueix un valor vàlid. </small>"
 
     if (!userFlightDNI || !flightNum || !distanceKm || !flightCompany ) return resultDiv.innerHTML = err;
 
@@ -98,7 +83,7 @@ function calcUserAvAge() {
     }
 
         for (let i = 0; i < adultArr.length; i++){
-            sum += adultArr[i];
+            sum += adultArr[i].userAge;
         }
     ageAverage = sum / (adultArr.length -1);
 
@@ -132,5 +117,3 @@ function calcAvFootprint() {
 
     resultDiv.innerHTML = `La mitjana de la petjada de carboni de tots els clients és ${footprintAv.toFixed(2)}`
 }
-
-

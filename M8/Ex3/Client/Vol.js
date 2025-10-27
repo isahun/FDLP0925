@@ -27,12 +27,10 @@ get client() { return this._client }
 
 set client(newClient) { this._client = newClient; }
 
-
 calcCarbonFootprint () { 
     return parseFloat((this.distanceKm * Vol.tons))
     //les propietats estatiques citen directament la classe enlloc del this (k es exclusiu del contingu del constructor)
 }
-
 
 toString() { //str, no posem ni _ ni # pk ja fem servir getters
         return `
