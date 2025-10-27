@@ -58,7 +58,13 @@ function createFlight() {
 
     if (!userFlightDNI || !flightNum || !distanceKm || !flightCompany ) return resultDiv.innerHTML = err;
 
-    let clientFlightPosition = findClient(userFlightDNI);
+    let clientFlightPosition = null;
+
+    if (checkDni(userFlightDNI)) {
+    clientFlightPosition = findClient(userFlightDNI);
+    } else {
+        return `Introdueix un DNI vàlid.`
+    }
 
     if (clientFlightPosition === -1) {
         return `Aquest DNI no es troba a la llista.`
@@ -71,7 +77,7 @@ function createFlight() {
     return `Vol assignat amb èxit al client amb DNI ${userFlightDNI}.`
 }
 
-function calcUserAvAge() { 
+function calcAvAge() { 
     let ageAverage = null;
     let sum = null;
     let adultArr = [];
@@ -83,37 +89,61 @@ function calcUserAvAge() {
     }
 
         for (let i = 0; i < adultArr.length; i++){
-            sum += adultArr[i].userAge;
+            sum += parseInt(adultArr[i].userAge);
         }
-    ageAverage = sum / (adultArr.length -1);
+    ageAverage = sum / (adultArr.length);
 
     resultDiv.innerHTML = `La mitjana d'edat dels clients majors d'edat és ${ageAverage}.`
 }
 
 function calcClientFootprint() {
     const userCarbonDNI = document.getElementById("userFlightDNI").value;
-    if (clients.length < 1) return document.getElementById("result").innerHTML = "No hi ha clients guardats."
+
+    if (clients.length < 1) return resultDiv.innerHTML = "No hi ha clients guardats."
     
     if (!userCarbonDNI || userCarbonDNI.length !== 9) return resultDiv.innerHTML = "Has d'introduir un DNI vàlid."
     
+    let clientFootprint = null;
     const clientPosition = findClient(userCarbonDNI);
-    const clientFootprint = clients[clientPosition].calcPetjadaClient()
+    const clientToCheck = clients[clientPosition];
+    let sum = null;
 
-    document.getElementById("result").innerHTML = `L'emprempta de carboni d'aquest client és ${clientFootprint}`
+    for (let i = 0; i < clientToCheck.userFlights.length; i++){
+        const clientFlight = clientToCheck.userFlights[i];
+
+            if (clientToCheck.userFlights.length !== 0) {
+            sum += clientFlight.calcCarbonFootprint();
+            }
+    }
+
+    clientFootprint = sum / (clientToCheck.userFlights.length)
+
+    resultDiv.innerHTML = `La petjada de carboni d'aquest client és ${clientFootprint}`
 }
 
 function calcAvFootprint() {
+    
+    if (clients.length < 1) return resultDiv.innerHTML = "No hi ha clients guardats."
 
     let footprintAv = null;
     let sum = null;
+    const usersWithFlights = [];
 
     for (let i = 0; i < clients.length ; i++) {
+        const clientToCheck = clients[i];
 
-        let clientFootprint = clients[i].calcCarbonFootprint();
-        sum += clientFootprint
+        for (let j = 0; j < clientToCheck.userFlights.length; j++) {
+            const clientFlight = clientToCheck.userFlights[j]
         
-    }
-    footprintAv = sum / (clients.length -1);
+            if (clientToCheck.userFlights.length !== 0) {
+            sum += clientFlight.calcCarbonFootprint();
+            usersWithFlights.push(clientToCheck)
 
-    resultDiv.innerHTML = `La mitjana de la petjada de carboni de tots els clients és ${footprintAv.toFixed(2)}`
+            }
+        }
+    }
+
+    footprintAv = sum / (usersWithFlights.length);
+
+    resultDiv.innerHTML = `La mitjana de la petjada de carboni de tots els clients és ${footprintAv.toFixed(2)}.`
 }
