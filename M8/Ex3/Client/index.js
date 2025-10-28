@@ -2,7 +2,6 @@
 
 const resultDiv = document.getElementById("result");
 
-
 function createClient() {
     const userDNI = document.getElementById("userDNI").value;
     const userAge = parseInt(document.getElementById("userAge").value);
@@ -17,16 +16,16 @@ function createClient() {
     clients.push(newClient) //i guardem a l'array el nou objecte client
 
     resultDiv.innerHTML = `<pre> ${newClient.toString()} </pre>`;
-
+    cleanInputs()
 }
 
 function showClients() {
     if (clients.length < 1) return resultDiv.innerHTML = "No hi ha clients guardats."
     resultDiv.innerHTML = `<pre>${clients.toString()}</pre>`
+    cleanInputs()
 }
 
 function removeClient () {
-
 //comprovem si l'array clients és buit
     if (clients.length < 1) return resultDiv.innerHTML = "No hi ha clients guardats."
 
@@ -43,6 +42,7 @@ function removeClient () {
     } else {
         return null;
     }
+    cleanInputs()
 
 }
 
@@ -72,10 +72,14 @@ function createFlight() {
     
     clients[clientFlightPosition].addClientFlight(newFlight);
 
-    return `Vol assignat amb èxit al client amb DNI ${userFlightDNI}.`
+    resultDiv.innerHTML = `Vol assignat amb èxit al client amb DNI ${userFlightDNI}.`
+    cleanInputs()
 }
 
-function calcAvAge() { 
+function calcAvAge() {
+    //comprovem si l'array clients és buit
+    if (clients.length < 1) return resultDiv.innerHTML = "No hi ha clients guardats."
+    
     let ageAverage = null;
     let sum = null;
     let adultArr = [];
@@ -88,9 +92,11 @@ function calcAvAge() {
         for (let i = 0; i < adultArr.length; i++){
             sum += parseInt(adultArr[i].userAge);
         }
+
     ageAverage = sum / (adultArr.length);
 
     resultDiv.innerHTML = `La mitjana d'edat dels clients majors d'edat és ${ageAverage}.`
+    cleanInputs()
 }
 
 function calcClientFootprint() {
@@ -100,6 +106,7 @@ function calcClientFootprint() {
         resultDiv.innerHTML = "No hi ha clients guardats.";
         return
     }
+    
     if (!userCarbonDNI || !checkDni(userCarbonDNI)) {
         resultDiv.innerHTML = "Has d'introduir un DNI vàlid.";
         return
@@ -131,10 +138,10 @@ function calcClientFootprint() {
     clientFootprint = sum / (clientToCheck.userFlights.length)
 
     resultDiv.innerHTML = `La petjada de carboni d'aquest client és ${clientFootprint.toFixed(2)}.`
+    cleanInputs()
 }
 
 function calcAvFootprint() {
-    
     if (clients.length < 1) return resultDiv.innerHTML = "No hi ha clients guardats."
 
     let footprintAv = null;
@@ -158,4 +165,5 @@ function calcAvFootprint() {
     footprintAv = sum / (usersWithFlights.length);
 
     resultDiv.innerHTML = `La mitjana de la petjada de carboni de tots els clients és ${footprintAv.toFixed(2)}.`
+    cleanInputs()
 }

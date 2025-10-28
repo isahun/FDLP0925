@@ -28,4 +28,12 @@ function findClient(clientPosition, clients, rmUserDNI) { //Ens tornarà una pos
     return clientPosition; //la funció genera un nombre, l'index
 }
 
-//mirar si podem crear una funció generica xq recorri l'array q sigui, necessitem un segon paràmetre
+function cleanInputs() { //sempre netegem input al final
+    const inputs = document.querySelectorAll("input") //consulta tots els inputs, crea un array d inputs
+    
+    //loop x limpiar values
+    for (let i = 0; i < inputs.length; i++){
+        const input = inputs[i];
+        input.value = ""
+    }
+}

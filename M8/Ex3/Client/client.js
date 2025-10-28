@@ -24,7 +24,7 @@ constructor (userDNI, userAge, userNationality) {
 get userDNI() { return this.#userDNI }
 get userAge() { return this.#userAge }
 get userNationality() { return this.#userNationality }
-get userFlights() { return this.#userFlights }
+get userFlights() { return this.#userFlights } //getter per obtenir l'array de flights de cada client, sense això no ens el mostra
 
 set userDNI(newUserDNI) { this.#userDNI = newUserDNI }
 set userAge(newUserAge) { this.#userAge = newUserAge }
