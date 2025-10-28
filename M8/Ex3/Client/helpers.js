@@ -10,7 +10,7 @@ function checkDni (dni) {
     return dni.length == 9 // booleà, una altra validació separada x aplicar a main(index)
 }//recomanat fer validació d DNI x separat pk es un valor molt sensible
 
-function findClient(rmUserDNI) { //Ens tornarà una posició, un NUMERO. Entrelazado cuantico amb el num d vol q introduirà l'usuari
+function findClient(clientPosition, clients, rmUserDNI) { //Ens tornarà una posició, un NUMERO. Entrelazado cuantico amb el num d vol q introduirà l'usuari
 
     //busquem DNI, dins de l'array clients
     let clientPosition = -1 //partim de que no ho troba, i com q es do while executara el codi i x tant augmentara abans de trencar bucle

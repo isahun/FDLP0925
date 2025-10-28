@@ -4,8 +4,6 @@ const resultDiv = document.getElementById("result");
 
 
 function createClient() {
-//CREAR VALIDACIO X SI INTENEM INTRODUIR DOS USERS AMB EL MATEIX DNI
-
     const userDNI = document.getElementById("userDNI").value;
     const userAge = parseInt(document.getElementById("userAge").value);
     const userNationality = document.getElementById("userNationality").value;
@@ -118,7 +116,7 @@ function calcClientFootprint() {
 
     clientFootprint = sum / (clientToCheck.userFlights.length)
 
-    resultDiv.innerHTML = `La petjada de carboni d'aquest client és ${clientFootprint}`
+    resultDiv.innerHTML = `La petjada de carboni d'aquest client és ${clientFootprint.toFixed(2)}.`
 }
 
 function calcAvFootprint() {
