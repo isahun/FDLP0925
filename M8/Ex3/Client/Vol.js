@@ -5,6 +5,7 @@ class Vol {
 
 static tons = 0.5;
 static count = 1;
+static compensaCO2 = 5;
 
 //1. Constructor
 
@@ -14,8 +15,8 @@ constructor (flightNum, company, distanceKm) {
     this._distanceKm = distanceKm;    
     this._client = null; //de moment està buit pk no té cap client assignat
     this.id = Vol.count++ //metode de classe directament pk es static, de classe
+    this.compensaCO2 = Vol.compensaCO2
     //this.id serà l'identificador de la instància, el comptador cada cop q es creï una
-
 }
 
 //2. Getters i Setters
@@ -31,9 +32,14 @@ set distanceKm(newDistanceKm) { this._distanceKm = newDistanceKm; }
 
 calcCarbonFootprint () { 
     
-    let clientFootprint = parseFloat((this.distanceKm * Vol.tons));
-    return clientFootprint
+    let clientFootprint = parseFloat(this.distanceKm * Vol.tons);
+    return clientFootprint;
     //les propietats estatiques citen directament la classe enlloc del this (k es exclusiu del contingu del constructor)
+}
+
+compensateCO2(clientFootprint) {
+    let compensateCO2 = clientFootprint * Vol.compensaCO2;
+    return compensateCO2;
 }
 
 toString() { //str, no posem ni _ ni # pk ja fem servir getters
