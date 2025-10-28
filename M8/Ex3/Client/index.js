@@ -85,7 +85,6 @@ function calcAvAge() {
             adultArr.push(clients[i]);
         }
     }
-
         for (let i = 0; i < adultArr.length; i++){
             sum += parseInt(adultArr[i].userAge);
         }
@@ -96,22 +95,37 @@ function calcAvAge() {
 
 function calcClientFootprint() {
     const userCarbonDNI = document.getElementById("userFlightDNI").value;
-
-    if (clients.length < 1) return resultDiv.innerHTML = "No hi ha clients guardats."
-    
-    if (!userCarbonDNI || userCarbonDNI.length !== 9) return resultDiv.innerHTML = "Has d'introduir un DNI vàlid."
+    //validem si array està buit o si l'input i el format del dni és vàlid
+    if (clients.length < 1) {
+        resultDiv.innerHTML = "No hi ha clients guardats.";
+        return
+    }
+    if (!userCarbonDNI || !checkDni(userCarbonDNI)) {
+        resultDiv.innerHTML = "Has d'introduir un DNI vàlid.";
+        return
+    }
     
     let clientFootprint = null;
-    const clientPosition = findClient(userCarbonDNI);
+    const clientPosition = findClient(clientPosition, clients, userCarbonDNI);
+    //validem dni not matching
+    if (clientPosition === -1) {
+        resultDiv.innerHTML = "No hi ha cap usuari amb aquest DNI.";
+        return 
+    }
+
     const clientToCheck = clients[clientPosition];
     let sum = null;
 
+    //missatge si el client no té vols guardats
+    if (clientToCheck.userFlights.length == 0) {
+        resultDiv.innerHTML = "Aquest client no té vols associats."
+        return;
+    }
+
+    //recorrem array de vols
     for (let i = 0; i < clientToCheck.userFlights.length; i++){
         const clientFlight = clientToCheck.userFlights[i];
-
-            if (clientToCheck.userFlights.length !== 0) {
-            sum += clientFlight.calcCarbonFootprint();
-            }
+        sum += clientFlight.calcCarbonFootprint();
     }
 
     clientFootprint = sum / (clientToCheck.userFlights.length)
