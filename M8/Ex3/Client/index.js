@@ -46,7 +46,6 @@ function removeClient () {
         return null;
     }
     cleanInputs()
-
 }
 
 function createFlight() {
@@ -58,6 +57,9 @@ function createFlight() {
     const err = "<small> Introdueix un valor vàlid. </small>"
 
     if (!userFlightDNI || !flightNum || !distanceKm || !flightCompany ) return resultDiv.innerHTML = err;
+
+//comprovem si l'array clients és buit
+    if (clients.length < 1) return resultDiv.innerHTML = "No hi ha clients guardats."
 
     let clientFlightPosition = null;
 
@@ -154,7 +156,9 @@ function calcAvFootprint() {
 
     for (let i = 0; i < clients.length ; i++) { //revisar això pk agafa a dos clients al array quan ha d'agafar-ne un
         const clientToCheck = clients[i];
-        usersWithFlights.push(clientToCheck);
+        if (clientToCheck.userFlights.length !== 0) {
+            usersWithFlights.push(clientToCheck);
+        }
 
         for (let j = 0; j < clientToCheck.userFlights.length; j++) { 
             const clientFlight = clientToCheck.userFlights[j]        
