@@ -1,10 +1,26 @@
 "use strict"
 
-const newHotel = new Hotel ("NH", 2, 2000, 200)
-const newCinema = new Cinema ("Verdi", 3, 3000, 50, 60, 5)
-const newHospital = new Hospital ("Sant Joan de Déu", 6, 6000, 36)
+const resultDiv = document.getElementById("result");
 
+function createHospital() {
+    const nom = document.getElementById("hospitalName").value;
+    const numPlantes = document.getElementById("hospitalFloors").value;
+    const superficieM2 = document.getElementById("hospitalSurface").value;
+    const numPacients = document.getElementById("numPatients")
 
-console.log(newHotel.toString())
-console.log(newCinema.toString())
-console.log(newHospital.toString())
+    const err = "Has d'introduir un valor vàlid."
+
+    if (!nom || !numPlantes || !superficieM2 || !numPacients ) return resultDiv.innerHTML = err;
+
+    if (findBuilding(nom) !== -1) {
+        resultDiv.innerHTML = `Ja existeix un edifici amb aquest nom.`
+        return
+    }
+
+    const newHospital = new Hospital (nom, numPlantes, superficieM2, numPacients);
+
+    arrBuildings.push(newHospital);
+
+    resultDiv.innerHTML = `Enhorabona! Has afegit un nou edifici: \n <pre>${newHospital.toString()}</pre> `
+
+}
