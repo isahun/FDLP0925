@@ -17,7 +17,7 @@ class Edifici {
 
 
     get nom() { return this._nom }
-    get numPlantes() { return parseInt(this._numPlantes) }
+    get numPlantes() { return parseInt(this._numPlantes) } //els getters s'hereden?
     get superficieM2() { return parseInt(this._superficieM2) }
     get vigiM2() {return this._vigiM2 }
 
