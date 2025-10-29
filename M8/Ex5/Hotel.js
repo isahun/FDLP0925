@@ -3,10 +3,17 @@
 class Hotel extends Edifici {
 
     static extraVigi = 500
-    static watchedSurface = 1000
+    static vigiM2 = 1000
 
-    constructor (nom, numPlantes, superficieM2) {
-        super(nom, numPlantes, superficieM2)
+    constructor (nom, numPlantes, superficieM2, vigiM2) {
+        super(nom, numPlantes, superficieM2, vigiM2)
+    }
+
+
+    toString() {
+        return `
+        ${super.toString()}
+        `
     }
 }
 
