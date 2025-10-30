@@ -9,7 +9,7 @@ class Hotel extends Edifici {
     static tipusEdifici = "Hotel"
 
     constructor (nom, numPlantes, superficieM2, numHab) {
-        super(nom, numPlantes, superficieM2)
+        super(nom, numPlantes, superficieM2) //sempre ha d'anar primer l'extensió ancestral, el fonament de l'hotel
         this._vigiM2 = Hotel.vigiM2; //provar a borrar pk crec q es redundant
         this._habPersona = Hotel.habPersona;  //provar a borrar pk crec q es redundant
         this._numHab = numHab;

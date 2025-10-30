@@ -18,6 +18,7 @@ class Hospital extends Edifici {
 
     get numPacients () { return parseInt(this._numPacients)} //es redundant fer això? puc fer directament return hospital.racionsDies?
     get tipusEdifici (){ return Hospital.tipusEdifici }
+    get numApats() { return Hospital.numApats }
     set numPacients(newNumPacients) { this._numPacients = newNumPacients }
 
 
@@ -26,8 +27,8 @@ class Hospital extends Edifici {
     }
 
     repartirDinar(numPacients) {
-        return `S'estan repartint ${numPacients} racions.`
-        
+        let numRacions = numPacients * this.numApats
+        return `S'estan repartint ${numRacions} racions.`
     }
 
     toString() {
@@ -36,7 +37,7 @@ class Hospital extends Edifici {
         ${super.toString()}
         Cost mensual vigilància: ${this.calcCostVigiHospital()} €.
         Número de pacients: ${this.numPacients}
-        Racions a repartir: ${this.repartirDinar(this.numPacients)}
+        Racions a repartir per dia : ${this.repartirDinar(this.numPacients)}
         `
     }
 }

@@ -17,7 +17,7 @@ class Edifici {
 
 
     get nom() { return this._nom }
-    get numPlantes() { return parseInt(this._numPlantes) } //els getters s'hereden?
+    get numPlantes() { return parseInt(this._numPlantes) } //els getters s'hereden? respost a classe si
     get superficieM2() { return parseInt(this._superficieM2) }
     get vigiM2() {return this._vigiM2 }
 
@@ -36,7 +36,7 @@ class Edifici {
     }
 
     calcCostVigi() {
-        let numVigi = Math.ceil(parseInt(this.superficieM2) / this._vigiM2);
+        let numVigi = Math.ceil(parseInt(this.superficieM2) / this.vigiM2);
         let costVigiTotal = numVigi * Edifici.vigiCost;
         let arrCostVigi = [numVigi, costVigiTotal]
         return arrCostVigi;
@@ -51,6 +51,5 @@ class Edifici {
         Cost mensual de neteja: ${this.netejar()[1]} €.
         Número de vigilants: ${this.calcCostVigi()[0]} persones.`
     }
-
     
 }
