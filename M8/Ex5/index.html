@@ -11,9 +11,9 @@
 
 <div id="createHospital-div" style="margin-top: 15px;">
   <label for="hospitalName">Escriu el nom de l'hospital:</label> <input type="text" id="hospitalName"><br>
-  <label for="hospitalFloors">Escriu el nombre de pisos:</label> <input type="text" id="hospitalFloors"><br>
-  <label for="hospitalSurface">Escriu la superfície total (m2):</label> <input type="text" id="hospitalSurface"><br>
-  <label for="numPatients">Introdueix un número de pacients:</label> <input type="text" id="numPatients"><br>
+  <label for="hospitalFloors">Escriu el nombre de pisos:</label> <input type="number" id="hospitalFloors"><br>
+  <label for="hospitalSurface">Escriu la superfície total (m2):</label> <input type="number" id="hospitalSurface"><br>
+  <label for="numPatients">Introdueix un número de pacients:</label> <input type="number" id="numPatients"><br>
 
   <button type="button" onclick="createHospital()">Crea un hospital nou</button>    
 </div>
@@ -21,11 +21,11 @@
 
 <div id="createCinema-div" style="margin-top: 15px;">
   <label for="cinemaName">Escriu el nom del cinema:</label> <input type="text" id="cinemaName"><br>
-  <label for="cinemaFloors">Escriu el nombre de pisos:</label> <input type="text" id="cinemaFloors"><br>
-  <label for="cinemaSurface">Escriu la superfície total (m2):</label> <input type="text" id="cinemaSurface"><br>
-  <label for="cinemaClients">Escriu els clients d'avui per conèixer la recaptació de la sessió: </label> <input type="text" id="cinemaClients"><br>
-  <label for="maxCapacity">Escriu la capacitat màxima de la sala: </label> <input type="text" id="maxCapacity"><br>
-  <label for="ticketPrice">Introdueix un preu per entrada: </label> <input type="text" id="ticketPrice"><br>
+  <label for="cinemaFloors">Escriu el nombre de pisos:</label> <input type="number" id="cinemaFloors"><br>
+  <label for="cinemaSurface">Escriu la superfície total (m2):</label> <input type="number" id="cinemaSurface"><br>
+  <label for="cinemaClients">Escriu els clients d'avui per conèixer la recaptació de la sessió: </label> <input type="number" id="cinemaClients"><br>
+  <label for="maxCapacity">Escriu la capacitat màxima de la sala: </label> <input type="number" id="maxCapacity"><br>
+  <label for="ticketPrice">Introdueix un preu per entrada: </label> <input type="number" id="ticketPrice"><br>
 
   <button type="button" onclick="createCinema()">Crea un cinema nou</button>    
 </div>
@@ -33,23 +33,23 @@
 
 <div id="createHotel-div" style="margin-top: 15px;">
   <label for="hotelName">Escriu el nom de l'hotel:</label> <input type="text" id="hotelName"><br>
-  <label for="hotelFloors">Escriu el nombre de pisos:</label> <input type="text" id="hotelFloors"><br>
-  <label for="hotelSurface">Escriu la superfície total (m2):</label> <input type="text" id="hotelSurface"><br>
-  <label for="roomNumber">Introdueix el nombre total d'habitacions: </label> <input type="text" id="roomNumber"><br>
+  <label for="hotelFloors">Escriu el nombre de pisos:</label> <input type="number" id="hotelFloors"><br>
+  <label for="hotelSurface">Escriu la superfície total (m2):</label> <input type="number" id="hotelSurface"><br>
+  <label for="roomNumber">Introdueix el nombre total d'habitacions: </label> <input type="number" id="roomNumber"><br>
 
   <button type="button" onclick="createHotel()">Crea un hotel nou</button>    
-</div>
-<br>
-
-<div id="removeBuilding-div"  style="margin-top: 15px;">
-    <label for="rmBuildingName">Escriu el nom de l'edifici a eliminar:</label> <input type="text" id="rmBuildingName"><br>
-    <button type="button" onclick="removeBuilding()">Elimina edifici</button>
 </div>
 <br>
 
 <div id="showBuildings-div"  style="margin-top: 15px;">
     <label for="showBuildings">Mira tots els edificis:</label><br>
     <button type="button" onclick="showBuildings()">Fes clic</button>
+</div>
+<br>
+
+<div id="removeBuilding-div"  style="margin-top: 15px;">
+    <label for="rmBuildingName">Escriu el nom de l'edifici a eliminar:</label> <input type="text" id="rmBuildingName"><br>
+    <button type="button" onclick="removeBuilding()">Elimina edifici</button>
 </div>
 <br>
 
@@ -60,6 +60,7 @@
     <script src="Hospital.js"></script>
     <script src="Cinema.js"></script>
     <script src="Hotel.js"></script>
+    <script src="helpers.js"></script>
     <script src="script.js"></script>
 
 

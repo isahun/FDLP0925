@@ -6,12 +6,14 @@ class Hotel extends Edifici {
     static vigiM2 = 1000; //dubte, hem d posarles amb this, o no cal?
     static souNeteja = 1000;
     static habPersona = 20;
+    static tipusEdifici = "Hotel"
 
     constructor (nom, numPlantes, superficieM2, numHab) {
         super(nom, numPlantes, superficieM2)
         this._vigiM2 = Hotel.vigiM2; //provar a borrar pk crec q es redundant
         this._habPersona = Hotel.habPersona;  //provar a borrar pk crec q es redundant
         this._numHab = numHab;
+        this._tipusEdifici = Hotel.tipusEdifici;
 
     }
 
@@ -34,9 +36,10 @@ calcPersonalNeteja(numHab) {
 
     toString() {
         return `
+        Tipus d'edifici: ${this.tipusEdifici}
         ${super.toString()}
         Cost mensual vigilància: ${this.calcCostVigiHotel()} €.
-        Número d'habitacions: ${this.numHab}.
+        Número d'habitacions: ${this.numHab}
         Personal necessari: ${this.calcPersonalNeteja(this.numHab)[0]}
         Salari mensual del personal (total): ${this.calcPersonalNeteja(this.numHab)[1]}
         `

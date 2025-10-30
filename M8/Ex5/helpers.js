@@ -11,10 +11,10 @@ function cleanInputs() { //sempre netegem input al final
     }
 }
 
-function findBuilding(buildingName) { //Ens tornarà una posició, un NUMERO. Entrelazado cuantico amb el num d vol q introduirà l'usuari
+function findBuilding(buildingName) { 
 
     //busquem nom, dins de l'array edificis
-    let buildingPosition = -1 //partim de que no ho troba, i com q es do while executara el codi i x tant augmentara abans de trencar bucle
+    let buildingPosition = -1 
     if (arrBuildings.length < 1) return buildingPosition
 
     let i = 0; //compte

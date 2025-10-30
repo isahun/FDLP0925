@@ -49,8 +49,7 @@ class Edifici {
         Superfície (m2): ${this.superficieM2}
         Temps total de neteja: ${this.netejar()[0]} minuts.
         Cost mensual de neteja: ${this.netejar()[1]} €.
-        Número de vigilants: ${this.calcCostVigi()[0]} persones.
-        `
+        Número de vigilants: ${this.calcCostVigi()[0]} persones.`
     }
 
     
