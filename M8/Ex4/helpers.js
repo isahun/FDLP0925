@@ -10,21 +10,32 @@ function cleanInputs() { //sempre netegem input al final
     }
 }
 
+function catchInputs(planeID, planeBrand, planeModel, planeLoad, planeLength) {
+    planeID = document.getElementById("planeID").value
+    planeBrand = document.getElementById("planeBrand").value
+    planeModel = document.getElementById("planeModel").value
+    planeLoad = document.getElementById("planeLoad").value
+    planeLength = document.getElementById("planeLength").value
+
+    return [planeID, planeBrand, planeModel, planeLoad, planeLength]
+
+}
+
 function findPlane(numPlane) { 
 
     //busquem nom, dins de l'array 
-    let buildingPosition = -1 
-    if (arrBuildings.length < 1) return buildingPosition
+    let planePosition = -1 
+    if (avions.length < 1) return planePosition
 
     let i = 0; //compte
 
     do {
-        if(arrBuildings[i].nom === buildingName) {
-            buildingPosition = i;
+        if(avions[i].nom === numPlane) {
+            planePosition = i;
         }
         i++
-    } while (i < arrBuildings.length && buildingPosition == -1)
+    } while (i < avions.length && planePosition == -1)
 
-    return buildingPosition; //la funció genera un nombre, l'index
+    return planePosition; //la funció genera un nombre, l'index
 }
 

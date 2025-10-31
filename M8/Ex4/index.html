@@ -9,8 +9,32 @@
 </head>
 <body>
 
+<div id="createPlane-div" style="margin-top: 15px;">
+  <label for="planeID">Escriu l'identificador de l'avió:</label> <input type="text" id="planeID"><br>
+  <br>
+  <label for="planeBrand">Escriu la marca:</label> <input type="text" id="planeBrand"><br>
+  <br>
+  <label for="planeModel">Escriu el model:</label> <input type="text" id="planeModel"><br>
+  <br>
+  <label for="planeLoad">Escriu la càrrega màxima en quilos:</label> <input type="number" id="planeLoad"><br>
+  <br>
+  <label for="planeLength">Escriu la llargada en metres:</label> <input type="number" id="planeLength"><br>
+  <br>
+  <label for="passNumComPlane">Si vols crear un avió comercial escriu el nombre de passatgers:</label>  <input type="number" id="passNumComPlane">
+      <button type="button" onclick="createComPlane()">Crea un nou avió comercial</button>    
+  <br>
+  <br>
+  <label for="helixNum">Si vols crear una avioneta, introdueix el nombre d'hèlixs:</label> <input type="number" id="helixNum">
+  <button type="button" onclick="createAircraft()">Crea una avioneta nova</button>
+  <br>
+  <br>
+  <label for="passNumJet">Si vols crear un jet escriu el nombre de passatgers:</label> <input type="number" id="passNumJet">
+  <button type="button" onclick="createJet()">Crea un jet nou</button>    
+    
+</div>
+<br>
 
-
+    <div id="result"></div>
 
     <script src="DDBB.js"></script>
     <script src="Avio.js"></script>
