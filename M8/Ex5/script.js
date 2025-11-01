@@ -1,7 +1,5 @@
 "use strict"
 
-/* global arrBuildings */
-
 const resultDiv = document.getElementById("result");
 
 function createHospital() {
@@ -46,6 +44,7 @@ function createCinema() {
     if (newCinema.checkCapacity() === true) {
     resultDiv.innerHTML = `Enhorabona! Has afegit un nou edifici: \n <pre>${newCinema.toString()}</pre> `
     cleanInputs()
+    
     } else {
         resultDiv.innerHTML = `Aforament superat, no hi pot haver més de ${capacitatMax} espectadors.`
     }

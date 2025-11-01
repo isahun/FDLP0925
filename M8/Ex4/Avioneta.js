@@ -7,14 +7,13 @@ class Avioneta extends Avio {
     constructor (numPlane, brand, model, loadKg, lengthMt, numHelix){
         super(numPlane, brand, model, loadKg, lengthMt)
         this._numHelix = numHelix
-        this._cleanDivi = Avio.cleanDivi
     }
 
-    get numHelix() { return parseInt(this._numHelix) }
-    get cleanDivi() { return parseInt(this._cleanDivi) }
+    get numHelix() { return this._numHelix }
+    get planeType() { return Avioneta.planeType } //fem getter pk ho farem servir al toString, tot i q si nomes es fa servir a la classe propia no cal
 
     aircraftCleanTime() {
-        return ( this.cleanTime() / this.cleanDivi )
+        return ( this.cleanTime() / this.cleanDivi ) //this.cleanDivi pk hem creat getter a la classe
     }
 
     calcDistance() {
@@ -24,7 +23,7 @@ class Avioneta extends Avio {
     toString() {
         return `
         DADES DE L'AVIÓ
-        Tipus: ${Avioneta.planeType}
+        Tipus: ${this.planeType}
         ${super.toString()}
         Temps de neteja: ${this.aircraftCleanTime()} minuts.
         Distància: ${this.calcDistance()} quilòmetres.

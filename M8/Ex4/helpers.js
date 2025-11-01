@@ -11,20 +11,28 @@ function cleanInputs() { //sempre netegem input al final
 }
 
 function catchInputs() {
-    const planeID = document.getElementById("planeID").value.trim()
-    const planeBrand = document.getElementById("planeBrand").value.trim()
-    const planeModel = document.getElementById("planeModel").value.trim()
-    const planeLoad = parseFloat(document.getElementById("planeLoad").value)
-    const planeLength = parseFloat(document.getElementById("planeLength").value)
+    const numPlane = document.getElementById("numPlane").value.trim()
+    const brand = document.getElementById("brand").value.trim()
+    const model = document.getElementById("model").value.trim()
+    const loadKg = parseFloat(document.getElementById("loadKg").value)
+    const lengthMt = parseFloat(document.getElementById("lengthMt").value)
 
     return {
-        planeID, planeBrand, planeModel, planeLoad, planeLength
+        numPlane, brand, model, loadKg, lengthMt
     };
+}
 
+function validateCommonInputs(commonInputs) {
+    let validateInput = (!commonInputs.numPlane || !commonInputs.brand || !commonInputs.model || !commonInputs.loadKg || !commonInputs.lengthMt)
+        return validateInput
+    }
+
+function validateNumInputs(commonInputs) {
+    let validateNumInput = (commonInputs.loadKg <= 0 || commonInputs.lengthMt <= 0)
+    return validateNumInput
 }
 
 function findPlane(numPlane) { 
-
     //busquem nom, dins de l'array 
     let planePosition = -1 
     if (avions.length < 1) return planePosition

@@ -6,30 +6,31 @@ class JetPrivat extends Avio {
     static maxPass = 10;
     static planeType = "Jet privat"
 
-    constructor (numPlane, brand, model, loadKg, lengthMt, numPass){
+    constructor (numPlane, brand, model, loadKg, lengthMt, numPassJet){
         super(numPlane, brand, model, loadKg, lengthMt)
-        this._numPass = numPass
-        this._cleanDivi = Avio.cleanDivi
+        this._numPassJet = parseInt(numPassJet)
+        //this._cleanDivi = Avio.cleanDivi no cal pk hereda getter de main class, x aixo tampoc cal el getter
     }
 
-    get numPass() { return parseInt(this._numPass) }
-    get cleanDivi() { return parseInt(this._cleanDivi) }
+    get numPassJet() { return this._numPassJet }
+    get planeType() { return JetPrivat.planeType } //fem getter pk ho farem servir al script
+    get maxPass() { return JetPrivat.maxPass }  //fem getter pk ho farem servir al script
+
 
     jetCleanTime() {
         return ( this.cleanTime(this.lengthMt) / this.cleanDivi ) + JetPrivat.extraCleanMins
     }
 
     calcBookingCost() {
-        return this.numPass * AvioComercial.passPrice
+        return this.numPassJet * JetPrivat.passPrice
     }
 
     toString() {
         return `
         DADES DE L'AVIÓ
-        Tipus: ${JetPrivat.planeType}
+        Tipus: ${this.planeType}
         ${super.toString()}
         Temps de neteja: ${this.jetCleanTime()} minuts.
         `
-    } //no posem el temps total d reserva a tostring pk li hem d posar logica al script
-
+    } 
 }

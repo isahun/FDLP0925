@@ -6,13 +6,17 @@ const resultDiv = document.getElementById("result");
 function createComPlane() {
 
     const commonInputs = catchInputs();
-    const passNumComercial = document.getElementById("passNumComPlane").value
+    const passNumComercial = parseInt(document.getElementById("numPassCom").value)
 
-    const newComercial = new AvioComercial (commonInputs.planeID, commonInputs.planeBrand, commonInputs.planeModel, commonInputs.planeLoad, commonInputs.planeLength, passNumComercial)
+    if (validateCommonInputs(commonInputs)) return resultDiv.innerHTML = "Els camps no poden estar en blanc."
+    if (validateNumInputs(commonInputs)) return resultDiv.innerHTML = "Has d'introduir un número vàlid."
+    if (!passNumComercial || passNumComercial <= 0) return resultDiv.innerHTML = "Has d'introduir mínim 1 passatger."
+
+    const newComercial = new AvioComercial (commonInputs.numPlane, commonInputs.brand, commonInputs.model, commonInputs.loadKg, commonInputs.lengthMt, passNumComercial)
 
     avions.push(newComercial)
 
-    resultDiv.innerHTML = `<pre>Has afegit l'avió de tipus ${AvioComercial.planeType} amb èxit!
+    resultDiv.innerHTML = `<pre>Has afegit l'avió de tipus ${newComercial.planeType} amb èxit!
     
     ${newComercial.toString()}</pre>`
 
@@ -22,13 +26,17 @@ function createComPlane() {
 function createAircraft() {
 
     const commonInputs = catchInputs();
-    const helixNum = document.getElementById("helixNum").value
+    const numHelix = document.getElementById("numHelix").value;
 
-    const newAircraft = new Avioneta (commonInputs.planeID, commonInputs.planeBrand, commonInputs.planeModel, commonInputs.planeLoad, commonInputs.planeLength, helixNum)
+    if (validateCommonInputs(commonInputs)) return resultDiv.innerHTML = "Els camps no poden estar en blanc."
+    if (validateNumInputs(commonInputs)) return resultDiv.innerHTML = "Has d'introduir un número vàlid."
+    if (!numHelix || numHelix < 2) return resultDiv.innerHTML = "Has d'introduir mínim 2 hèlixs."
+
+    const newAircraft = new Avioneta (commonInputs.numPlane, commonInputs.brand, commonInputs.model, commonInputs.loadKg, commonInputs.lengthMt, numHelix)
 
     avions.push(newAircraft)
 
-    resultDiv.innerHTML = `<pre>Has afegit l'avió de tipus ${Avioneta.planeType} amb èxit!
+    resultDiv.innerHTML = `<pre>Has afegit l'avió de tipus ${newAircraft.planeType} amb èxit!
     
     ${newAircraft.toString()}</pre>`
 
@@ -37,16 +45,21 @@ function createAircraft() {
 
 function createJet() {
 
-    const commonInputs = catchInputs();
-    const passNumJet = parseInt(document.getElementById("passNumJet").value)
+    const commonInputs = catchInputs(); //guardem en una variable l'objecte d'inputs comuns que recull la funció
+    const passNumJet = parseInt(document.getElementById("numPassJet").value)
+
+    if (validateCommonInputs(commonInputs)) return resultDiv.innerHTML = "Els camps no poden estar en blanc."
+    if (validateNumInputs(commonInputs)) return resultDiv.innerHTML = "Has d'introduir un número vàlid."
     
-    if (passNumJet > JetPrivat.maxPass) return resultDiv.innerHTML = "No hi pot haver més de 10 passatgers."
+    const newJet = new JetPrivat (commonInputs.numPlane, commonInputs.brand, commonInputs.model, commonInputs.loadKg, commonInputs.lengthMt, passNumJet)
+    //accedim a cada valor de l'objecte que hem cridat amb catchInputs()
     
-    const newJet = new JetPrivat (commonInputs.planeID, commonInputs.planeBrand, commonInputs.planeModel, commonInputs.planeLoad, commonInputs.planeLength, passNumJet)
+    if (passNumJet > newJet.maxPass) return resultDiv.innerHTML = "No hi pot haver més de 10 passatgers."
+
 
     avions.push(newJet)
 
-    resultDiv.innerHTML = `<pre>Has afegit l'avió de tipus ${JetPrivat.planeType} amb èxit!
+    resultDiv.innerHTML = `<pre>Has afegit l'avió de tipus ${newJet.planeType} amb èxit!
     
     ${newJet.toString()}</pre>`
 
@@ -88,9 +101,10 @@ function removePlane () {
     if (userConfirmation === true) {
         avions.splice(planePosition, 1);
         resultDiv.innerHTML = "S'ha eliminat l'avió correctament.";
+        cleanInputs()
     } else {
         resultDiv.innerHTML = "L'avió no s'ha eliminat.";
     }
     
-    cleanInputs()
+    
 }
