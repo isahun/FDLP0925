@@ -10,14 +10,16 @@ function cleanInputs() { //sempre netegem input al final
     }
 }
 
-function catchInputs(planeID, planeBrand, planeModel, planeLoad, planeLength) {
-    planeID = document.getElementById("planeID").value
-    planeBrand = document.getElementById("planeBrand").value
-    planeModel = document.getElementById("planeModel").value
-    planeLoad = document.getElementById("planeLoad").value
-    planeLength = document.getElementById("planeLength").value
+function catchInputs() {
+    const planeID = document.getElementById("planeID").value.trim()
+    const planeBrand = document.getElementById("planeBrand").value.trim()
+    const planeModel = document.getElementById("planeModel").value.trim()
+    const planeLoad = parseFloat(document.getElementById("planeLoad").value)
+    const planeLength = parseFloat(document.getElementById("planeLength").value)
 
-    return [planeID, planeBrand, planeModel, planeLoad, planeLength]
+    return {
+        planeID, planeBrand, planeModel, planeLoad, planeLength
+    };
 
 }
 
@@ -30,7 +32,7 @@ function findPlane(numPlane) {
     let i = 0; //compte
 
     do {
-        if(avions[i].nom === numPlane) {
+        if(avions[i].numPlane === numPlane) {
             planePosition = i;
         }
         i++

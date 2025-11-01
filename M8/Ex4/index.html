@@ -29,8 +29,25 @@
   <br>
   <br>
   <label for="passNumJet">Si vols crear un jet escriu el nombre de passatgers:</label> <input type="number" id="passNumJet">
-  <button type="button" onclick="createJet()">Crea un jet nou</button>    
-    
+  <button type="button" onclick="createJet()">Crea un jet nou</button>
+</div>
+<br>
+
+<div id="showPlanes-div"  style="margin-top: 15px;">
+    <label for="showBuildings">Mira tots els avions:</label><br>
+    <button type="button" onclick="showPlanes()">Fes clic</button>
+</div>
+<br>
+
+<div id="showOnePlane-div"  style="margin-top: 15px;">
+    <label for="showPlaneName">Escriu l'identificador de l'avió a mostrar:</label> <input type="text" id="showPlaneName"><br>
+    <button type="button" onclick="showOnePlane()">Mostra l'avió</button>
+</div>
+<br>
+
+<div id="removeOnePlane-div"  style="margin-top: 15px;">
+    <label for="rmPlaneName">Escriu el nom de l'avió a eliminar:</label> <input type="text" id="rmPlaneName"><br>
+    <button type="button" onclick="removePlane()">Elimina l'avió</button>
 </div>
 <br>
 
