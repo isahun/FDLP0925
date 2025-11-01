@@ -5,10 +5,10 @@ class Avio {
     static cleanDivi = 2;
 
     constructor (numPlane, brand, model, loadKg, lengthMt) {
-        this._numPlane = numPlane,
-        this._brand = brand,
-        this._model = model,
-        this._loadKg = loadKg,
+        this._numPlane = numPlane;
+        this._brand = brand;
+        this._model = model;
+        this._loadKg = loadKg;
         this._lengthMt = lengthMt
     }
 
@@ -17,6 +17,8 @@ class Avio {
     get model() { return this._model }
     get loadKg() { return parseFloat(this._loadKg) }
     get lengthMt() { return parseFloat(this._lengthMt) }
+    get cleanDivi() { return Avio.cleanDivi }
+    get cleanMins() { return Avio.cleanMins }
 
     cleanTime() {
         return this.lengthMt * Avio.cleanMins

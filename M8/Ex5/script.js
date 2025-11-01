@@ -43,9 +43,12 @@ function createCinema() {
     const newCinema = new Cinema (nom, numPlantes, superficieM2, numAssistents, capacitatMax, preuEntrada);
     arrBuildings.push(newCinema);
 
+    if (newCinema.checkCapacity() === true) {
     resultDiv.innerHTML = `Enhorabona! Has afegit un nou edifici: \n <pre>${newCinema.toString()}</pre> `
-
     cleanInputs()
+    } else {
+        resultDiv.innerHTML = `Aforament superat, no hi pot haver més de ${capacitatMax} espectadors.`
+    }
 
 }
 

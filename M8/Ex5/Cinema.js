@@ -2,41 +2,44 @@
 
 class Cinema extends Edifici {
 
-    static vigiM2 = 3000 //dubte, hem d posarles amb this, o no cal?
+    static vigiM2 = 3000 //valor propi de cinema
     static tipusEdifici = "Cinema"
 
     constructor (nom, numPlantes, superficieM2, numAssistents, capacitatMax, preuEntrada) {
         super(nom, numPlantes, superficieM2)
-        this._vigiM2 = Cinema.vigiM2;
-        this._numAssistents = numAssistents;
-        this._capacitatMax = capacitatMax;
-        this._preuEntrada = preuEntrada;
-        this._tipusEdifici = Cinema.tipusEdifici;
+        this._numAssistents = parseInt(numAssistents);
+        this._capacitatMax = parseInt(capacitatMax);
+        this._preuEntrada = parseFloat(preuEntrada);
+        
+        //this._vigiM2 = Cinema.vigiM2; //sobreescrivim el valor x defecte d'Edifici, pro no cal si fem getter d static
         
     }
 
-    get numAssistents() { return parseInt(this._numAssistents) }
-    get capacitatMax() { return parseInt(this._capacitatMax) }
-    get preuEntrada() { return parseFloat(this._preuEntrada) }
+    get numAssistents() { return this._numAssistents }
+    get capacitatMax() { return this._capacitatMax }
+    get preuEntrada() { return this._preuEntrada }
+    get tipusEdifici() { return Cinema.tipusEdifici } //opcional pro recomanat
+    get vigiM2 () { return Cinema.vigiM2 }  //getter x reescriure el valor de vigiM2 de Edifici
+
 
     calcCostVigiCinema() {
-        return super.calcCostVigi()[1]
+        return super.calcCostVigi()[1].toFixed(2)
     }
 
-    checkCapacity(numAssistents, capacitatMax) {
-        return (numAssistents <= capacitatMax)
+    checkCapacity() {
+        return (this.numAssistents <= this.capacitatMax)
     }
 
-    projectarSessio(numAssistents, preuEntrada) {
-    if (this.checkCapacity == false) return 
-    return (numAssistents * preuEntrada)
+    projectarSessio() {
+    return (this.numAssistents * this.preuEntrada).toFixed(2)
     }
 
     toString() {
-        return `
+        return `Tipus d'edifici: ${this.tipusEdifici}
         ${super.toString()}
-        Cost mensual vigilància: ${this.calcCostVigiCinema().toFixed(2)} €.
-        Recaptació: S'han recaptat ${this.projectarSessio(this.numAssistents, this.preuEntrada)} €.
+        Cost mensual vigilància: ${this.calcCostVigiCinema()} €.
+        Recaptació: S'han recaptat ${this.projectarSessio()} €.
+        
         `
     }
 }
