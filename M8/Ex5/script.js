@@ -1,5 +1,7 @@
 "use strict"
 
+/* global arrBuildings */
+
 const resultDiv = document.getElementById("result");
 
 function createHospital() {
