@@ -3,10 +3,10 @@
 class Client {
     #dni;
 
-    constructor(nom, dni, productes) {
+    constructor(nom, dni) {
         this._nom = nom;
         this.#dni = dni;
-        this._productes = productes
+        this._productes = []
     }
 
     get nom() { return this._nom }
@@ -14,6 +14,9 @@ class Client {
 
 
     addProduct(clientProduct){
+
+        this.productes.push(clientProduct)
+        //missatge d confirmació
 
     }
 }
