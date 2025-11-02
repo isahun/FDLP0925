@@ -33,7 +33,7 @@ set userFlights(newUserFlights) { this.#userFlights = newUserFlights }
 
 
 addClientFlight(userFlight) { //per afegir un vol i que quedi guardat dins de l'array de vols de cada instancia de client
-    //traduït això fa newClient.addCliengFlight(newFlight)
+    //traduït això fa newClient.addClientFlight(newFlight)
     this.userFlights.push(userFlight); //el THIS es refereix a la instancia concreta d Client q ha cridat el mètode
     //Si tenim "this.userFlights", this === newClient, userFlights és l'array d vols dins de cada client, fins aquí associem VOL a CLIENT, falta la inversa:
     userFlight.client = this; //en aquesta línia, ".client" assigna una propietat al userFlight, 
