@@ -14,9 +14,10 @@ class Client {
 
 
     addProduct(clientProduct){
-
         this.productes.push(clientProduct)
-        //missatge d confirmació
-
+        clientProduct.client = this;
+        //missatge de confirmació
     }
+
+    
 }

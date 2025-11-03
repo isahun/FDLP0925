@@ -9,6 +9,8 @@ function cleanInputs() { //sempre netegem input al final
         const input = inputs[i];
         input.value = ""
     }
+
+    
 }
 
 function findBuilding(buildingName) { 

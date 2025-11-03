@@ -28,8 +28,8 @@ get userFlights() { return this.#userFlights } //getter per obtenir l'array de f
 
 set userDNI(newUserDNI) { this.#userDNI = newUserDNI }
 set userAge(newUserAge) { this.#userAge = newUserAge }
-set userNationality(newUserNationality) {this.#userNationality = newUserNationality}
-set userFlights(newUserFlights) { this.#userFlights = newUserFlights }
+set userNationality(newUserNationality) { this.#userNationality = newUserNationality}
+//set userFlights(newUserFlights) { this.#userFlights = newUserFlights } no posem setter per l'array, aixo desajustaria l'app
 
 
 addClientFlight(userFlight) { //per afegir un vol i que quedi guardat dins de l'array de vols de cada instancia de client
@@ -41,8 +41,7 @@ addClientFlight(userFlight) { //per afegir un vol i que quedi guardat dins de l'
 }
 
 toString() { //str. Aquí no posem ni # ni _
-        return `
-            ID d'usuari: ${this.id} 
+        return `ID d'usuari: ${this.id} 
             Edat: ${this.userAge}
             Nacionalitat: ${this.userNationality}
             

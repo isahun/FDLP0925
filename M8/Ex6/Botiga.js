@@ -10,11 +10,11 @@ class Botiga {
     get clients() { return this._clients }
     
 
-    addClient(newClient) {
+    addClientToShop(newClient) {
         this.clients.push(newClient)
     }
 
-    addProduct(newProduct) {
+    addProductToShop(newProduct) {
         this.clients.push(newProduct)
     }
 }
