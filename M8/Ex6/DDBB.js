@@ -1,3 +1,5 @@
 "use strict"
 
-const productesClient = [];
+
+const clients = [];
+const productes = [];
