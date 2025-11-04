@@ -38,10 +38,10 @@ function mostrarTaulesClient() {
 
 }
 
-function clientMesLloguers() {
+function clientMesLloguers() { //busquem el valor (length) mes gran de l'array de cada client dins l'array d clients
     if (clients.length === 0) return resultDiv.innerHTML = "No hi ha clients registrats.";
 
-    const maximLloguers = 0;
+    let maximLloguers = 0;
     let message = ""
 
     for (let i = 0; i < clients.length; i++) {
@@ -54,13 +54,13 @@ function clientMesLloguers() {
     resultDiv.innerHTML = `El client amb més lloguers és ${message}.`
 }
 
-function clientMesAntic() {
+function clientMesAntic() { //busquem la propietat (anyAlta) mes PETITA, per aixo la comparacio ha de començar en num gran
 
     let message = ""
-    let anyAlta = 0;
+    let anyAlta = 3000;
 
     for (let i = 0; i < clients.length; i++) {
-        if (clients[i].anyAlta > anyAlta) {
+        if (clients[i].anyAlta < anyAlta) {
             anyAlta = clients[i].anyAlta
             message = clients[i].nomClient
     }
