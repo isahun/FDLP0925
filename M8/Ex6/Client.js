@@ -12,6 +12,10 @@ class Client {
     get nom() { return this._nom }
     get productes() { return this._productesClient}
 
+    set nom(newName) { this._nom = newName}
+    set nom(newName) { this._nom = newName}
+
+
     afegeixProducte(nouProducte, unitats){
         if(nouProducte.stockProducte >= unitats ){
             nouProducte.stockProducte -= unitats;
@@ -21,21 +25,9 @@ class Client {
         }
     }
 
-    
-
-    eliminarProducte(idProducte) {
-    let index = this.trobarProducte(idProducte)
-    
-    if (index !== -1) {
-            this._clients.splice(index, 1)
-        }
-}
-
-
     toString() {
         return `Nom del client: ${this.nom}
         Total de productes del client: ${this.productes.length}
         Llista de productes del client: ${this.productes.join("<br>")}`
     }
-    
 }

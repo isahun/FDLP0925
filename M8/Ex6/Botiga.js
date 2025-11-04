@@ -9,29 +9,12 @@ class Botiga {
     get productes() { return this._productes } //només x us extern, dins d la classe fem servir _
     get clients() { return this._clients }
     
-// Afegeix un nou client a la botiga
-    addClientToShop(newClient) {
-        this._clients.push(newClient)
-    }
+    set productes(newProducts) { this._productes = newProducts}
+    set clients(newClient) { this._clients = newClient}
 
-// Afegeix un nou producte a l’inventari de la botiga
-    addProductToShop(newProduct) {
-        this._productes.push(newProduct)
-    }
-
-//Troba un client
-    findClient (clientDni) {
-       return this._clients.findIndex(client => client.dni === clientDni)
-    }
-
-// Elimina un client de la DDBB de la botiga
-    removeClient(clientDni) {
-        const index = this.findClient(clientDni)
-
-        if (index !== -1) {
-            this._clients.splice(index, 1)
-        }
-    }
+afegirClient(newClient){
+    this.clients.push(newClient)
+}
 
 //Total de clients i total de productes
 toString() {
