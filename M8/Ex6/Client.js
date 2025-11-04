@@ -17,11 +17,17 @@ class Client {
 
     afegeixProducte(nouProducte, unitats){
         if(nouProducte.stockProducte >= unitats ){
-            nouProducte.stockProducte -= unitats;
+            nouProducte.stockProducte -= unitats
             this._productesClient.push({producte: nouProducte, unitats})
-            nouProducte.client = this; //això només funcionarà si a la classe Producte hi ha un atribut _client i el seu setter, si no, aquesta línia no fa res.
+            return `Producte afegit amb èxit!`
         //missatge de confirmació
+        } else if ( nouProducte.stockProducte < unitats ) {
+            return `No hi ha prou stock del producte. Queden un total de ${nouProducte.stockProducte} unitats.`
         }
+    }
+
+    buscaProducteClient(nouProducte) { //aqui me quedo 4/11 21.49
+
     }
 
     toString() {

@@ -1,7 +1,6 @@
 "use strict"
 
 const resultDiv = document.getElementById("result")
-window.botiga = new Botiga()
 
 function crearClient() {
     const nom = document.getElementById("nomClient").value;
