@@ -17,10 +17,11 @@ class TaulaFlexible extends Taula {
     }
 
     toString() {
-    return `Dades de la taula
+        return `Dades de la taula
 
-    Tipus de taula: ${this.tipusTaula}
-    ${super.toString()}
-    Preu per hora: ${this.preuHora}`
+        Tipus de taula: ${this.tipusTaula}
+        ${super.toString()}
+        Preu per hora: ${this.preuHora}
+        `
     }
 }

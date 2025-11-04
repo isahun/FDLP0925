@@ -9,10 +9,55 @@
 </head>
 <body>
 
+  <div id="newBoard-div" style="margin-top: 15px;">
+  <label for="idTaula">Escriu un identificador per la taula:</label> <input type="text" id="idTaula"><br>
+  <label for="longTaula">Escriu la longitud de la taula (metres):</label> <input type="number" id="longTaula"><br>
 
-    <button type="button" onclick="llogarTaulaClient()">Fes clic per llogar una taula.</button>
-    <button type="button" onclick="tornarTaulaClient()">Fes clic per eliminar una taula d'un client.</button>
+  <button type="button" onclick="afegirTaulaFlexibleInventari()">Afegeix taula flexible</button>    
+  <button type="button" onclick="afegirTaulaRigidaInventari()">Afegeix taula rígida</button>    
+  <button type="button" onclick="afegirTaulaStandardInventari()">Afegeix taula stàndard</button>
+  <br>
+  <button type="button" onclick="mostraInventari()">Mostra totes les taules guardades a l'inventari</button>
+
+</div>
+<br>
+  <div id="newClient-div" style="margin-top: 15px;">
+  <label for="nomClient">Escriu el nom del client a registrar:</label> <input type="text" id="nomClient"><br>
+  <label for="dniClient">Escriu el DNI del client a registrar:</label> <input type="text" id="dniClient"><br>
+  <label for="anyAlta">Escriu l'any d'alta del client:</label> <input type="number" id="anyAlta"><br>
+
+  <button type="button" onclick="registreClient()">Registra un client</button>    
+</div>
+<br>
+  <div id="rentBoard-div" style="margin-top: 15px;">
+  <label for="dniClientLloga">Escriu el DNI del client que llogarà la taula:</label> <input type="text" id="dniClientLloga"><br>
+  <label for="numHores">Escriu el nombre d'hores a llogar:</label> <input type="number" id="numHores"><br>
+  <label for="dataReserva">Data de la reserva:</label> <input type="date" id="dataReserva"><br>
+
+  <button type="button" onclick="llogarTaulaFlexibleClient()">Reserva una taula flexible</button>    
+  <button type="button" onclick="llogarTaulaRigidaClient()">Reserva una taula rígida</button>    
+  <button type="button" onclick="llogarTaulaStandardClient()">Reserva una taula standard</button>    
+
+</div>
+<br>
+  <div id="returnBoard-div" style="margin-top: 15px;">
+  <label for="dniClientRm">Escriu el DNI del client que tornarà la taula:</label> <input type="text" id="dniClientRm"><br>
+  <label for="idTaulaRm">Escriu l'identificador de la taula a tornar:</label> <input type="number" id="idTaulaRm"><br>
+
+  <button type="button" onclick="tornarTaulaClient()">Fes clic per tornar una taula.</button>    
+</div>
+<br>
+<div id="showClients-div" style="margin-top: 15px;">
+
+    <button type="button" onclick="mostrarClients()">Fes clic per veure tots els clients registrats.</button>
+</div>
+<br>
+  <div id="showClientBoards-div" style="margin-top: 15px;">
+  <label for="dniClientShow">Escriu el DNI del client a mostrar:</label> <input type="text" id="dniClientShow"><br>
+
     <button type="button" onclick="mostrarTaulesClient()">Fes clic per veure les taules d'un client.</button>
+</div>
+<br>
     <button type="button" onclick="clientMesLloguers()">Fes clic per veure el nom del client amb més lloguers.</button>
     <button type="button" onclick="clientMesAntic()">Fes clic per veure el client més antic.</button>  
     

@@ -18,7 +18,8 @@ class TaulaStandard extends Taula {
         
         Tipus de taula: ${this.tipusTaula}
         ${super.toString()}
-        Preu per hora: ${this.preuHora}`
+        Preu per hora: ${this.preuHora}
+        `
     }
 
 

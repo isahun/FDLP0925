@@ -16,22 +16,19 @@ class Client {
     get taulesLlogades() { return this._taulesLlogades }
 
     llogarTaula(novaTaula, numHores) {
-        if (novaTaula.estatTaula !== "disponible") {
-            return `La taula ${novaTaula.idTaula} no està disponible.`
-        }
 
         const preuClient = novaTaula.calcularPreu(numHores);
         novaTaula.estatTaula = "llogada";
         this._taulesLlogades.push(novaTaula)
 
-        return `El client ${this.nomClient} ha llogat la taula ${novaTaula.idTaula} per ${numHores}. 
+        return `El client ${this.nomClient} ha llogat la taula ${novaTaula.idTaula} per ${numHores} hores.
         El preu total és ${preuClient} €.`
 
     }
 
     tornarTaula (idTaula) {
         
-    const taulaPosicio = trobarTaula(this._taulesLlogades, idTaula)
+    const taulaPosicio = indexTaulaClient(dniClient, idTaula)
 
     if (taulaPosicio === -1) return `El client no té llogada aquesta taula.`
 
@@ -46,11 +43,15 @@ class Client {
         const taulesClientArr = this._taulesLlogades
         return taulesClientArr.join("<br>")
     }
+    
 //mostrar dades i taules llogades
     toString() {
-        return `Nom client: ${this.nomClient}
+        return `DADES DEL CLIENT
+
+        Nom client: ${this.nomClient}
         Data alta a l'app: ${this.anyAlta}
-        Taules llogades: ${this.taulesLlogades.join("<br>")}`
+        Taules llogades: ${this.taulesLlogades.length}
+        `
     }
 
 

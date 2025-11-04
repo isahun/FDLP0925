@@ -21,8 +21,8 @@ calcularPreu(numHores) {
 
   toString(){
     return `ID taula: ${this.idTaula}
-    Longitud de la taula: ${this.longTaula} metres.
-    Estat de la taula: ${this.estatTaula}`
+        Longitud de la taula: ${this.longTaula} metres.
+        Estat de la taula: ${this.estatTaula}`
   }
 
 }
