@@ -10,10 +10,14 @@ class Botiga {
     get clients() { return this._clients }
     
     set productes(newProducts) { this._productes = newProducts}
-    set clients(newClient) { this._clients = newClient}
+    set clients(newClients) { this._clients = newClients}
 
 afegirClient(newClient){
     this.clients.push(newClient)
+}
+
+afegirProducte(newProduct) {
+    this._productes.push(newProduct);
 }
 
 //Total de clients i total de productes

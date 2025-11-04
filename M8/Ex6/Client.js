@@ -13,7 +13,6 @@ class Client {
     get productes() { return this._productesClient}
 
     set nom(newName) { this._nom = newName}
-    set nom(newName) { this._nom = newName}
 
 
     afegeixProducte(nouProducte, unitats){

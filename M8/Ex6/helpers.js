@@ -1,11 +1,23 @@
 "use strict"
 
-function trobarClient (clientDni) {
-       return Botiga.clients.findIndex(client => client.dni === clientDni)
-    }
 
-function trobarProducte(idProducte) {
-        return Client.productesClient.findIndex(producte => producte.idProducte === idProducte)
+function trobaClient(dniClient) {
+    for (let i = 0; i < botiga.clients.length; i++) {
+        if (botiga.clients[i].dni === dniClient) return i;
     }
+    return -1;
+}
 
-    
+function trobaProducte(idProducte) {
+    for (let i = 0; i < botiga.productes.length; i++) {
+        if (botiga.productes[i].idProducte === idProducte) return i;
+    }
+    return -1;
+}
+
+function cleanInputs() {
+    let inputs = document.querySelectorAll("input");
+    for (let i = 0; i < inputs.length; i++) {
+        inputs[i].value = "";
+    }
+}
