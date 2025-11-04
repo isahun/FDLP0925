@@ -4,7 +4,7 @@ class Taula {
     static preuHora = 15
 
     constructor(idTaula, longTaula) {
-        this._idTaula = idTaula;
+        this._idTaula = parseInt(idTaula);
         this._longTaula = parseFloat(longTaula);
         this._estatTaula = "disponible";
     }

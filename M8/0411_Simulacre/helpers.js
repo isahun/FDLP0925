@@ -16,6 +16,9 @@ function indexTaulaClient(dniClient, idTaula) {
     //busquem id dins de l'array 
     let taulaPosicio = -1 
     let clientPosicio = indexClient(dniClient)
+
+     if(clientPosicio === -1) return -1;
+     
     const client = clients[clientPosicio]
 
     if (client.taulesLlogades.length < 1) return taulaPosicio

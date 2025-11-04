@@ -137,7 +137,7 @@ function llogarTaulaFlexibleClient() {
     do {    //bucle do while per buscar la primera taula a l'array que compleixi les condicions i s'afegeixi a l'array de taules del client
 
         if (taules[i].tipusTaula === "Flexible" && taules[i].estatTaula === "disponible") {
-        //clients[clientPosicio].taulesLlogades.push(taules[i]) //fora pk ja fa push la funcio
+        //clients[clientPosicio].taulesLlogades.push(taules[i]) //fora pk ja fa push el metode d la classe
         //taules[i].estatTaula = "Llogada"; //a la funcio es canvia el valor
         taulaLlogada = true; //per indicar que ja n'hi ha una afegida i podem sortir d bucle
         taulaTriada = taules[i]
@@ -183,13 +183,14 @@ function llogarTaulaRigidaClient() {
         //clients[clientPosicio].taulesLlogades.push(taules[i]) // mirar comment flex
         //taules[i].estatTaula = "Llogada";
         taulaLlogada = true; //per indicar que ja n'hi ha una afegida i podem sortir d bucle
-        taulaTriada = taules[i]
+        taulaTriada = taules[i] //aixo hem guardat a la linia 178
         } else {
         i++
         }
     } while (i < taules.length && taulaLlogada == false) 
 
     if (taulaLlogada === true) {
+        clients[clientPosicio].llogarTaula(taulaTriada, numHores)
         resultDiv.innerHTML = `<pre> Has llogat la taula rígida correctament!
         Data de la reserva: ${dataReserva} 
         Dades de la taula: ${clients[clientPosicio].llogarTaula(taulaTriada, numHores)} </pre>.`
@@ -248,10 +249,9 @@ function tornarTaulaClient() {
     if (clients.length < 1) return resultDiv.innerHTML = "No hi ha clients guardats."
 
     const dniClientRm = document.getElementById("dniClientRm").value
-    const idTaulaRm = document.getElementById("idTaulaRm").value
+    const idTaulaRm = parseInt(document.getElementById("idTaulaRm").value) //parsejar pk a helper fem comparacio estricta L268
     const clientPosicio = indexClient(dniClientRm)
-    const taulaClientPosicio = indexTaulaClient(dniClientRm, idTaulaRm)
-    const taulaInventariPosicio = indexTaulaInventari(idTaulaRm)
+
     const err = "<small> Introdueix un valor vàlid. </small>"
 
     if (!dniClientRm || !idTaulaRm || isNaN(idTaulaRm)) return resultDiv.innerHTML = err;
@@ -260,13 +260,14 @@ function tornarTaulaClient() {
 
     let userConfirmation = confirm("Estàs segur que vols tornar la taula?")
     if (userConfirmation !== true) {
-        client.taulesLlogades[taulaClientPosicio].estatTaula = "disponible"
-        taules[taulaInventariPosicio].estatTaula = "disponible"
-        clients[clientPosicio].taulesLlogades.splice(taulaClientPosicio, 1);
-        resultDiv.innerHTML = "S'ha tornat la taula correctament.";
-    } else {
         return resultDiv.innerHTML = "No s'ha tornat la taula.";
     }
+        cleanInputs()
+
+    let message = client.tornarTaula(dniClientRm, idTaulaRm)
+
+    resultDiv.innerHTML = message;
+
     cleanInputs()
 
 }
@@ -327,7 +328,7 @@ function clientMesAntic() { //busquem la propietat (anyAlta) mes PETITA, per aix
             nomClient = clients[i].nomClient
     }
 }
-    resultDiv.innerHTML = `El client més antic és ${message}, soci des de l'any ${anyAlta}.`
+    resultDiv.innerHTML = `El client més antic és ${nomClient}, soci des de l'any ${anyAlta}.`
 
     cleanInputs()
 }

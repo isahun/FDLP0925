@@ -23,10 +23,9 @@ class Client {
 
         return `El client ${this.nomClient} ha llogat la taula ${novaTaula.idTaula} per ${numHores} hores.
         El preu total és ${preuClient} €.`
-
     }
 
-    tornarTaula (idTaula) {
+    tornarTaula (dniClient, idTaula) {
         
     const taulaPosicio = indexTaulaClient(dniClient, idTaula)
 
