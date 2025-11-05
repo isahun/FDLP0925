@@ -98,14 +98,65 @@ function altaMecanic() {
 function baixaPilot() {
     const nomPilot = document.getElementById("nomPilotRm").value;
     const cognomPilot = document.getElementById("cognomPilotRm").value; 
+    const err = "Has d'introduir un valor vàlid a tots els camps."
 
-    const indexPilot = indexPilot(nomPilot, cognomPilot);
+    if (!nomPilot || !cognomPilot) return err
 
-    
+
+    let i = 0;
+    let j = 0;
+    let escuderia = null;
+
+    for (i = 0; i < escuderies.length; i++) {
+        if (escuderies[i].treballadors.length !== 0) {
+            for (j = 0; j < escuderies[i].treballadors.length; j++) {
+                if (escuderies[i].treballadors[j].nom === nomPilot && escuderies[i].treballadors[j].primerCognom === cognomPilot){
+                    escuderia = escuderies[i]
+                }
+            }
+        }
+    }
+
+    if (escuderia === null || escuderia.indexPilot(nomPilot, cognomPilot) === -1) return resultDiv.innerHTML = "El pilot no existeix en cap escuderia.";
+
+
+    escuderia.esborrarPilot(nomPilot, cognomPilot)
+
+    resultDiv.innerHTML = "El pilot s'ha esborrat amb èxit."
+        
 }
 
-function buscarEscuderia() {
-    const nomEscuderia = document.getElementById("nomEscuderia").value
+function baixaMecanic() {
+    const nomMecanic = document.getElementById("nomMecanicRm").value;
+    const cognomMecanic = document.getElementById("cognomMecanicRm").value; 
+    const err = "Has d'introduir un valor vàlid a tots els camps."
+
+    if (!nomMecanic || !cognomMecanic) return err
+
+    let i = 0;
+    let j = 0;
+    let escuderia = null;
+
+    for (i = 0; i < escuderies.length; i++) {
+        if (escuderies[i].treballadors.length !== 0) {
+            for (j = 0; j < escuderies[i].treballadors.length; j++) {
+                if (escuderies[i].treballadors[j].nom === nomMecanic && escuderies[i].treballadors[j].primerCognom === cognomMecanic){
+                    escuderia = escuderies[i]
+                }
+            }
+        }
+    }
+
+    if (escuderia === null || escuderia.indexMecanic(nomMecanic, cognomMecanic) === -1) return resultDiv.innerHTML = "El mecànic no existeix en cap escuderia.";
+    escuderia.esborrarMecanic(nomMecanic, cognomMecanic);
+
+    resultDiv.innerHTML = "El mecànic s'ha esborrat amb èxit."
+
+        
+}
+
+function veureEscuderia() {
+    const nomEscuderia = document.getElementById("nomEscuderiaV").value
     let escuderiaPosition = -1
 
     if (escuderies.length < 1) return resultDiv.innerHTML = "No hi ha escuderies guardades."
@@ -123,4 +174,129 @@ function buscarEscuderia() {
 
     return resultDiv.innerHTML = `<pre>${escuderia.toString()}</pre>`
 }
+
+function veurePilots() {
+
+    let i = 0;
+    let message = ""
+
+    for (i = 0; i < escuderies.length; i++) {
+        message += `<pre>${escuderies[i].mostrarPilots()}</pre> \n`
+    }
+
+    resultDiv.innerHTML = message
+}
+
+function veureMecanics() {
+
+    let i = 0;
+    let message = ""
+
+    for (i = 0; i < escuderies.length; i++) {
+        message += `<pre>${escuderies[i].mostrarMecanics()}</pre> \n`
+    }
+
+    resultDiv.innerHTML = message
+}
+
+function veurePilotsEscuderia() {
+    const nomEscuderia = document.getElementById("nomEscuderiaPilots").value
+    let escuderiaPosition = -1
+    let escuderia;
+
+    if (escuderies.length < 1) return resultDiv.innerHTML = "No hi ha escuderies guardades."
+
+    let i = 0;
+
+    do {
+        if(escuderies[i].nom === nomEscuderia || escuderies[i].nom.toLowerCase() === nomEscuderia) {
+            escuderiaPosition = i;
+            escuderia = escuderies[i]
+        }
+        i++
+    } while (i < escuderies.length && escuderiaPosition === -1)
+
+    if (escuderia === null || escuderiaPosition === -1) return resultDiv.innerHTML = "El pilot no existeix en cap escuderia.";
+
+    return resultDiv.innerHTML = `<pre>${escuderia.mostrarPilots().join("<br>")}</pre>`
+}
+
+function veureMecanicsEscuderia() {
+    const nomEscuderia = document.getElementById("nomEscuderiaMecanics").value
+    let escuderiaPosition = -1
+
+    if (escuderies.length < 1) return resultDiv.innerHTML = "No hi ha escuderies guardades."
+
+    let i = 0;
+    let escuderia;
+
+    do {
+        if(escuderies[i].nom === nomEscuderia || escuderies[i].nom.toLowerCase() === nomEscuderia) {
+            escuderiaPosition = i;
+            escuderia = escuderies[i]
+        }
+        i++
+    } while (i < escuderies.length && escuderiaPosition === -1)
+
+    if (escuderia === null || escuderiaPosition === -1) return resultDiv.innerHTML = "El mecànic no existeix en cap escuderia.";
+
+    return resultDiv.innerHTML = `<pre>${escuderia.mostrarMecanics().join("<br>")}</pre>`
+}
+
+function veureUnPilot() {
+    const nomPilot = document.getElementById("nomPilotV").value;
+    const cognomPilot = document.getElementById("cognomPilotV").value; 
+
+    let i = 0;
+    let j = 0;
+    let escuderia = null;
+    let pilot = null;
+
+    for (i = 0; i < escuderies.length; i++) {
+        if (escuderies[i].treballadors.length !== 0) {
+            for (j = 0; j < escuderies[i].treballadors.length; j++) {
+                if (escuderies[i].treballadors[j].nom === nomPilot && escuderies[i].treballadors[j].primerCognom === cognomPilot){
+                    escuderia = escuderies[i]
+                    pilot = escuderies[i].treballadors[j]
+                }
+            }
+        }
+    }
+
+    if (escuderia === null || escuderia.indexPilot(nomPilot, cognomPilot) === -1) return resultDiv.innerHTML = "El pilot no existeix en cap escuderia.";
+
+    resultDiv.innerHTML = `<pre>${pilot.toString()}</pre>`
+}
+
+function veureUnMecanic() {
+    const nomMecanic = document.getElementById("nomMecanicV").value;
+    const cognomMecanic = document.getElementById("cognomMecanicV").value; 
+
+    let i = 0;
+    let j = 0;
+    let escuderia = null;
+    let mecanic = null;
+
+    for (i = 0; i < escuderies.length; i++) {
+        if (escuderies[i].treballadors.length !== 0) {
+            for (j = 0; j < escuderies[i].treballadors.length; j++) {
+                if (escuderies[i].treballadors[j].nom === nomMecanic && escuderies[i].treballadors[j].primerCognom === cognomMecanic){
+                    escuderia = escuderies[i]
+                    mecanic = escuderies[i].treballadors[j]
+                }
+            }
+        }
+    }
+
+    if (escuderia === null || escuderia.indexMecanic(nomMecanic, cognomMecanic) === -1) return resultDiv.innerHTML = "El mecànic no existeix en cap escuderia.";
+
+    resultDiv.innerHTML = `<pre>${mecanic.toString()}</pre>`
+}
+
+function veureCotxes() {
+    const escuderia = document.getElementById("escuderiaCotxes").value;
+
+    resultDiv.innerHTML = `<pre>${escuderia.mostrarCotxes()}</pre>`
+}
+
 

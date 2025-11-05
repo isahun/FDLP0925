@@ -23,11 +23,14 @@ class Escuderia {
     afegirPilot(pilot) {
         this.treballadors.push(pilot)
         //this.pilots.push(pilot) //mirar si ho deixo o no
+        pilot.escuderia = this; //connectem amb pilot, assignem valor a escuderia del pilot
     }
 
     afegirMecanic(mecanic) {
         this.treballadors.push(mecanic)
         //this.mecanics.push(mecanic) //mirar si ho deixo o no, si ho deixo cal treure el bucle a mostrar
+        mecanic.escuderia = this; //connectem amb mecanic, assignem valor a escuderia del mecanic
+
     }
 
     indexPilot(nom, primerCognom) {
@@ -75,7 +78,7 @@ class Escuderia {
         return cotxePosicio
     }
 
-    mostrarPilots() {
+    mostrarPilots() { //torna array nou de pilots
 
         for (let i = 0; i < this.treballadors.length; i++) {
             if (this.treballadors[i].tipusEmpleat === "Pilot") {

@@ -11,15 +11,20 @@ class Pilot extends Empleat {
         this._pes = pes;
         this._sou = null;
         this._tipusEmpleat = "Pilot"
+        this._escuderia = ""; //buit pero amb setter pk li posarem en una funcio afegir pilot a escuderia
     }
 
     get alcada() { return this._alcada }
     get pes() { return this._pes }
     get sou() { return this._sou }
     get tipusEmpleat() { return this._tipusEmpleat }
+    get escuderia() { return this._escuderia }
+
 
     set alcada(newAlcada) { this._alcada = newAlcada }
     set pes(newPes) { this._pes = newPes }
+    set escuderia(newEscuderia) { this._escuderia = newEscuderia}
+
 
     calcSou() {
         this.sou = Empleat.souBase + (Pilot.extraSouAntiguitat * this._antiguitat) + Pilot.extraSouPerillositat
@@ -35,8 +40,8 @@ class Pilot extends Empleat {
         Edat: ${this.edat} anys
         Pes: ${this.pes} kg
         Alçada: ${this.alcada} cm
+        Escuderia: ${this.escuderia}
         Antiguitat (anys): ${this.antiguitat} anys a l'escuderia
-        Estudis superiors de mecànica: ${this.estudisMecanica}
         Sou mensual: ${this.sou} €
         `
     }

@@ -23,6 +23,7 @@
       <option value = "1">McLaren</option>
       <option value = "2">Ferrari</option>
     </select>
+    <button type="button" onclick="altaPilot()">Fes clic per registrar un nou pilot</button>
   </div>
 
   <div id="createMechanic-div" style="margin-top: 15px;">
@@ -43,6 +44,62 @@
       <option value = "1">McLaren</option>
       <option value = "2">Ferrari</option>
     </select>
+    <button type="button" onclick="altaMecanic()">Fes clic per registrar un nou mecànic</button>
+
+  </div>
+
+  <div id="rmPilot-div" style="margin-top: 15px;">
+    <label for="nomPilotRm">Nom del pilot:</label> <input type="text" id="nomPilotRm"><br>
+    <label for="cognomPilotRm">Cognom del pilot:</label> <input type="text" id="cognomPilotRm"><br>
+    <button type="button" onclick="baixaPilot()">Fes clic per donar de baixa un pilot</button>
+
+  </div>
+
+  <div id="rmMechanic-div" style="margin-top: 15px;">
+    <label for="nomMecanicRm">Nom del mecànic:</label> <input type="text" id="nomMecanicRm"><br>
+    <label for="cognomPilot">Cognom del mecànic:</label> <input type="text" id="cognomMecanicRm"><br>
+    <button type="button" onclick="baixaMecanic()">Fes clic per donar de baixa un mecànic</button>
+  </div>
+
+  <div id="showEscuderia" style="margin-top: 15px;">
+    <label for="nomEscuderiaV">Escriu el nom de l'escuderia que vols veure:</label> <input type="text" id="nomEscuderiaV"><br>
+
+    <button type="button" onclick="veureEscuderia()">Fes clic veure les dades de l'escuderia</button>
+  </div>
+  
+  <div id="showPilots" style="margin-top: 15px;">
+    <button type="button" onclick="veurePilots()">Fes clic veure tots els pilots</button>
+  </div>
+
+  <div id="showMechanics" style="margin-top: 15px;">
+    <button type="button" onclick="veureMecanics()">Fes clic veure tots els mecànics</button>
+  </div>
+
+  <div id="showPilotsEscuderia" style="margin-top: 15px;">
+    <label for="nomEscuderiaPilots">Escriu el nom de l'escuderia de la qual vols veure els pilots:</label> <input type="text" id="nomEscuderiaPilots"><br>
+    <button type="button" onclick="veurePilotsEscuderia()">Fes clic veure tots els pilots d'una escuderia</button>
+  </div>
+
+  <div id="showMecanicsEscuderia" style="margin-top: 15px;">
+    <label for="nomEscuderiaMecanics">Escriu el nom de l'escuderia de la qual vols veure els mecànics:</label> <input type="text" id="nomEscuderiaMecanics"><br>
+    <button type="button" onclick="veureMecanicsEscuderia()">Fes clic veure tots els mecànics d'una escuderia</button>
+  </div>
+
+  <div id="showPilot" style="margin-top: 15px;">
+    <label for="nomPilotV">Escriu el nom del pilot que vols veure:</label> <input type="text" id="nomPilotV"><br>
+    <label for="cognomPilotV">Escriu el cognom del pilot que vols veure:</label> <input type="text" id="cognomPilotV"><br>
+    <button type="button" onclick="veureUnPilot()">Fes clic veure el pilot</button>
+  </div>
+
+  <div id="showMechanic" style="margin-top: 15px;">
+    <label for="nomMecanicV">Escriu el nom del mecànic que vols veure:</label> <input type="text" id="nomMecanicV"><br>
+    <label for="cognomMecanicV">Escriu el cognom del mecànic que vols veure:</label> <input type="text" id="cognomMecanicV"><br>
+    <button type="button" onclick="veureUnMecanic()">Fes clic veure el mecànic</button>
+  </div>
+
+  <div id="showCarsEscuderia" style="margin-top: 15px;">
+    <label for="escuderiaCotxes">Escriu el nom de l'escuderia de la qual vols veure els cotxes:</label> <input type="text" id="escuderiaCotxes"><br>
+    <button type="button" onclick="veureCotxes()">Fes clic veure tots els cotxes de l'escuderia</button>
   </div>
 
     <br>
