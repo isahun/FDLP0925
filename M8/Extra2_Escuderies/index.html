@@ -8,6 +8,44 @@
   <title></title>
 </head>
 <body>
+
+  <div id="createPilot-div" style="margin-top: 15px;">
+    <label for="nomPilot">Nom del pilot:</label> <input type="text" id="nomPilot"><br>
+    <label for="cognomPilot">Cognom del pilot:</label> <input type="text" id="cognomPilot"><br>
+    <label for="edatPilot">Edat del pilot:</label> <input type="number" id="edatPilot"><br>
+    <label for="antiguitatPilot">Antiguitat del pilot:</label> <input type="number" id="antiguitatPilot"><br>
+    <label for="alcadaPilot">Alçada del pilot:</label> <input type="number" id="alcadaPilot"><br>
+    <label for="pesPilot">Pes del pilot:</label> <input type="number" id="pesPilot"><br>
+    <br>
+    <p> Tria una escuderia:</p>
+    <select name="escuderia" id="escuderiaPilot">
+      <option value = "0">Renault</option>
+      <option value = "1">McLaren</option>
+      <option value = "2">Ferrari</option>
+    </select>
+  </div>
+
+  <div id="createMechanic-div" style="margin-top: 15px;">
+    <label for="nomMecanic">Nom del mecànic:</label> <input type="text" id="nomMecanic"><br>
+    <label for="cognomMecanic">Cognom del mecànic:</label> <input type="text" id="cognomMecanic"><br>
+    <label for="edatMecanic">Edat del mecànic:</label> <input type="number" id="edatMecanic"><br>
+    <label for="antiguitatMecanic">Antiguitat del mecànic:</label> <input type="number" id="antiguitatPilot"><br>
+    
+    <label for="estudisMecanic">Estudis superiors de mecànica:</label> 
+    <select name="estudisMecanic" id="estudisMecanic">
+      <option value = "0">Sí</option>
+      <option value = "1">No</option>
+    </select>
+    <br>
+    <p> Tria una escuderia:</p>
+    <select name="escuderia" id="escuderiaMecanic">
+      <option value = "0">Renault</option>
+      <option value = "1">McLaren</option>
+      <option value = "2">Ferrari</option>
+    </select>
+  </div>
+
+    <br>
   
     <div id="result"></div>
 

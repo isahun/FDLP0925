@@ -20,6 +20,16 @@ class Escuderia {
     get pilots() { return this._pilots }
     get mecanics() { return this._mecanics }
 
+    afegirPilot(pilot) {
+        this.treballadors.push(pilot)
+        //this.pilots.push(pilot) //mirar si ho deixo o no
+    }
+
+    afegirMecanic(mecanic) {
+        this.treballadors.push(mecanic)
+        //this.mecanics.push(mecanic) //mirar si ho deixo o no, si ho deixo cal treure el bucle a mostrar
+    }
+
     mostrarPilots() {
 
         for (let i = 0; i < this.treballadors.length; i++) {
@@ -52,7 +62,7 @@ class Escuderia {
         Nom: ${this.nom}
         Pressupost: ${this.pressupost}
         Nacionalitat: ${this.nacionalitat}
-        
+
         Cotxes a l'inventari: 
         ${this.cotxes.join("<br>")}
 
