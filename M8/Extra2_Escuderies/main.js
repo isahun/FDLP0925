@@ -27,13 +27,13 @@ escuderies[2].cotxes.push(Cotxe2, Cotxe6)
 
 
 function altaPilot() {
-    const nomPilot = document.getElementById("nomPilot");
-    const cognomPilot = document.getElementById("cognomPilot");
-    const edatPilot = parseInt(document.getElementById("edatPilot"));
-    const antiguitatPilot = parseInt(document.getElementById("antiguitatPilot"));
-    const alcadaPilot = parseInt(document.getElementById("alcadaPilot"));
-    const pesPilot = parseFloat(document.getElementById("pesPilot"));
-    const escuderiaTriada = parseInt(document.getElementById("escuderiaPilot"))
+    const nomPilot = document.getElementById("nomPilot").value;
+    const cognomPilot = document.getElementById("cognomPilot").value;
+    const edatPilot = parseInt(document.getElementById("edatPilot").value);
+    const antiguitatPilot = parseInt(document.getElementById("antiguitatPilot").value);
+    const alcadaPilot = parseInt(document.getElementById("alcadaPilot").value);
+    const pesPilot = parseFloat(document.getElementById("pesPilot").value);
+    const escuderiaTriada = parseInt(document.getElementById("escuderiaPilot").value);
 
     const err = "Has d'introduir un valor vàlid a tots els camps."
     const err2 = "Has d'introduir un nombre en edat, antiguitat, alçada i pes."
@@ -62,12 +62,12 @@ function altaPilot() {
 }
 
 function altaMecanic() {
-    const nomMecanic = document.getElementById("nomMecanic");
-    const cognomMecanic = document.getElementById("cognomMecanic");
-    const edatMecanic = parseInt(document.getElementById("edatMecanic"));
-    const antiguitatMecanic = parseInt(document.getElementById("antiguitatMecanic"));
-    const estudisMecanic = parseInt(document.getElementById("estudisMecanic"));
-    const escuderiaTriada = parseInt(document.getElementById("escuderiaMecanic"))
+    const nomMecanic = document.getElementById("nomMecanic").value;
+    const cognomMecanic = document.getElementById("cognomMecanic").value;
+    const edatMecanic = parseInt(document.getElementById("edatMecanic").value);
+    const antiguitatMecanic = parseInt(document.getElementById("antiguitatMecanic").value);
+    const estudisMecanic = parseInt(document.getElementById("estudisMecanic").value);
+    const escuderiaTriada = parseInt(document.getElementById("escuderiaMecanic").value);
 
     const err = "Has d'introduir un valor vàlid a tots els camps."
     const err2 = "Has d'introduir un nombre en edat, antiguitat, alçada i pes."
@@ -95,4 +95,32 @@ function altaMecanic() {
     `
 }
 
+function baixaPilot() {
+    const nomPilot = document.getElementById("nomPilotRm").value;
+    const cognomPilot = document.getElementById("cognomPilotRm").value; 
+
+    const indexPilot = indexPilot(nomPilot, cognomPilot);
+
+    
+}
+
+function buscarEscuderia() {
+    const nomEscuderia = document.getElementById("nomEscuderia").value
+    let escuderiaPosition = -1
+
+    if (escuderies.length < 1) return resultDiv.innerHTML = "No hi ha escuderies guardades."
+
+    let i = 0;
+
+    do {
+        if(escuderies[i].nom === nomEscuderia || escuderies[i].nom.toLowerCase() === nomEscuderia) {
+            escuderiaPosition = i;
+        }
+        i++
+    } while (i < escuderies.length && escuderiaPosition === -1)
+
+    let escuderia = escuderies[escuderiaPosition]
+
+    return resultDiv.innerHTML = `<pre>${escuderia.toString()}</pre>`
+}
 

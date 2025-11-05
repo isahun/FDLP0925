@@ -8,7 +8,6 @@ function cleanInputs() { //sempre netegem input al final
         const input = inputs[i];
         input.value = ""
     }
-
     
 }
 
@@ -17,11 +16,11 @@ function indexTaulaClient(dniClient, idTaula) {
     let taulaPosicio = -1 
     let clientPosicio = indexClient(dniClient)
 
-     if(clientPosicio === -1) return -1;
-     
+    if(clientPosicio === -1) return -1;
+    
     const client = clients[clientPosicio]
 
-    if (client.taulesLlogades.length < 1) return taulaPosicio
+//    if (client.taulesLlogades.length < 1) return taulaPosicio
 
     let i = 0; //compte
 
