@@ -1,6 +1,7 @@
 "use strict"
 
-/* Ens demanen fer un programa orientat a objectes sobre un cinema (només d'una sala) que té un conjunt de seients (3 files per 5 columnes).
+/* 
+Ens demanen fer un programa orientat a objectes sobre un cinema (només d'una sala) que té un conjunt de seients (3 files per 5 columnes).
 
 Del cinema ens interessa conèixer la pel·lícula que s'està reproduint i el preu de l'entrada al cinema.
 De les pel·lícules ens interessa saber el títol, durada, edat mínima i director/a.
