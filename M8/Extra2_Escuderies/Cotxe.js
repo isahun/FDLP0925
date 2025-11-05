@@ -18,7 +18,8 @@ class Cotxe {
     get id() { return this._id }
 
     toString() {
-        return `DADES DEL COTXE ${this.id}
+        return `
+        DADES DEL COTXE ${this.id}
         
         Potència: ${this.potencia} cv.
         Velocitat màxima: ${this.velocitatMax} km/h.

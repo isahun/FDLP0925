@@ -66,16 +66,16 @@ function altaMecanic() {
     const cognomMecanic = document.getElementById("cognomMecanic").value;
     const edatMecanic = parseInt(document.getElementById("edatMecanic").value);
     const antiguitatMecanic = parseInt(document.getElementById("antiguitatMecanic").value);
-    const estudisMecanic = parseInt(document.getElementById("estudisMecanic").value);
+    const estudisMecanica = document.getElementById("estudisMecanica").value;
     const escuderiaTriada = parseInt(document.getElementById("escuderiaMecanic").value);
 
     const err = "Has d'introduir un valor vàlid a tots els camps."
     const err2 = "Has d'introduir un nombre en edat, antiguitat, alçada i pes."
 
-    if (!nomMecanic || !cognomMecanic || !edatMecanic || !antiguitatMecanic || !estudisMecanic) return err
+    if (!nomMecanic || !cognomMecanic || !edatMecanic || !antiguitatMecanic) return err
     if (isNaN(edatMecanic) || isNaN(antiguitatMecanic)) return err2
 
-    const mecanic = new Mecanic(nomMecanic, cognomMecanic, edatMecanic, antiguitatMecanic, estudisMecanic)
+    const mecanic = new Mecanic(nomMecanic, cognomMecanic, edatMecanic, antiguitatMecanic, estudisMecanica)
 
     switch(escuderiaTriada) {
         case 0: 
@@ -89,7 +89,9 @@ function altaMecanic() {
             break;
     }
 
-    resultDiv.innerHTML = `Has afegit amb èxit el mecànic ${mecanic.nomPilot} ${mecanic.cognomPilot}. 
+    mecanic.conversioEstudis() //Per traduir els valors del select d'estudis a SI o NO
+
+    resultDiv.innerHTML = `Has afegit amb èxit el mecànic ${mecanic.nomMecanic} ${mecanic.cognomMecanic}. 
     Aquestes són les seves dades:
     <pre>${mecanic.toString()}</pre>
     `
@@ -294,7 +296,23 @@ function veureUnMecanic() {
 }
 
 function veureCotxes() {
-    const escuderia = document.getElementById("escuderiaCotxes").value;
+    const nomEscuderia = document.getElementById("escuderiaCotxes").value;
+
+    let escuderiaPosition = -1
+    let escuderia;
+
+    if (escuderies.length < 1) return resultDiv.innerHTML = "No hi ha escuderies guardades."
+
+    let i = 0;
+
+    do {
+        if(escuderies[i].nom === nomEscuderia || escuderies[i].nom.toLowerCase() === nomEscuderia) {
+            escuderiaPosition = i;
+            escuderia = escuderies[i]
+        }
+        i++
+    } while (i < escuderies.length && escuderiaPosition === -1)
+
 
     resultDiv.innerHTML = `<pre>${escuderia.mostrarCotxes()}</pre>`
 }

@@ -106,7 +106,7 @@ class Escuderia {
 
     esborrarPilot(nom, primerCognom) {
         
-    const pilotPosicio = indexPilot(nom, primerCognom)
+    const pilotPosicio = this.indexPilot(nom, primerCognom) //posar this als metodes propis
 
     if (pilotPosicio === -1) return `El pilot no treballa a l'escuderia.`
 
