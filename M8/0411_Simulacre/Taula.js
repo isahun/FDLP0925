@@ -13,7 +13,7 @@ class Taula {
     get longTaula() { return this._longTaula }
     get estatTaula() { return this._estatTaula }
 
-    set estatTaula(newEstatTaula) { this._estatTaula = newEstatTaula }
+    set estatTaula(newEstatTaula) { this._estatTaula = newEstatTaula } //important setter
 
 calcularPreu(numHores) {
     return numHores * Taula.preuHora;

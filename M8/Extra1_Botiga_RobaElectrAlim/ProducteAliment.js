@@ -6,7 +6,7 @@ class ProducteAliment extends Producte {
     constructor (idProducte, nomProducte, preuProducte, stockProducte, expTime) {
         super(idProducte, nomProducte, preuProducte, stockProducte);
         this._expTime = expTime;
-        this._stockProducte = stockProducte--
+        this._stockProducte = stockProducte;
     }
 
     get expDate() { return this._expDate }

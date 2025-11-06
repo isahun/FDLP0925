@@ -27,14 +27,14 @@ class Client {
 
     tornarTaula (dniClient, idTaula) {
         
-    const taulaPosicio = indexTaulaClient(dniClient, idTaula)
+        const taulaPosicio = indexTaulaClient(dniClient, idTaula)
 
-    if (taulaPosicio === -1) return `El client no té llogada aquesta taula.`
+        if (taulaPosicio === -1) return `El client no té llogada aquesta taula.`
 
-    this._taulesLlogades[taulaPosicio].estatTaula = "disponible"
-    this._taulesLlogades.splice(taulaPosicio, 1)
+        this._taulesLlogades[taulaPosicio].estatTaula = "disponible"
+        this._taulesLlogades.splice(taulaPosicio, 1)
 
-    return `Taula ${idTaula} retornada amb èxit.`
+        return `Taula ${idTaula} retornada amb èxit.`
     
     }
 
