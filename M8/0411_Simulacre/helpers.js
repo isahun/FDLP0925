@@ -11,8 +11,25 @@ function cleanInputs() { //sempre netegem input al final
     
 }
 
-function indexTaulaClient(dniClient, idTaula) { 
+function indexClient(dniClient) { 
     //busquem id dins de l'array 
+    let clientPosicio = -1 
+    if (clients.length < 1) return clientPosicio
+
+    let i = 0; //compte
+
+    do {
+        if(clients[i].dniClient === dniClient) {
+            clientPosicio = i;
+        }
+        i++
+    } while (i < clients.length && clientPosicio == -1)
+
+    return clientPosicio; //la funció genera un nombre, l'index
+}
+
+function indexTaulaClient(dniClient, idTaula) { 
+    //busquem id dins de l'array clients, i despres dins d cada client dins de l'array TaulesLlogades
     let taulaPosicio = -1 
     let clientPosicio = indexClient(dniClient)
 
@@ -34,25 +51,8 @@ function indexTaulaClient(dniClient, idTaula) {
     return taulaPosicio; //la funció genera un nombre, l'index
 }
 
-function indexClient(dniClient) { 
-    //busquem id dins de l'array 
-    let clientPosicio = -1 
-    if (clients.length < 1) return clientPosicio
-
-    let i = 0; //compte
-
-    do {
-        if(clients[i].dniClient === dniClient) {
-            clientPosicio = i;
-        }
-        i++
-    } while (i < clients.length && clientPosicio == -1)
-
-    return clientPosicio; //la funció genera un nombre, l'index
-}
-
 function indexTaulaInventari(idTaula) { 
-    //busquem id dins de l'array 
+    //busquem id dins de l'array taules
     let taulaPosicio = -1 
     if (taules.length < 1) return taulaPosicio
 

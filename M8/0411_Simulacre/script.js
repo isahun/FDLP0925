@@ -301,12 +301,12 @@ function mostrarTaulesClient() {
 function clientMesLloguers() { //busquem el valor (length) mes gran de l'array de cada client dins l'array d clients
     if (clients.length === 0) return resultDiv.innerHTML = "No hi ha clients registrats.";
 
-    let maximLloguers = 0;
-    let nomClient = ""
+    let maximLloguers = 0; //la info q necessitem extreure del bucle, q se sobreescriurà amb cada iteració
+    let nomClient = "" //same here
 
     for (let i = 0; i < clients.length; i++) {
         if (clients[i].taulesLlogades.length > maximLloguers) {
-            maximLloguers = clients[i].taulesLlogades.length;
+            maximLloguers = clients[i].taulesLlogades.length; //se sobreescriu de manera q si es troba un length superior a maximLloguers, se substitueix x aquet
             nomClient = clients[i].nomClient //pk dni es privat
         }
     }
@@ -314,16 +314,15 @@ function clientMesLloguers() { //busquem el valor (length) mes gran de l'array d
     resultDiv.innerHTML = `El client amb més lloguers és ${nomClient}.`
 
     cleanInputs()
-
 }
 
-function clientMesAntic() { //busquem la propietat (anyAlta) mes PETITA, per aixo la comparacio ha de començar en num gran
+function clientMesAntic() { 
 
     let nomClient = ""
-    let anyAlta = 3000;
+    let anyAlta = 3000; //busquem la propietat (anyAlta) amb valor mes PETIT, per aixo la comparacio ha de començar en num gran
 
     for (let i = 0; i < clients.length; i++) {
-        if (clients[i].anyAlta < anyAlta) {
+        if (clients[i].anyAlta < anyAlta) { //mentre l'any nou sigui més petit que anyAlta (iniciat a 3000), substituirà el valor actual, aixi ens quedem am el mes petit
             anyAlta = clients[i].anyAlta    //substituim el valor a cada volta x comparar entre ells
             nomClient = clients[i].nomClient
     }

@@ -55,6 +55,8 @@ function altaPilot() {
             break;
     }
 
+    cleanInputs()
+
     resultDiv.innerHTML = `Has afegit amb èxit el pilot ${pilot.nomPilot} ${pilot.cognomPilot}. 
     Aquestes són les seves dades:
     <pre>${pilot.toString()}</pre>
@@ -91,6 +93,8 @@ function altaMecanic() {
 
     mecanic.conversioEstudis() //Per traduir els valors del select d'estudis a SI o NO
 
+    cleanInputs()
+
     resultDiv.innerHTML = `Has afegit amb èxit el mecànic ${mecanic.nomMecanic} ${mecanic.cognomMecanic}. 
     Aquestes són les seves dades:
     <pre>${mecanic.toString()}</pre>
@@ -123,9 +127,12 @@ function baixaPilot() {
     let userConfirmation = confirm("Estàs segur que vols eliminar el pilot?")
     if (userConfirmation === true) {
         escuderia.esborrarPilot(nomPilot, cognomPilot)
+        cleanInputs()
         return resultDiv.innerHTML = "S'ha eliminat el pilot correctament.";
+    
     } else {
-        return resultDiv.innerHTML = "No s'ha eliminat el pilot";
+        cleanInputs()
+        resultDiv.innerHTML = "No s'ha eliminat el pilot";
     }
         
 }
@@ -156,9 +163,11 @@ function baixaMecanic() {
 let userConfirmation = confirm("Estàs segur que vols eliminar el mecànic?")
     if (userConfirmation === true) {
         escuderia.esborrarMecanic(nomMecanic, cognomMecanic);
-        return resultDiv.innerHTML = "S'ha eliminat el mecànic correctament.";
+        cleanInputs()
+        resultDiv.innerHTML = "S'ha eliminat el mecànic correctament.";
     } else {
-        return resultDiv.innerHTML = "No s'ha eliminat el mecànic";
+        cleanInputs()
+        resultDiv.innerHTML = "No s'ha eliminat el mecànic";
     }
         
 }
@@ -182,8 +191,8 @@ function veureEscuderia() {
     } while (i < escuderies.length && escuderiaPosition === -1)
 
     let escuderia = escuderies[escuderiaPosition]
-
-    return resultDiv.innerHTML = `<pre>${escuderia.toString()}</pre>`
+    cleanInputs()
+    resultDiv.innerHTML = `<pre>${escuderia.toString()}</pre>`
 }
 
 function veurePilots() {
@@ -196,6 +205,8 @@ function veurePilots() {
     for (i = 0; i < escuderies.length; i++) {
         message += `<pre>${escuderies[i].mostrarPilots()}</pre> \n`
     }
+
+    cleanInputs()
 
     resultDiv.innerHTML = message
 }
@@ -210,6 +221,8 @@ function veureMecanics() {
     for (i = 0; i < escuderies.length; i++) {
         message += `<pre>${escuderies[i].mostrarMecanics()}</pre> \n`
     }
+
+    cleanInputs()
 
     resultDiv.innerHTML = message
 }
@@ -236,7 +249,9 @@ function veurePilotsEscuderia() {
 
     if (escuderia === null || escuderiaPosition === -1) return resultDiv.innerHTML = "El pilot no existeix en cap escuderia.";
 
-    return resultDiv.innerHTML = `<pre>${escuderia.mostrarPilots().join("<br>")}</pre>`
+    cleanInputs()
+
+    resultDiv.innerHTML = `<pre>${escuderia.mostrarPilots().join("<br>")}</pre>`
 }
 
 function veureMecanicsEscuderia() {
@@ -262,7 +277,9 @@ function veureMecanicsEscuderia() {
 
     if (escuderia === null || escuderiaPosition === -1) return resultDiv.innerHTML = "El mecànic no existeix en cap escuderia.";
 
-    return resultDiv.innerHTML = `<pre>${escuderia.mostrarMecanics().join("<br>")}</pre>`
+    cleanInputs()
+
+    resultDiv.innerHTML = `<pre>${escuderia.mostrarMecanics().join("<br>")}</pre>`
 }
 
 function veureUnPilot() {
@@ -290,6 +307,8 @@ function veureUnPilot() {
     }
 
     if (escuderia === null || escuderia.indexPilot(nomPilot, cognomPilot) === -1) return resultDiv.innerHTML = "El pilot no existeix en cap escuderia.";
+
+    cleanInputs()
 
     resultDiv.innerHTML = `<pre>${pilot.toString()}</pre>`
 }
@@ -321,6 +340,8 @@ function veureUnMecanic() {
 
     if (escuderia === null || escuderia.indexMecanic(nomMecanic, cognomMecanic) === -1) return resultDiv.innerHTML = "El mecànic no existeix en cap escuderia.";
 
+    cleanInputs()
+
     resultDiv.innerHTML = `<pre>${mecanic.toString()}</pre>`
 }
 
@@ -344,7 +365,8 @@ function veureCotxes() {
         }
         i++
     } while (i < escuderies.length && escuderiaPosition === -1)
-
+    
+    cleanInputs()
 
     resultDiv.innerHTML = `<pre>${escuderia.mostrarCotxes()}</pre>`
 }

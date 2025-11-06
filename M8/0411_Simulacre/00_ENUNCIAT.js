@@ -4,7 +4,6 @@
 
 El sistema ha d'utilitzar classes, herència i pertinença (composició).
 
-
 Classes de taules
 Es demana crear una classe que representi una taula genèrica. Cada taula tindrà:
 
@@ -21,6 +20,7 @@ S'ha d'implementar un mètode que calculi el lloguer de les diferents taules
 
 calcularPrecio(horas): retorna el preu total del lloguer segons el nombre d'hores.
 calcularPrecio(horas): les classes derivades han de calcular segons el suplement o descompte
+
 Classe Cliente i pertinença
 Crea una classe Cliente que representi una persona que pot llogar taules. Ha de contenir:
 
@@ -28,6 +28,7 @@ nombre
 dni
 any d'inici a l'aplicació
 tablasAlquiladas
+
 La classe Cliente ha d'incloure, com a mínim, els següents mètodes: (amb o sense paràmetres)
 
 alquilarTabla():
@@ -36,12 +37,16 @@ alquilarTabla():
 * Canvia l'estat de la taula a "alquilada".
 * Afegeix la taula llogada a la llista de taules
 * Retorna un missatge indicant el client, la taula, les hores i el preu total.
+
 devolverTabla():
 * Cerca dins de tablasAlquiladas la taula amb aquest codi.
 * Si la troba, canvia el seu estat a "disponible"
 * Retorna un missatge indicant que la taula ha estat retornada (o un missatge d'error si no es troba).
+
 mostrarTablasAlquiladas(): retorna un text o estructura que llisti les taules que el client té o ha tingut llogades.
+
 Tasques
+
 Crear diverses taules de diferents tipus (flexible, rígida, etc.).
 Crear dos o tres clients diferents.
 Fer que alguns clients lloguin una o diverses taules.

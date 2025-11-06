@@ -1,5 +1,6 @@
 "use strict"
 
+const botiga = new Botiga 
 const resultDiv = document.getElementById("result")
 
 function crearClient() {
@@ -16,8 +17,8 @@ function crearClient() {
         return;
     }
 
-    const c = new Client(nom, dni);
-    botiga.clients.push(c);
+    const client = new Client(nom, dni);
+    botiga.clients.push(client);
     resultDiv.innerHTML = "Client afegit correctament.";
     cleanInputs();
 }
