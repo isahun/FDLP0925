@@ -104,7 +104,6 @@ function baixaPilot() {
 
     if (!nomPilot || !cognomPilot) return err
 
-
     let i = 0;
     let j = 0;
     let escuderia = null;
@@ -112,7 +111,7 @@ function baixaPilot() {
     for (i = 0; i < escuderies.length; i++) {
         if (escuderies[i].treballadors.length !== 0) {
             for (j = 0; j < escuderies[i].treballadors.length; j++) {
-                if (escuderies[i].treballadors[j].nom === nomPilot && escuderies[i].treballadors[j].primerCognom === cognomPilot){
+                if (escuderies[i].treballadors[j].nom === nomPilot && escuderies[i].treballadors[j].primerCognom === cognomPilot){ //lowercase
                     escuderia = escuderies[i]
                 }
             }
@@ -121,10 +120,13 @@ function baixaPilot() {
 
     if (escuderia === null || escuderia.indexPilot(nomPilot, cognomPilot) === -1) return resultDiv.innerHTML = "El pilot no existeix en cap escuderia.";
 
-
-    escuderia.esborrarPilot(nomPilot, cognomPilot)
-
-    resultDiv.innerHTML = "El pilot s'ha esborrat amb èxit."
+    let userConfirmation = confirm("Estàs segur que vols eliminar el pilot?")
+    if (userConfirmation === true) {
+        escuderia.esborrarPilot(nomPilot, cognomPilot)
+        return resultDiv.innerHTML = "S'ha eliminat el pilot correctament.";
+    } else {
+        return resultDiv.innerHTML = "No s'ha eliminat el pilot";
+    }
         
 }
 
@@ -142,7 +144,7 @@ function baixaMecanic() {
     for (i = 0; i < escuderies.length; i++) {
         if (escuderies[i].treballadors.length !== 0) {
             for (j = 0; j < escuderies[i].treballadors.length; j++) {
-                if (escuderies[i].treballadors[j].nom === nomMecanic && escuderies[i].treballadors[j].primerCognom === cognomMecanic){
+                if (escuderies[i].treballadors[j].nom === nomMecanic && escuderies[i].treballadors[j].primerCognom === cognomMecanic){ //lowerCase()?
                     escuderia = escuderies[i]
                 }
             }
@@ -150,16 +152,23 @@ function baixaMecanic() {
     }
 
     if (escuderia === null || escuderia.indexMecanic(nomMecanic, cognomMecanic) === -1) return resultDiv.innerHTML = "El mecànic no existeix en cap escuderia.";
-    escuderia.esborrarMecanic(nomMecanic, cognomMecanic);
 
-    resultDiv.innerHTML = "El mecànic s'ha esborrat amb èxit."
-
+let userConfirmation = confirm("Estàs segur que vols eliminar el mecànic?")
+    if (userConfirmation === true) {
+        escuderia.esborrarMecanic(nomMecanic, cognomMecanic);
+        return resultDiv.innerHTML = "S'ha eliminat el mecànic correctament.";
+    } else {
+        return resultDiv.innerHTML = "No s'ha eliminat el mecànic";
+    }
         
 }
 
 function veureEscuderia() {
     const nomEscuderia = document.getElementById("nomEscuderiaV").value
     let escuderiaPosition = -1
+    const err = "Has d'introduir un valor vàlid."
+
+    if (!nomEscuderia) return err
 
     if (escuderies.length < 1) return resultDiv.innerHTML = "No hi ha escuderies guardades."
 
@@ -182,6 +191,8 @@ function veurePilots() {
     let i = 0;
     let message = ""
 
+    if (escuderies.length < 1) return resultDiv.innerHTML = "No hi ha escuderies guardades."
+
     for (i = 0; i < escuderies.length; i++) {
         message += `<pre>${escuderies[i].mostrarPilots()}</pre> \n`
     }
@@ -194,6 +205,8 @@ function veureMecanics() {
     let i = 0;
     let message = ""
 
+    if (escuderies.length < 1) return resultDiv.innerHTML = "No hi ha escuderies guardades."
+
     for (i = 0; i < escuderies.length; i++) {
         message += `<pre>${escuderies[i].mostrarMecanics()}</pre> \n`
     }
@@ -203,9 +216,12 @@ function veureMecanics() {
 
 function veurePilotsEscuderia() {
     const nomEscuderia = document.getElementById("nomEscuderiaPilots").value
+    const err = "Has d'introduir un valor vàlid."
+
     let escuderiaPosition = -1
     let escuderia;
 
+    if (!nomEscuderia) return err
     if (escuderies.length < 1) return resultDiv.innerHTML = "No hi ha escuderies guardades."
 
     let i = 0;
@@ -226,6 +242,10 @@ function veurePilotsEscuderia() {
 function veureMecanicsEscuderia() {
     const nomEscuderia = document.getElementById("nomEscuderiaMecanics").value
     let escuderiaPosition = -1
+    const err = "Has d'introduir un valor vàlid."
+
+    if(!nomEscuderia) return err
+
 
     if (escuderies.length < 1) return resultDiv.innerHTML = "No hi ha escuderies guardades."
 
@@ -248,6 +268,10 @@ function veureMecanicsEscuderia() {
 function veureUnPilot() {
     const nomPilot = document.getElementById("nomPilotV").value;
     const cognomPilot = document.getElementById("cognomPilotV").value; 
+    const err = "Has d'introduir un valor vàlid."
+
+    if(!nomPilot || !cognomPilot) return err
+    if (escuderies.length < 1) return resultDiv.innerHTML = "No hi ha escuderies guardades."
 
     let i = 0;
     let j = 0;
@@ -273,6 +297,11 @@ function veureUnPilot() {
 function veureUnMecanic() {
     const nomMecanic = document.getElementById("nomMecanicV").value;
     const cognomMecanic = document.getElementById("cognomMecanicV").value; 
+    const err = "Has d'introduir un valor vàlid."
+
+    if(!nomMecanic || !cognomMecanic) return err
+
+    if (escuderies.length < 1) return resultDiv.innerHTML = "No hi ha escuderies guardades."
 
     let i = 0;
     let j = 0;
@@ -297,6 +326,9 @@ function veureUnMecanic() {
 
 function veureCotxes() {
     const nomEscuderia = document.getElementById("escuderiaCotxes").value;
+    const err = "Has d'introduir un valor vàlid."
+
+    if(!nomEscuderia) return err
 
     let escuderiaPosition = -1
     let escuderia;
