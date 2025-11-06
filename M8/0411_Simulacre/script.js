@@ -255,6 +255,7 @@ function tornarTaulaClient() {
     const err = "<small> Introdueix un valor vàlid. </small>"
 
     if (!dniClientRm || !idTaulaRm || isNaN(idTaulaRm)) return resultDiv.innerHTML = err;
+    if (clientPosicio === -1) return resultDiv.innerHTML = "Aquest client no es troba a la base de dades."
 
     const client = clients[clientPosicio]
 

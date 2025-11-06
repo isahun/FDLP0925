@@ -20,55 +20,64 @@ afegirProducte(newProduct) {
     this._productes.push(newProduct);
 }
 
-trobaClient(dniClient) { //index a l'array clients
+indexClient(dniClient) { //index a l'array clients
     for (let i = 0; i < this.clients.length; i++) {
-        if (this.clients[i].dni === dniClient) return i
+        if (this.clients[i].dni === dniClient) return i;
     }
     return -1;
 }
 
-trobaProducte(idProducte) { //index a l'array clients
+indexProducte(idProducte) { //index a l'array productes
     for (let i = 0; i < this.productes.length; i++) {
         if (this.productes[i].idProducte === idProducte) return i;
-    }
-    return -1;
-}
-
-comprarItem(dniClient, idProducte, unitats) {
-    const clientPosicio = this.trobaClient(dniClient)
-    if (clientPosicio === -1) return `Client no trobat.`
-
-    const client = this.clients[clientPosicio]
-
-    const productePosicio = this.trobaProducte(idProducte)
-    if (productePosicio === -1) return `Producte no trobat.`
-    
-    const producte = this.productes[productePosicio]
-
-    return client.afegeixProducte(producte, unitats)
+        } 
+        return -1;
 }
 
 veureClients() {
-    if (this.clients.length < 1) return resultDiv.innerHTML = "No hi ha clients guardats."
+    if (this.clients.length < 1) return "No hi ha clients guardats."
 
     return `<pre>${this.clients.toString()}</pre>`
 }
 
+veureInventari() {
+    if (this.productes.length < 1) return "No hi ha productes guardats a l'inventari."
+
+    return `<pre>${this.productes.toString()}</pre>`
+}
+
+esborrarProducteInventari(idProducte) {
+        
+    const productePosicio = this.indexProducte(idProducte, nomProducte) //posar this als metodes propis
+
+    if (productePosicio === -1) return "El producte no és a l'inventari."
+    
+    this.productes.splice(productePosicio, 1)
+
+    return "S'ha eliminat el producte amb èxit."
+
+}
+
+esborrarClientInventari(dniClient) {
+        
+    const clientPosicio = this.indexClient(dniClient) //posar this als metodes propis
+
+    if (clientPosicio === -1) return `El client no és a la base de dades.`
+
+    this.clients.splice(clientPosicio, 1)
+
+    return "S'ha donat de baixa el client amb èxit."
+
+}
 
 //Total de clients i total de productes
 toString() {
-    return `Llista de clients de la botiga: ${this.clients.join("<br>")}
-    Inventari de productes: ${this.productes.join("<br>")}`
+    return `Llista de clients de la botiga:"<br>"${this.clients.join("<br>")}
+    Inventari de productes:"<br>"${this.productes.join("<br>")}`
 }
 
 }
+
 /*
 toString() amb join("<br>")
-Això funcionarà només si els elements de clients i productes tenen un toString() definit (i tu en tens un a Producte, molt bé).
-Però Client encara no té un toString(), per tant et mostrarà [object Object].
-Ho pots deixar així ara, però recorda: quan facis toString() a Client, ja funcionarà perfectament.
-També, com a bones praxís, millor no fer servir <br> dins toString() si el mostraràs per consola (fes servir \n):
-
-return `Llista de clients de la botiga:\n${this._clients.join("\n")}
-Inventari de productes:\n${this._productes.join("\n")}`;
-*/
+Això funcionarà només si els elements de clients i productes tenen un toString() definit (n'hi ha un). Si no, mostrarà [object Object] */

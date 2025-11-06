@@ -6,7 +6,7 @@ class TaulaFlexible extends Taula {
 
     constructor(idTaula, longTaula) {
         super(idTaula, longTaula)
-        this._preuHora = Taula.preuHora + (Taula.preuHora * TaulaFlexible.extraPreuHora)
+        this._preuHora = Taula.preuHora + (Taula.preuHora * TaulaFlexible.extraPreuHora) //juanca diu millor metode
     }
 
     get preuHora() { return this._preuHora }
