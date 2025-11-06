@@ -51,6 +51,7 @@ function afegirProducte() {
     botiga.productes.push(producte)
 
     resultDiv.innerHTML = `Producte de tipus ${producte.tipusProducte} afegit amb èxit a l'inventari.`
+    cleanInputs()
 }
 
 function treureProducteInventari() {
@@ -180,7 +181,7 @@ function tornarProducteClient() {
 }
 
 function veureProductesUnClient() {
-     if (botiga.clients.length < 1) return resultDiv.innerHTML = "No hi ha clients guardats."
+    if (botiga.clients.length < 1) return resultDiv.innerHTML = "No hi ha clients guardats."
 
     const dniClientShow = document.getElementById("dniClientShow").value
     const err = "<small> Introdueix un valor vàlid. </small>"
@@ -202,7 +203,6 @@ function veureProductesTotsClients() {
 
     resultDiv.innerHTML = `<pre>${botiga.clients.toString()}</pre>`
 
-    cleanInputs()
 }
 
 function veureBotiga() {
