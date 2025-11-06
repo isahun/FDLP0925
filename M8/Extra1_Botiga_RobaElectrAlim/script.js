@@ -1,6 +1,7 @@
 "use strict"
 
-const botiga = new Botiga 
+const botiga = new Botiga;
+
 const resultDiv = document.getElementById("result")
 
 function crearClient() {
