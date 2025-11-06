@@ -17,25 +17,13 @@
 </div>
 <br>
 
-<div id="rmClient-div" style="margin-top: 15px;">
-    <label for="dniClientRm">Escriu el DNI del client a eliminar:</label> <input type="text" id="dniClientRm"><br>
-    <button type="button" onclick="eliminarClient()">Elimina el client</button>    
-</div>
-<br>
-
-<div id="showClient-div" style="margin-top: 15px;">
-    <label for="dniClientShow">Escriu el DNI del client a mostrar:</label> <input type="text" id="dniClientShow"><br>
-    <button type="button" onclick="mostraUnClient()">Mostra les dades d'aquest client:</button>    
-</div>
-<br>
-
 <div id="addProduct-div"  style="margin-top: 15px;">
     <label for="idProducte">Escriu l'identificador del producte:</label> <input type="text" id="idProducte"><br>
     <label for="nomProducte">Escriu el nom del producte:</label> <input type="text" id="nomProducte"><br>
     <label for="preuProducte">Escriu el preu del producte:</label> <input type="number" id="preuProducte"><br>
     <label for="stockProducte">Escriu l'stock inicial del producte:</label> <input type="number" id="stockProducte"><br>
 
-    <select name="Opcions" id="productOption">
+    <select name="Opcions" id="tipusProducte">
         <option value="0">Quin tipus de producte és?</option>
         <option value="1">Electrònic</option>
         <option value="2">Roba</option>
@@ -43,20 +31,71 @@
 </select>  
     <label for="anysGarantia">Si és electrònic, escriu els anys de garantia del producte:</label> <input type="number" id="anysGarantia"><br>
         <button type="button" onclick="afegirProducteElectrònicInventari()">Fes clic</button>
-    <label for="tallaProducte">Si és una peça de roba, escriu la talla del producte:</label> <input type="number" id="tallaProducte"><br>
+    <label for="tallaProducte">Si és una peça de roba, escriu la talla del producte:</label> <input type="text" id="tallaProducte"><br>
             <button type="button" onclick="afegirProducteRobaInventari()">Fes clic</button>
     <label for="mesosConserva">Si és un producte alimentici, escriu el temps de conserva en mesos: </label> <input type="number" id="mesosConserva"><br>
         <button type="button" onclick="afegirProducteAlimentInventari()">Fes clic</button>
 </div>
 <br>
 
+<div id="rmProduct-div" style="margin-top: 15px;">
+    <label for="idProducteRm">Escriu l'identificador del producte a eliminar:</label> <input type="text" id="idProducteRm"><br>
+    <button type="button" onclick="treureProducteInventari()">Elimina el producte de l'inventari</button>    
+</div>
+<br>
+
+<div id="rmClient-div" style="margin-top: 15px;">
+    <label for="dniClientRm">Escriu el DNI del client a eliminar:</label> <input type="text" id="dniClientRm"><br>
+    <button type="button" onclick="baixaClient()">Elimina el client</button>    
+</div>
+<br>
+
+<div id="showInventory-div" style="margin-top: 15px;">
+    <label for="showInventory">Mostra l'inventari de la botiga:</label>
+    <button type="button" onclick="veureInventari()">Fes clic</button>    
+</div>
+
+<br> 
+<div id="showClients-div" style="margin-top: 15px;">
+    <label for="showClients">Mostra els clients de la botiga:</label>
+    <button type="button" onclick="veureClients()">Fes clic</button>    
+</div>
+<br> 
 <div id="purchaseProduct-div"  style="margin-top: 15px;">
     <label for="dniClientCompra">Escriu el DNI del client que fa la compra:</label> <input type="text" id="dniClientCompra"><br>
-    <label for="nomProducte">Escriu el nom del producte:</label> <input type="text" id="nomProducte"><br>
-    <label for="preuProducte">Escriu el preu del producte:</label> <input type="number" id="preuProducte"><br>
+    <label for="unitatsProducte">Quantes unitats vols?:</label> <input type="number" id="unitatsProducte"><br>
+     <select name="tipusProducteCompra" id="tipusProducteCompra">
+        <option value="0">Quin tipus de producte és?</option>
+        <option value="1">Electrònic</option>
+        <option value="2">Roba</option>
+        <option value="3">Aliment</option>
+</select>  
     <button type="button" onclick="comprarProducte()">Fer la compra</button>
 </div>
 <br>
+
+<div id="returnProduct-div"  style="margin-top: 15px;">
+    <label for="dniClientRmProd">Escriu el DNI del client que fa la compra:</label> <input type="text" id="dniClientRmProd"><br>
+    <label for="idProducteRmProd">Escriu l'ID del producte a tornar:</label> <input type="number" id="idProducteRmProd"><br>
+    <button type="button" onclick="tornarProducteClient()">Tornar producte</button>
+</div>
+
+<div id="showClient-div" style="margin-top: 15px;">
+    <label for="dniClientShow">Escriu el DNI del client a mostrar:</label> <input type="text" id="dniClientShow"><br>
+    <button type="button" onclick="veureProductesUnClient()">Mostra les dades d'aquest client:</button>    
+</div>
+<br>
+
+<div id="showAllProductsClients-div" style="margin-top: 15px;">
+    <label for="showClients">Mostra tots els productes comprats pels clients de la botiga:</label>
+    <button type="button" onclick="veureProductesTotsClients()">Fes clic</button>    
+</div>
+<br> 
+<div id="showStore-div" style="margin-top: 15px;">
+    <label for="showStore">Mostra la botiga completa:</label>
+    <button type="button" onclick="veureBotiga()">Fes clic</button>    
+</div>
+<br> 
 
     <div id= "result"></div>
 
