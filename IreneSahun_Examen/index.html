@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Mòdul , exercicis o apunts, temes">
+    <meta name="author" content="Irene Sahun">
+    <title>Examen final</title>
+</head>
+<body>
+
+<div id="newVehicle-div" style="margin-top: 15px;">
+  <label for="autonomiaVehicle">Escriu una autonomia en km:</label> <input type="number" id="autonomiaVehicle"><br>
+    <p> Tria una tipus de vehicle:</p>
+    <select name="tipusVehicle" id="tipusVehicle">
+      <option value = "0">Bicicleta de ciutat</option>
+      <option value = "1">Bicicleta infantil</option>
+      <option value = "2">Patinet lleuger</option>
+      <option value = "2">Patinet potent</option>
+  <br>
+  <button type="button" onclick="registrarVehicle()">Dona d'alta un vehicle a la base de dades</button>
+
+</div>
+
+<br>
+  <div id="newClient-div" style="margin-top: 15px;">
+  <label for="nomClient">Escriu el nom del client a registrar:</label> <input type="text" id="nomClient"><br>
+  <label for="dniClient">Escriu el DNI del client a registrar:</label> <input type="text" id="dniClient"><br>
+  <label for="anyAlta">Escriu l'any d'alta del client:</label> <input type="number" id="anyAlta"><br>
+
+  <button type="button" onclick="registrarClient()">Registra un client</button>    
+</div>
+
+<br>
+  <div id="rentVehicle-div" style="margin-top: 15px;">
+  <label for="dniClientLloga">Escriu el DNI del client que llogarà el vehicle:</label> <input type="text" id="dniClientLloga"><br>
+  <label for="numHores">Escriu el nombre d'hores a llogar:</label> <input type="number" id="numHores"><br>
+  <label for="tipusVehicleLloga">Escriu el tipus de vehicle que vols: patinet / bicicleta</label> <input type="text" id="tipusVehicleLloga"><br>
+
+  <button type="button" onclick="llogarVehicle()">Lloga el vehicle</button>
+
+</div>
+<br>
+<div id="returnVehicle-div" style="margin-top: 15px;">
+  <label for="dniClientRm">Escriu el DNI del client que tornarà el vehicle:</label> <input type="text" id="dniClientRm"><br>
+  <label for="idVehicleRm">Escriu l'identificador del vehicle a tornar:</label> <input type="number" id="idVehicleRm"><br>
+
+  <button type="button" onclick="tornarVehicle()">Fes clic per tornar un vehicle.</button>    
+</div>
+<br>
+
+<br>
+  <div id="showClientVehiclesActive-div" style="margin-top: 15px;">
+  <label for="dniClientShow">Escriu el DNI del client del que vols veure els lloguers actius:</label> <input type="text" id="dniClientShow"><br>
+
+    <button type="button" onclick="veureVehiclesLlogatsClient()">Fes clic per veure els vehicles llogats</button>
+</div>
+
+<br>
+  <div id="showClientVehiclesHistory-div" style="margin-top: 15px;">
+  <label for="dniClientShowH">Escriu el DNI del client del que vols veure els lloguers totals:</label> <input type="text" id="dniClientShowH"><br>
+
+    <button type="button" onclick="veureVehiclesLlogatsHistoric()">Fes clic per veure l'històric de vehicles llogats</button>
+</div>
+<br>
+
+<div id="oldestClient" tyle="margin-top: 15px;">
+    <label for="oldestClient">Consulta el client més antic:</label> 
+
+    <button type="button" onclick="clientMesAntic()">Fes clic</button>
+</div>
+<br>
+
+<div id="maxBookingClient" tyle="margin-top: 15px;">
+    <label for="maxBooksClient">Consulta el client amb més reserves a l'app:</label>
+    <button type="button" onclick="clientMesLloguers()">Fes clic</button>
+</div>
+
+<div id="vehiclesAvailable" tyle="margin-top: 15px;">
+    <label for="vehiclesavailable">Consulta vehicles disponibles:</label>
+    <button type="button" onclick="veureVehiclesDispo()">Fes clic</button>
+</div>
+
+
+
+    <div id="result"></div>
+
+    <script src="SistemaLloguer.js"></script>
+    <script src="Client.js"></script>
+    <script src="VehicleElectric.js"></script>
+    <script src="VehicleBicicleta.js"></script>
+    <script src="BicicletaCiutat.js"></script>
+    <script src="BicicletaInfantil.js"></script>
+    <script src="BicicletaCiutat.js"></script>
+    <script src="VehiclePatinet.js"></script>
+    <script src="PatinetLleuger.js"></script>
+    <script src="PatinetPotent.js"></script>
+    <script src="helpers.js"></script>
+    <script src="main.js"></script>
+  
+</body>
+</html>
