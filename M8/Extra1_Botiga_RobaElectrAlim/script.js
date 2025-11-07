@@ -60,7 +60,7 @@ function treureProducteInventari() {
     const err = "Has d'introduir un valor vàlid a tots els camps."
 
     if (!idProducte || isNaN(idProducte)) return err
-    if (productes.length < 1) return resultDiv.innerHTML = "No hi ha productes guardats."
+    if (botiga.productes.length < 1) return resultDiv.innerHTML = "No hi ha productes guardats."
 
     let userConfirmation = confirm("Estàs segur que vols treure el producte de l'inventari?")
     if (userConfirmation !== true) {
@@ -101,20 +101,26 @@ function baixaClient() {
 
 function veureInventari() {
     if (botiga.productes.length < 1) return resultDiv.innerHTML = "No hi ha productes guardats."
-    
-    for (i = 0; i < botiga.productes.length; i++) {
-        message += `<pre>${productes[i].toString()}</pre> \n`
+    let message = ""
+
+    for (let i = 0; i < botiga.productes.length; i++) {
+        message += `<pre>${botiga.productes[i].toString()}</pre> \n`
     }
+
+    resultDiv.innerHTML = message
 
     cleanInputs()
 }
 
 function veureClients() {
     if (botiga.clients.length < 1) return resultDiv.innerHTML = "No hi ha clients guardats."
-    
-    for (i = 0; i < botiga.clients.length; i++) {
-        message += `<pre>${clients[i].toString()}</pre> \n`
+    let message = ""
+
+    for (let i = 0; i < botiga.clients.length; i++) {
+        message += `<pre>${botiga.clients[i].toString()}</pre> \n`
     }
+
+    resultDiv.innerHTML = message
 
     cleanInputs()
 }
@@ -158,7 +164,7 @@ function tornarProducteClient() {
 
     const dniClientRmProd = document.getElementById("dniClientRmProd").value
     const idProducteRmProd = parseInt(document.getElementById("idProducteRmProd").value) //parsejar pk a helper fem comparacio estricta L268
-    const clientPosicio = indexClient(dniClientRmProd)
+    const clientPosicio = botiga.indexClient(dniClientRmProd)
     const err = "<small> Introdueix un valor vàlid. </small>"
 
     if (!dniClientRmProd || !idProducteRmProd || isNaN(idProducteRmProd)) return resultDiv.innerHTML = err;
@@ -189,7 +195,7 @@ function veureProductesUnClient() {
 
     if (!dniClientShow) return resultDiv.innerHTML = err;
     
-    const clientPosicio = indexClient(dniClientShow)
+    const clientPosicio = botiga.indexClient(dniClientShow)
     const client = botiga.clients[clientPosicio]
 
     if (botiga.clients[clientPosicio].productesClient.length == 0) return resultDiv.innerHTML = "Aquest client no té productes guardats." 

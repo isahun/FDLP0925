@@ -29,7 +29,7 @@ afegirProducteClient(nouProducte, unitats) {
 
 indexProducteClient(idProducte) { //index a l'array d productes del client
     for (let i = 0; i < this.productesClient.length; i++) {
-        if (this.productes[i].idProducte === idProducte) return i;
+        if (this.productesClient[i].producte.idProducte === idProducte) return i;
         } 
         return -1;
 }
@@ -40,7 +40,7 @@ tornarProducteClient(idProducte) {
     if (productePosicio === -1) return `El client no ha comprat el producte.`
 
     const producte = this.productesClient[productePosicio]
-    producte.stockProducte += 1 //tornem items d'un en un, si n'hem comprat 2 fem l'operacio
+    producte.producte.stockProducte += 1 //tornem items d'un en un, si n'hem comprat 2 fem l'operacio
 
     this.productesClient.splice(productePosicio, 1)
     return `Producte retornat amb èxit!`

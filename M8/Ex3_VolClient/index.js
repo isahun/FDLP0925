@@ -66,11 +66,11 @@ function createFlight() {
     if (checkDni(userFlightDNI)) {
     clientFlightPosition = findClient(userFlightDNI);
     } else {
-        return `Introdueix un DNI vàlid.`
+        return resultDiv.innerHTML = `Introdueix un DNI vàlid.`
     }
 
     if (clientFlightPosition === -1) {
-        return `Aquest DNI no es troba a la llista.`
+        return resultDiv.innerHTML = `Aquest DNI no es troba a la llista.`
     }
 
     const newFlight = new Vol (flightNum, flightCompany, distanceKm);
@@ -150,11 +150,10 @@ function calcClientFootprint() {
 function calcAvFootprint() {
     if (clients.length < 1) return resultDiv.innerHTML = "No hi ha clients guardats."
 
-    let footprintAv = null;
-    let sum = null;
+    let totalFootprint = 0;
     const usersWithFlights = [];
 
-    for (let i = 0; i < clients.length ; i++) { //revisar això pk agafa a dos clients al array quan ha d'agafar-ne un
+    for (let i = 0; i < clients.length ; i++) { 
         const clientToCheck = clients[i];
         if (clientToCheck.userFlights.length !== 0) {
             usersWithFlights.push(clientToCheck);
@@ -162,18 +161,16 @@ function calcAvFootprint() {
 
         for (let j = 0; j < clientToCheck.userFlights.length; j++) { 
             const clientFlight = clientToCheck.userFlights[j]        
-            if (clientToCheck.userFlights.length !== 0) {
-            sum += clientFlight.calcCarbonFootprint();
+            totalFootprint += clientFlight.calcCarbonFootprint();
             }
         }
-    }
 
-    footprintAv = sum / (usersWithFlights.length);
+    let footprintAv = totalFootprint / (usersWithFlights.length);
 
     //CO2 compensate de tots els clients
-    let compensateCO2 = compensateCO2(footprintAv);
+    const compensateCO2Av = footprintAv * Vol.compensaCO2;
 
-    resultDiv.innerHTML = `La mitjana de la petjada de carboni de tots els clients és ${footprintAv.toFixed(2)}, i la compensació mitja per client és de ${compensateCO2}€.`
+    resultDiv.innerHTML = `La mitjana de la petjada de carboni de tots els clients és ${footprintAv.toFixed(2)}, i la compensació mitja per client és de ${compensateCO2Av}€.`
     cleanInputs()
 }
 

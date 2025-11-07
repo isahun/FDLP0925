@@ -48,7 +48,7 @@ veureInventari() {
 
 esborrarProducteInventari(idProducte) {
         
-    const productePosicio = this.indexProducte(idProducte, nomProducte) //posar this als metodes propis
+    const productePosicio = this.indexProducte(idProducte) //posar this als metodes propis
 
     if (productePosicio === -1) return "El producte no és a l'inventari."
     

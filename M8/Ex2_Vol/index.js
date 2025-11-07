@@ -79,7 +79,7 @@ function checkFlight() {
     const flightPosition = findFlight(flightNum)
     if (flightPosition == -1) return resultDiv.innerHTML = "Aquest vol no existeix.";
 
-    resultDiv.innerHTML = flightsArr[flightPosition].toString();
+    resultDiv.innerHTML = `<pre>${flightsArr[flightPosition].toString()}</pre>`;
 }
 
 function removeFlight () {
@@ -135,7 +135,7 @@ function changeFlight() {
     const flightPosition = findFlight(flightNum);
     if (flightPosition == -1) return resultDiv.innerHTML = "Aquest vol no existeix."
             
-    let setAttribute = parseInt(prompt("Quin atribut vols modificar? <br> 1. Núm vol <br> 2. Distància KM <br> 3. Companyia <br> 4. Nombre de passatgers <br> 5. Nombre de motors"))
+    let setAttribute = parseInt(prompt(`Quin atribut vols modificar? \n 1. Distància \n 2. Companyia vol \n 3. Nombre de passatgers \n 4. Nombre de motors`))
     const newValue = prompt("Quin nou valor vols?")
     //cridar als setters
 

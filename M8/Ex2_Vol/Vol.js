@@ -51,11 +51,11 @@ calcCarbonFootprint () {
 toString() { //str, no posem ni _ ni # pk ja fem servir getters
         return `
             Número de vol: ${this.flightNum} 
-            Distància (km): ${this.distanceKm}
+            Distància (km): ${this.distanceKm} km
             Companyia aèria: ${this.company}
-            Número de passatgers: ${this.numPassengers}
-            Número motors: ${this.numMotors}
-            Petjada de carboni: ${this.calcCarbonFootprint().toFixed(4)}
+            Número de passatgers: ${this.numPassengers} passatgers
+            Número motors: ${this.numMotors} motors
+            Petjada de carboni: ${this.calcCarbonFootprint().toFixed(4)} tones
             `
     }
 }
